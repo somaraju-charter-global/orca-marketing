@@ -9,6 +9,7 @@ export function CoverPage({
   subtitle,
   kicker,
   logoVariant = "white",
+  image,
   sections,
 }: CoverPageProps) {
   const logoSrc = logoVariant === "white" 
@@ -19,6 +20,13 @@ export function CoverPage({
     <div className="pdf-page bg-[var(--orca-dark)] text-white relative overflow-hidden">
       <BrandMotif variant="orange" size="lg" className="top-0 right-0" />
       <BrandMotif variant="blue" size="md" className="bottom-0 left-0" />
+      
+      {image && (
+        <div className="absolute inset-0 z-0">
+          <img src={image} alt="" className="w-full h-full object-cover opacity-30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--orca-dark)] via-[var(--orca-dark)]/80 to-transparent" />
+        </div>
+      )}
       
       <div className="relative z-10 h-full flex flex-col p-12">
         <div className="mb-auto">

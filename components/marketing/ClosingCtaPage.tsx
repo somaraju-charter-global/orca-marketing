@@ -1,6 +1,7 @@
 import React from "react";
 import { ClosingCtaPageContent } from "@/content/types";
 import { BrandMotif } from "./BrandMotif";
+import { PageShell } from "./PageShell";
 
 type ClosingCtaPageProps = ClosingCtaPageContent;
 
@@ -9,10 +10,11 @@ export function ClosingCtaPage({
   body,
   cta,
   website,
+  variant = "dark",
   pageNumber,
 }: ClosingCtaPageProps) {
   return (
-    <div className="pdf-page bg-[var(--orca-dark)] text-white relative overflow-hidden">
+    <PageShell variant={variant} pageNumber={pageNumber}>
       <BrandMotif variant="orange" size="lg" className="top-0 right-0" />
       <BrandMotif variant="blue" size="md" className="bottom-0 left-0" />
       
@@ -37,14 +39,7 @@ export function ClosingCtaPage({
             </div>
           )}
         </div>
-        
-        <div className="mt-auto pt-8 border-t border-white/10 flex justify-between items-center">
-          <div className="text-xs opacity-50">Orcaworks</div>
-          {pageNumber && (
-            <div className="text-xs opacity-50">{pageNumber}</div>
-          )}
-        </div>
       </div>
-    </div>
+    </PageShell>
   );
 }

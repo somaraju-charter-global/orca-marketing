@@ -1,6 +1,7 @@
 import React from "react";
 import { MarketingGuide } from "@/content/types";
 import { CoverPage } from "./CoverPage";
+import { TitlePage } from "./TitlePage";
 import { ContentsPage } from "./ContentsPage";
 import { DarkEditorialPage } from "./DarkEditorialPage";
 import { ImageCalloutPage } from "./ImageCalloutPage";
@@ -18,6 +19,8 @@ export function MarketingDocument({ guide }: { guide: MarketingGuide }) {
         switch (page.type) {
           case "cover":
             return <CoverPage key={index} {...page} />;
+          case "titlePage":
+            return <TitlePage key={index} {...page} />;
           case "contents":
             return <ContentsPage key={index} {...page} />;
           case "darkEditorial":

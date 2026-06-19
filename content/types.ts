@@ -11,7 +11,17 @@ export type CoverPageContent = {
   subtitle?: string;
   kicker?: string;
   logoVariant?: "white" | "dark";
+  image?: string;
   sections?: { page: string; title: string }[];
+};
+
+export type TitlePageContent = {
+  type: "titlePage";
+  title: string;
+  subtitle?: string;
+  kicker?: string;
+  logoVariant?: "white" | "dark";
+  image?: string;
 };
 
 export type ContentsPageContent = {
@@ -59,6 +69,7 @@ export type QuotePageContent = {
   quote: string;
   source?: string;
   supportingText?: string;
+  variant?: "dark" | "orange";
   pageNumber?: string | number;
 };
 
@@ -103,11 +114,13 @@ export type ClosingCtaPageContent = {
   body: string;
   cta: string;
   website?: string;
+  variant?: "dark" | "orange";
   pageNumber?: string | number;
 };
 
 export type MarketingPage =
   | CoverPageContent
+  | TitlePageContent
   | ContentsPageContent
   | DarkEditorialPageContent
   | ImageCalloutPageContent
@@ -120,6 +133,7 @@ export type MarketingPage =
 
 export type MarketingPageType =
   | "cover"
+  | "titlePage"
   | "contents"
   | "darkEditorial"
   | "imageCallout"
