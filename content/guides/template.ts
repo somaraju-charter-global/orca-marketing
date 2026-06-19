@@ -71,6 +71,7 @@ export const templateGuide: MarketingGuide = {
     },
     {
       type: "useCase",
+      eyebrow: "Use Case",
       number: "01",
       title: "Use Case Page",
       problem: "Manual processes create bottlenecks, introduce errors, and slow down critical business operations.",

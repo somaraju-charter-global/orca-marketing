@@ -5,6 +5,7 @@ import { PageShell } from "./PageShell";
 type UseCasePageProps = UseCasePageContent;
 
 export function UseCasePage({
+  eyebrow,
   number,
   title,
   problem,
@@ -16,10 +17,15 @@ export function UseCasePage({
   pageNumber,
 }: UseCasePageProps) {
   return (
-    <PageShell variant="light" sectionLabel={`Use Case ${number}`} pageNumber={pageNumber}>
+    <PageShell variant="light" pageNumber={pageNumber}>
       <div className="h-full flex">
         <div className="w-3/5 p-12 flex flex-col">
-          <h2 className="text-3xl font-bold mb-6 text-[var(--orca-ink)]">{title}</h2>
+          {eyebrow && (
+            <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
+              {eyebrow}
+            </div>
+          )}
+          <h2 className="text-4xl font-bold mb-12 text-[var(--orca-ink)]">{title}</h2>
           
           <div className="mb-8">
             <div className="text-xs font-semibold tracking-widest uppercase text-[var(--orca-muted)] mb-2">

@@ -52,6 +52,7 @@ export type ImageCalloutPageContent = {
 
 export type UseCasePageContent = {
   type: "useCase";
+  eyebrow?: string;
   number: string;
   title: string;
   problem: string;
