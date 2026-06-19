@@ -1,6 +1,131 @@
 # Orcaworks Marketing PDF - Design Guide
 
-This guide explains how to create new marketing guides and the available page types.
+This guide explains how to create new marketing guides and one-pagers, and the available page types.
+
+## Creating a One-Pager
+
+One-pagers are single-page or two-page vertical briefs for executive summaries and quick overviews.
+
+1. **Create a new file** in `content/onepagers/` (e.g., `my-onepager.ts`)
+2. **Import the TwoPageVerticalBrief type** from `../onepager-types`
+3. **Export your one-pager object** with the required structure
+4. **Register the one-pager** in `content/onepager-registry.ts`
+
+### Example One-Pager Structure
+
+```typescript
+import type { TwoPageVerticalBrief } from "../onepager-types";
+
+export const myOnePager: TwoPageVerticalBrief = {
+  layout: "two-page-vertical-brief",
+  slug: "my-onepager",
+
+  vertical: "Industry",
+  audience: "Target audience",
+
+  eyebrow: "ORCAWORKS FOR [TEAMS]",
+  headline: "Main headline",
+  subheadline: "Supporting subheadline",
+  executivePov: "Executive perspective text",
+  positioningStatement: "Positioning statement",
+
+  capabilities: [
+    {
+      title: "Capability 1",
+      description: "Description of capability 1"
+    },
+    // ... more capabilities
+  ],
+
+  useCases: [
+    {
+      title: "Use case 1",
+      description: "Description of use case 1"
+    },
+    // ... more use cases
+  ],
+
+  bottomInsight: "Key insight at bottom of page 1",
+
+  page2: {
+    title: "Page 2 title",
+    subtitle: "Page 2 subtitle",
+
+    selectionCriteria: [
+      {
+        title: "Criterion 1",
+        description: "Description of criterion 1"
+      },
+      // ... more criteria (4 total)
+    ],
+
+    valueMeasures: [
+      {
+        title: "Measure 1",
+        description: "Description of measure 1"
+      },
+      // ... more measures (3 total)
+    ],
+
+    exampleStartingPoints: [
+      {
+        title: "Example 1",
+        scope: "Scope of example 1"
+      },
+      // ... more examples (2 total)
+    ],
+
+    cta: {
+      title: "CTA title",
+      body: "CTA body text",
+      buttonLabel: "Button text",
+      url: "https://orcaworks.com"
+    }
+  },
+
+  footer: {
+    website: "orcaworks.com"
+  }
+};
+```
+
+### Registering the One-Pager
+
+Update `content/onepager-registry.ts`:
+
+```typescript
+import { myOnePager } from "./onepagers/my-onepager";
+
+export const onePagers = {
+  [myOnePager.slug]: myOnePager,
+  // ... other one-pagers
+};
+```
+
+### One-Pager Layout Structure
+
+**Page 1:**
+- Hero section with black background, logo, eyebrow, headline, and subheadline
+- Executive POV section
+- Positioning statement
+- Capability pillars (3 cards)
+- Use case menu (4 items)
+- Bottom insight
+- Footer with copyright and website
+
+**Page 2:**
+- Hero section matching Page 1 styling
+- Selection criteria (4 criteria in a 2x2 grid box)
+- Value measures (3 metrics in a single row)
+- Example starting points (2 examples in a highlighted box)
+- CTA section with dark background
+- Footer
+
+### Preview and Export for One-Pagers
+
+- **Preview**: Navigate to `/onepagers/[slug]` in browser
+- **Print View**: Navigate to `/onepagers/[slug]/print` for PDF generation
+- **Generate PDF**: Run `npm run pdf -- --url http://localhost:3000/onepagers/[slug]/print --out ./exports/[filename].pdf --format onepager`
 
 ## Creating a New Guide
 

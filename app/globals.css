@@ -17,10 +17,18 @@
 
   --page-width: 1024px;
   --page-height: 768px;
+
+  --onepager-width: 816px;
+  --onepager-height: 1056px;
 }
 
 @page {
   size: 10.6667in 8in;
+  margin: 0;
+}
+
+@page onepager {
+  size: 8.5in 11in;
   margin: 0;
 }
 
@@ -50,6 +58,27 @@ body {
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
 }
 
+.onepager-document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  background: #e5e7eb;
+}
+
+.onepager-page {
+  width: var(--onepager-width);
+  height: var(--onepager-height);
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--orca-ink);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 @media print {
   html,
   body {
@@ -68,6 +97,21 @@ body {
     box-shadow: none;
     break-after: page;
     page-break-after: always;
+  }
+
+  .onepager-document {
+    display: block;
+    padding: 0;
+    gap: 0;
+    background: white;
+  }
+
+  .onepager-page {
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .no-print {

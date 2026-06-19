@@ -11,6 +11,7 @@ function getArg(name: string, fallback?: string) {
 async function main() {
   const url = getArg("url");
   const out = getArg("out", "./exports/orcaworks-document.pdf");
+  const format = getArg("format", "guide");
 
   if (!url) {
     throw new Error("Missing --url argument");
@@ -19,9 +20,14 @@ async function main() {
   const outputPath = path.resolve(out!);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 
+  const pdfOptions =
+    format === "onepager"
+      ? { width: "8.5in", height: "11in", viewport: { width: 1632, height: 2112 } }
+      : { width: "10.6667in", height: "8in", viewport: { width: 2048, height: 1536 } };
+
   const browser = await chromium.launch();
   const page = await browser.newPage({
-    viewport: { width: 2048, height: 1536 },
+    viewport: pdfOptions.viewport,
     deviceScaleFactor: 2,
   });
 
@@ -34,8 +40,8 @@ async function main() {
     path: outputPath,
     printBackground: true,
     preferCSSPageSize: true,
-    width: "10.6667in",
-    height: "8in",
+    width: pdfOptions.width,
+    height: pdfOptions.height,
     margin: {
       top: "0",
       right: "0",
