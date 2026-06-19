@@ -64,6 +64,31 @@ export type UseCasePageContent = {
   pageNumber?: string | number;
 };
 
+export type UseCasePageWithImageContent = {
+  type: "useCaseWithImage";
+  eyebrow?: string;
+  number: string;
+  title: string;
+  problem: string;
+  opportunity: string;
+  bullets?: string[];
+  image: string;
+  pageNumber?: string | number;
+};
+
+export type UseCaseDetailContent = {
+  type: "useCaseDetail";
+  eyebrow?: string;
+  title: string;
+  sections: {
+    heading: string;
+    description: string;
+  }[];
+  detailText: string;
+  detailColor?: "orange" | "blue" | "ink";
+  pageNumber?: string | number;
+};
+
 export type QuotePageContent = {
   type: "quote";
   eyebrow?: string;
@@ -126,6 +151,8 @@ export type MarketingPage =
   | DarkEditorialPageContent
   | ImageCalloutPageContent
   | UseCasePageContent
+  | UseCasePageWithImageContent
+  | UseCaseDetailContent
   | QuotePageContent
   | StatPageContent
   | BeforeAfterPageContent
@@ -139,6 +166,8 @@ export type MarketingPageType =
   | "darkEditorial"
   | "imageCallout"
   | "useCase"
+  | "useCaseWithImage"
+  | "useCaseDetail"
   | "quote"
   | "stat"
   | "beforeAfter"

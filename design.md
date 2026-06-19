@@ -69,7 +69,31 @@ export const guides = {
 
 ---
 
-### 2. ContentsPage (`type: "contents"`)
+### 2. TitlePage (`type: "titlePage"`)
+
+**Layout:**
+- Simple centered title page
+- Logo at top
+- Large title and subtitle
+- Optional kicker text
+- Optional background image
+- Clean, minimal design
+
+**When to Use:**
+- Second page after cover (when no contents page needed)
+- Section title pages
+- Simple dividers between major sections
+
+**Required Props:**
+- `title: string` - Main headline
+- `subtitle?: string` - Supporting headline
+- `kicker?: string` - Small text above title (e.g., brand name)
+- `logoVariant?: "white" | "dark"` - Logo color for background
+- `image?: string` - Optional background image path
+
+---
+
+### 3. ContentsPage (`type: "contents"`)
 
 **Layout:**
 - Clean table of contents page
@@ -157,6 +181,7 @@ export const guides = {
 - Case study summaries
 
 **Required Props:**
+- `eyebrow?: string` - Small text above title
 - `number: string` - Use case number (e.g., "01", "02")
 - `title: string` - Use case title
 - `problem: string` - Problem description
@@ -169,7 +194,61 @@ export const guides = {
 
 ---
 
-### 6. QuotePage (`type: "quote"`)
+### 6. UseCasePageWithImage (`type: "useCaseWithImage"`)
+
+**Layout:**
+- Same as UseCasePage but always displays an image
+- Two-column layout with text on left (60%)
+- Full-bleed image on right (40%) from top to bottom
+- Eyebrow text, title, problem, opportunity, and bullets on left
+- Image fills entire right column height
+- Text content vertically centered
+
+**When to Use:**
+- Use cases with strong visual components
+- Product feature showcases
+- When imagery is essential to the use case
+- Visual storytelling
+
+**Required Props:**
+- `eyebrow?: string` - Small text above title
+- `number: string` - Use case number (e.g., "01", "02")
+- `title: string` - Use case title
+- `problem: string` - Problem description
+- `opportunity: string` - Solution description
+- `bullets?: string[]` - Key benefits or features
+- `image: string` - Image path (required)
+- `pageNumber?: string | number` - Page number
+
+---
+
+### 7. UseCaseDetail (`type: "useCaseDetail"`)
+
+**Layout:**
+- Split layout with vertical separator
+- Left column (50%): eyebrow, title, and sections
+- Right column (50%): large bold colored detail text
+- Each section has bold/colored heading with description
+- Both columns vertically centered
+- Clean, focused layout for deep dives
+
+**When to Use:**
+- Deep dive into specific use case details
+- Following a UseCase or UseCasePageWithImage
+- Explaining complex workflows or processes
+- Providing additional context and information
+
+**Required Props:**
+- `eyebrow?: string` - Small text above title
+- `title: string` - Section title
+- `sections: { heading: string; description: string }[]` - Array of sections with headings and descriptions
+- `detailText: string` - Large text displayed on right side
+- `detailColor?: "orange" | "blue" | "ink"` - Color for headings and detail text (default: orange)
+- `pageNumber?: string | number` - Page number
+
+---
+
+### 8. QuotePage (`type: "quote"`)
 
 **Layout:**
 - Large centered quote
@@ -189,11 +268,12 @@ export const guides = {
 - `quote: string` - The quote text
 - `source?: string` - Attribution
 - `supportingText?: string` - Additional context
+- `variant?: "dark" | "orange"` - Background variant
 - `pageNumber?: string | number` - Page number
 
 ---
 
-### 7. StatPage (`type: "stat"`)
+### 9. StatPage (`type: "stat"`)
 
 **Layout:**
 - Large headline
@@ -216,7 +296,7 @@ export const guides = {
 
 ---
 
-### 8. BeforeAfterPage (`type: "beforeAfter"`)
+### 10. BeforeAfterPage (`type: "beforeAfter"`)
 
 **Layout:**
 - Title at top
@@ -242,7 +322,7 @@ export const guides = {
 
 ---
 
-### 9. RoiPage (`type: "roi"`)
+### 11. RoiPage (`type: "roi"`)
 
 **Layout:**
 - Title at top
@@ -269,7 +349,7 @@ export const guides = {
 
 ---
 
-### 10. ClosingCtaPage (`type: "closingCta"`)
+### 12. ClosingCtaPage (`type: "closingCta"`)
 
 **Layout:**
 - Large headline
