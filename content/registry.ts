@@ -1,9 +1,7 @@
-import { ninetyDayGuide } from "./guides/ninety-day-guide";
-import { supplyChainUseCasesGuide } from "./guides/supply-chain-use-cases";
+import { templateGuide } from "./guides/template";
 
 export const guides = {
-  [ninetyDayGuide.slug]: ninetyDayGuide,
-  [supplyChainUseCasesGuide.slug]: supplyChainUseCasesGuide,
+  [templateGuide.slug]: templateGuide,
 };
 
 export function getGuideBySlug(slug: string) {
