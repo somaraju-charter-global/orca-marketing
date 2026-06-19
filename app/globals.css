@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --orca-bg: #ffffff;
+  --orca-ink: #0f172a;
+  --orca-muted: #64748b;
+  --orca-line: #e2e8f0;
+
+  --orca-dark: #030712;
+  --orca-dark-panel: #07111f;
+
+  --orca-orange: #ff4b1f;
+  --orca-orange-soft: #fff0ea;
+
+  --orca-blue: #2563eb;
+  --orca-blue-dark: #07145c;
+
+  --page-width: 1024px;
+  --page-height: 768px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@page {
+  size: 10.6667in 8in;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.pdf-document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.pdf-page {
+  width: var(--page-width);
+  height: var(--page-height);
+  position: relative;
+  overflow: hidden;
+  background: white;
+  color: var(--orca-ink);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
+}
+
+@media print {
+  html,
+  body {
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .pdf-document {
+    display: block;
+    padding: 0;
+    gap: 0;
+  }
+
+  .pdf-page {
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .no-print {
+    display: none !important;
+  }
 }

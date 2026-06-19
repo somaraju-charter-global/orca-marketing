@@ -1,36 +1,235 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Orcaworks Marketing PDF Generator
+
+A production-ready Next.js application for creating sophisticated Orcaworks marketing PDFs. This system is designed for marketing teams to create high-quality gated guides, one-pagers, use-case ebooks, sales inserts, and proposal collateral.
+
+## Technology Stack
+
+- **Next.js App Router** - React framework
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Playwright** - PDF generation
+- **Vercel** - Hosting and preview
+
+## Key Design Principles
+
+This is **not** a typical responsive website. It's a fixed-size PDF/page-rendering system:
+
+- **Page Format**: 1024px × 768px (Landscape 4:3)
+- **Fixed Canvases**: Each PDF page is a fixed canvas rendered in the browser
+- **Print-Optimized**: Designed for PDF export, not web browsing
+- **Editorial Design**: Premium B2B SaaS marketing collateral style
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Preview a Guide
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Navigate to:
+- `http://localhost:3000/marketing/ninety-day-guide` - 90-Day Implementation Guide
+- `http://localhost:3000/marketing/supply-chain-use-cases` - Supply Chain Use Cases
 
-## Learn More
+## Adding a New Guide
 
-To learn more about Next.js, take a look at the following resources:
+1. Create a new file in `content/guides/` (e.g., `my-new-guide.ts`)
+2. Import the `MarketingGuide` type from `../types`
+3. Export your guide object with the required structure
+4. Add it to `content/registry.ts`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Example:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```typescript
+import { MarketingGuide } from "../types";
 
-## Deploy on Vercel
+export const myNewGuide: MarketingGuide = {
+  slug: "my-new-guide",
+  title: "My New Guide",
+  description: "A description of the guide",
+  pages: [
+    {
+      type: "cover",
+      title: "My New Guide",
+      subtitle: "A compelling subtitle",
+      logoVariant: "white",
+    },
+    // Add more pages...
+  ],
+};
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Then update `content/registry.ts`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```typescript
+import { myNewGuide } from "./guides/my-new-guide";
+
+export const guides = {
+  [myNewGuide.slug]: myNewGuide,
+  // ... other guides
+};
+```
+
+## Available Page Components
+
+The system includes the following page types:
+
+1. **CoverPage** - Ebook or guide cover with logo and contents
+2. **ContentsPage** - Table of contents
+3. **DarkEditorialPage** - Editorial page with image and callout
+4. **ImageCalloutPage** - Large image-focused page with statement
+5. **UseCasePage** - Repeated page for each use case
+6. **QuotePage** - Single statistic, quotation, or proof point
+7. **StatPage** - Large metric / impact page
+8. **BeforeAfterPage** - Workflow transformation comparison
+9. **RoiPage** - Business case / ROI page
+10. **ClosingCtaPage** - Final CTA / closing page
+
+See `content/types.ts` for the complete type definitions for each page type.
+
+## Adding Images
+
+1. Place images in `public/images/`
+2. Reference them in your content files using `/images/your-image.jpg`
+
+**Recommended Image Dimensions:**
+- Full-page / hero image: at least 1800px wide
+- Half-page image: at least 1200px wide
+- Small image: at least 800px wide
+- Logo assets: transparent PNG or SVG preferred
+
+## PDF Generation
+
+### Local PDF Generation
+
+Generate a PDF from your local development server:
+
+```bash
+npm run pdf:local
+```
+
+This generates `./exports/ninety-day-guide.pdf` from the local server.
+
+### Custom PDF Generation
+
+Generate a PDF from any URL:
+
+```bash
+npm run pdf -- --url https://your-vercel-url.com/marketing/ninety-day-guide/print --out ./exports/my-guide.pdf
+```
+
+### GitHub Action PDF Generation
+
+1. Go to the Actions tab in your GitHub repository
+2. Select "Generate Marketing PDF"
+3. Click "Run workflow"
+4. Provide the print route URL (e.g., `https://your-vercel-url.vercel.app/marketing/ninety-day-guide/print`)
+5. Provide the output filename (e.g., `ninety-day-guide.pdf`)
+6. Download the generated PDF from the artifacts
+
+## Deploying to Vercel
+
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Deploy with default settings
+4. Your marketing guides will be available at `https://your-vercel-url.vercel.app/marketing/[slug]`
+
+## Marketing Workflow
+
+1. **Edit Content**: Modify guide content in `content/guides/`
+2. **Push to GitHub**: Commit and push changes
+3. **Vercel Deploys**: Automatic preview deployment
+4. **Review**: Open `/marketing/[slug]` to review visually
+5. **Generate PDF**: Use GitHub Action or local command to generate final PDF
+
+## Project Structure
+
+```
+orcaworks-marketing-pdf/
+  app/
+    globals.css          # Brand tokens and print CSS
+    layout.tsx           # Root layout
+    marketing/
+      [slug]/
+        page.tsx         # Preview route
+        print/
+          page.tsx       # Print route (for PDF generation)
+
+  components/
+    marketing/
+      MarketingDocument.tsx  # Main renderer
+      PageShell.tsx          # Base page wrapper
+      CoverPage.tsx          # Cover page component
+      ContentsPage.tsx       # Contents page component
+      DarkEditorialPage.tsx  # Dark editorial page
+      ImageCalloutPage.tsx   # Image callout page
+      UseCasePage.tsx        # Use case page
+      QuotePage.tsx          # Quote page
+      StatPage.tsx           # Stat page
+      BeforeAfterPage.tsx    # Before/after page
+      RoiPage.tsx            # ROI page
+      ClosingCtaPage.tsx     # Closing CTA page
+      Footer.tsx             # Footer component
+      BrandMotif.tsx         # Brand motif component
+
+  content/
+    guides/
+      ninety-day-guide.ts           # Sample guide 1
+      supply-chain-use-cases.ts     # Sample guide 2
+    registry.ts                     # Guide registry
+    types.ts                        # TypeScript types
+
+  public/
+    logos/
+      orcaworks-white.png           # White logo
+      orcaworks-dark.png            # Dark logo
+    images/
+      placeholder-warehouse.jpg     # Sample images
+      placeholder-office.jpg
+      placeholder-workflow.jpg
+
+  scripts/
+    generate-pdf.ts                 # Playwright PDF generation script
+
+  .github/
+    workflows/
+      generate-pdf.yml              # GitHub Action for PDF generation
+```
+
+## Common Troubleshooting
+
+**PDF generation fails**
+- Ensure the dev server is running for local generation
+- Check that the URL is accessible and returns the print route
+- Verify Playwright is installed: `npx playwright install --with-deps chromium`
+
+**Images not displaying**
+- Check image paths are relative to `public/` directory
+- Ensure images exist in the correct location
+- Verify image dimensions are adequate
+
+**Styles not applying in PDF**
+- Ensure print CSS is included in `app/globals.css`
+- Check that `@page` size is set correctly
+- Verify `print-color-adjust: exact` is set for color preservation
+
+**Build errors**
+- Run `npm install` to ensure all dependencies are installed
+- Check TypeScript errors in your content files
+- Verify all imports in `content/registry.ts` are correct
+
+## License
+
+Internal use for Orcaworks marketing team.
+

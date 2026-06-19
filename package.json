@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "pdf": "tsx scripts/generate-pdf.ts",
+    "pdf:local": "tsx scripts/generate-pdf.ts --url http://localhost:3000/marketing/ninety-day-guide/print --out ./exports/ninety-day-guide.pdf"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -20,7 +22,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "playwright": "^1.48.0",
     "tailwindcss": "^4",
+    "tsx": "^4.19.0",
     "typescript": "^5"
   }
 }
