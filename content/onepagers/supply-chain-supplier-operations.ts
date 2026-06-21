@@ -17,7 +17,7 @@ export const supplyChainSupplierOperationsBrief = {
   positioningStatement:
     "Orcaworks helps teams govern that execution layer without replacing the ERP, procurement platform, or document systems already in place.",
 
-  capabilities: [
+  strategicPillars: [
     {
       title: "Visibility into supplier readiness",
       description:

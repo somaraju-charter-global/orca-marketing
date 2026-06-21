@@ -64,7 +64,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
             <h2 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4">
               Strategic pillars
             </h2>
-            <CapabilityPillars capabilities={props.capabilities} />
+            <CapabilityPillars strategicPillars={props.strategicPillars} />
           </div>
 
           {/* Use-Case Menu */}

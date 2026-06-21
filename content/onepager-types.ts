@@ -12,7 +12,7 @@ export type TwoPageVerticalBrief = {
   executivePov: string;
   positioningStatement: string;
 
-  capabilities: {
+  strategicPillars: {
     title: string;
     description: string;
   }[];
