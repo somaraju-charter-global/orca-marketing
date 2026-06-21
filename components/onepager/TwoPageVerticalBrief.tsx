@@ -4,9 +4,7 @@ import type { TwoPageVerticalBrief } from "@/content/onepager-types";
 import { OnePagerShell } from "./OnePagerShell";
 import { CapabilityPillars } from "./CapabilityPillars";
 import { UseCaseMenu } from "./UseCaseMenu";
-import { SelectionCriteria } from "./SelectionCriteria";
-import { ValueMeasures } from "./ValueMeasures";
-import { ExampleStartingPoint } from "./ExampleStartingPoint";
+import { PilotValueCase } from "./PilotValueCase";
 
 export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
   return (
@@ -122,28 +120,20 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
           </div>
 
           <div className="flex-1 px-14 pb-14 flex flex-col">
-          {/* Section 1: Choose the Right First Workflow */}
-          <div className="mb-10">
-            <h2 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4">
-              Choose the right first workflow
-            </h2>
-            <SelectionCriteria criteria={props.page2.selectionCriteria} />
+          {/* Executive Blurb */}
+          <div className="mb-6">
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {props.page2.executiveBlurb}
+            </p>
           </div>
 
-          {/* Section 2: How Value Is Measured */}
+          {/* Pilot Value Case */}
           <div className="mb-10">
-            <h2 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4">
-              How value is measured
-            </h2>
-            <ValueMeasures measures={props.page2.valueMeasures} />
-          </div>
-
-          {/* Section 3: Example Starting Points */}
-          <div className="mb-10">
-            <h2 className="text-sm font-bold text-gray-800 uppercase tracking-wider mb-4">
-              Example starting points
-            </h2>
-            <ExampleStartingPoint examples={props.page2.exampleStartingPoints} />
+            <PilotValueCase 
+              valueMetrics={props.page2.valueMetrics}
+              pilotSteps={props.page2.pilotSteps}
+              goodFirstPilots={props.page2.goodFirstPilots}
+            />
           </div>
 
           {/* CTA */}

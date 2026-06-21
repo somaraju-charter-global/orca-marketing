@@ -27,21 +27,22 @@ export type TwoPageVerticalBrief = {
   page2: {
     title: string;
     subtitle: string;
+    executiveBlurb: string;
 
-    selectionCriteria: {
+    valueMetrics: {
+      label: string;
+      before: string;
+      after: string;
+      impact: string;
+    }[];
+
+    pilotSteps: {
+      number: string;
       title: string;
       description: string;
     }[];
 
-    valueMeasures: {
-      title: string;
-      description: string;
-    }[];
-
-    exampleStartingPoints: {
-      title: string;
-      scope: string;
-    }[];
+    goodFirstPilots: string[];
 
     cta: {
       title: string;

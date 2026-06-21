@@ -66,53 +66,59 @@ export const supplyChainSupplierOperationsBrief = {
     subtitle:
       "Begin with one workflow where documents, approvals, exceptions, and system updates are already creating visible delays.",
 
-    selectionCriteria: [
+    executiveBlurb:
+      "The first pilot should prove that one messy workflow can move faster, with fewer missing documents, clearer ownership, and a measurable audit trail.",
+
+    valueMetrics: [
       {
-        title: "Visible friction",
-        description:
-          "Teams are chasing documents, approvals, or missing information."
+        label: "Cycle time",
+        before: "14",
+        after: "5 days",
+        impact: "Faster supplier readiness"
       },
       {
-        title: "Repeatable work",
-        description:
-          "The same document sets, decisions, or approval paths appear often enough to standardize."
+        label: "Manual follow-up",
+        before: "12",
+        after: "4 touches",
+        impact: "Less chasing across teams"
       },
       {
-        title: "Human judgment points",
-        description:
-          "Exceptions need review, escalation, approval, or override."
+        label: "First-pass completeness",
+        before: "62%",
+        after: "90%",
+        impact: "Fewer missing documents"
       },
       {
-        title: "Measurable baseline",
-        description:
-          "Cycle time, missing documents, approval delay, or rework can be measured before and after."
+        label: "Approval delay",
+        before: "6",
+        after: "2 days",
+        impact: "Clearer routing and escalation"
       }
     ],
 
-    valueMeasures: [
+    pilotSteps: [
       {
-        title: "Cycle time",
-        description: "Request to completed workflow."
+        number: "01",
+        title: "Pick the workflow",
+        description: "Visible friction, repeatable work, clear owners."
       },
       {
-        title: "Manual follow-up",
-        description: "How much chasing is required."
+        number: "02",
+        title: "Measure the baseline",
+        description: "Cycle time, missing evidence, rework, approval delay."
       },
       {
-        title: "Missing evidence",
-        description: "How often packets are incomplete."
+        number: "03",
+        title: "Run a narrow pilot",
+        description: "One supplier type, one region, one approval path."
       }
     ],
 
-    exampleStartingPoints: [
-      {
-        title: "Supplier onboarding and compliance document orchestration",
-        scope: "One category · one region · one approval path · one document set"
-      },
-      {
-        title: "Supplier compliance renewal",
-        scope: "One supplier type · one certificate set · one renewal cycle"
-      }
+    goodFirstPilots: [
+      "Supplier onboarding",
+      "Compliance renewal",
+      "PO/invoice exceptions",
+      "Procurement response support"
     ],
 
     cta: {
