@@ -31,8 +31,7 @@ export type TwoPageVerticalBrief = {
 
     valueMetrics: {
       label: string;
-      before: string;
-      after: string;
+      change: string;
       impact: string;
     }[];
 

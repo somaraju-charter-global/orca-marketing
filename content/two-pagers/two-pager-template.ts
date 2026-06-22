@@ -72,26 +72,22 @@ export const twoPagerTemplate = {
     valueMetrics: [
       {
         label: "Cycle time",
-        before: "14",
-        after: "5 days",
+        change: "14 → 5 days",
         impact: "Faster operational readiness"
       },
       {
         label: "Manual follow-up",
-        before: "12",
-        after: "4 touches",
+        change: "12 → 4 touches",
         impact: "Less chasing across teams"
       },
       {
         label: "First-pass completeness",
-        before: "62%",
-        after: "90%",
+        change: "62% → 90%",
         impact: "Fewer missing documents"
       },
       {
         label: "Approval delay",
-        before: "6",
-        after: "2 days",
+        change: "6 → 2 days",
         impact: "Clearer routing and escalation"
       }
     ],

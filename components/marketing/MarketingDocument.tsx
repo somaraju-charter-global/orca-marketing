@@ -6,7 +6,6 @@ import { ContentsPage } from "./ContentsPage";
 import { DarkEditorialPage } from "./DarkEditorialPage";
 import { ImageCalloutPage } from "./ImageCalloutPage";
 import { UseCasePage } from "./UseCasePage";
-import { UseCasePageWithImage } from "./UseCasePageWithImage";
 import { UseCaseDetail } from "./UseCaseDetail";
 import { QuotePage } from "./QuotePage";
 import { StatPage } from "./StatPage";
@@ -31,8 +30,6 @@ export function MarketingDocument({ guide }: { guide: MarketingGuide }) {
             return <ImageCalloutPage key={index} {...page} />;
           case "useCase":
             return <UseCasePage key={index} {...page} />;
-          case "useCaseWithImage":
-            return <UseCasePageWithImage key={index} {...page} />;
           case "useCaseDetail":
             return <UseCaseDetail key={index} {...page} />;
           case "quote":

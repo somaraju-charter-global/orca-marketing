@@ -1,278 +1,372 @@
 import { MarketingGuide } from "../types";
 
 export const retailSupplyChainGuide: MarketingGuide = {
-  slug: "retail-supply-chain-use-case-guide",
-  title: "Retail Supply Chain Use-Case Guide",
+  slug: "supply-chain-operations-guide",
+  title: "Close the Work Around the System",
   description:
-    "A gated Orcaworks guide for retail supply-chain leaders on governing availability, lifecycle, supplier, inbound, and DC exception workflows.",
+    "A practical guide to governed execution for supplier, service, delivery, compliance, and invoice exceptions.",
   pages: [
     {
       type: "cover",
-      title: "Retail Supply Chain Use-Case Guide",
-      subtitle: "Turn supply-chain exceptions into governed action",
-      kicker: "Orcaworks",
+      title: "Close the Work Around the System",
+      subtitle: "A practical guide to governed execution for supplier, service, delivery, compliance, and invoice exceptions.",
+      kicker: "Supply chain operations",
       logoVariant: "white",
       image: "/images/supply-chain-speed.jpg",
       sections: [
-        { page: "2", title: "The execution layer around supply-chain systems" },
-        { page: "3", title: "Why core systems are not enough" },
-        { page: "4", title: "Availability and demand readiness" },
-        { page: "5", title: "How Orcaworks helps availability teams" },
-        { page: "6", title: "Lifecycle, expiry, and waste control" },
-        { page: "7", title: "How Orcaworks helps lifecycle teams" },
-        { page: "8", title: "Supplier, inbound, and DC exception recovery" },
-        { page: "9", title: "How Orcaworks helps recovery teams" },
-        { page: "10", title: "Workflow transformation" },
-        { page: "11", title: "Business impact to prove" },
-        { page: "12", title: "Start with one workflow" },
+        { page: "1", title: "Close the execution gap" },
+        { page: "2", title: "Core systems are not enough" },
+        { page: "3", title: "Make suppliers ready faster" },
+        { page: "4", title: "How Orcaworks helps supplier readiness" },
+        { page: "5", title: "Keep supplier evidence audit-ready" },
+        { page: "6", title: "How Orcaworks helps supplier evidence" },
+        { page: "7", title: "Recover service exceptions sooner" },
+        { page: "8", title: "How Orcaworks helps service recovery" },
+        { page: "9", title: "Close inbound delivery exceptions" },
+        { page: "10", title: "How Orcaworks helps inbound recovery" },
+        { page: "11", title: "Resolve invoice exceptions faster" },
+        { page: "12", title: "How Orcaworks helps invoice exceptions" },
+        { page: "13", title: "What to measure first" },
+        { page: "14", title: "Start with one workflow" },
       ],
     },
     {
       type: "darkEditorial",
-      eyebrow: "Retail supply chain",
-      headline: "The next bottleneck is not the system. It is the exception.",
+      eyebrow: "Supply Chain Operations",
+      headline: "Close the Execution Gap",
       body:
-        "Large retailers have already invested in ERP, replenishment, WMS, TMS, supplier portals, EDI, product data, and analytics. The daily delays often sit around those systems: finding evidence, checking completeness, routing decisions, handling exceptions, and making sure the system of record is updated. Orcaworks governs that execution layer so supply-chain teams can move recurring exceptions from scattered follow-up to traceable action.",
+        "Supply-chain teams do not need another dashboard that only shows what is wrong. They need a governed way to collect the evidence, chase the missing pieces, route the decision, update the record, and prove what happened. Orcaworks helps teams start with one recurring workflow and improve how work gets closed around existing systems.",
       image: "/images/supply-chain-speed.jpg",
       callout:
-        "The opportunity is not to replace core systems. It is to govern the work that happens around them.",
-      pageNumber: "2",
+        "The issue is rarely visibility alone. The real delay is turning the alert into owned, evidenced, approved, and recorded action.",
+      pageNumber: "1",
     },
     {
       type: "imageCallout",
-      eyebrow: "Why core systems are not enough",
-      headline: "Core systems show the signal. Teams still have to close the loop.",
+      eyebrow: "The gap",
+      headline: "Core Systems Are Not Enough",
       body:
-        "A dashboard can show an out-of-stock item, a late inbound booking, a short-code product, or a rejected delivery. It rarely assembles the evidence packet, explains what is missing, routes the approval, captures the decision, prepares the supplier response, and records the update path. That is the execution gap Orcaworks is built to govern.",
+        "ERP, planning, procurement, WMS, TMS, AP, BI, and supplier portals hold important records. They are not designed to own every cross-functional exception from start to finish. The gap appears when work depends on missing documents, supplier responses, human approvals, judgement, and updates across several systems. That is where cycle time, rework, and audit risk accumulate.",
       image: "/images/supply-chain-speed.jpg",
       callout:
-        "A good first pilot turns one messy exception workflow into a repeatable decision path.",
-      pageNumber: "3",
+        "Core system alert → Evidence gathered → Owner prompted → Decision recorded → System updated",
+      pageNumber: "2",
     },
     {
       type: "useCase",
       eyebrow: "Strategic pillar 01",
       number: "01",
-      title: "Availability and demand readiness",
+      title: "Make suppliers ready faster",
       problem:
-        "Availability teams deal with recurring signals: missed supply, unexpected OOS, store-order shortfalls, MAPO decisions, future promo risk, and late promo changes. The hard part is not seeing the issue. It is deciding what action is justified before the window closes.",
+        "A supplier may be selected, contracted, or approved but still not ready to transact. Readiness depends on tax forms, bank details, certificates, contracts, risk checks, EDI setup, item data, approvals, and vendor-master updates that often sit across teams and systems.",
       opportunity:
-        "Orcaworks can create a governed path for availability exceptions: collect the evidence, identify likely cause, route decisions, assign owners, and keep a traceable record of what was done and why.",
+        "Turn onboarding into a governed readiness workflow: one case per supplier, clear evidence requirements, owner-routed approvals, visible blockers, and a traceable record from request to activation.",
       bullets: [
-        "Daily availability exception triage",
-        "Store-order vs supply reconciliation",
-        "Unexpected or long-term OOS recovery",
-        "MAPO recommendation and approval",
-        "Promo risk scan and late-change feasibility",
+        "New supplier onboarding",
+        "Activation blockers",
+        "Certificate renewal",
+        "Supplier master changes",
       ],
-      quote:
-        "Coles reported $44.4bn group sales revenue and 23.3% eCommerce sales growth in FY25.",
-      source: "Coles FY25 reporting; used as scale and availability context",
-      pageNumber: "4",
+      rightContent: {
+        type: "quote",
+        quote: "The supplier may be selected quickly, but the business cannot transact until evidence, approvals, and records are complete.",
+        source: "Caption",
+      },
+      pageNumber: "3",
     },
     {
       type: "useCaseDetail",
       eyebrow: "How Orcaworks helps",
-      title: "Availability exception and promo readiness packets",
+      title: "How Orcaworks helps supplier readiness",
       sections: [
         {
-          heading: "Example workflow",
+          heading: "Supplier onboarding",
           description:
-            "Daily availability exception triage for one high-velocity category, with an optional late promo change workflow once the baseline is working.",
+            "Orcaworks connects supplier records, required documents, approval rules, and readiness status so procurement, finance, compliance, and master data can close missing steps faster.",
         },
         {
-          heading: "Inputs",
+          heading: "Evidence renewal",
           description:
-            "DIFOT, store orders, supplied quantity, SOH, forecast, inbound status, supplier notes, promo calendar, affected stores, and time-to-intervene.",
+            "Orcaworks tracks expiring documents, prompts suppliers or internal owners, checks completeness, and keeps the renewal record ready for review.",
         },
         {
-          heading: "Governed execution",
+          heading: "Master-data changes",
           description:
-            "Assemble the evidence packet, classify likely cause, identify missing data, prepare action options, route MAPO or promo decisions, and assign the owner.",
-        },
-        {
-          heading: "Outputs and traceability",
-          description:
-            "Prioritised action list, approve/modify/reject decision, supplier or planner follow-up, system-ready notes, and a record of why the decision was made.",
+            "Orcaworks governs supplier change requests, routes evidence to the right approver, and prepares the update pack for the system of record.",
         },
       ],
-      detailText: "Pilot: one category, one state or DC, 60–90 days",
-      detailColor: "orange",
-      pageNumber: "5",
+      sectionColor: "orange",
+      rightContent: {
+        type: "detailedText",
+        text: "Start with one supplier cohort, one checklist, and one approval path. Orcaworks creates a readiness case for each supplier, connects the required evidence, tracks missing items, routes owner decisions, and prompts users where they already work. The pilot proves whether supplier readiness can move faster with less chasing before expanding across categories or regions.",
+        color: "orange",
+      },
+      pageNumber: "4",
     },
     {
       type: "useCase",
       eyebrow: "Strategic pillar 02",
       number: "02",
-      title: "Lifecycle, expiry, and waste control",
+      title: "Keep supplier evidence audit-ready",
       problem:
-        "Short-life stock, deleted lines, replacement products, MLOR exceptions, new-line launches, and packaging changes create decisions across supply chain, commercial, suppliers, DCs, and stores. Delay can leave stock locked, marked down too late, wasted, or unavailable.",
+        "Supplier compliance is no longer a once-a-year document exercise. Teams must collect, refresh, review, and prove evidence across supplier cohorts, risk tiers, categories, geographies, customer requirements, and regulatory obligations.",
       opportunity:
-        "Orcaworks can turn product lifecycle exceptions into governed decision workflows: identify exposed stock, collect the evidence, route the right approval, capture rationale, and prepare the downstream action path.",
+        "Run supplier evidence as a governed workflow: prioritise by risk, request the right documents, check completeness, escalate exceptions, and keep the review trail ready.",
       bullets: [
-        "Short-code decision workflow",
-        "Deleted-line rundown control",
-        "Minimum life on receipt exception review",
-        "New-line launch readiness",
-        "Range or packaging transition control",
+        "Due-diligence refresh",
+        "Modern slavery evidence",
+        "Corrective action closure",
+        "Audit evidence packs",
       ],
-      quote:
-        "Australia wastes around 7.6 million tonnes of food each year, costing more than $36.6bn annually.",
-      source: "Australian Government food waste evidence; used as waste-pressure context",
-      pageNumber: "6",
+      rightContent: {
+        type: "workflow",
+        steps: [
+          { number: "1", title: "Identify supplier cohort", description: "Risk-based prioritization" },
+          { number: "2", title: "Request evidence", description: "Automated document requests" },
+          { number: "3", title: "Track responses", description: "Monitor completeness" },
+          { number: "4", title: "Route exceptions", description: "Escalate to right owner" },
+          { number: "5", title: "Audit pack ready", description: "Traceable evidence trail" },
+        ],
+      },
+      pageNumber: "5",
     },
     {
       type: "useCaseDetail",
       eyebrow: "How Orcaworks helps",
-      title: "Short-code and deleted-line decision control",
+      title: "How Orcaworks helps supplier evidence",
       sections: [
         {
-          heading: "Example workflow",
+          heading: "Due-diligence refresh",
           description:
-            "Short-code and deleted-line decision workflow for one fresh or chilled category where stock needs a fast, governed action path.",
+            "Orcaworks creates risk-based evidence cases, requests the right documents, tracks responses, and routes exceptions to compliance, legal, quality, or procurement.",
         },
         {
-          heading: "Inputs",
+          heading: "Certificate renewal",
           description:
-            "Product life, DC stock, store sell-through, forecast, code-life rules, current allocation, deleted-line date, supplier request, and replacement timing.",
+            "Orcaworks monitors expiry, prompts suppliers before evidence becomes overdue, checks returned files, and updates the supplier evidence record.",
         },
         {
-          heading: "Governed execution",
+          heading: "Corrective actions",
           description:
-            "Group exceptions by action path, apply playbook thresholds, assemble evidence, route commercial or quality approval, and capture the decision.",
-        },
-        {
-          heading: "Outputs and traceability",
-          description:
-            "Push, hold, unlock, markdown, allocate, substitute, reject, or write-off instructions with owner, approval, rationale, and follow-up status.",
+            "Orcaworks tracks owner, due date, requested evidence, review status, approval, and closure for supplier audit or quality actions.",
         },
       ],
-      detailText: "Value: faster decisions before freshness windows close",
-      detailColor: "orange",
-      pageNumber: "7",
+      sectionColor: "orange",
+      rightContent: {
+        type: "image",
+        src: "/images/supply-chain-speed.jpg",
+        alt: "Supply chain operations",
+        objectFit: "cover",
+      },
+      pageNumber: "6",
     },
     {
       type: "useCase",
       eyebrow: "Strategic pillar 03",
       number: "03",
-      title: "Supplier, inbound, and DC exception recovery",
+      title: "Recover service exceptions sooner",
       problem:
-        "Late appointments, rejected deliveries, supplier forecast queries, B2B mismatches, missing documents, and compliance evidence issues often arrive with partial information. Teams then chase suppliers, DCs, transport, planning, and commercial teams to decide the recovery path.",
+        "Supply-chain dashboards may show stockouts, OTIF failures, and service risks, but recovery still depends on people gathering context from inventory, orders, forecasts, suppliers, transport, DC receipts, and commercial priorities.",
       opportunity:
-        "Orcaworks can structure supplier and inbound recovery: capture intake, assemble evidence, identify missing information, route decisions, prepare supplier responses, and maintain a traceable record across handoffs.",
+        "Convert repeated service exceptions into governed recovery cases with root-cause context, owner assignment, decision routing, action tracking, and recorded closure.",
       bullets: [
-        "Late inbound appointment recovery",
-        "Rejected delivery triage",
-        "Supplier forecast or order query response",
-        "B2B / EDI trading document mismatch",
-        "Supplier evidence and compliance renewal",
+        "Stockout triage",
+        "OTIF exceptions",
+        "Allocation approvals",
+        "Service-risk packs",
       ],
-      quote:
-        "Coles’ Kemps Creek automated distribution centre is designed to process more than four million cartons per week at full capacity.",
-      source: "Coles ADC release; used as DC scale and inbound discipline context",
-      pageNumber: "8",
+      rightContent: {
+        type: "quote",
+        quote: "McKinsey reported average disruption response still took around two weeks.",
+        source: "McKinsey",
+      },
+      pageNumber: "7",
     },
     {
       type: "useCaseDetail",
       eyebrow: "How Orcaworks helps",
-      title: "Rejected delivery and late appointment recovery",
+      title: "How Orcaworks helps service recovery",
       sections: [
         {
-          heading: "Example workflow",
+          heading: "Stockout triage",
           description:
-            "Rejected delivery and late appointment recovery for one DC and a selected supplier group over a 60–90 day pilot.",
+            "Orcaworks connects inventory, forecast, PO, ASN, supplier, transport, and receipt context so planners can move from alert to assigned recovery action.",
         },
         {
-          heading: "Inputs",
+          heading: "OTIF exceptions",
           description:
-            "Booking data, PO, ASN, delivery record, rejection reason, photos or DC notes, supplier explanation, affected SKUs, stock cover, and available slots.",
+            "Orcaworks creates an exception case, gathers delivery evidence, routes cause attribution, and prompts the right owner to close corrective action.",
         },
         {
-          heading: "Governed execution",
+          heading: "Allocation decisions",
           description:
-            "Assemble the recovery packet, classify cause, request missing evidence, estimate service impact, suggest recovery options, and route supplier/DC/commercial approval.",
-        },
-        {
-          heading: "Outputs and traceability",
-          description:
-            "Rebook, return, accept, escalate, or reject decision with supplier communication, owner assignment, action checklist, and final outcome record.",
+            "Orcaworks prepares decision context, routes approval to the right user, captures the decision, and keeps the customer-impact trail visible.",
         },
       ],
-      detailText: "Value: fewer unresolved exceptions and clearer supplier accountability",
-      detailColor: "orange",
+      sectionColor: "blue",
+      rightContent: {
+        type: "workflow",
+        steps: [
+          { number: "1", title: "Alert triggered" },
+          { number: "2", title: "Context gathered" },
+          { number: "3", title: "Owner assigned" },
+          { number: "4", title: "Decision routed" },
+          { number: "5", title: "Recovery tracked" },
+        ],
+      },
+      pageNumber: "8",
+    },
+    {
+      type: "useCase",
+      eyebrow: "Strategic pillar 04",
+      number: "04",
+      title: "Close inbound delivery exceptions",
+      problem:
+        "A late booking, rejected load, ASN mismatch, damaged delivery, or appointment change can involve suppliers, carriers, DC teams, quality, procurement, AP, and finance. The system may record the event, but not the recovery workflow.",
+      opportunity:
+        "Turn inbound exceptions into controlled recovery cases that gather evidence, clarify ownership, route decisions, prepare claims or reschedules, and update the right records.",
+      bullets: [
+        "Late booking exceptions",
+        "Rejected delivery recovery",
+        "ASN mismatch review",
+        "Claim evidence packs",
+      ],
+      rightContent: {
+        type: "image",
+        src: "/images/supply-chain-speed.jpg",
+        alt: "Inbound delivery operations",
+        objectFit: "cover",
+      },
       pageNumber: "9",
     },
     {
-      type: "beforeAfter",
-      title: "Workflow transformation",
-      beforeTitle: "Before",
-      afterTitle: "After",
-      beforeItems: [
-        "Exception signals spread across dashboards, email, portals, and spreadsheets",
-        "Teams chase suppliers, DCs, planners, and commercial owners manually",
-        "Evidence is incomplete or rebuilt for each decision",
-        "Approvals happen in email with unclear ownership",
-        "System updates lag behind operational decisions",
-        "Audit trail is reconstructed after the fact",
+      type: "useCaseDetail",
+      eyebrow: "How Orcaworks helps",
+      title: "How Orcaworks helps inbound recovery",
+      sections: [
+        {
+          heading: "Rejected deliveries",
+          description:
+            "Orcaworks assembles PO, ASN, receipt, rejection reason, photos, and quality evidence, then routes accept, reject, claim, quarantine, or redelivery decisions.",
+        },
+        {
+          heading: "Late bookings",
+          description:
+            "Orcaworks checks PO priority, DC capacity, service impact, stock risk, and rules before routing accept, reject, reschedule, or escalate decisions.",
+        },
+        {
+          heading: "ASN mismatches",
+          description:
+            "Orcaworks compares PO, ASN, receipt, and supplier shipment evidence, then routes the correction, dispute, claim, or inventory update.",
+        },
       ],
-      afterItems: [
-        "Repeatable intake for the selected exception workflow",
-        "Evidence packet assembled from available systems and documents",
-        "Missing information and policy exceptions surfaced early",
-        "Approvals routed to the right owner with rationale captured",
-        "System-ready update notes prepared after decision",
-        "Decision history retained for review, supplier follow-up, and audit",
-      ],
+      sectionColor: "orange",
+      rightContent: {
+        type: "detailedText",
+        text: "Start with one DC and one recurring exception reason. Orcaworks creates a case when the delivery issue appears, gathers the PO, ASN, receipt note, photos, and supplier or carrier response, then routes the decision to the right owner. The pilot measures time to next action, evidence completeness, manual touches, and closure ageing.",
+        color: "orange",
+      },
       pageNumber: "10",
     },
     {
-      type: "roi",
-      title: "Business impact to prove",
-      intro:
-        "The first pilot should prove measurable movement in one recurring workflow before scaling. The targets below are placeholders until the retailer's baseline is measured.",
-      metrics: [
-        {
-          label: "Exception cycle time",
-          baseline: "Current baseline",
-          target: "Placeholder: 30–50% faster",
-          impact: "Shorter time from signal to action",
-        },
-        {
-          label: "Manual follow-up",
-          baseline: "Current touches/case",
-          target: "Placeholder: 40–60% fewer",
-          impact: "Less chasing across teams",
-        },
-        {
-          label: "First-pass evidence completeness",
-          baseline: "Current complete cases",
-          target: "Placeholder: +20–30 pts",
-          impact: "Fewer stalled decisions",
-        },
-        {
-          label: "Approval delay",
-          baseline: "Current approval time",
-          target: "Placeholder: 30–50% faster",
-          impact: "Clearer routing and escalation",
-        },
-        {
-          label: "Aged unresolved exceptions",
-          baseline: "Current aged queue",
-          target: "Placeholder: 25–40% fewer",
-          impact: "Better operational control",
-        },
+      type: "useCase",
+      eyebrow: "Strategic pillar 05",
+      number: "05",
+      title: "Resolve invoice exceptions faster",
+      problem:
+        "Invoice exceptions are rarely just an invoice problem. Resolution often requires PO, receipt, delivery proof, contract price, supplier confirmation, buyer approval, warehouse input, and ERP or AP updates.",
+      opportunity:
+        "Turn invoice and receipt exceptions into governed evidence cases so AP, procurement, receiving, finance, and suppliers can reach a decision faster.",
+      bullets: [
+        "Invoice match exceptions",
+        "Missing receipt follow-up",
+        "GR/IR reconciliation",
+        "Supplier disputes",
       ],
+      rightContent: {
+        type: "quote",
+        quote: "Invoice capture is not enough when the exception still depends on receipt evidence, buyer input, supplier response, or approval.",
+        source: "Caption",
+      },
       pageNumber: "11",
     },
     {
+      type: "useCaseDetail",
+      eyebrow: "How Orcaworks helps",
+      title: "How Orcaworks helps invoice exceptions",
+      sections: [
+        {
+          heading: "Invoice match",
+          description:
+            "Orcaworks connects invoice, PO, receipt, contract, supplier, and delivery evidence so AP can decide whether to pay, hold, dispute, or correct.",
+        },
+        {
+          heading: "Missing receipts",
+          description:
+            "Orcaworks identifies the right receiver or requester, prompts for confirmation, tracks reminders, and updates the AP exception record.",
+        },
+        {
+          heading: "Supplier disputes",
+          description:
+            "Orcaworks assembles the dispute context, captures supplier responses, routes approvals, and keeps the decision trail audit-ready.",
+        },
+      ],
+      sectionColor: "ink",
+      rightContent: {
+        type: "detailedText",
+        text: "Pilot target: 30–60% faster resolution for defined invoice exception types where evidence requirements are standardised.",
+        color: "ink",
+      },
+      pageNumber: "12",
+    },
+    {
+      type: "roi",
+      title: "What to measure first",
+      intro:
+        "Governed execution should be measured at the workflow level. Before scaling, baseline one recurring exception and compare how long it takes, how many touches it requires, how complete the evidence is, and how cleanly the outcome is recorded.",
+      metrics: [
+        {
+          label: "Supplier readiness",
+          baseline: "Activation cycle time",
+          target: "20–40% faster",
+          impact: "Defined workflow only",
+        },
+        {
+          label: "Evidence renewal",
+          baseline: "Overdue evidence rate",
+          target: "15–35% fewer",
+          impact: "Defined cohort",
+        },
+        {
+          label: "Service triage",
+          baseline: "Alert-to-next-action time",
+          target: "20–40% faster",
+          impact: "Defined exception class",
+        },
+        {
+          label: "Inbound recovery",
+          baseline: "Exception ageing",
+          target: "20–40% lower",
+          impact: "Defined DC and reason",
+        },
+        {
+          label: "Invoice exceptions",
+          baseline: "Resolution cycle time",
+          target: "30–60% faster",
+          impact: "Standardised evidence",
+        },
+      ],
+      pageNumber: "13",
+    },
+    {
       type: "closingCta",
-      headline: "Start with one recurring exception workflow",
+      headline: "Start with one workflow",
       body:
-        "Pick a workflow where delays, missing evidence, approval chasing, and system updates are visible today. Orcaworks can run a focused workflow scan, define the baseline, and design a narrow pilot around one category, one DC, one state, or one supplier group.",
-      cta: "Plan a workflow scan",
+        "Choose one recurring exception where work crosses documents, approvals, follow-up, and system updates. Run a narrow governed-execution pilot, measure the baseline, and decide whether to expand based on evidence. Pick one exception → Map evidence and owners → Run governed workflow → Measure before/after → Scale what works. Find the workflow where your team is doing the most chasing.",
+      cta: "Plan a 90-day pilot",
       website: "www.orcaworks.com",
       variant: "dark",
-      pageNumber: "12",
+      pageNumber: "14",
     },
   ],
 };

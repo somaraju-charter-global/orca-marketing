@@ -2,8 +2,7 @@ import React from "react";
 
 interface ValueMetric {
   label: string;
-  before: string;
-  after: string;
+  change: string;
   impact: string;
 }
 
@@ -31,8 +30,8 @@ export function PilotValueCase({ valueMetrics, pilotSteps, goodFirstPilots }: Pi
                 {metric.label}
               </div>
               <div className="flex items-center justify-center mb-3">
-                <span className="text-sm text-gray-700">
-                  {metric.before} → <span className="font-bold text-[#ff4b1f]">{metric.after}</span>
+                <span className="text-sm font-bold text-[#ff4b1f]">
+                  {metric.change}
                 </span>
               </div>
               <div className="text-xs text-gray-600 leading-snug text-center">

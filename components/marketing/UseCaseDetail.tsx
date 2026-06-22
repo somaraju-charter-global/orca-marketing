@@ -1,6 +1,7 @@
 import React from "react";
 import { UseCaseDetailContent } from "@/content/types";
 import { PageShell } from "./PageShell";
+import { RightHandContent } from "./RightHandContent";
 
 type UseCaseDetailProps = UseCaseDetailContent;
 
@@ -8,13 +9,13 @@ export function UseCaseDetail({
   eyebrow,
   title,
   sections,
-  detailText,
-  detailColor,
+  sectionColor,
+  rightContent,
   pageNumber,
 }: UseCaseDetailProps) {
-  const colorClass = detailColor === "orange" 
+  const colorClass = sectionColor === "orange" 
     ? "text-[var(--orca-orange)]" 
-    : detailColor === "blue" 
+    : sectionColor === "blue" 
     ? "text-[var(--orca-blue)]" 
     : "text-[var(--orca-ink)]";
 
@@ -56,11 +57,9 @@ export function UseCaseDetail({
             <div className="absolute left-1/2 w-0.5 -translate-x-1/2" style={{backgroundColor: 'var(--orca-orange, #FF6B35)', top: '5rem', bottom: '5rem'}}></div>
           )}
 
-          {/* Right column - detailText */}
-          <div className="w-1/2 p-12 pt-6 flex flex-col justify-center">
-            <p className={`text-3xl font-bold leading-relaxed ${colorClass}`}>
-              {detailText}
-            </p>
+          {/* Right column - flexible content */}
+          <div className="w-1/2 flex flex-col">
+            {rightContent && <RightHandContent content={rightContent} />}
           </div>
         </div>
       </div>

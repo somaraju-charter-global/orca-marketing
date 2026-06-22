@@ -1,3 +1,9 @@
+export type RightHandContentType = 
+  | { type: "quote"; quote: string; source?: string }
+  | { type: "detailedText"; text: string; color?: "orange" | "blue" | "ink" }
+  | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" }
+  | { type: "workflow"; steps: { number: string; title: string; description?: string }[] };
+
 export type MarketingGuide = {
   slug: string;
   title: string;
@@ -53,26 +59,12 @@ export type ImageCalloutPageContent = {
 export type UseCasePageContent = {
   type: "useCase";
   eyebrow?: string;
-  number: string;
+  number?: string;
   title: string;
   problem: string;
   opportunity: string;
   bullets?: string[];
-  image?: string;
-  quote?: string;
-  source?: string;
-  pageNumber?: string | number;
-};
-
-export type UseCasePageWithImageContent = {
-  type: "useCaseWithImage";
-  eyebrow?: string;
-  number: string;
-  title: string;
-  problem: string;
-  opportunity: string;
-  bullets?: string[];
-  image: string;
+  rightContent?: RightHandContentType;
   pageNumber?: string | number;
 };
 
@@ -84,8 +76,8 @@ export type UseCaseDetailContent = {
     heading: string;
     description: string;
   }[];
-  detailText: string;
-  detailColor?: "orange" | "blue" | "ink";
+  sectionColor?: "orange" | "blue" | "ink";
+  rightContent?: RightHandContentType;
   pageNumber?: string | number;
 };
 
@@ -113,6 +105,7 @@ export type StatPageContent = {
 
 export type BeforeAfterPageContent = {
   type: "beforeAfter";
+  eyebrow?: string;
   title: string;
   beforeTitle?: string;
   afterTitle?: string;
@@ -123,6 +116,7 @@ export type BeforeAfterPageContent = {
 
 export type RoiPageContent = {
   type: "roi";
+  eyebrow?: string;
   title: string;
   intro?: string;
   metrics: {
@@ -151,7 +145,6 @@ export type MarketingPage =
   | DarkEditorialPageContent
   | ImageCalloutPageContent
   | UseCasePageContent
-  | UseCasePageWithImageContent
   | UseCaseDetailContent
   | QuotePageContent
   | StatPageContent
@@ -166,7 +159,6 @@ export type MarketingPageType =
   | "darkEditorial"
   | "imageCallout"
   | "useCase"
-  | "useCaseWithImage"
   | "useCaseDetail"
   | "quote"
   | "stat"

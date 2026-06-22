@@ -5,6 +5,7 @@ import { PageShell } from "./PageShell";
 type RoiPageProps = RoiPageContent;
 
 export function RoiPage({
+  eyebrow,
   title,
   intro,
   metrics,
@@ -13,6 +14,11 @@ export function RoiPage({
   return (
     <PageShell variant="light" pageNumber={pageNumber}>
       <div className="h-full flex flex-col p-12">
+        {eyebrow && (
+          <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
+            {eyebrow}
+          </div>
+        )}
         <h2 className="text-4xl font-bold mb-4 text-[var(--orca-ink)]">{title}</h2>
         {intro && (
           <p className="text-[var(--orca-muted)] text-base mb-8 max-w-2xl">

@@ -2,36 +2,37 @@ import type { TwoPageVerticalBrief } from "../onepager-types";
 
 export const supplyChainSupplierOperationsBrief = {
   layout: "two-page-vertical-brief",
-  slug: "supply-chain-supplier-operations",
+  slug: "supply-chain-operations",
 
-  vertical: "Supply Chain",
-  audience: "Procurement and supplier operations teams",
+  vertical: "Supply Chain Operations",
+  audience: "Supply chain and operations leaders",
 
-  eyebrow: "ORCAWORKS FOR SUPPLY CHAIN TEAMS",
-  headline: "Build resilience in supplier operations with governed execution",
+  eyebrow: "Supply chain operations",
+  headline: "Close the Work Around Supply Chain Systems",
   subheadline:
-    "Supplier readiness slows when documents, approvals, compliance checks, and ERP updates sit outside the core system leading to delay and compliance risk.",
+    "Turn supplier, service, delivery, compliance, and invoice exceptions into governed workflows.",
+
   executivePov:
-    "Core systems are rarely the whole problem. The delays often sit around them: collecting supplier evidence, checking completeness, routing approvals, resolving exceptions, and keeping records audit-ready.",
+    "Most teams can see the exception before they can close it. The delay sits in missing evidence, unclear ownership, supplier follow-up, approvals, and manual updates across ERP, WMS, TMS, procurement, AP, email, and spreadsheets.",
 
   positioningStatement:
-    "Orcaworks helps teams govern that execution layer without replacing the ERP, procurement platform, or document systems already in place.",
+    "Orcaworks builds workflow context, governs agent actions, and brings next steps to users where they already work.",
 
   strategicPillars: [
     {
-      title: "Visibility into supplier readiness",
+      title: "Supplier readiness",
       description:
-        "See which supplier records are complete, blocked, missing evidence, or waiting on approval.",
+        "Move suppliers from selected to ready-to-transact faster.",
     },
     {
-      title: "Control over approvals and exceptions",
+      title: "Service recovery",
       description:
-        "Move routine supplier packets forward while routing incomplete, high-risk, or policy-exception cases to the right owner.",
+        "Turn stockout, delivery, and OTIF alerts into owner-assigned actions.",
     },
     {
-      title: "Traceability across documents and decisions",
+      title: "Evidence closure",
       description:
-        "Keep a record of what was collected, checked, approved, rejected, overridden, or sent for follow-up.",
+        "Resolve invoice, receipt, compliance, and audit exceptions with traceable records.",
     },
   ],
 
@@ -39,60 +40,56 @@ export const supplyChainSupplierOperationsBrief = {
     {
       title: "Supplier onboarding",
       description:
-        "Collect documents, check completeness, route approvals, and prepare ERP-ready supplier records.",
+        "Coordinate documents, approvals, checks, and vendor-master updates.",
     },
     {
-      title: "Supplier compliance renewal",
+      title: "Service triage",
       description:
-        "Track expiring certificates, request updated evidence, escalate exceptions, and maintain audit-ready records.",
+        "Move from alert to root cause, owner, and action.",
     },
     {
-      title: "PO / invoice exception handling",
+      title: "Rejected deliveries",
       description:
-        "Compare documents, flag mismatches, route exceptions, and capture approval decisions.",
+        "Assemble evidence, route decisions, and close recovery cases.",
     },
     {
-      title: "Tender / procurement response support",
+      title: "Invoice exceptions",
       description:
-        "Collect evidence, coordinate contributors, track approvals, and prepare complete response packs.",
+        "Gather PO, receipt, supplier, and approval evidence.",
     },
   ],
 
   bottomInsight:
-    "The opportunity is not to replace ERP or procurement systems. It is to govern the execution layer around them.",
+    "Core systems record the process. Orcaworks helps complete the work around it.",
 
   page2: {
-    title: "How to start with governed execution",
+    title: "Prove Value in One Workflow",
     subtitle:
-      "Begin with one workflow where documents, approvals, exceptions, and system updates are already creating visible delays.",
+      "Start narrow, measure the baseline, and scale only after the workflow improves.",
 
     executiveBlurb:
-      "The first pilot should prove that one messy workflow can move faster, with fewer missing documents, clearer ownership, and a measurable audit trail.",
+      "Pick a recurring exception where work spans documents, approvals, follow-up, and system updates. Orcaworks helps run the workflow, measure improvement, and keep a record.",
 
     valueMetrics: [
       {
         label: "Cycle time",
-        before: "14",
-        after: "5 days",
-        impact: "Faster supplier readiness"
+        change: "20–40% faster",
+        impact: "Defined workflow"
       },
       {
-        label: "Manual follow-up",
-        before: "12",
-        after: "4 touches",
-        impact: "Less chasing across teams"
+        label: "Follow-up",
+        change: "20–40% fewer",
+        impact: "Avoidable chasers"
       },
       {
-        label: "First-pass completeness",
-        before: "62%",
-        after: "90%",
-        impact: "Fewer missing documents"
+        label: "Completeness",
+        change: "+10–25 pts",
+        impact: "First-pass evidence"
       },
       {
-        label: "Approval delay",
-        before: "6",
-        after: "2 days",
-        impact: "Clearer routing and escalation"
+        label: "Audit prep",
+        change: "25–50% less",
+        impact: "Evidence-pack effort"
       }
     ],
 
@@ -100,32 +97,32 @@ export const supplyChainSupplierOperationsBrief = {
       {
         number: "01",
         title: "Pick the workflow",
-        description: "Visible friction, repeatable work, clear owners."
+        description: "Choose one repeatable exception with visible ageing."
       },
       {
         number: "02",
         title: "Measure the baseline",
-        description: "Cycle time, missing evidence, rework, approval delay."
+        description: "Track cycle time, touches, completeness, and approvals."
       },
       {
         number: "03",
         title: "Run a narrow pilot",
-        description: "One supplier type, one region, one approval path."
+        description: "Limit scope to one team, queue, or cohort."
       }
     ],
 
     goodFirstPilots: [
-      "Supplier onboarding",
-      "Compliance renewal",
-      "PO/invoice exceptions",
-      "Procurement response support"
+      "Supplier readiness",
+      "Service triage",
+      "Rejected deliveries",
+      "Invoice exceptions"
     ],
 
     cta: {
-      title: "Find the workflow worth testing first",
+      title: "Find your highest-chase workflow",
       body:
-        "Pick one supplier operations workflow where delays, missing documents, approval chasing, and audit risk are visible today.",
-      buttonLabel: "Plan a workflow scan",
+        "Start with one supplier, delivery, service, or invoice exception and prove governed execution before scaling.",
+      buttonLabel: "Plan a 90-day pilot",
       url: "https://orcaworks.com"
     }
   },

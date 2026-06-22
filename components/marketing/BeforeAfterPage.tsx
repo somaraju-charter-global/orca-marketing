@@ -5,6 +5,7 @@ import { PageShell } from "./PageShell";
 type BeforeAfterPageProps = BeforeAfterPageContent;
 
 export function BeforeAfterPage({
+  eyebrow,
   title,
   beforeTitle = "Before",
   afterTitle = "After",
@@ -15,11 +16,16 @@ export function BeforeAfterPage({
   return (
     <PageShell variant="light" pageNumber={pageNumber}>
       <div className="h-full flex flex-col p-12">
+        {eyebrow && (
+          <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
+            {eyebrow}
+          </div>
+        )}
         <h2 className="text-3xl font-bold mb-12 text-[var(--orca-ink)]">{title}</h2>
         
-        <div className="flex-1 flex gap-8">
+        <div className="flex-1 flex items-center gap-8">
           <div className="flex-1">
-            <div className="bg-red-50 border-2 border-red-200 p-6 rounded-lg h-full">
+            <div className="bg-red-50 border-2 border-red-200 p-6 rounded-lg">
               <div className="text-red-600 text-sm font-semibold tracking-widest uppercase mb-6">
                 {beforeTitle}
               </div>
@@ -53,7 +59,7 @@ export function BeforeAfterPage({
           </div>
           
           <div className="flex-1">
-            <div className="bg-green-50 border-2 border-green-200 p-6 rounded-lg h-full">
+            <div className="bg-green-50 border-2 border-green-200 p-6 rounded-lg">
               <div className="text-green-600 text-sm font-semibold tracking-widest uppercase mb-6">
                 {afterTitle}
               </div>
