@@ -15,17 +15,9 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
         variant="light"
       >
         <div className="h-full flex flex-col">
-          {/* Hero Section - Full-width masthead with logo/eyebrow */}
-          <div className="bg-[#030712] text-white px-14 pt-12 pb-32 mb-10 relative overflow-hidden">
-            {/* Subtle dot pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-4 right-8 w-2 h-2 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute top-12 right-16 w-1.5 h-1.5 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute top-20 right-24 w-1 h-1 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute bottom-8 right-12 w-2 h-2 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute bottom-16 right-20 w-1.5 h-1.5 bg-[#ff4b1f] rounded-full"></div>
-            </div>
-            <div className="flex items-start justify-between relative z-10 mb-6">
+          {/* Hero Section */}
+          <div className="bg-[#030712] text-white px-14 py-10 mb-10 relative overflow-hidden">
+            <div className="flex items-start justify-between mb-6">
               <span className="text-xs font-semibold tracking-wider text-gray-400 uppercase">
                 {props.eyebrow}
               </span>
@@ -37,12 +29,10 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                 className="h-6 w-auto opacity-80"
               />
             </div>
-            <div className="relative z-10">
-              <h1 className="text-4xl font-bold mb-4 leading-tight max-w-2xl">{props.headline}</h1>
-              <p className="text-base text-gray-300 leading-relaxed max-w-2xl">
-                {props.subheadline}
-              </p>
-            </div>
+            <h1 className="text-4xl font-bold mb-4 leading-tight max-w-2xl">{props.headline}</h1>
+            <p className="text-base text-gray-300 leading-relaxed max-w-2xl">
+              {props.subheadline}
+            </p>
           </div>
 
           <div className="flex-1 px-14 pb-14 flex flex-col">
@@ -89,17 +79,9 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
         variant="light"
       >
         <div className="h-full flex flex-col">
-          {/* Page 2 Header - Hero style matching Page 1 */}
-          <div className="bg-[#030712] text-white px-14 pt-12 pb-8 mb-10 relative">
-            {/* Subtle dot pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-4 right-8 w-2 h-2 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute top-12 right-16 w-1.5 h-1.5 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute top-20 right-24 w-1 h-1 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute bottom-8 right-12 w-2 h-2 bg-[#ff4b1f] rounded-full"></div>
-              <div className="absolute bottom-16 right-20 w-1.5 h-1.5 bg-[#ff4b1f] rounded-full"></div>
-            </div>
-            <div className="flex items-start justify-between relative z-10 mb-4">
+          {/* Page 2 Header */}
+          <div className="bg-[#030712] text-white px-14 py-10 mb-10">
+            <div className="flex items-start justify-between mb-6">
               <span className="text-xs font-semibold tracking-wider text-gray-400 uppercase">
                 {props.eyebrow}
               </span>
@@ -111,12 +93,10 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                 className="h-6 w-auto opacity-80"
               />
             </div>
-            <div className="relative z-10">
-              <h1 className="text-4xl font-bold mb-3 leading-tight max-w-2xl">{props.page2.title}</h1>
-              <p className="text-base text-gray-300 leading-relaxed max-w-2xl">
-                {props.page2.subtitle}
-              </p>
-            </div>
+            <h1 className="text-4xl font-bold mb-4 leading-tight max-w-2xl">{props.page2.title}</h1>
+            <p className="text-base text-gray-300 leading-relaxed max-w-2xl">
+              {props.page2.subtitle}
+            </p>
           </div>
 
           <div className="flex-1 px-14 pb-14 flex flex-col">
