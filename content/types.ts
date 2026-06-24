@@ -1,5 +1,6 @@
 export type RightHandContentType = 
-  | { type: "quote"; quote: string; source?: string }
+  | { type: "quote"; quote: string; source?: string; citation?: { text: string; url: string } }
+  | { type: "highlightText"; text: string; color?: "orange" | "blue" | "ink" }
   | { type: "detailedText"; text: string; color?: "orange" | "blue" | "ink" }
   | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" }
   | { type: "workflow"; steps: { number: string; title: string; description?: string }[] };
@@ -65,6 +66,7 @@ export type UseCasePageContent = {
   opportunity: string;
   bullets?: string[];
   rightContent?: RightHandContentType;
+  citation?: { text: string; url: string };
   pageNumber?: string | number;
 };
 
@@ -78,6 +80,7 @@ export type UseCaseDetailContent = {
   }[];
   sectionColor?: "orange" | "blue" | "ink";
   rightContent?: RightHandContentType;
+  citation?: { text: string; url: string };
   pageNumber?: string | number;
 };
 
@@ -87,6 +90,7 @@ export type QuotePageContent = {
   quote: string;
   source?: string;
   supportingText?: string;
+  citation?: { text: string; url: string };
   variant?: "dark" | "orange";
   pageNumber?: string | number;
 };

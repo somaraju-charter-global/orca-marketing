@@ -9,11 +9,12 @@ export function QuotePage({
   quote,
   source,
   supportingText,
+  citation,
   variant = "dark",
   pageNumber,
 }: QuotePageProps) {
   return (
-    <PageShell variant={variant} pageNumber={pageNumber} showFooter={false}>
+    <PageShell variant={variant} pageNumber={pageNumber} showFooter={true} citation={citation}>
       <div className="h-full flex">
         <div className="w-1/3 p-12 flex flex-col justify-center">
           {eyebrow && (

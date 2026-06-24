@@ -6,6 +6,7 @@ type PageShellProps = {
   pageNumber?: string | number;
   sectionLabel?: string;
   showFooter?: boolean;
+  citation?: { text: string; url: string };
 };
 
 export function PageShell({
@@ -14,6 +15,7 @@ export function PageShell({
   pageNumber,
   sectionLabel,
   showFooter = true,
+  citation,
 }: PageShellProps) {
   const variantStyles = {
     light: "bg-white text-[var(--orca-ink)]",
@@ -32,9 +34,21 @@ export function PageShell({
       {showFooter && (
         <div className="absolute bottom-0 left-0 right-0 px-8 py-4 flex justify-between items-center border-t border-white/10">
           <div className="text-xs opacity-50">Orcaworks</div>
-          {pageNumber && (
-            <div className="text-xs opacity-50">{pageNumber}</div>
-          )}
+          <div className="flex items-center gap-4">
+            {citation && (
+              <a 
+                href={citation.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-xs opacity-50 hover:opacity-80 underline"
+              >
+                {citation.text}
+              </a>
+            )}
+            {pageNumber && (
+              <div className="text-xs opacity-50">{pageNumber}</div>
+            )}
+          </div>
         </div>
       )}
     </div>

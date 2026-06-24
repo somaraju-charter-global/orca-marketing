@@ -13,10 +13,14 @@ export function UseCasePage({
   opportunity,
   bullets,
   rightContent,
+  citation,
   pageNumber,
 }: UseCasePageProps) {
+  // Extract citation from rightContent if it's a quote and no explicit citation provided
+  const footerCitation = citation || (rightContent?.type === "quote" ? rightContent.citation : undefined);
+  
   return (
-    <PageShell variant="light" pageNumber={pageNumber}>
+    <PageShell variant="light" pageNumber={pageNumber} citation={footerCitation}>
       <div className="h-full flex flex-col">
         {/* Full width title section */}
         <div className="p-12 pb-6">

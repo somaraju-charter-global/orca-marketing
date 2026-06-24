@@ -1,7 +1,8 @@
 import React from "react";
 
 export type RightHandContentType = 
-  | { type: "quote"; quote: string; source?: string }
+  | { type: "quote"; quote: string; source?: string; citation?: { text: string; url: string } }
+  | { type: "highlightText"; text: string; color?: "orange" | "blue" | "ink" }
   | { type: "detailedText"; text: string; color?: "orange" | "blue" | "ink" }
   | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" }
   | { type: "workflow"; steps: { number: string; title: string; description?: string }[] };
@@ -24,7 +25,7 @@ export function RightHandContent({ content }: RightHandContentProps) {
     );
   }
 
-  if (content.type === "detailedText") {
+  if (content.type === "highlightText") {
     const colorClass = content.color === "orange" 
       ? "text-[var(--orca-orange)]" 
       : content.color === "blue" 
@@ -36,6 +37,24 @@ export function RightHandContent({ content }: RightHandContentProps) {
         <p className={`text-3xl font-bold leading-relaxed ${colorClass}`}>
           {content.text}
         </p>
+      </div>
+    );
+  }
+
+  if (content.type === "detailedText") {
+    const bgColorClass = content.color === "orange" 
+      ? "bg-[var(--orca-orange)]" 
+      : content.color === "blue" 
+      ? "bg-[var(--orca-blue)]" 
+      : "bg-[var(--orca-dark-panel)]";
+
+    return (
+      <div className="h-full flex items-center justify-center p-12">
+        <div className={`${bgColorClass} text-white p-8 rounded-lg`}>
+          <p className="text-base leading-relaxed">
+            {content.text}
+          </p>
+        </div>
       </div>
     );
   }
