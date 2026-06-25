@@ -7,123 +7,182 @@ export const twoPagerTemplate = {
   vertical: "Your Vertical",
   audience: "Your target audience description here",
 
-  eyebrow: "ORCAWORKS FOR YOUR TEAM",
-  headline: "Build value in your operations with governed execution",
-  subheadline:
-    "Operations slow when documents, approvals, compliance checks, and system updates sit outside the core system leading to delay and risk.",
-  executivePov:
-    "Core systems are rarely the whole problem. The delays often sit around them: collecting evidence, checking completeness, routing approvals, resolving exceptions, and keeping records audit-ready.",
+  hero: {
+    eyebrow: "ORCAWORKS FOR YOUR TEAM",
+    headline: "Build value in your operations with governed execution",
+    subheadline:
+      "Operations slow when documents, approvals, compliance checks, and system updates sit outside the core system — leading to delay, risk, and manual effort.",
+  },
 
-  positioningStatement:
-    "Orcaworks helps teams govern that execution layer without replacing the core systems <give a list of example systems already in place>.",
+  page1: {
+    businessCostProofPoint: {
+      label: "The business cost",
+      metric: "$X per year",
+      statement:
+        "Execution work around core systems — missing evidence, unclear ownership, manual follow-up, and unclosed exceptions — drives measurable cost and risk in [vertical] operations.",
+      source: "Industry research / internal baseline",
+    },
 
-  strategicPillars: [
-    {
-      title: "Visibility into operational readiness",
-      description:
-        "See which records are complete, blocked, missing evidence, or waiting on approval.",
+    challenge: {
+      title: "The challenge",
+      body:
+        "Core systems are rarely the whole problem. The drag sits around the record: missing evidence, unclear ownership, manual follow-up, approval delays, exception closure, and system updates. These gaps accumulate into visible delays, audit exposure, and avoidable rework.",
     },
-    {
-      title: "Control over approvals and exceptions",
-      description:
-        "Move routine packets forward while routing incomplete, high-risk, or policy-exception cases to the right owner.",
-    },
-    {
-      title: "Traceability across documents and decisions",
-      description:
-        "Keep a record of what was collected, checked, approved, rejected, overridden, or sent for follow-up.",
-    },
-  ],
 
-  useCases: [
-    {
-      title: "Primary workflow one",
-      description:
-        "Collect documents, check completeness, route approvals, and prepare system-ready records.",
+    solutionVisual: {
+      title: "How Orcaworks governs the execution layer",
+      leftLabel: "Existing systems",
+      leftItems: [
+        "Core system records",
+        "Documents and evidence",
+        "Email and portals",
+        "Spreadsheets",
+        "Operational tools",
+      ],
+      middleLabel: "Orcaworks governed execution layer",
+      middleItems: [
+        "Connects context",
+        "Routes work",
+        "Governs decisions",
+        "Records evidence",
+        "Brings actions to users",
+      ],
+      rightLabel: "Outcomes",
+      rightItems: [
+        "Faster closure",
+        "Fewer manual touches",
+        "Cleaner evidence",
+        "Better control",
+      ],
     },
-    {
-      title: "Primary workflow two",
-      description:
-        "Track expiring items, request updated evidence, escalate exceptions, and maintain audit-ready records.",
-    },
-    {
-      title: "Exception handling workflow",
-      description:
-        "Compare documents, flag mismatches, route exceptions, and capture approval decisions.",
-    },
-    {
-      title: "Response support workflow",
-      description:
-        "Collect evidence, coordinate contributors, track approvals, and prepare complete response packs.",
-    },
-  ],
 
-  bottomInsight:
-    "The opportunity is not to replace core systems. It is to govern the execution layer around them.",
+    orcaworksValue: {
+      title: "Orcaworks value to your organisation",
+      items: [
+        {
+          title: "Works around existing systems — no replacement required",
+          description:
+            "Orcaworks governs the execution layer that sits around your ERP, WMS, CRM, or operational platforms.",
+        },
+        {
+          title: "Governed execution with full audit trail",
+          description:
+            "Every action is checked, routed, decided, recorded, and retrievable. Not loose automation — governed execution.",
+        },
+        {
+          title: "Capacity and headcount leverage",
+          description:
+            "Reduce manual coordination and exception chasing without adding headcount or growing the coordination layer.",
+        },
+        {
+          title: "Future-proof as systems, workflows, and teams change",
+          description:
+            "The execution layer adapts as core systems, workflows, teams, and AI models evolve.",
+        },
+      ],
+    },
+
+    bottomCallout: {
+      title: "The opportunity",
+      statement:
+        "Govern the execution layer around existing systems and show measurable movement in operational readiness, exception closure, and evidence control — without replacing core platforms.",
+    },
+  },
 
   page2: {
-    title: "How to start with governed execution",
+    title: "Where Orcaworks creates measurable value",
     subtitle:
-      "Begin with one workflow where documents, approvals, exceptions, and system updates are already creating visible delays.",
+      "Governed execution shows up in the workflows where delay, missing evidence, manual follow-up, and exception backlog are already visible.",
 
-    executiveBlurb:
-      "The first pilot should prove that one messy workflow can move faster, with fewer missing documents, clearer ownership, and a measurable audit trail.",
+    strategicBusinessPriorities: [
+      {
+        title: "Operational readiness",
+        description:
+          "Ensure records are complete, evidence is current, and approvals are in place before execution is blocked.",
+      },
+      {
+        title: "Exception throughput",
+        description:
+          "Move exceptions through the right decision path — checked, routed, decided, and closed — without manual chasing.",
+      },
+      {
+        title: "Audit and compliance confidence",
+        description:
+          "Keep a retrievable record of every check, decision, approval, and exception outcome across every workflow.",
+      },
+      {
+        title: "Capacity without headcount",
+        description:
+          "Handle more volume through governed execution without growing the coordination layer.",
+      },
+      {
+        title: "Control as systems and teams change",
+        description:
+          "Maintain consistent execution standards as systems, suppliers, workflows, and teams evolve.",
+      },
+    ],
+
+    priorityWorkflows: [
+      {
+        title: "Primary workflow one",
+        description:
+          "Collect documents, check completeness, route approvals, and prepare system-ready records.",
+      },
+      {
+        title: "Primary workflow two",
+        description:
+          "Track expiring items, request updated evidence, escalate exceptions, and maintain audit-ready records.",
+      },
+      {
+        title: "Exception handling workflow",
+        description:
+          "Compare documents, flag mismatches, route exceptions, and capture approval decisions.",
+      },
+      {
+        title: "Response support workflow",
+        description:
+          "Collect evidence, coordinate contributors, track approvals, and prepare complete response packs.",
+      },
+    ],
 
     valueMetrics: [
       {
-        label: "Cycle time",
-        change: "14 → 5 days",
-        impact: "Faster operational readiness"
+        metric: "Cycle time",
+        baseline: "Current average per record or exception",
+        movement: "20–40% reduction target",
+        impact: "Faster operational closure",
       },
       {
-        label: "Manual follow-up",
-        change: "12 → 4 touches",
-        impact: "Less chasing across teams"
+        metric: "Manual touches per case",
+        baseline: "Current coordination load",
+        movement: "25–50% reduction target",
+        impact: "Less chasing across teams",
       },
       {
-        label: "First-pass completeness",
-        change: "62% → 90%",
-        impact: "Fewer missing documents"
+        metric: "First-pass completeness",
+        baseline: "Current rate of complete records on first submission",
+        movement: "15–30 point improvement target",
+        impact: "Fewer missing documents on arrival",
       },
       {
-        label: "Approval delay",
-        change: "6 → 2 days",
-        impact: "Clearer routing and escalation"
-      }
-    ],
-
-    pilotSteps: [
-      {
-        number: "01",
-        title: "Pick the workflow",
-        description: "Visible friction, repeatable work, clear owners."
+        metric: "Aged exceptions",
+        baseline: "Current backlog of unresolved exceptions",
+        movement: "20–40% reduction target",
+        impact: "Fewer stalled decisions",
       },
       {
-        number: "02",
-        title: "Measure the baseline",
-        description: "Cycle time, missing evidence, rework, approval delay."
+        metric: "Approval delay",
+        baseline: "Current average time from submission to approval decision",
+        movement: "Directional improvement within first workflow",
+        impact: "Clearer routing and escalation",
       },
-      {
-        number: "03",
-        title: "Run a narrow pilot",
-        description: "One process type, one region, one approval path."
-      }
-    ],
-
-    goodFirstPilots: [
-      "Workflow one",
-      "Workflow two",
-      "Exception handling",
-      "Response support"
     ],
 
     cta: {
-      title: "Find the workflow worth testing first",
-      body:
-        "Pick one operational workflow where delays, missing documents, approval chasing, and audit risk are visible today.",
-      buttonLabel: "Plan a workflow scan",
-      url: "https://orcaworks.com"
-    }
+      statement:
+        "Start around existing systems with one visible execution workflow and show measurable movement in weeks, not transformation cycles.",
+      url: "https://orcaworks.com",
+    },
   },
 
   footer: {

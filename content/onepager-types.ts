@@ -5,55 +5,79 @@ export type TwoPageVerticalBrief = {
   vertical: string;
   audience: string;
 
-  eyebrow: string;
-  headline: string;
-  subheadline: string;
+  hero: {
+    eyebrow: string;
+    headline: string;
+    subheadline: string;
+  };
 
-  executivePov: string;
-  positioningStatement: string;
+  page1: {
+    businessCostProofPoint: {
+      label: string;
+      metric?: string;
+      statement: string;
+      source?: string;
+    };
 
-  strategicPillars: {
-    title: string;
-    description: string;
-  }[];
+    challenge: {
+      title: string;
+      body: string;
+    };
 
-  useCases: {
-    title: string;
-    description: string;
-  }[];
+    solutionVisual: {
+      title: string;
+      imagePath?: string;
+      leftLabel: string;
+      leftItems: string[];
+      middleLabel: string;
+      middleItems: string[];
+      rightLabel: string;
+      rightItems: string[];
+    };
 
-  bottomInsight: string;
+    orcaworksValue: {
+      title: string;
+      items: {
+        title: string;
+        description: string;
+      }[];
+    };
+
+    bottomCallout: {
+      title: string;
+      statement: string;
+    };
+  };
 
   page2: {
     title: string;
     subtitle: string;
-    executiveBlurb: string;
 
-    valueMetrics: {
-      label: string;
-      change: string;
-      impact: string;
-    }[];
-
-    pilotSteps: {
-      number: string;
+    strategicBusinessPriorities: {
       title: string;
       description: string;
     }[];
 
-    goodFirstPilots: string[];
+    priorityWorkflows: {
+      title: string;
+      description: string;
+    }[];
+
+    valueMetrics: {
+      metric: string;
+      baseline: string;
+      movement: string;
+      impact: string;
+    }[];
 
     cta: {
-      title: string;
-      body: string;
-      buttonLabel: string;
+      statement: string;
       url?: string;
     };
   };
 
-  footer?: {
-    website?: string;
-    version?: string;
+  footer: {
+    website: string;
   };
 };
 
