@@ -9,28 +9,28 @@ export const supplyChainSupplierOperationsBrief = {
 
   hero: {
     eyebrow: "Retail supply-chain execution",
-    headline: "Govern the supply-chain work your systems do not move",
+    headline: "Your systems hold the records. The work still stalls around them.",
     subheadline:
-      "Retail teams lose time when documents, approvals, exceptions, evidence, and system updates sit across email, portals, spreadsheets, and operational tools.",
+      "When supplier documents, receiving exceptions, and inventory decisions scatter across email, portals, and spreadsheets, your teams spend more time chasing context than closing work.",
   },
 
   page1: {
     businessCostProofPoint: {
       label: "The business cost",
       statement:
-        "Supply chain execution drag — missing supplier evidence, manual exception chasing, approval delays, and unresolved discrepancies — creates measurable cost, inventory exposure, and audit risk across retail operations.",
-      source: "Industry research",
+        "95% of retail executives expect global trade policies to push costs higher, while 71% report that financial discipline and stronger cost control now define competitive advantage.",
+      source: "Deloitte — 2026 Global Retail Industry Outlook",
     },
 
     challenge: {
       title: "The challenge",
       body:
-        "The issue is not usually the ERP, WMS, planning, supplier, or returns system. The drag sits around the record: missing evidence, unclear ownership, manual follow-up, approvals, and exception closure. These gaps accumulate into supplier delays, receiving backlogs, inventory exposure, and audit risk.",
+        "You already have the systems. What you don't have is clean execution around them. Supplier documents arrive incomplete. Receiving discrepancies sit unresolved. Inventory exceptions age out. The work doesn't fail because the ERP is broken — it stalls because nobody knows who owns the next action.",
     },
 
     solutionVisual: {
       title: "How Orcaworks governs the retail execution layer",
-      imagePath: "/images/orcaworks-stack.png?v=3",
+      imagePath: "/images/orcaworks-stack.png?v=5",
       leftLabel: "Existing retail systems",
       leftItems: [
         "ERP and order management",
@@ -41,18 +41,18 @@ export const supplyChainSupplierOperationsBrief = {
       ],
       middleLabel: "Orcaworks governed execution layer",
       middleItems: [
-        "Connects context",
-        "Routes work",
-        "Governs decisions",
-        "Records evidence",
-        "Brings actions to users",
+        "Builds workflow context",
+        "Routes to the right owner",
+        "Checks evidence completeness",
+        "Records every decision",
+        "Surfaces next actions",
       ],
       rightLabel: "Outcomes",
       rightItems: [
-        "Faster supplier readiness",
-        "Fewer receiving exceptions",
-        "Cleaner inventory decisions",
-        "Audit-ready evidence",
+        "Suppliers ready to trade faster",
+        "Exceptions close, not age",
+        "Decisions happen with full context",
+        "Evidence ready when you need it",
       ],
     },
 
@@ -60,24 +60,24 @@ export const supplyChainSupplierOperationsBrief = {
       title: "Orcaworks value to retail operations",
       items: [
         {
-          title: "Works around your retail stack — no system replacement",
+          title: "Fits around what you already run",
           description:
-            "Orcaworks governs the execution layer that sits around existing ERP, WMS, planning, and supplier systems.",
+            "Don't replace your ERP, WMS, or planning tools. Orcaworks governs the execution work that happens between them.",
         },
         {
-          title: "Governed execution with full audit trail",
+          title: "Every decision leaves a trail",
           description:
-            "Every supplier document, exception, approval, and disposition decision is checked, routed, recorded, and retrievable.",
+            "Supplier approvals, exception closures, and disposition calls are recorded with full context — not buried in email threads.",
         },
         {
-          title: "Supplier and DC capacity leverage without headcount",
+          title: "Do more with the team you have",
           description:
-            "Reduce manual coordination across supplier onboarding, receiving, and exception closure while maintaining control.",
+            "Handle supplier onboarding, receiving exceptions, and inventory decisions without adding headcount or losing control.",
         },
         {
-          title: "Control as suppliers, systems, and teams change",
+          title: "Built for change, not just today's setup",
           description:
-            "Maintain consistent execution standards as supplier bases, DC footprints, planning systems, and teams evolve.",
+            "Your supplier base will shift. Your DC footprint will expand. Your systems will change. Your execution layer shouldn't break when they do.",
         },
       ],
     },
@@ -85,30 +85,30 @@ export const supplyChainSupplierOperationsBrief = {
     bottomCallout: {
       title: "The opportunity",
       statement:
-        "Govern the execution layer around existing retail systems and show measurable movement in supplier readiness, exception closure, and evidence control — without replacing core platforms.",
+        "Pick one workflow where delay, missing evidence, and unclear ownership are already visible. Baseline it. Govern it. Prove whether work closes faster.",
     },
   },
 
   page2: {
     title: "Where Orcaworks creates value in retail supply chain",
     subtitle:
-      "Governed execution shows up in the workflows where supplier delays, receiving exceptions, inventory gaps, and evidence risk are already visible.",
+      "Start with the workflows where your teams already feel the drag. The ones where exceptions age, evidence goes missing, and nobody's sure who should act next.",
 
     strategicBusinessPriorities: [
       {
         title: "Supplier readiness and inbound exception closure",
         description:
-          "Govern supplier documents, evidence, and approvals before trading is blocked. Connect POs, receipts, invoices, and claims so exceptions close cleanly.",
+          "Get suppliers ready to trade before the first blocked order. Close receiving discrepancies with complete evidence, not email archaeology.",
       },
       {
         title: "Inventory exception resolution and replenishment control",
         description:
-          "Turn planning and stock signals into owner-assigned workflows with clear decisions. Route counts, checks, and allocation decisions through governed paths.",
+          "When the system says you have stock but the shelf is empty, someone needs to own the answer. Route the exception to the right person with the context they need.",
       },
       {
         title: "Traceability readiness and evidence control",
         description:
-          "Keep supplier, product, certificate, and batch evidence ready before regulatory pressure hits. Assemble complete packs in hours with every document retrievable.",
+          "Don't wait for a recall to find out your evidence is scattered. Keep supplier certificates, batch records, and product documentation ready before you need them.",
       },
     ],
 
@@ -116,55 +116,55 @@ export const supplyChainSupplierOperationsBrief = {
       {
         title: "Supplier onboarding",
         description:
-          "Check required documents, request missing evidence, route approvals, and record supplier-ready status.",
+          "Bank details, insurance, certificates, EDI setup — get everything checked and approved.",
       },
       {
         title: "Receiving discrepancies",
         description:
-          "Match PO, ASN, receipt, invoice, damage evidence, supplier terms, and closure decision.",
+          "Pull together the PO, photos, invoice, and supplier response to close it cleanly.",
       },
       {
         title: "Replenishment exceptions",
         description:
-          "Route store counts, DC checks, supplier updates, allocation decisions, and system updates.",
+          "Route stockouts and inventory mismatches to whoever can fix them with full context.",
       },
       {
         title: "Recall evidence packs",
         description:
-          "Assemble product, supplier, batch, certificate, incident, and communication evidence for timed dry-runs.",
+          "Assemble supplier documents, batch records, and certificates when you need them.",
       },
     ],
 
     valueMetrics: [
       {
         metric: "Cycle time",
-        baseline: "Current average per record",
-        movement: "20–40% reduction target",
-        impact: "Faster supplier and operational closure",
+        baseline: "Current average per workflow",
+        movement: "20–40% faster",
+        impact: "Work closes, doesn't sit",
       },
       {
-        metric: "Manual follow-up touches",
-        baseline: "Current coordination load per case",
-        movement: "25–50% reduction target",
-        impact: "Less chasing across supplier and DC teams",
+        metric: "Manual follow-up",
+        baseline: "Current touches per case",
+        movement: "25–50% fewer",
+        impact: "Less time chasing people",
       },
       {
         metric: "First-pass completeness",
         baseline: "Current complete-on-arrival rate",
-        movement: "15–30 point improvement target",
-        impact: "Fewer missing documents on arrival",
+        movement: "15–30 points better",
+        impact: "Evidence shows up right the first time",
       },
       {
         metric: "Aged exceptions",
-        baseline: "Current unresolved backlog",
-        movement: "20–40% reduction target",
-        impact: "Fewer stalled decisions in the DC",
+        baseline: "Current backlog beyond SLA",
+        movement: "20–40% reduction",
+        impact: "Fewer cases stuck in limbo",
       },
     ],
 
     cta: {
       statement:
-        "Automate your first workflow in 8 weeks — start with supplier onboarding, receiving exceptions, or inventory resolution.",
+        "Start with one workflow. Baseline how long it takes today. Then prove whether governed execution makes it faster.",
       url: "https://orcaworks.ai",
     },
   },

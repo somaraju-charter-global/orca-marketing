@@ -82,7 +82,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
             <div className="col-span-3 flex flex-col gap-6">
 
               {/* Solution visual */}
-              <div className="relative w-full" style={{ height: "320px" }}>
+              <div className="relative w-full overflow-hidden mt-4" style={{ height: "320px" }}>
                 <Image
                   src={props.page1.solutionVisual.imagePath || "/images/supply-chain-speed.jpg"}
                   alt="Solution visual"
@@ -163,7 +163,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
 
               <div>
                 <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-3">
-                  Priority workflows to target
+                  Initial workflows to target
                 </h2>
                 <div className="space-y-3">
                   {props.page2.priorityWorkflows.map((workflow, idx) => (
