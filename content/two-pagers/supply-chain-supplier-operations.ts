@@ -29,31 +29,7 @@ export const supplyChainSupplierOperationsBrief = {
     },
 
     solutionVisual: {
-      title: "How Orcaworks governs the retail execution layer",
       imagePath: "/images/orcaworks-stack.png?v=5",
-      leftLabel: "Existing retail systems",
-      leftItems: [
-        "ERP and order management",
-        "WMS and receiving",
-        "Supplier portals",
-        "Planning systems",
-        "Returns platforms",
-      ],
-      middleLabel: "Orcaworks governed execution layer",
-      middleItems: [
-        "Builds workflow context",
-        "Routes to the right owner",
-        "Checks evidence completeness",
-        "Records every decision",
-        "Surfaces next actions",
-      ],
-      rightLabel: "Outcomes",
-      rightItems: [
-        "Suppliers ready to trade faster",
-        "Exceptions close, not age",
-        "Decisions happen with full context",
-        "Evidence ready when you need it",
-      ],
     },
 
     orcaworksValue: {

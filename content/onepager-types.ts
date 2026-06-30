@@ -25,14 +25,7 @@ export type TwoPageVerticalBrief = {
     };
 
     solutionVisual: {
-      title: string;
       imagePath?: string;
-      leftLabel: string;
-      leftItems: string[];
-      middleLabel: string;
-      middleItems: string[];
-      rightLabel: string;
-      rightItems: string[];
     };
 
     orcaworksValue: {

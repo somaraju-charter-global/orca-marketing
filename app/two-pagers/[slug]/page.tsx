@@ -1,0 +1,57 @@
+import { notFound } from "next/navigation";
+import { getOnePagerBySlug } from "@/content/onepager-registry";
+import { OnePagerDocument } from "@/components/onepager/OnePagerDocument";
+import Link from "next/link";
+
+export default async function TwoPagerPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const twoPager = getOnePagerBySlug(slug);
+
+  if (!twoPager) {
+    notFound();
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-8 no-print">
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            {twoPager.vertical}
+          </h1>
+          <p className="text-gray-600 mb-4">
+            Layout: Two-Page Executive Brief
+          </p>
+          <Link
+            href={`/two-pagers/${slug}/print`}
+            target="_blank"
+            className="inline-block bg-orange-500 text-white px-4 py-2 rounded font-semibold hover:bg-orange-600 transition-colors"
+          >
+            Open Print View
+          </Link>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 py-8 no-print">
+          <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8">
+            <h2 className="text-lg font-semibold text-orange-900 mb-2">
+              Two-Pager Preview Instructions
+            </h2>
+            <ul className="text-sm text-orange-800 space-y-1">
+              <li>• Review each page visually in the preview below</li>
+              <li>• Click &ldquo;Open Print View&rdquo; to see the print-optimized version</li>
+              <li>• Use the print view to generate PDFs via browser print or Playwright</li>
+              <li>• Edit content in <code className="bg-orange-100 px-1 rounded">content/two-pagers/{slug}.ts</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="onepager-document">
+          <OnePagerDocument onePager={twoPager} />
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,6 +1,6 @@
 # Orcaworks Marketing PDF Generator
 
-A production-ready Next.js application for creating sophisticated Orcaworks marketing PDFs. This system is designed for marketing teams to create high-quality gated guides, one-pagers, use-case ebooks, sales inserts, and proposal collateral.
+A production-ready Next.js application for creating sophisticated Orcaworks marketing PDFs. This system is designed for marketing teams to create high-quality gated guides, two-pagers, use-case ebooks, sales inserts, and proposal collateral.
 
 ## Technology Stack
 
@@ -36,11 +36,37 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-### Preview a Guide
+### Preview Documents
 
-Navigate to:
+**Homepage**: Navigate to `http://localhost:3000/` to see all available two-pagers and guides with links in a table of contents.
+
+Navigate directly to:
 - `http://localhost:3000/marketing/ninety-day-guide` - 90-Day Implementation Guide
 - `http://localhost:3000/marketing/supply-chain-use-cases` - Supply Chain Use Cases
+- `http://localhost:3000/two-pagers/[slug]` - Two-pager documents
+
+## Adding a New Two-Pager
+
+**Note on naming**: Two-pagers are two-page vertical briefs. You may see references to "one-pager" in type names (e.g., `TwoPageVerticalBrief`, `onepager-types.ts`). This is historical naming from when the document was a single-page format.
+
+1. Create a new file in `content/two-pagers/` (e.g., `my-two-pager.ts`)
+2. Import the `TwoPageVerticalBrief` type from `../onepager-types`
+3. Export your two-pager object with the required structure
+4. Files are auto-discovered from the directory (no manual registration needed)
+
+Example:
+
+```typescript
+import type { TwoPageVerticalBrief } from "../onepager-types";
+
+export const myTwoPager: TwoPageVerticalBrief = {
+  layout: "two-page-vertical-brief",
+  slug: "my-two-pager",
+  // ... rest of the structure
+};
+```
+
+Preview at: `http://localhost:3000/two-pagers/[slug]`
 
 ## Adding a New Guide
 
@@ -126,7 +152,11 @@ This generates `./exports/ninety-day-guide.pdf` from the local server.
 Generate a PDF from any URL:
 
 ```bash
+# For guides
 npm run pdf -- --url https://your-vercel-url.com/marketing/ninety-day-guide/print --out ./exports/my-guide.pdf
+
+# For two-pagers
+npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out ./exports/my-two-pager.pdf
 ```
 
 ### GitHub Action PDF Generation
@@ -160,7 +190,13 @@ orcaworks-marketing-pdf/
   app/
     globals.css          # Brand tokens and print CSS
     layout.tsx           # Root layout
+    page.tsx             # Homepage with table of contents
     marketing/
+      [slug]/
+        page.tsx         # Preview route
+        print/
+          page.tsx       # Print route (for PDF generation)
+    two-pagers/
       [slug]/
         page.tsx         # Preview route
         print/
@@ -182,13 +218,22 @@ orcaworks-marketing-pdf/
       ClosingCtaPage.tsx     # Closing CTA page
       Footer.tsx             # Footer component
       BrandMotif.tsx         # Brand motif component
+    onepager/
+      OnePagerDocument.tsx  # Two-pager renderer
+      OnePagerShell.tsx      # Two-pager wrapper
+      TwoPageVerticalBrief.tsx # Two-pager layout component
 
   content/
     guides/
       ninety-day-guide.ts           # Sample guide 1
       supply-chain-use-cases.ts     # Sample guide 2
+    two-pagers/
+      two-pager-template.ts         # Two-pager template
+      supply-chain-supplier-operations.ts # Sample two-pager
     registry.ts                     # Guide registry
-    types.ts                        # TypeScript types
+    onepager-registry.ts            # Two-pager registry
+    types.ts                        # Guide TypeScript types
+    onepager-types.ts               # Two-pager TypeScript types
 
   public/
     logos/

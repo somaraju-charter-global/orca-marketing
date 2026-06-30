@@ -30,30 +30,7 @@ export const twoPagerTemplate = {
     },
 
     solutionVisual: {
-      title: "How Orcaworks governs the execution layer",
-      leftLabel: "Existing systems",
-      leftItems: [
-        "Core system records",
-        "Documents and evidence",
-        "Email and portals",
-        "Spreadsheets",
-        "Operational tools",
-      ],
-      middleLabel: "Orcaworks governed execution layer",
-      middleItems: [
-        "Connects context",
-        "Routes work",
-        "Governs decisions",
-        "Records evidence",
-        "Brings actions to users",
-      ],
-      rightLabel: "Outcomes",
-      rightItems: [
-        "Faster closure",
-        "Fewer manual touches",
-        "Cleaner evidence",
-        "Better control",
-      ],
+      imagePath: "/images/supply-chain-speed.jpg",
     },
 
     orcaworksValue: {
