@@ -46,7 +46,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                     {props.page1.businessCostProofPoint.metric}
                   </div>
                 )}
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-xs text-gray-700 leading-relaxed">
                   {props.page1.businessCostProofPoint.statement}
                 </p>
                 {props.page1.businessCostProofPoint.source && (
@@ -61,7 +61,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                 <h3 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-3">
                   {props.page1.challenge.title}
                 </h3>
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-xs text-gray-700 leading-relaxed">
                   {props.page1.challenge.body}
                 </p>
               </div>
@@ -71,7 +71,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                 <h3 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-3">
                   {props.page1.bottomCallout.title}
                 </h3>
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-xs text-gray-700 leading-relaxed">
                   {props.page1.bottomCallout.statement}
                 </p>
               </div>
@@ -96,7 +96,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                 <h3 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-3">
                   {props.page1.orcaworksValue.title}
                 </h3>
-                <div className="grid grid-cols-2 gap-x-5 gap-y-3">
+                <div className="grid grid-cols-2 gap-x-5 gap-y-5">
                   {props.page1.orcaworksValue.items.map((item, idx) => (
                     <div key={idx} className="flex gap-2">
                       <div className="w-0.5 shrink-0 bg-[#ff4b1f] rounded" />
@@ -139,16 +139,16 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
             </p>
           </div>
 
-          <div className="flex-1 px-14 py-6 flex flex-col gap-6">
+          <div className="flex-1 px-16 py-8 flex flex-col gap-8">
 
             {/* Two-column: strategic priorities + priority workflows */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-10">
 
               <div>
-                <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-3">
+                <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">
                   Strategic business priorities
                 </h2>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {props.page2.strategicBusinessPriorities.map((priority, idx) => (
                     <div key={idx} className="flex gap-2.5">
                       <div className="w-0.5 shrink-0 bg-[#ff4b1f] rounded" />
@@ -162,10 +162,10 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
               </div>
 
               <div>
-                <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-3">
+                <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">
                   Initial workflows to target
                 </h2>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {props.page2.priorityWorkflows.map((workflow, idx) => (
                     <div key={idx} className="flex gap-2.5 items-start">
                       <span className="text-base font-bold text-[#ff4b1f] leading-none shrink-0 w-6">
@@ -191,8 +191,8 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                 <thead>
                   <tr className="bg-[#030712] text-white">
                     <th className="text-left font-semibold py-2.5 px-4 w-[20%]">Metric</th>
-                    <th className="text-left font-semibold py-2.5 px-4 w-[30%]">Baseline to measure</th>
-                    <th className="text-left font-semibold py-2.5 px-4 w-[25%]">Movement</th>
+                    <th className="text-left font-semibold py-2.5 px-4 w-[30%]">Current baseline</th>
+                    <th className="text-left font-semibold py-2.5 px-4 w-[25%]">Target</th>
                     <th className="text-left font-semibold py-2.5 px-4 w-[25%]">Executive impact</th>
                   </tr>
                 </thead>
