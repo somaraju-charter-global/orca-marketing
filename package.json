@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "pdf": "tsx scripts/generate-pdf.ts",
-    "pdf:local": "tsx scripts/generate-pdf.ts --url http://localhost:3000/marketing/ninety-day-guide/print --out ./exports/ninety-day-guide.pdf",
-    "pdf:onepager:local": "tsx scripts/generate-pdf.ts --url http://localhost:3000/onepagers/supply-chain-supplier-onboarding/print --out ./exports/supply-chain-supplier-onboarding.pdf --format onepager"
+    "pdf:local": "tsx scripts/generate-pdf.ts --url http://localhost:3000/marketing/supply-chain-guide/print --out ./exports/supply-chain-guide.pdf",
+    "pdf:guide": "tsx scripts/generate-pdf.ts",
+    "pdf:two-pager": "tsx scripts/generate-pdf.ts --format onepager"
   },
   "dependencies": {
     "next": "16.2.9",

@@ -142,10 +142,24 @@ See `content/types.ts` for the complete type definitions for each page type.
 Generate a PDF from your local development server:
 
 ```bash
+# Generate a specific guide (default: supply-chain-guide)
 npm run pdf:local
+
+# Generate any guide from local
+npm run pdf:guide -- --url http://localhost:3000/marketing/[slug]/print --out ./exports/[filename].pdf
+
+# Generate any two-pager from local
+npm run pdf:two-pager -- --url http://localhost:3000/two-pagers/[slug]/print --out ./exports/[filename].pdf
 ```
 
-This generates `./exports/ninety-day-guide.pdf` from the local server.
+**Available guides:**
+- `supply-chain-guide` - Supply Chain Deepdive Guide
+- `template-guide` - Template guide
+
+**Available two-pagers:**
+- `supply-chain-supplier-operations` - Supply Chain Supplier Operations
+- `commercial-cleaning-facility-services-execution` - Commercial Cleaning Facility Services
+- `two-pager-template` - Template two-pager
 
 ### Custom PDF Generation
 
@@ -153,10 +167,10 @@ Generate a PDF from any URL:
 
 ```bash
 # For guides
-npm run pdf -- --url https://your-vercel-url.com/marketing/ninety-day-guide/print --out ./exports/my-guide.pdf
+npm run pdf -- --url https://your-vercel-url.com/marketing/[slug]/print --out ./exports/my-guide.pdf
 
 # For two-pagers
-npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out ./exports/my-two-pager.pdf
+npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out ./exports/my-two-pager.pdf --format onepager
 ```
 
 ### GitHub Action PDF Generation
