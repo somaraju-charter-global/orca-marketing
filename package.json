@@ -10,7 +10,9 @@
     "pdf": "tsx scripts/generate-pdf.ts",
     "pdf:local": "tsx scripts/generate-pdf.ts --url http://localhost:3000/marketing/supply-chain-guide/print --out ./exports/supply-chain-guide.pdf",
     "pdf:guide": "tsx scripts/generate-pdf.ts",
-    "pdf:two-pager": "tsx scripts/generate-pdf.ts --format onepager"
+    "pdf:two-pager": "tsx scripts/generate-pdf.ts --format onepager",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -19,14 +21,19 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4.3.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "jsdom": "^29.1.1",
     "playwright": "^1.48.0",
     "tailwindcss": "^4",
     "tsx": "^4.19.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.0.0"
   }
 }

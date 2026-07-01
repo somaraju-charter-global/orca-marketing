@@ -28,6 +28,16 @@ This is **not** a typical responsive website. It's a fixed-size PDF/page-renderi
 npm install
 ```
 
+### Initial Setup
+
+This repository contains the PDF generation system but not the actual marketing content. To add your own content:
+
+1. Copy `content/registry.example.ts` to `content/registry.ts`
+2. Copy `content/onepager-registry.example.ts` to `content/onepager-registry.ts`
+3. Copy `content/guides/template.ts` to create your guides
+4. Copy `content/two-pagers/two-pager-template.ts` to create your two-pagers
+5. Register your content in the registry files
+
 ### Development
 
 ```bash
@@ -41,18 +51,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 **Homepage**: Navigate to `http://localhost:3000/` to see all available two-pagers and guides with links in a table of contents.
 
 Navigate directly to:
-- `http://localhost:3000/marketing/ninety-day-guide` - 90-Day Implementation Guide
-- `http://localhost:3000/marketing/supply-chain-use-cases` - Supply Chain Use Cases
-- `http://localhost:3000/two-pagers/[slug]` - Two-pager documents
+- `http://localhost:3000/marketing/[slug]` - Guides (after adding content)
+- `http://localhost:3000/two-pagers/[slug]` - Two-pager documents (after adding content)
 
 ## Adding a New Two-Pager
 
 **Note on naming**: Two-pagers are two-page vertical briefs. You may see references to "one-pager" in type names (e.g., `TwoPageVerticalBrief`, `onepager-types.ts`). This is historical naming from when the document was a single-page format.
 
-1. Create a new file in `content/two-pagers/` (e.g., `my-two-pager.ts`)
+1. Copy `content/two-pagers/two-pager-template.ts` to create your new file (e.g., `my-two-pager.ts`)
 2. Import the `TwoPageVerticalBrief` type from `../onepager-types`
 3. Export your two-pager object with the required structure
-4. Files are auto-discovered from the directory (no manual registration needed)
+4. Register it in `content/onepager-registry.ts`
 
 Example:
 
@@ -66,14 +75,25 @@ export const myTwoPager: TwoPageVerticalBrief = {
 };
 ```
 
+Then update `content/onepager-registry.ts`:
+
+```typescript
+import { myTwoPager } from "./two-pagers/my-two-pager";
+
+export const onePagers = {
+  [myTwoPager.slug]: myTwoPager,
+  // ... other two-pagers
+};
+```
+
 Preview at: `http://localhost:3000/two-pagers/[slug]`
 
 ## Adding a New Guide
 
-1. Create a new file in `content/guides/` (e.g., `my-new-guide.ts`)
+1. Copy `content/guides/template.ts` to create your new file (e.g., `my-new-guide.ts`)
 2. Import the `MarketingGuide` type from `../types`
 3. Export your guide object with the required structure
-4. Add it to `content/registry.ts`
+4. Register it in `content/registry.ts`
 
 Example:
 
@@ -152,14 +172,11 @@ npm run pdf:guide -- --url http://localhost:3000/marketing/[slug]/print --out ./
 npm run pdf:two-pager -- --url http://localhost:3000/two-pagers/[slug]/print --out ./exports/[filename].pdf
 ```
 
-**Available guides:**
-- `supply-chain-guide` - Supply Chain Deepdive Guide
-- `template-guide` - Template guide
+**Available templates:**
+- `template.ts` - Guide template (in `content/guides/`)
+- `two-pager-template.ts` - Two-pager template (in `content/two-pagers/`)
 
-**Available two-pagers:**
-- `supply-chain-supplier-operations` - Supply Chain Supplier Operations
-- `commercial-cleaning-facility-services-execution` - Commercial Cleaning Facility Services
-- `two-pager-template` - Template two-pager
+Add your own content by copying these templates and registering them in the registry files.
 
 ### Custom PDF Generation
 
@@ -239,13 +256,15 @@ orcaworks-marketing-pdf/
 
   content/
     guides/
-      ninety-day-guide.ts           # Sample guide 1
-      supply-chain-use-cases.ts     # Sample guide 2
+      template.ts                   # Guide template (kept in git)
+      # Your guides go here (gitignored)
     two-pagers/
-      two-pager-template.ts         # Two-pager template
-      supply-chain-supplier-operations.ts # Sample two-pager
-    registry.ts                     # Guide registry
-    onepager-registry.ts            # Two-pager registry
+      two-pager-template.ts         # Two-pager template (kept in git)
+      # Your two-pagers go here (gitignored)
+    registry.example.ts             # Guide registry template
+    onepager-registry.example.ts   # Two-pager registry template
+    registry.ts                     # Your guide registry (gitignored)
+    onepager-registry.ts            # Your two-pager registry (gitignored)
     types.ts                        # Guide TypeScript types
     onepager-types.ts               # Two-pager TypeScript types
 
@@ -265,6 +284,34 @@ orcaworks-marketing-pdf/
     workflows/
       generate-pdf.yml              # GitHub Action for PDF generation
 ```
+
+## Testing
+
+The project includes unit tests for the registry system and React components using Vitest and React Testing Library.
+
+### Running Tests
+
+```bash
+# Run tests once
+npm run test:run
+
+# Run tests in watch mode
+npm run test
+```
+
+### Test Structure
+
+- `content/__tests__/` - Tests for registry systems
+- `components/marketing/__tests__/` - Tests for marketing page components
+- `components/onepager/__tests__/` - Tests for two-pager components
+
+### Adding Tests
+
+When adding new components or content types, add corresponding tests to ensure:
+- Components render correctly with required props
+- Optional props are handled gracefully
+- Registry entries have valid structure
+- Slugs are unique
 
 ## Common Troubleshooting
 
@@ -287,6 +334,15 @@ orcaworks-marketing-pdf/
 - Run `npm install` to ensure all dependencies are installed
 - Check TypeScript errors in your content files
 - Verify all imports in `content/registry.ts` are correct
+
+## Security
+
+The project currently has 7 vulnerabilities in development dependencies (esbuild via vite, postcss via next). These are in the build toolchain and do not affect production runtime. Addressing these requires major version updates to Next.js and Vitest which would be breaking changes. These can be addressed when planning major version updates.
+
+To check vulnerabilities:
+```bash
+npm audit
+```
 
 ## License
 

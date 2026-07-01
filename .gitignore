@@ -43,3 +43,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# content (private marketing materials)
+/content/guides/*
+!/content/guides/template.ts
+/content/two-pagers/*
+!/content/two-pagers/two-pager-template.ts
+/content/registry.ts
+/content/onepager-registry.ts
+
