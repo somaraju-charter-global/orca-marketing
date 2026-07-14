@@ -1,4 +1,5 @@
 import React from "react";
+import { Footer } from "../marketing/Footer";
 
 type OnePagerShellProps = {
   children: React.ReactNode;
@@ -35,14 +36,7 @@ export function OnePagerShell({
       <div className={`h-full ${eyebrow ? "pt-12" : ""} ${variant === "dark" ? "bg-[--orca-dark]" : "bg-white"}`}>
         {children}
       </div>
-      {footer && (
-        <div className="absolute bottom-0 left-0 right-0 px-14 py-3 border-t border-gray-200 flex justify-between items-center">
-          <span className="text-xs text-gray-500">© {new Date().getFullYear()} Orcaworks</span>
-          <div className="flex gap-4 text-xs text-gray-500">
-            {footer.website && <span>{footer.website}</span>}
-          </div>
-        </div>
-      )}
+        {footer && <Footer showLogo={false} />}
     </div>
   );
 }

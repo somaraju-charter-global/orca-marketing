@@ -1,8 +1,9 @@
 import React from "react";
+import { Footer } from "./Footer";
 
 type PageShellProps = {
   children: React.ReactNode;
-  variant?: "light" | "dark" | "orange";
+  variant?: "light" | "dark" | "orange" | "blue" | "black" | "green" | "healthcareMist";
   pageNumber?: string | number;
   sectionLabel?: string;
   showFooter?: boolean;
@@ -21,6 +22,10 @@ export function PageShell({
     light: "bg-white text-[var(--orca-ink)]",
     dark: "bg-[var(--orca-dark)] text-white",
     orange: "bg-[var(--orca-orange)] text-white",
+    blue: "bg-[var(--orca-blue)] text-white",
+    black: "bg-[var(--orca-black)] text-white",
+    green: "bg-[var(--orca-green)] text-white",
+    healthcareMist: "bg-[var(--orca-healthcare-mist)] text-[var(--orca-ink)]",
   };
 
   return (
@@ -31,25 +36,8 @@ export function PageShell({
         </div>
       )}
       {children}
-      {showFooter && (
-        <div className="absolute bottom-0 left-0 right-0 px-8 py-4 flex justify-between items-center border-t border-white/10">
-          <div className="text-xs opacity-50">Orcaworks</div>
-          <div className="flex items-center gap-4">
-            {citation && (
-              <a 
-                href={citation.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-xs opacity-50 hover:opacity-80 underline"
-              >
-                {citation.text}
-              </a>
-            )}
-            {pageNumber && (
-              <div className="text-xs opacity-50">{pageNumber}</div>
-            )}
-          </div>
-        </div>
+     {showFooter && (
+        <Footer pageNumber={pageNumber} citation={citation} showContact={false} />
       )}
     </div>
   );

@@ -1,10 +1,12 @@
 import React from "react";
 import { RoiPageContent } from "@/content/types";
 import { PageShell } from "./PageShell";
+import { Editable } from "@/components/content-editor/Editable";
 
-type RoiPageProps = RoiPageContent;
+type RoiPageProps = RoiPageContent & { pageIndex?: number };
 
 export function RoiPage({
+  pageIndex = 0,
   eyebrow,
   title,
   intro,
@@ -16,13 +18,15 @@ export function RoiPage({
       <div className="h-full flex flex-col p-12">
         {eyebrow && (
           <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
-            {eyebrow}
+            <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
           </div>
         )}
-        <h2 className="text-4xl font-bold mb-4 text-[var(--orca-ink)]">{title}</h2>
+        <h2 className="text-4xl font-bold mb-4 text-[var(--orca-ink)]">
+          <Editable path={["pages", pageIndex, "title"]} value={title} />
+        </h2>
         {intro && (
           <p className="text-[var(--orca-muted)] text-base mb-8 max-w-2xl">
-            {intro}
+            <Editable path={["pages", pageIndex, "intro"]} value={intro} multiline />
           </p>
         )}
         
@@ -44,16 +48,16 @@ export function RoiPage({
                     className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
                   >
                     <td className="p-4 text-sm font-medium text-[var(--orca-ink)]">
-                      {metric.label}
+                      <Editable path={["pages", pageIndex, "metrics", index, "label"]} value={metric.label} />
                     </td>
                     <td className="p-4 text-sm text-[var(--orca-muted)]">
-                      {metric.baseline}
+                      <Editable path={["pages", pageIndex, "metrics", index, "baseline"]} value={metric.baseline} />
                     </td>
-                    <td className="p-4 text-sm text-[var(--orca-blue)] font-semibold">
-                      {metric.target}
+                    <td className="p-4 text-sm text-[var(--orca-teal-dark)] font-semibold">
+                      <Editable path={["pages", pageIndex, "metrics", index, "target"]} value={metric.target} />
                     </td>
                     <td className="p-4 text-sm text-[var(--orca-orange)] font-semibold">
-                      {metric.impact}
+                      <Editable path={["pages", pageIndex, "metrics", index, "impact"]} value={metric.impact} />
                     </td>
                   </tr>
                 ))}

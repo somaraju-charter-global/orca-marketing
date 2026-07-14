@@ -2,10 +2,12 @@ import React from "react";
 import { UseCasePageContent } from "@/content/types";
 import { PageShell } from "./PageShell";
 import { RightHandContent } from "./RightHandContent";
+import { Editable } from "@/components/content-editor/Editable";
 
-type UseCasePageProps = UseCasePageContent;
+type UseCasePageProps = UseCasePageContent & { pageIndex?: number };
 
 export function UseCasePage({
+  pageIndex = 0,
   eyebrow,
   number,
   title,
@@ -26,30 +28,32 @@ export function UseCasePage({
         <div className="p-12 pb-6">
           {eyebrow && (
             <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
-              {eyebrow}
+              <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
             </div>
           )}
-          <h2 className="text-4xl font-bold text-[var(--orca-ink)]">{title}</h2>
+          <h2 className="text-4xl font-bold text-[var(--orca-ink)]">
+            <Editable path={["pages", pageIndex, "title"]} value={title} />
+          </h2>
         </div>
 
         {/* Two column section */}
         <div className="flex-1 flex">
-          <div className="w-3/5 p-12 pt-6 flex flex-col justify-center">
+          <div className="w-3/5 p-12 pt-6 flex flex-col justify-start">
             <div className="mb-8">
               <div className="text-xs font-semibold tracking-widest uppercase text-[var(--orca-muted)] mb-2">
                 The Problem
               </div>
               <p className="text-[var(--orca-ink)] text-base leading-relaxed">
-                {problem}
+                <Editable path={["pages", pageIndex, "problem"]} value={problem} multiline />
               </p>
             </div>
             
             <div className="mb-8">
-              <div className="text-xs font-semibold tracking-widest uppercase text-[var(--orca-blue)] mb-2">
+              <div className="text-xs font-semibold tracking-widest uppercase text-[var(--orca-teal-dark)] mb-2">
                 The Opportunity
               </div>
-              <p className="text-[var(--orca-blue)] text-xl font-semibold leading-relaxed">
-                {opportunity}
+              <p className="text-[var(--orca-teal-dark)] text-xl font-semibold leading-relaxed">
+                <Editable path={["pages", pageIndex, "opportunity"]} value={opportunity} multiline />
               </p>
             </div>
             
@@ -58,7 +62,13 @@ export function UseCasePage({
                 {bullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 text-[var(--orca-ink)] text-sm">
                     <div className="w-1.5 h-1.5 rounded-full bg-[var(--orca-orange)] mt-2 flex-shrink-0" />
-                    <span>{bullet}</span>
+                    <span>
+                      <Editable
+                        path={["pages", pageIndex, "bullets", index]}
+                        value={bullet}
+                        multiline
+                      />
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -66,7 +76,7 @@ export function UseCasePage({
           </div>
           
           <div className="w-2/5 flex flex-col">
-            {rightContent && <RightHandContent content={rightContent} />}
+            {rightContent && <RightHandContent content={rightContent} pageIndex={pageIndex} />}
           </div>
         </div>
       </div>

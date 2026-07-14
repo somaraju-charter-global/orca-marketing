@@ -1,10 +1,12 @@
 import React from "react";
 import { TitlePageContent } from "@/content/types";
 import { BrandMotif } from "./BrandMotif";
+import { Editable } from "@/components/content-editor/Editable";
 
-type TitlePageProps = TitlePageContent;
+type TitlePageProps = TitlePageContent & { pageIndex?: number };
 
 export function TitlePage({
+  pageIndex = 0,
   title,
   subtitle,
   kicker,
@@ -35,15 +37,15 @@ export function TitlePage({
         <div className="max-w-3xl">
           {kicker && (
             <div className="text-[var(--orca-orange)] text-sm font-semibold tracking-widest uppercase mb-6">
-              {kicker}
+              <Editable path={["pages", pageIndex, "kicker"]} value={kicker} />
             </div>
           )}
           <h1 className="text-6xl font-bold leading-tight mb-6">
-            {title}
+            <Editable path={["pages", pageIndex, "title"]} value={title} />
           </h1>
           {subtitle && (
             <p className="text-2xl text-white/80 font-light">
-              {subtitle}
+              <Editable path={["pages", pageIndex, "subtitle"]} value={subtitle} multiline />
             </p>
           )}
         </div>

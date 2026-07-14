@@ -20,7 +20,7 @@ export function BrandMotif({ variant = "orange", size = "md", className = "" }: 
 
   return (
     <div
-      className={`absolute ${sizeStyles[size]} ${colorStyles[variant]} opacity-10 rounded-full blur-3xl ${className}`}
+      className={`absolute ${sizeStyles[size]} ${colorStyles[variant]} rounded-full ${className}`}
     />
   );
 }

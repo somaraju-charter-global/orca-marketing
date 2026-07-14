@@ -1,6 +1,18 @@
+// Colors usable as a two-pager theme. Most of these are used directly as
+// the foreground accent (border stripes, numbers, links, table highlight).
+// "healthcareMist" is the exception: the pale mist color (#edf8f9) is only
+// used as a callout *background* here — its foreground role is played by
+// a paired darker teal (--orca-healthcare-mist-ink) so text/borders stay
+// readable. See TwoPageVerticalBrief.tsx for how the two are split.
+export type TwoPagerAccentTheme = "orange" | "blue" | "black" | "green" | "healthcareMist";
+
 export type TwoPageVerticalBrief = {
   layout: "two-page-vertical-brief";
   slug: string;
+
+  // Set once to recolor every accent stripe, number, link, and table
+  // highlight in this brief. Defaults to "orange" (the original look).
+  accentTheme?: TwoPagerAccentTheme;
 
   vertical: string;
   audience: string;

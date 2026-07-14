@@ -8,12 +8,33 @@
 
   --orca-dark: #030712;
   --orca-dark-panel: #07111f;
+  /* Theme-aware foreground for quote text on dark/blue/black/green/healthcareMist
+     surfaces. Kept white as the default so existing dark pages are unaffected;
+     override per-theme below if a variant needs a different quote color. */
+  --orca-dark-fg: #ffffff;
 
   --orca-orange: #ff4b1f;
-  --orca-orange-soft: #fff0ea;
+  --orca-orange-soft: #ecf8f9;
+
+  /* New default background for the detailedText block (replaces the old
+     dark panel default). Kept as its own token, separate from
+     healthcareMist, so changing one doesn't accidentally change the other. */
+  --orca-panel-light: #eef7f7;
+  --orca-panel-light-ink: #0f172a;
 
   --orca-blue: #2563eb;
   --orca-blue-dark: #07145c;
+
+  --orca-healthcare-mist: #edf8f9;
+  /* Paired foreground color for healthcareMist — the mist itself is too
+     pale to use for borders/text/links, so foreground elements use this
+     darker teal from the same hue family instead. */
+  --orca-healthcare-mist-ink: #ff4b1f;
+  /* Deep teal used for dark surfaces (hero banners, table headers) when
+     the healthcareMist theme is active, instead of the default navy. */
+  --orca-healthcare-mist-dark: #326367;
+  --orca-black: #000000;
+  --orca-green: #16a34a;
 
   --page-width: 1024px;
   --page-height: 768px;
