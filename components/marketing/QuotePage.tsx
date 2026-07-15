@@ -1,10 +1,12 @@
 import React from "react";
 import { QuotePageContent } from "@/content/types";
 import { PageShell } from "./PageShell";
+import { Editable } from "@/components/content-editor/Editable";
 
-type QuotePageProps = QuotePageContent;
+type QuotePageProps = QuotePageContent & { pageIndex?: number };
 
 export function QuotePage({
+  pageIndex = 0,
   eyebrow,
   quote,
   source,
@@ -18,24 +20,32 @@ export function QuotePage({
       <div className="h-full flex">
         <div className="w-1/3 p-12 flex flex-col justify-center">
           {eyebrow && (
-            <div className="text-white/90 text-xs font-semibold tracking-widest uppercase mb-4">
-              {eyebrow}
+            <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
+              <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
             </div>
           )}
           {supportingText && (
-            <p className="text-white/95 text-sm leading-relaxed">
-              {supportingText}
+            <p className="text-white text-sm leading-relaxed">
+              <Editable path={["pages", pageIndex, "supportingText"]} value={supportingText} multiline />
             </p>
           )}
         </div>
         
         <div className="w-2/3 p-12 flex flex-col justify-center items-center text-center">
-          <div className="text-8xl font-bold text-white/40 mb-8">&ldquo;</div>
-          <p className="text-4xl font-bold text-white leading-tight mb-8 max-w-2xl">
-            {quote}
+          <div className="text-8xl font-bold text-white mb-8">&ldquo;</div>
+          <p
+            className={
+              variant === "orange"
+                ? "text-4xl font-bold text-white leading-tight mb-8 max-w-2xl"
+                : "text-4xl font-bold text-[var(--orca-dark-fg)] leading-tight mb-8 max-w-2xl"
+            }
+          >
+            <Editable path={["pages", pageIndex, "quote"]} value={quote} multiline />
           </p>
           {source && (
-            <p className="text-white/90 text-lg font-medium">— {source}</p>
+            <p className="text-white text-lg font-medium">
+              — <Editable path={["pages", pageIndex, "source"]} value={source} />
+            </p>
           )}
         </div>
       </div>

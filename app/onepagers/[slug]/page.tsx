@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getOnePagerBySlug } from "@/content/onepager-registry";
-import { OnePagerDocument } from "@/components/onepager/OnePagerDocument";
+import { OnePagerEditorClient } from "@/components/content-editor/OnePagerEditorClient";
+import { GeneratePdfButton } from "@/components/GeneratePdfButton";
 import Link from "next/link";
 
 export default async function OnePagerPage({
@@ -32,6 +33,11 @@ export default async function OnePagerPage({
           >
             Open Print View
           </Link>
+          <GeneratePdfButton
+            slug={slug}
+            section="onepagers"
+            className="inline-block ml-3 bg-white border-2 border-orange-500 text-orange-600 px-4 py-2 rounded font-semibold hover:bg-orange-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 py-8 no-print">
@@ -48,9 +54,7 @@ export default async function OnePagerPage({
           </div>
         </div>
 
-        <div className="onepager-document">
-          <OnePagerDocument onePager={onePager} />
-        </div>
+        <OnePagerEditorClient onePager={onePager} slug={slug} />
       </div>
     </div>
   );

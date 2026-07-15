@@ -2,10 +2,12 @@ import React from "react";
 import { UseCaseDetailContent } from "@/content/types";
 import { PageShell } from "./PageShell";
 import { RightHandContent } from "./RightHandContent";
+import { Editable } from "@/components/content-editor/Editable";
 
-type UseCaseDetailProps = UseCaseDetailContent;
+type UseCaseDetailProps = UseCaseDetailContent & { pageIndex?: number };
 
 export function UseCaseDetail({
+  pageIndex = 0,
   eyebrow,
   title,
   sections,
@@ -30,25 +32,34 @@ export function UseCaseDetail({
         <div className="p-12 pb-6">
           {eyebrow && (
             <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
-              {eyebrow}
+              <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
             </div>
           )}
-          <h2 className="text-4xl font-bold text-[var(--orca-ink)]">{title}</h2>
+          <h2 className="text-4xl font-bold text-[var(--orca-ink)]">
+            <Editable path={["pages", pageIndex, "title"]} value={title} />
+          </h2>
         </div>
 
         {/* Two column section with centered line */}
         <div className="flex-1 flex relative">
           {/* Left column - sections */}
-          <div className="w-1/2 p-12 pt-6 flex flex-col justify-center">
+          <div className="w-1/2 p-12 pt-6 flex flex-col justify-start">
             {sections && sections.length > 0 && (
               <div id="sections-container" className="space-y-6">
                 {sections.map((section, index) => (
                   <div key={index} className="text-[var(--orca-ink)] pr-6">
                     <h3 className={`text-lg font-bold ${colorClass} mb-2`}>
-                      {section.heading}
+                      <Editable
+                        path={["pages", pageIndex, "sections", index, "heading"]}
+                        value={section.heading}
+                      />
                     </h3>
                     <p className="text-base leading-relaxed">
-                      {section.description}
+                      <Editable
+                        path={["pages", pageIndex, "sections", index, "description"]}
+                        value={section.description}
+                        multiline
+                      />
                     </p>
                   </div>
                 ))}
@@ -63,7 +74,7 @@ export function UseCaseDetail({
 
           {/* Right column - flexible content */}
           <div className="w-1/2 flex flex-col">
-            {rightContent && <RightHandContent content={rightContent} />}
+            {rightContent && <RightHandContent content={rightContent} pageIndex={pageIndex} />}
           </div>
         </div>
       </div>

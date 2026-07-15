@@ -1,7 +1,7 @@
 export type RightHandContentType = 
   | { type: "quote"; quote: string; source?: string; citation?: { text: string; url: string } }
   | { type: "highlightText"; text: string; color?: "orange" | "blue" | "ink" }
-  | { type: "detailedText"; text: string; color?: "orange" | "blue" | "ink" }
+  | { type: "detailedText"; text: string; color?: "orange" | "blue" | "ink" | "healthcareMist" | "black" | "green" }
   | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" }
   | { type: "workflow"; steps: { number: string; title: string; description?: string }[] };
 
@@ -9,6 +9,9 @@ export type MarketingGuide = {
   slug: string;
   title: string;
   description: string;
+  // Set once to theme every block in this guide that doesn't explicitly
+  // set its own color. Leave unset to keep the original per-block defaults.
+  accentTheme?: "orange" | "blue" | "healthcareMist" | "black" | "green";
   pages: MarketingPage[];
 };
 
@@ -19,7 +22,20 @@ export type CoverPageContent = {
   kicker?: string;
   logoVariant?: "white" | "dark";
   image?: string;
+  // "fade" (default): dims the image to 30% and washes it into `background`
+  // at the edges — meant for photographic hero images on a dark cover.
+  // "plain": shows the image at full opacity with no wash — use this for
+  // light decorative/pattern art (like a subtle background texture), which
+  // would otherwise get washed out to near-invisibility by the fade.
+  imageTreatment?: "fade" | "plain";
   sections?: { page: string; title: string }[];
+  // Optional per-page overrides. When set, these win over the guide-level
+  // accentTheme (and the default dark-panel look) for this page only —
+  // every other page keeps using the guide's theme as normal. If you set
+  // a light `background`, you'll likely also want `logoVariant: "dark"`
+  // so the logo stays visible.
+  background?: string;
+  textColor?: string;
 };
 
 export type TitlePageContent = {

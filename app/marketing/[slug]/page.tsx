@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getGuideBySlug } from "@/content/registry";
-import { MarketingDocument } from "@/components/marketing/MarketingDocument";
+import { GeneratePdfButton } from "@/components/GeneratePdfButton";
+import { GuideEditorClient } from "@/components/content-editor/GuideEditorClient";
 import Link from "next/link";
 
 export default async function MarketingGuidePage({
@@ -31,6 +32,11 @@ export default async function MarketingGuidePage({
             >
               Open Print View
             </Link>
+            <GeneratePdfButton
+              slug={slug}
+              section="marketing"
+              className="px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            />
           </div>
         </div>
       </div>
@@ -49,7 +55,7 @@ export default async function MarketingGuidePage({
         </div>
       </div>
 
-      <MarketingDocument guide={guide} />
+      <GuideEditorClient guide={guide} slug={slug} />
     </div>
   );
 }

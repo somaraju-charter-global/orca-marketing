@@ -1,10 +1,12 @@
 import React from "react";
 import { ImageCalloutPageContent } from "@/content/types";
 import { PageShell } from "./PageShell";
+import { Editable } from "@/components/content-editor/Editable";
 
-type ImageCalloutPageProps = ImageCalloutPageContent;
+type ImageCalloutPageProps = ImageCalloutPageContent & { pageIndex?: number };
 
 export function ImageCalloutPage({
+  pageIndex = 0,
   eyebrow,
   headline,
   body,
@@ -26,15 +28,15 @@ export function ImageCalloutPage({
         <div className="w-2/5 p-12 flex flex-col justify-center relative">
           {eyebrow && (
             <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
-              {eyebrow}
+              <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
             </div>
           )}
           <h2 className="text-4xl font-bold leading-tight mb-6 text-[var(--orca-ink)]">
-            {headline}
+            <Editable path={["pages", pageIndex, "headline"]} value={headline} multiline />
           </h2>
           {body && (
             <p className="text-[var(--orca-muted)] text-base leading-relaxed mb-8">
-              {body}
+              <Editable path={["pages", pageIndex, "body"]} value={body} multiline />
             </p>
           )}
           
@@ -45,7 +47,7 @@ export function ImageCalloutPage({
             <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[var(--orca-orange)]" />
             
             <p className="text-[var(--orca-orange)] text-xl font-bold">
-              {callout}
+              <Editable path={["pages", pageIndex, "callout"]} value={callout} multiline />
             </p>
           </div>
         </div>

@@ -39,6 +39,43 @@ describe('PageShell', () => {
     expect(container.firstChild).toHaveClass('bg-[var(--orca-orange)]');
   });
 
+  it('renders with blue variant', () => {
+    const { container } = render(
+      <PageShell variant="blue">
+        <div>Test</div>
+      </PageShell>
+    );
+    expect(container.firstChild).toHaveClass('bg-[var(--orca-blue)]');
+  });
+
+  it('renders with black variant', () => {
+    const { container } = render(
+      <PageShell variant="black">
+        <div>Test</div>
+      </PageShell>
+    );
+    expect(container.firstChild).toHaveClass('bg-[var(--orca-black)]');
+  });
+
+  it('renders with green variant', () => {
+    const { container } = render(
+      <PageShell variant="green">
+        <div>Test</div>
+      </PageShell>
+    );
+    expect(container.firstChild).toHaveClass('bg-[var(--orca-green)]');
+  });
+
+  it('renders with healthcareMist variant, using dark ink text on the light background', () => {
+    const { container } = render(
+      <PageShell variant="healthcareMist">
+        <div>Test</div>
+      </PageShell>
+    );
+    expect(container.firstChild).toHaveClass('bg-[var(--orca-healthcare-mist)]');
+    expect(container.firstChild).toHaveClass('text-[var(--orca-ink)]');
+  });
+
   it('renders section label when provided', () => {
     render(
       <PageShell sectionLabel="SECTION 1">

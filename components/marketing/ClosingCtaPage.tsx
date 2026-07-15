@@ -2,10 +2,12 @@ import React from "react";
 import { ClosingCtaPageContent } from "@/content/types";
 import { BrandMotif } from "./BrandMotif";
 import { PageShell } from "./PageShell";
+import { Editable } from "@/components/content-editor/Editable";
 
-type ClosingCtaPageProps = ClosingCtaPageContent;
+type ClosingCtaPageProps = ClosingCtaPageContent & { pageIndex?: number };
 
 export function ClosingCtaPage({
+  pageIndex = 0,
   headline,
   body,
   cta,
@@ -15,29 +17,39 @@ export function ClosingCtaPage({
 }: ClosingCtaPageProps) {
   return (
     <PageShell variant={variant} pageNumber={pageNumber}>
-      <BrandMotif variant="orange" size="lg" className="top-0 right-0" />
-      <BrandMotif variant="blue" size="md" className="bottom-0 left-0" />
       
       <div className="relative z-10 h-full flex flex-col p-12">
         <div className="mb-auto">
-          <img src="/logos/orcaworks-white.png" alt="Orcaworks" className="h-12 w-auto" />
+          <img src="/logos/orcaworks-white.png" alt="Orcaworks" className="h-auto w-48" />
         </div>
-        
-        <div className="flex-1 flex flex-col justify-center max-w-2xl">
-          <h2 className="text-5xl font-bold leading-tight mb-6">
-            {headline}
-          </h2>
-          <p className="text-xl text-white/80 font-light mb-8">
-            {body}
-          </p>
-          <div className="inline-block bg-[var(--orca-orange)] text-white px-8 py-4 rounded-lg font-semibold text-lg">
-            {cta}
-          </div>
-          {website && (
-            <div className="mt-6 text-white/60 text-sm">
-              {website}
+
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="flex items-end justify-between gap-12">
+            <div className="max-w-2xl">
+              <h2 className="text-5xl font-bold leading-tight mb-6">
+                <Editable path={["pages", pageIndex, "headline"]} value={headline} multiline />
+              </h2>
+              <p className="text-xl text-white font-light mb-8">
+                <Editable path={["pages", pageIndex, "body"]} value={body} multiline />
+              </p>
+              <div className="inline-block bg-[var(--orca-orange)] text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                <Editable path={["pages", pageIndex, "cta"]} value={cta} />
+              </div>
+              
             </div>
-          )}
+          </div>
+          <div className="shrink-0 flex flex-col items-end gap-3">
+              <img
+                src="/images/orcaworks-qr-white.png"
+                alt="QR code to Orcaworks website"
+                className="w-36 h-36"
+              />
+              {website && (
+                <span className="text-white text-xs opacity-80">
+                  Scan to visit <Editable path={["pages", pageIndex, "website"]} value={website} />
+                </span>
+              )}
+            </div>
         </div>
       </div>
     </PageShell>
