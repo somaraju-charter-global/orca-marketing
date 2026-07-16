@@ -19,13 +19,66 @@ export function OnePagerEditorClient({
   const [isEditing, setIsEditing] = useState(autoEdit);
   const [isSaving, setIsSaving] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [isJsonMode, setIsJsonMode] = useState(false);
+  const [jsonText, setJsonText] = useState(() =>
+    JSON.stringify(initialOnePager, null, 2)
+  );
+  const [jsonError, setJsonError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   function updateField(path: FieldPath, value: string) {
     setOnePager((prev) => setDeep(prev, path, value));
   }
 
+  function applyJsonText(text: string) {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(text);
+    } catch (error) {
+      setJsonError(error instanceof Error ? error.message : "Invalid JSON");
+      return;
+    }
+
+    const validation = validateTwoPageVerticalBrief(parsed);
+    if (!validation.success) {
+      setJsonError(validation.error);
+      return;
+    }
+
+    setOnePager(validation.data);
+    setJsonError(null);
+  }
+
+  function handleJsonChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    const text = event.target.value;
+    setJsonText(text);
+    applyJsonText(text);
+  }
+
+  function handleToggleJson() {
+    const next = !isJsonMode;
+    setIsJsonMode(next);
+    if (next) {
+      setIsEditing(false);
+      setJsonText(JSON.stringify(onePager, null, 2));
+      setJsonError(null);
+    }
+  }
+
+  function handleToggleEdit() {
+    const next = !isEditing;
+    setIsEditing(next);
+    if (next) {
+      setIsJsonMode(false);
+    }
+  }
+
   async function handleSave() {
+    if (isJsonMode && jsonError) {
+      setStatusMessage(`Cannot save: ${jsonError}`);
+      return;
+    }
+
     setIsSaving(true);
     setStatusMessage(null);
     try {
@@ -73,6 +126,9 @@ export function OnePagerEditorClient({
         }
         setOnePager(validation.data);
         setIsEditing(true);
+        setIsJsonMode(false);
+        setJsonText(JSON.stringify(validation.data, null, 2));
+        setJsonError(null);
         setStatusMessage(`Imported ${validation.data.slug}. Click Save to upload.`);
       } catch (error) {
         setStatusMessage(
@@ -85,6 +141,10 @@ export function OnePagerEditorClient({
   }
 
   function handleExport() {
+    if (isJsonMode && jsonError) {
+      setStatusMessage(`Cannot export: ${jsonError}`);
+      return;
+    }
     const json = JSON.stringify(onePager, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -108,7 +168,9 @@ export function OnePagerEditorClient({
       />
       <EditControls
         isEditing={isEditing}
-        onToggleEdit={() => setIsEditing((prev) => !prev)}
+        isJsonMode={isJsonMode}
+        onToggleEdit={handleToggleEdit}
+        onToggleJson={handleToggleJson}
         onSave={handleSave}
         onImport={handleImportClick}
         onExport={handleExport}
@@ -116,9 +178,27 @@ export function OnePagerEditorClient({
         statusMessage={statusMessage}
       />
       <div className="onepager-document">
-        <EditModeProvider value={{ isEditing, updateField }}>
-          <OnePagerDocument onePager={onePager} />
-        </EditModeProvider>
+        {isJsonMode ? (
+          <div className="h-full w-full p-8 bg-white">
+            <textarea
+              value={jsonText}
+              onChange={handleJsonChange}
+              spellCheck={false}
+              className={`w-full h-[80vh] font-mono text-xs p-4 border-2 rounded-lg resize-none focus:outline-none ${
+                jsonError
+                  ? "border-red-500 focus:border-red-600"
+                  : "border-gray-300 focus:border-blue-500"
+              }`}
+            />
+            {jsonError && (
+              <p className="text-red-600 text-sm mt-2">{jsonError}</p>
+            )}
+          </div>
+        ) : (
+          <EditModeProvider value={{ isEditing, updateField }}>
+            <OnePagerDocument onePager={onePager} />
+          </EditModeProvider>
+        )}
       </div>
     </>
   );

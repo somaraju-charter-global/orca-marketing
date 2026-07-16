@@ -44,40 +44,47 @@ This repository contains the PDF generation system but not the actual marketing 
 ### Development
 
 ```bash
-npm run dev
+npx next dev -p 3011
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+Open [http://localhost:3011](http://localhost:3011) with your browser.
+
+Use a different port if 3011 is already in use, e.g. `npx next dev -p 3012`.
 
 ### Preview Documents
 
-**Homepage**: Navigate to `http://localhost:3000/` to see all available two-pagers and guides with links in a table of contents.
+**Homepage**: Navigate to `http://localhost:3011/` to see all available two-pagers and guides with links in a table of contents.
 
 Navigate directly to:
-- `http://localhost:3000/marketing/[slug]` - Guides (after adding content)
-- `http://localhost:3000/two-pagers/[slug]` - Two-pager documents (after adding content)
+- `http://localhost:3011/marketing/[slug]` - Guides (after adding content)
+- `http://localhost:3011/two-pagers/[slug]` - Two-pager documents (after adding content)
 
 ## JSON Import and Storage
 
-Two-pager content is now stored in Vercel Blob and can be imported without editing source files.
+Two-pager content can be uploaded as JSON and is persisted to **Vercel Blob** when `BLOB_READ_WRITE_TOKEN` is configured. If no token is set, the app falls back to a local dev store under `local-blob/` so uploads still work for local development.
 
 ### Upload a single two-pager
 
-- Go to `http://localhost:3000/upload`
+- Go to `http://localhost:3011/upload`
 - Select a JSON file that matches the `TwoPageVerticalBrief` schema
-- Preview the content, edit inline, and click **Save to Blob**
+- Preview the content, edit inline, and click **Save**
+- The saved two-pager appears on the homepage immediately (the homepage is rendered on demand, so new uploads are visible on refresh)
 
 ### Manage uploaded files
 
-- Go to `http://localhost:3000/manage`
+- Go to `http://localhost:3011/manage`
 - View all uploaded JSONs and PDFs
 - Download individual files or entire archives
 - Bulk upload more `.json` and `.pdf` files
-- Delete files from Blob storage
+- Delete files
+
+### Local development fallback
+
+When `BLOB_READ_WRITE_TOKEN` is empty or missing, uploaded JSONs and PDFs are saved under `local-blob/jsons/` and `local-blob/pdfs/` and served through `app/api/local-blob/[...path]/route.ts`. The `local-blob/` directory is gitignored. Set `BLOB_READ_WRITE_TOKEN` in production to use Vercel Blob instead.
 
 ### Static content fallback
 
-Static two-pagers in `content/two-pagers/` still work as a fallback. If a slug exists in both Vercel Blob and the static registry, the Blob version takes precedence. Static guides are unaffected.
+Static two-pagers in `content/two-pagers/` still work as a fallback. If a slug exists in both the uploaded store and the static registry, the uploaded version takes precedence. Static guides are unaffected.
 
 ### Authentication
 
@@ -115,7 +122,7 @@ export const onePagers = {
 };
 ```
 
-Preview at: `http://localhost:3000/two-pagers/[slug]`
+Preview at: `http://localhost:3011/two-pagers/[slug]`
 
 ## Adding a New Guide
 
@@ -200,10 +207,10 @@ running locally.
 npm run pdf:local
 
 # Generate any guide from local
-npm run pdf:guide -- --url http://localhost:3000/marketing/[slug]/print --out ./exports/[filename].pdf
+npm run pdf:guide -- --url http://localhost:3011/marketing/[slug]/print --out ./exports/[filename].pdf
 
 # Generate any two-pager from local
-npm run pdf:two-pager -- --url http://localhost:3000/two-pagers/[slug]/print --out ./exports/[filename].pdf
+npm run pdf:two-pager -- --url http://localhost:3011/two-pagers/[slug]/print --out ./exports/[filename].pdf
 ```
 
 **Available templates:**
@@ -234,7 +241,7 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 ## Deploying to Vercel
 
 1. Copy `.env.template` to `.env.local` and fill in:
-   - `BLOB_READ_WRITE_TOKEN` – from Vercel Blob
+   - `BLOB_READ_WRITE_TOKEN` – from Vercel Blob (required for production; the local `local-blob/` fallback works in dev)
    - `NEXTAUTH_SECRET` or `AUTH_SECRET` – generate a random string
    - `AUTH_GITHUB_ID` and `AUTH_GITHUB_SECRET` – from a GitHub OAuth app
 
@@ -251,7 +258,7 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 ## Marketing Workflow
 
 1. **Create or edit content**: Use the `/upload` page to import a two-pager JSON, or modify guide content in `content/guides/`
-2. **Save to Blob**: Click **Save to Blob** to persist uploaded two-pagers to Vercel Blob
+2. **Save**: Click **Save** to persist uploaded two-pagers to Vercel Blob (or to `local-blob/` in local dev)
 3. **Push to GitHub**: Commit and push static content changes
 4. **Vercel Deploys**: Automatic preview deployment
 5. **Review**: Open `/two-pagers/[slug]` to preview and `/two-pagers/[slug]/print` for the print layout
@@ -381,6 +388,16 @@ When adding new components or content types, add corresponding tests to ensure:
 - Run `npm install` to ensure all dependencies are installed
 - Check TypeScript errors in your content files
 - Verify all imports in `content/registry.ts` are correct
+
+**Cannot save or generate PDFs**
+- Ensure you are signed in with GitHub; upload, manage, and PDF generation require authentication
+- Verify `AUTH_GITHUB_ID`, `AUTH_GITHUB_SECRET`, and `AUTH_SECRET` are set in `.env.local`
+- If `BLOB_READ_WRITE_TOKEN` is not set, the app uses `local-blob/` for local dev storage
+
+**Uploaded files not appearing on the homepage**
+- The homepage is rendered on demand; refresh the page after saving
+- Check the server console for `getAllOnePagers failed:` errors
+- Verify the uploaded JSON matches the schema in `lib/validation.ts`
 
 ## Security
 

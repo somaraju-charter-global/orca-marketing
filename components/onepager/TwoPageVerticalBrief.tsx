@@ -38,7 +38,7 @@ const BANNER_VAR: Record<TwoPagerAccentTheme, string> = {
 };
 
 export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
-  const theme = props.accentTheme ?? "orange";
+  const theme = props.accentTheme ?? "healthcareMist";
   const accent = ACCENT_VAR[theme];
   const softBgClass = SOFT_BG_CLASS[theme];
   const banner = BANNER_VAR[theme];
@@ -250,7 +250,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
 
               <div>
                 <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">
-                    Four practical use cases to start with                
+                    Four practical use cases to start with
                 </h2>
                 <div className="space-y-4">
                   {props.page2.priorityWorkflows.map((workflow, idx) => (
@@ -320,9 +320,9 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
               <div className={`border-l-4 border-[var(--tp-accent)] ${softBgClass} px-5 py-3.5 rounded-r-lg`}>
                 <p className="text-sm text-gray-800 font-semibold leading-relaxed">
                   {props.page2.cta.url ? (
-                    <a 
-                      href={props.page2.cta.url} 
-                      target="_blank" 
+                    <a
+                      href={props.page2.cta.url}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-900 hover:text-[var(--tp-accent)] transition-colors"
                     >

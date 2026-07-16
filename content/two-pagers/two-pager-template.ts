@@ -3,6 +3,7 @@ import type { TwoPageVerticalBrief } from "../onepager-types";
 export const twoPagerTemplate = {
   layout: "two-page-vertical-brief",
   slug: "two-pager-template",
+  accentTheme: "healthcareMist",
 
   vertical: "Your Vertical",
   audience: "Your target audience description here",

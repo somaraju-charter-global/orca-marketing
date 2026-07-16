@@ -11,7 +11,7 @@ export type TwoPageVerticalBrief = {
   slug: string;
 
   // Set once to recolor every accent stripe, number, link, and table
-  // highlight in this brief. Defaults to "orange" (the original look).
+  // highlight in this brief. Defaults to "healthcareMist" (the Orcaworks look).
   accentTheme?: TwoPagerAccentTheme;
 
   vertical: string;

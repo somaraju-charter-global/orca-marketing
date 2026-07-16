@@ -14,6 +14,12 @@ export default async function Home() {
 
         <div className="flex flex-wrap gap-3 mb-8">
           <Link
+            href="/create"
+            className="inline-flex items-center rounded-lg bg-orange-600 px-4 py-2 text-sm font-medium text-white hover:bg-orange-700"
+          >
+            Create two-pager
+          </Link>
+          <Link
             href="/upload"
             className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
           >

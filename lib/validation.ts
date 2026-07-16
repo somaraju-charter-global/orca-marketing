@@ -6,7 +6,7 @@ export const TwoPageVerticalBriefSchema = z.object({
   slug: z.string().min(1),
   accentTheme: z
     .enum(["orange", "blue", "black", "green", "healthcareMist"])
-    .optional(),
+    .default("healthcareMist"),
   vertical: z.string().min(1),
   audience: z.string().min(1),
   hero: z.object({
