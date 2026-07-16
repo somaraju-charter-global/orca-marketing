@@ -13,27 +13,29 @@ export function TitlePage({
   logoVariant = "white",
   image,
 }: TitlePageProps) {
-  const logoSrc = logoVariant === "white" 
-    ? "/logos/orcaworks-white.png" 
+  const logoSrc = logoVariant === "white"
+    ? "/logos/orcaworks-white.png"
     : "/logos/orcaworks-dark.png";
 
   return (
     <div className="pdf-page bg-[var(--orca-dark)] text-white relative overflow-hidden">
       <BrandMotif variant="orange" size="lg" className="top-0 right-0" />
       <BrandMotif variant="blue" size="md" className="bottom-0 left-0" />
-      
+
       {image && (
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={image} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--orca-dark)] via-[var(--orca-dark)]/80 to-transparent" />
         </div>
       )}
-      
+
       <div className="relative z-10 h-full flex flex-col p-12 justify-center items-center text-center">
         <div className="mb-8">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logoSrc} alt="Orcaworks" className="h-12 w-auto" />
         </div>
-        
+
         <div className="max-w-3xl">
           {kicker && (
             <div className="text-[var(--orca-orange)] text-sm font-semibold tracking-widest uppercase mb-6">

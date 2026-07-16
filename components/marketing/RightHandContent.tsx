@@ -4,7 +4,7 @@ import React from "react";
 import { useGuideTheme } from "./GuideThemeContext";
 import { Editable } from "@/components/content-editor/Editable";
 
-export type RightHandContentType = 
+export type RightHandContentType =
   | { type: "quote"; quote: string; source?: string; citation?: { text: string; url: string } }
   | { type: "highlightText"; text: string; color?: "orange" | "blue" | "ink" }
   | { type: "detailedText"; text: string; color?: "orange" | "blue" | "ink" | "healthcareMist" | "black" | "green" }
@@ -50,10 +50,10 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
   }
 
   if (content.type === "highlightText") {
-    const colorClass = content.color === "orange" 
-      ? "text-[var(--orca-orange)]" 
-      : content.color === "blue" 
-      ? "text-[var(--orca-blue)]" 
+    const colorClass = content.color === "orange"
+      ? "text-[var(--orca-orange)]"
+      : content.color === "blue"
+      ? "text-[var(--orca-blue)]"
       : "text-[var(--orca-ink)]";
 
     return (
@@ -73,10 +73,10 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
     // Priority: explicit color on this block > guide-level accentTheme > "ink" (default).
     const resolvedColor = content.color ?? guideTheme ?? "ink";
 
-    const bgColorClass = resolvedColor === "orange" 
-      ? "bg-[var(--orca-orange)]" 
-      : resolvedColor === "blue" 
-      ? "bg-[var(--orca-blue)]" 
+    const bgColorClass = resolvedColor === "orange"
+      ? "bg-[var(--orca-orange)]"
+      : resolvedColor === "blue"
+      ? "bg-[var(--orca-blue)]"
       : resolvedColor === "healthcareMist"
       ? "bg-[var(--orca-healthcare-mist)]"
       : resolvedColor === "black"
@@ -115,10 +115,11 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
     const objectFitClass = content.objectFit === "contain" ? "object-contain" : "object-cover";
     return (
       <div className="h-full flex items-center justify-center">
-        <img 
-          src={content.src} 
-          alt={content.alt || ""} 
-          className={`w-full h-full ${objectFitClass}`} 
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={content.src}
+          alt={content.alt || ""}
+          className={`w-full h-full ${objectFitClass}`}
         />
       </div>
     );

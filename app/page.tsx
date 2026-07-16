@@ -1,12 +1,31 @@
-import { onePagers } from "@/content/onepager-registry";
+import Link from "next/link";
+import { getAllOnePagers } from "@/content/onepager-registry";
 import { guides } from "@/content/registry";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const onePagers = await getAllOnePagers();
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Orcaworks Marketing PDFs</h1>
-        <p className="text-gray-600 mb-8">Select a document to view or generate a PDF</p>
+        <p className="text-gray-600 mb-6">Select a document to view or generate a PDF</p>
+
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link
+            href="/upload"
+            className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          >
+            Upload two-pager
+          </Link>
+          <Link
+            href="/manage"
+            className="inline-flex items-center rounded-lg bg-white border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            Manage uploads
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Two-Pagers Section */}
@@ -15,8 +34,8 @@ export default function Home() {
               Two-Pagers
             </h2>
             <div className="space-y-3">
-              {Object.values(onePagers).map((twoPager) => (
-                <a
+              {onePagers.map((twoPager) => (
+                <Link
                   key={twoPager.slug}
                   href={`/two-pagers/${twoPager.slug}`}
                   target="_blank"
@@ -26,7 +45,7 @@ export default function Home() {
                   <div className="font-semibold text-gray-900 mb-1">{twoPager.hero.headline}</div>
                   <div className="text-sm text-gray-600">{twoPager.vertical}</div>
                   <div className="text-xs text-gray-400 mt-1">{twoPager.audience}</div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -38,7 +57,7 @@ export default function Home() {
             </h2>
             <div className="space-y-3">
               {Object.values(guides).map((guide) => (
-                <a
+                <Link
                   key={guide.slug}
                   href={`/marketing/${guide.slug}`}
                   target="_blank"
@@ -47,7 +66,7 @@ export default function Home() {
                 >
                   <div className="font-semibold text-gray-900 mb-1">{guide.title}</div>
                   <div className="text-sm text-gray-600">{guide.description}</div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

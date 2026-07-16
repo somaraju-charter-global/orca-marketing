@@ -9,7 +9,6 @@ type UseCasePageProps = UseCasePageContent & { pageIndex?: number };
 export function UseCasePage({
   pageIndex = 0,
   eyebrow,
-  number,
   title,
   problem,
   opportunity,
@@ -20,7 +19,7 @@ export function UseCasePage({
 }: UseCasePageProps) {
   // Extract citation from rightContent if it's a quote and no explicit citation provided
   const footerCitation = citation || (rightContent?.type === "quote" ? rightContent.citation : undefined);
-  
+
   return (
     <PageShell variant="light" pageNumber={pageNumber} citation={footerCitation}>
       <div className="h-full flex flex-col">
@@ -47,7 +46,7 @@ export function UseCasePage({
                 <Editable path={["pages", pageIndex, "problem"]} value={problem} multiline />
               </p>
             </div>
-            
+
             <div className="mb-8">
               <div className="text-xs font-semibold tracking-widest uppercase text-[var(--orca-teal-dark)] mb-2">
                 The Opportunity
@@ -56,7 +55,7 @@ export function UseCasePage({
                 <Editable path={["pages", pageIndex, "opportunity"]} value={opportunity} multiline />
               </p>
             </div>
-            
+
             {bullets && bullets.length > 0 && (
               <ul className="space-y-3">
                 {bullets.map((bullet, index) => (
@@ -74,7 +73,7 @@ export function UseCasePage({
               </ul>
             )}
           </div>
-          
+
           <div className="w-2/5 flex flex-col">
             {rightContent && <RightHandContent content={rightContent} pageIndex={pageIndex} />}
           </div>

@@ -1,23 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { OnePager } from "@/content/onepager-types";
 import { OnePagerDocument } from "@/components/onepager/OnePagerDocument";
 import { EditModeProvider, FieldPath } from "./EditModeContext";
 import { EditControls } from "./EditControls";
 import { setDeep } from "@/lib/content-editor/set-deep";
+import { validateTwoPageVerticalBrief } from "@/lib/validation";
 
 export function OnePagerEditorClient({
   onePager: initialOnePager,
-  slug,
+  autoEdit = false,
 }: {
   onePager: OnePager;
-  slug: string;
+  autoEdit?: boolean;
 }) {
   const [onePager, setOnePager] = useState(initialOnePager);
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(autoEdit);
   const [isSaving, setIsSaving] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   function updateField(path: FieldPath, value: string) {
     setOnePager((prev) => setDeep(prev, path, value));
@@ -27,25 +29,22 @@ export function OnePagerEditorClient({
     setIsSaving(true);
     setStatusMessage(null);
     try {
-      const response = await fetch("/api/content/save", {
+      const response = await fetch("/api/upload/json", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contentType: "twoPager",
-          slug,
-          content: onePager,
-        }),
+        body: JSON.stringify(onePager),
       });
-      const data = await response.json().catch(() => null);
-      if (!response.ok) {
-        const detail = data?.knownSlugs
-          ? ` Slugs found in content/two-pagers: ${data.knownSlugs
-              .map((entry: { file: string; slug: string | null }) => `${entry.file} → ${entry.slug ?? "(no slug found)"}`)
-              .join("; ")}`
-          : "";
-        throw new Error((data?.error ?? "Failed to save.") + detail);
+      if (response.redirected) {
+        throw new Error("You must be signed in to save.");
       }
-      setStatusMessage(`Saved to ${data.filePath}`);
+      const contentType = response.headers.get("content-type") ?? "";
+      const data = contentType.includes("application/json")
+        ? await response.json().catch(() => null)
+        : null;
+      if (!response.ok) {
+        throw new Error(data?.error ?? "Failed to save.");
+      }
+      setStatusMessage(`Saved: ${data.url}`);
     } catch (error) {
       setStatusMessage(
         error instanceof Error ? error.message : "Failed to save."
@@ -55,13 +54,43 @@ export function OnePagerEditorClient({
     }
   }
 
+  function handleImportClick() {
+    fileInputRef.current?.click();
+  }
+
+  function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsed = JSON.parse(String(reader.result));
+        const validation = validateTwoPageVerticalBrief(parsed);
+        if (!validation.success) {
+          setStatusMessage(`Invalid JSON: ${validation.error}`);
+          return;
+        }
+        setOnePager(validation.data);
+        setIsEditing(true);
+        setStatusMessage(`Imported ${validation.data.slug}. Click Save to upload.`);
+      } catch (error) {
+        setStatusMessage(
+          error instanceof Error ? error.message : "Failed to parse JSON."
+        );
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+  }
+
   function handleExport() {
     const json = JSON.stringify(onePager, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${slug}.json`;
+    link.download = `${onePager.slug}.json`;
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -70,10 +99,18 @@ export function OnePagerEditorClient({
 
   return (
     <>
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="application/json"
+        onChange={handleFileChange}
+        className="hidden"
+      />
       <EditControls
         isEditing={isEditing}
         onToggleEdit={() => setIsEditing((prev) => !prev)}
         onSave={handleSave}
+        onImport={handleImportClick}
         onExport={handleExport}
         isSaving={isSaving}
         statusMessage={statusMessage}

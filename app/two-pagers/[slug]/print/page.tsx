@@ -8,7 +8,7 @@ export default async function TwoPagerPrintPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const twoPager = getOnePagerBySlug(slug);
+  const twoPager = await getOnePagerBySlug(slug);
 
   if (!twoPager) {
     notFound();

@@ -18,7 +18,7 @@ export function DarkEditorialPage({
   return (
     <PageShell variant="dark" pageNumber={pageNumber} showFooter={false}>
       <BrandMotif variant="orange" size="md" className="top-20 right-20" />
-      
+
       <div className="h-full flex">
         <div className="w-1/2 p-12 flex flex-col justify-start">
           {eyebrow && (
@@ -35,8 +35,9 @@ export function DarkEditorialPage({
             </p>
           )}
         </div>
-        
+
         <div className="w-1/2 relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={image}
             alt=""
@@ -51,7 +52,7 @@ export function DarkEditorialPage({
           )}
         </div>
       </div>
-      
+
       <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10" />
     </PageShell>
   );

@@ -6,6 +6,7 @@ interface EditControlsProps {
   isEditing: boolean;
   onToggleEdit: () => void;
   onSave: () => void;
+  onImport?: () => void;
   onExport: () => void;
   isSaving: boolean;
   statusMessage: string | null;
@@ -15,6 +16,7 @@ export function EditControls({
   isEditing,
   onToggleEdit,
   onSave,
+  onImport,
   onExport,
   isSaving,
   statusMessage,
@@ -46,8 +48,17 @@ export function EditControls({
               disabled={isSaving}
               className="px-4 py-2 rounded-full text-sm font-semibold bg-green-600 text-white hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSaving ? "Saving…" : "Save to File"}
+              {isSaving ? "Saving…" : "Save to Blob"}
             </button>
+            {onImport && (
+              <button
+                type="button"
+                onClick={onImport}
+                className="px-4 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-700 hover:bg-gray-50"
+              >
+                Import .json
+              </button>
+            )}
             <button
               type="button"
               onClick={onExport}

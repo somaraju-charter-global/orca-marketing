@@ -10,7 +10,7 @@ export default async function TwoPagerPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const twoPager = getOnePagerBySlug(slug);
+  const twoPager = await getOnePagerBySlug(slug);
 
   if (!twoPager) {
     notFound();
@@ -54,7 +54,7 @@ export default async function TwoPagerPage({
           </div>
         </div>
 
-        <OnePagerEditorClient onePager={twoPager} slug={slug} />
+        <OnePagerEditorClient onePager={twoPager} />
       </div>
     </div>
   );

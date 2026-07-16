@@ -1,14 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { chromium } from "playwright";
-import path from "path";
-import fs from "fs";
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
+import type { Browser as PuppeteerBrowser, Page as PuppeteerPage } from "puppeteer-core";
 
-// Playwright launches a real browser, so this must run on the Node.js
+// PDF generation needs a real browser, so this must run on the Node.js
 // runtime (never the Edge runtime).
 export const runtime = "nodejs";
 
 type Section = "marketing" | "onepagers" | "two-pagers";
 type PdfFormat = "guide" | "onepager";
+
+type PdfOptions = {
+  width: string;
+  height: string;
+  viewport: { width: number; height: number };
+};
 
 const VALID_SECTIONS: Section[] = ["marketing", "onepagers", "two-pagers"];
 
@@ -21,15 +27,103 @@ const DEFAULT_FORMAT: Record<Section, PdfFormat> = {
   "two-pagers": "onepager",
 };
 
-function getPdfOptions(format: PdfFormat) {
+function getPdfOptions(format: PdfFormat): PdfOptions {
   return format === "onepager"
     ? { width: "8.5in", height: "11in", viewport: { width: 1632, height: 2112 } }
     : { width: "10.6667in", height: "8in", viewport: { width: 2048, height: 1536 } };
 }
 
-export async function POST(request: NextRequest) {
-  let browser: Awaited<ReturnType<typeof chromium.launch>> | undefined;
+async function generateWithPuppeteer(
+  printUrl: string,
+  pdfOptions: PdfOptions
+): Promise<Buffer> {
+  const executablePath = await chromium.executablePath();
 
+  const browser: PuppeteerBrowser = await puppeteer.launch({
+    args: chromium.args,
+    executablePath,
+    headless: "shell",
+    defaultViewport: {
+      width: pdfOptions.viewport.width,
+      height: pdfOptions.viewport.height,
+      deviceScaleFactor: 2,
+    },
+  });
+
+  let page: PuppeteerPage | undefined;
+  try {
+    page = await browser.newPage();
+    await page.setViewport({
+      width: pdfOptions.viewport.width,
+      height: pdfOptions.viewport.height,
+      deviceScaleFactor: 2,
+    });
+    await page.goto(printUrl, { waitUntil: "networkidle2" });
+    // Allow fonts to load.
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const buffer = await page.pdf({
+      printBackground: true,
+      preferCSSPageSize: true,
+      width: pdfOptions.width,
+      height: pdfOptions.height,
+      margin: { top: "0", right: "0", bottom: "0", left: "0" },
+      scale: 1,
+    });
+    return Buffer.from(buffer);
+  } finally {
+    await browser.close().catch(() => {});
+  }
+}
+
+async function generateWithPlaywright(
+  printUrl: string,
+  pdfOptions: PdfOptions
+): Promise<Buffer> {
+  // Dynamic import keeps Playwright out of the Vercel serverless bundle
+  // unless the local fallback is actually used.
+  const { chromium: playwrightChromium } = await import("playwright");
+  const browser = await playwrightChromium.launch();
+
+  try {
+    const page = await browser.newPage({
+      viewport: pdfOptions.viewport,
+      deviceScaleFactor: 2,
+    });
+
+    await page.goto(printUrl, { waitUntil: "networkidle" });
+    await page.waitForTimeout(2000);
+
+    const buffer = await page.pdf({
+      printBackground: true,
+      preferCSSPageSize: true,
+      width: pdfOptions.width,
+      height: pdfOptions.height,
+      margin: { top: "0", right: "0", bottom: "0", left: "0" },
+      scale: 1,
+    });
+
+    await browser.close();
+    return Buffer.from(buffer);
+  } catch (error) {
+    await browser.close().catch(() => {});
+    throw error;
+  }
+}
+
+async function generatePdf(printUrl: string, pdfOptions: PdfOptions): Promise<Buffer> {
+  try {
+    return await generateWithPuppeteer(printUrl, pdfOptions);
+  } catch (puppeteerError) {
+    console.warn(
+      "Puppeteer/Sparticuz launch failed, falling back to Playwright:",
+      puppeteerError
+    );
+    return generateWithPlaywright(printUrl, pdfOptions);
+  }
+}
+
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json().catch(() => null);
     const slug: string | undefined = body?.slug;
@@ -47,35 +141,7 @@ export async function POST(request: NextRequest) {
     const printUrl = new URL(`/${section}/${slug}/print`, request.nextUrl.origin).toString();
     const pdfOptions = getPdfOptions(format);
 
-    const outDir = path.resolve(process.cwd(), "exports");
-    fs.mkdirSync(outDir, { recursive: true });
-    const outputPath = path.join(outDir, `${slug}.pdf`);
-
-    browser = await chromium.launch();
-    const page = await browser.newPage({
-      viewport: pdfOptions.viewport,
-      deviceScaleFactor: 2,
-    });
-
-    await page.goto(printUrl, { waitUntil: "networkidle" });
-
-    // Wait for fonts to load, same as scripts/generate-pdf.ts
-    await page.waitForTimeout(2000);
-
-    await page.pdf({
-      path: outputPath,
-      printBackground: true,
-      preferCSSPageSize: true,
-      width: pdfOptions.width,
-      height: pdfOptions.height,
-      margin: { top: "0", right: "0", bottom: "0", left: "0" },
-      scale: 1,
-    });
-
-    await browser.close();
-    browser = undefined;
-
-    const pdfBuffer = fs.readFileSync(outputPath);
+    const pdfBuffer = await generatePdf(printUrl, pdfOptions);
 
     return new NextResponse(new Uint8Array(pdfBuffer), {
       status: 200,
@@ -85,9 +151,6 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    if (browser) {
-      await browser.close().catch(() => {});
-    }
     console.error("PDF generation failed:", error);
     return NextResponse.json(
       {

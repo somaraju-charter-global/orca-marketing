@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { PageShell } from '../PageShell';
+import { PageShell } from './PageShell';
 
 describe('PageShell', () => {
   it('renders children', () => {

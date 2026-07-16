@@ -3,10 +3,9 @@ import path from "path";
 
 export type ContentType = "guide" | "twoPager";
 
-const CONTENT_DIRS: Record<ContentType, string> = {
-  guide: "content/guides",
-  twoPager: "content/two-pagers",
-};
+function contentDir(contentType: ContentType): string {
+  return contentType === "guide" ? "guides" : "two-pagers";
+}
 
 function extractSlug(source: string): string | null {
   // Accept both quote styles for the value, and both quoted and unquoted
@@ -24,7 +23,7 @@ function extractSlug(source: string): string | null {
  * since every content file already declares its own slug.
  */
 export function findContentFile(contentType: ContentType, slug: string): string | null {
-  const dir = path.resolve(process.cwd(), CONTENT_DIRS[contentType]);
+  const dir = path.join(/*turbopackIgnore: true*/ process.cwd(), "content", contentDir(contentType));
   if (!fs.existsSync(dir)) return null;
 
   const files = fs.readdirSync(dir).filter((file) => file.endsWith(".ts"));
@@ -46,7 +45,7 @@ export function findContentFile(contentType: ContentType, slug: string): string 
  * rather than a bare "not found".
  */
 export function listContentSlugs(contentType: ContentType): { file: string; slug: string | null }[] {
-  const dir = path.resolve(process.cwd(), CONTENT_DIRS[contentType]);
+  const dir = path.join(/*turbopackIgnore: true*/ process.cwd(), "content", contentDir(contentType));
   if (!fs.existsSync(dir)) return [];
 
   const files = fs.readdirSync(dir).filter((file) => file.endsWith(".ts"));

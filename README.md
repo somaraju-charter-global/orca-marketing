@@ -8,7 +8,10 @@ A production-ready Next.js application for creating sophisticated Orcaworks mark
 - **React** - UI library
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
-- **Playwright** - PDF generation
+- **Playwright** - Local PDF generation fallback
+- **puppeteer-core + @sparticuz/chromium** - Serverless PDF generation on Vercel
+- **Vercel Blob** - JSON and PDF storage
+- **NextAuth v5 / Auth.js** - GitHub OAuth login
 - **Vercel** - Hosting and preview
 
 ## Key Design Principles
@@ -53,6 +56,32 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 Navigate directly to:
 - `http://localhost:3000/marketing/[slug]` - Guides (after adding content)
 - `http://localhost:3000/two-pagers/[slug]` - Two-pager documents (after adding content)
+
+## JSON Import and Storage
+
+Two-pager content is now stored in Vercel Blob and can be imported without editing source files.
+
+### Upload a single two-pager
+
+- Go to `http://localhost:3000/upload`
+- Select a JSON file that matches the `TwoPageVerticalBrief` schema
+- Preview the content, edit inline, and click **Save to Blob**
+
+### Manage uploaded files
+
+- Go to `http://localhost:3000/manage`
+- View all uploaded JSONs and PDFs
+- Download individual files or entire archives
+- Bulk upload more `.json` and `.pdf` files
+- Delete files from Blob storage
+
+### Static content fallback
+
+Static two-pagers in `content/two-pagers/` still work as a fallback. If a slug exists in both Vercel Blob and the static registry, the Blob version takes precedence. Static guides are unaffected.
+
+### Authentication
+
+Uploading, managing, and generating PDFs require signing in with GitHub. Set the NextAuth environment variables in `.env.local` first.
 
 ## Adding a New Two-Pager
 
@@ -157,9 +186,14 @@ See `content/types.ts` for the complete type definitions for each page type.
 
 ## PDF Generation
 
-### Local PDF Generation
+### In-app PDF generation
 
-Generate a PDF from your local development server:
+Open any document and click the **Generate PDF** button. This calls the
+`/api/generate-pdf` route, which uses `puppeteer-core` and `@sparticuz/chromium`
+for serverless PDF generation on Vercel. The route falls back to Playwright when
+running locally.
+
+### Local PDF generation from the command line
 
 ```bash
 # Generate a specific guide (default: supply-chain-guide)
@@ -178,9 +212,7 @@ npm run pdf:two-pager -- --url http://localhost:3000/two-pagers/[slug]/print --o
 
 Add your own content by copying these templates and registering them in the registry files.
 
-### Custom PDF Generation
-
-Generate a PDF from any URL:
+### Custom PDF generation from any URL
 
 ```bash
 # For guides
@@ -201,18 +233,30 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 
 ## Deploying to Vercel
 
-1. Push your code to GitHub
-2. Import the repository in Vercel
-3. Deploy with default settings
-4. Your marketing guides will be available at `https://your-vercel-url.vercel.app/marketing/[slug]`
+1. Copy `.env.template` to `.env.local` and fill in:
+   - `BLOB_READ_WRITE_TOKEN` – from Vercel Blob
+   - `NEXTAUTH_SECRET` or `AUTH_SECRET` – generate a random string
+   - `AUTH_GITHUB_ID` and `AUTH_GITHUB_SECRET` – from a GitHub OAuth app
+
+   For the GitHub OAuth app, set the **Authorization callback URL** to:
+   - `http://localhost:3011/api/auth/callback/github` for local development
+   - `https://<your-vercel-domain>/api/auth/callback/github` for production
+
+2. Push your code to GitHub
+3. Import the repository in Vercel
+4. Add the same environment variables in Vercel's project settings
+5. Deploy with default settings
+6. Your marketing guides will be available at `https://your-vercel-url.vercel.app/marketing/[slug]`, two-pagers at `/two-pagers/[slug]`, uploads at `/upload`, and the management UI at `/manage`
 
 ## Marketing Workflow
 
-1. **Edit Content**: Modify guide content in `content/guides/`
-2. **Push to GitHub**: Commit and push changes
-3. **Vercel Deploys**: Automatic preview deployment
-4. **Review**: Open `/marketing/[slug]` to review visually
-5. **Generate PDF**: Use GitHub Action or local command to generate final PDF
+1. **Create or edit content**: Use the `/upload` page to import a two-pager JSON, or modify guide content in `content/guides/`
+2. **Save to Blob**: Click **Save to Blob** to persist uploaded two-pagers to Vercel Blob
+3. **Push to GitHub**: Commit and push static content changes
+4. **Vercel Deploys**: Automatic preview deployment
+5. **Review**: Open `/two-pagers/[slug]` to preview and `/two-pagers/[slug]/print` for the print layout
+6. **Generate PDF**: Click **Generate PDF** to generate and download a PDF from the print layout
+7. **Manage uploads**: Use `/manage` to bulk download, bulk upload, or delete JSONs and PDFs
 
 ## Project Structure
 
@@ -220,8 +264,11 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 orcaworks-marketing-pdf/
   app/
     globals.css          # Brand tokens and print CSS
-    layout.tsx           # Root layout
+    layout.tsx           # Root layout with auth header
     page.tsx             # Homepage with table of contents
+    login/page.tsx       # GitHub OAuth sign-in
+    upload/page.tsx      # JSON upload + preview
+    manage/page.tsx      # Bulk upload/download/delete manager
     marketing/
       [slug]/
         page.tsx         # Preview route

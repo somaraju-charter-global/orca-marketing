@@ -1,6 +1,5 @@
 import React from "react";
 import { ClosingCtaPageContent } from "@/content/types";
-import { BrandMotif } from "./BrandMotif";
 import { PageShell } from "./PageShell";
 import { Editable } from "@/components/content-editor/Editable";
 
@@ -17,9 +16,10 @@ export function ClosingCtaPage({
 }: ClosingCtaPageProps) {
   return (
     <PageShell variant={variant} pageNumber={pageNumber}>
-      
+
       <div className="relative z-10 h-full flex flex-col p-12">
         <div className="mb-auto">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logos/orcaworks-white.png" alt="Orcaworks" className="h-auto w-48" />
         </div>
 
@@ -35,10 +35,11 @@ export function ClosingCtaPage({
               <div className="inline-block bg-[var(--orca-orange)] text-white px-8 py-4 rounded-lg font-semibold text-lg">
                 <Editable path={["pages", pageIndex, "cta"]} value={cta} />
               </div>
-              
+
             </div>
           </div>
           <div className="shrink-0 flex flex-col items-end gap-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/orcaworks-qr-white.png"
                 alt="QR code to Orcaworks website"

@@ -23,6 +23,9 @@
 # exports
 /exports
 
+# local dev blob fallback
+/local-blob
+
 # misc
 .DS_Store
 *.pem

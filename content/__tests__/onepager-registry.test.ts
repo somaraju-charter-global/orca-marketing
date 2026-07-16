@@ -26,18 +26,18 @@ describe('OnePager Registry', () => {
   });
 
   describe('getOnePagerBySlug', () => {
-    it('should return two-pager when slug exists', () => {
+    it('should return two-pager when slug exists', async () => {
       const slug = Object.keys(onePagers)[0];
       if (slug) {
-        const onePager = getOnePagerBySlug(slug);
+        const onePager = await getOnePagerBySlug(slug);
         expect(onePager).toBeDefined();
         expect(onePager?.slug).toBe(slug);
       }
     });
 
-    it('should return undefined when slug does not exist', () => {
-      const onePager = getOnePagerBySlug('non-existent-slug');
-      expect(onePager).toBeUndefined();
+    it('should return null when slug does not exist', async () => {
+      const onePager = await getOnePagerBySlug('non-existent-slug');
+      expect(onePager).toBeNull();
     });
   });
 });

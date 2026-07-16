@@ -17,8 +17,8 @@ export function CoverPage({
   background,
   textColor,
 }: CoverPageProps) {
-  const logoSrc = logoVariant === "white" 
-    ? "/logos/orcaworks-white.png" 
+  const logoSrc = logoVariant === "white"
+    ? "/logos/orcaworks-white.png"
     : "/logos/orcaworks-dark.png";
 
   // `background`/`textColor` are optional per-page overrides. When omitted,
@@ -37,9 +37,10 @@ export function CoverPage({
     >
       <BrandMotif variant="orange" size="lg" className="top-0 right-0" />
       <BrandMotif variant="blue" size="md" className="bottom-0 left-0" />
-      
+
       {image && (
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={image}
             alt=""
@@ -50,12 +51,13 @@ export function CoverPage({
           )}
         </div>
       )}
-      
+
       <div className="relative z-10 h-full flex flex-col p-12">
         <div className="mb-auto">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logoSrc} alt="Orcaworks" className="h-auto w-48" />
         </div>
-        
+
         <div className="flex-1 flex flex-col justify-center max-w-3xl">
           {kicker && (
             <div className="text-[var(--orca-orange)] text-sm font-semibold tracking-widest uppercase mb-4">
@@ -71,7 +73,7 @@ export function CoverPage({
             </p>
           )}
         </div>
-        
+
         {sections && sections.length > 0 && (
           <div className="mt-12 pt-8 border-t border-[var(--cover-fg)]/20">
             <div className="text-xs font-semibold tracking-widest uppercase text-[var(--cover-fg)] mb-6">

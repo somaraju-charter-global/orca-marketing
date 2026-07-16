@@ -18,13 +18,14 @@ export function ImageCalloutPage({
     <PageShell variant="light" pageNumber={pageNumber} showFooter={false}>
       <div className="h-full flex">
         <div className="w-3/5 relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={image}
             alt=""
             className="w-full h-full object-cover"
           />
         </div>
-        
+
         <div className="w-2/5 p-12 flex flex-col justify-center relative">
           {eyebrow && (
             <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
@@ -39,20 +40,20 @@ export function ImageCalloutPage({
               <Editable path={["pages", pageIndex, "body"]} value={body} multiline />
             </p>
           )}
-          
+
           <div className="relative border-2 border-[var(--orca-orange)] p-6 bg-white">
             <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[var(--orca-orange)]" />
             <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[var(--orca-orange)]" />
             <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[var(--orca-orange)]" />
             <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[var(--orca-orange)]" />
-            
+
             <p className="text-[var(--orca-orange)] text-xl font-bold">
               <Editable path={["pages", pageIndex, "callout"]} value={callout} multiline />
             </p>
           </div>
         </div>
       </div>
-      
+
       <div className="absolute bottom-0 left-0 right-0 h-px bg-[var(--orca-line)]" />
     </PageShell>
   );
