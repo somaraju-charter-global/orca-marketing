@@ -25,18 +25,18 @@ describe('Registry', () => {
   });
 
   describe('getGuideBySlug', () => {
-    it('should return guide when slug exists', () => {
+    it('should return guide when slug exists', async () => {
       const slug = Object.keys(guides)[0];
       if (slug) {
-        const guide = getGuideBySlug(slug);
+        const guide = await getGuideBySlug(slug);
         expect(guide).toBeDefined();
         expect(guide?.slug).toBe(slug);
       }
     });
 
-    it('should return undefined when slug does not exist', () => {
-      const guide = getGuideBySlug('non-existent-slug');
-      expect(guide).toBeUndefined();
+    it('should return null when slug does not exist', async () => {
+      const guide = await getGuideBySlug('non-existent-slug');
+      expect(guide).toBeNull();
     });
   });
 });

@@ -1,47 +1,119 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { MarketingGuide } from "@/content/types";
 import { MarketingDocument } from "@/components/marketing/MarketingDocument";
-import { EditModeProvider, FieldPath } from "./EditModeContext";
 import { EditControls } from "./EditControls";
-import { setDeep } from "@/lib/content-editor/set-deep";
+import { validateMarketingGuide } from "@/lib/guide-validation";
 
 export function GuideEditorClient({
   guide: initialGuide,
-  slug,
+  autoJsonMode = false,
 }: {
   guide: MarketingGuide;
-  slug: string;
+  autoJsonMode?: boolean;
 }) {
   const [guide, setGuide] = useState(initialGuide);
-  const [isEditing, setIsEditing] = useState(false);
+  const [isJsonMode, setIsJsonMode] = useState(autoJsonMode);
+  const [jsonText, setJsonText] = useState(() =>
+    JSON.stringify(initialGuide, null, 2)
+  );
+  const [jsonError, setJsonError] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  function updateField(path: FieldPath, value: string) {
-    setGuide((prev) => setDeep(prev, path, value));
+  function applyJsonText(text: string) {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(text);
+    } catch (error) {
+      setJsonError(error instanceof Error ? error.message : "Invalid JSON");
+      return;
+    }
+
+    const validation = validateMarketingGuide(parsed);
+    if (!validation.success) {
+      setJsonError(validation.error);
+      return;
+    }
+
+    setGuide(validation.data);
+    setJsonError(null);
+  }
+
+  function handleJsonChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    const text = event.target.value;
+    setJsonText(text);
+    applyJsonText(text);
+  }
+
+  function handleToggleJson() {
+    const next = !isJsonMode;
+    setIsJsonMode(next);
+    if (next) {
+      setJsonText(JSON.stringify(guide, null, 2));
+      setJsonError(null);
+    }
+  }
+
+  function handleImportClick() {
+    fileInputRef.current?.click();
+  }
+
+  function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsed = JSON.parse(String(reader.result));
+        const validation = validateMarketingGuide(parsed);
+        if (!validation.success) {
+          setStatusMessage(`Invalid JSON: ${validation.error}`);
+          return;
+        }
+        setGuide(validation.data);
+        setIsJsonMode(true);
+        setJsonText(JSON.stringify(validation.data, null, 2));
+        setJsonError(null);
+        setStatusMessage(`Imported ${validation.data.slug}. Click Save to upload.`);
+      } catch (error) {
+        setStatusMessage(
+          error instanceof Error ? error.message : "Failed to parse JSON."
+        );
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
   }
 
   async function handleSave() {
+    if (isJsonMode && jsonError) {
+      setStatusMessage(`Cannot save: ${jsonError}`);
+      return;
+    }
+
     setIsSaving(true);
     setStatusMessage(null);
     try {
-      const response = await fetch("/api/content/save", {
+      const response = await fetch("/api/upload/guide", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contentType: "guide", slug, content: guide }),
+        body: JSON.stringify(guide),
       });
-      const data = await response.json().catch(() => null);
-      if (!response.ok) {
-        const detail = data?.knownSlugs
-          ? ` Slugs found in content/guides: ${data.knownSlugs
-              .map((entry: { file: string; slug: string | null }) => `${entry.file} → ${entry.slug ?? "(no slug found)"}`)
-              .join("; ")}`
-          : "";
-        throw new Error((data?.error ?? "Failed to save.") + detail);
+      if (response.redirected) {
+        throw new Error("You must be signed in to save.");
       }
-      setStatusMessage(`Saved to ${data.filePath}`);
+      const contentType = response.headers.get("content-type") ?? "";
+      const data = contentType.includes("application/json")
+        ? await response.json().catch(() => null)
+        : null;
+      if (!response.ok) {
+        throw new Error(data?.error ?? "Failed to save.");
+      }
+      setStatusMessage(`Saved: ${data.url}`);
     } catch (error) {
       setStatusMessage(
         error instanceof Error ? error.message : "Failed to save."
@@ -52,12 +124,16 @@ export function GuideEditorClient({
   }
 
   function handleExport() {
+    if (isJsonMode && jsonError) {
+      setStatusMessage(`Cannot export: ${jsonError}`);
+      return;
+    }
     const json = JSON.stringify(guide, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `${slug}.json`;
+    link.download = `${guide.slug}.json`;
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -66,17 +142,42 @@ export function GuideEditorClient({
 
   return (
     <>
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="application/json"
+        onChange={handleFileChange}
+        className="hidden"
+      />
       <EditControls
-        isEditing={isEditing}
-        onToggleEdit={() => setIsEditing((prev) => !prev)}
+        isEditing={false}
+        isJsonMode={isJsonMode}
+        onToggleJson={handleToggleJson}
         onSave={handleSave}
+        onImport={handleImportClick}
         onExport={handleExport}
         isSaving={isSaving}
         statusMessage={statusMessage}
       />
-      <EditModeProvider value={{ isEditing, updateField }}>
+      {isJsonMode ? (
+        <div className="h-full w-full p-8 bg-white">
+          <textarea
+            value={jsonText}
+            onChange={handleJsonChange}
+            spellCheck={false}
+            className={`w-full h-[80vh] font-mono text-xs p-4 border-2 rounded-lg resize-none focus:outline-none ${
+              jsonError
+                ? "border-red-500 focus:border-red-600"
+                : "border-gray-300 focus:border-blue-500"
+            }`}
+          />
+          {jsonError && (
+            <p className="text-red-600 text-sm mt-2">{jsonError}</p>
+          )}
+        </div>
+      ) : (
         <MarketingDocument guide={guide} />
-      </EditModeProvider>
+      )}
     </>
   );
 }

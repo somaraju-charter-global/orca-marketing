@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { getAllOnePagers } from "@/content/onepager-registry";
-import { guides } from "@/content/registry";
+import { getAllGuides } from "@/content/registry";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const onePagers = await getAllOnePagers();
+  const guides = await getAllGuides();
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-6xl mx-auto">
@@ -24,6 +25,18 @@ export default async function Home() {
             className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
           >
             Upload two-pager
+          </Link>
+          <Link
+            href="/create-guide"
+            className="inline-flex items-center rounded-lg bg-teal-600 px-4 py-2 text-sm font-medium text-white hover:bg-teal-700"
+          >
+            Create guide
+          </Link>
+          <Link
+            href="/upload-guide"
+            className="inline-flex items-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+          >
+            Upload guide
           </Link>
           <Link
             href="/manage"
@@ -62,7 +75,7 @@ export default async function Home() {
               Marketing Guides
             </h2>
             <div className="space-y-3">
-              {Object.values(guides).map((guide) => (
+              {guides.map((guide) => (
                 <Link
                   key={guide.slug}
                   href={`/marketing/${guide.slug}`}

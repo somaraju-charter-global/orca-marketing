@@ -4,13 +4,15 @@ import { GeneratePdfButton } from "@/components/GeneratePdfButton";
 import { GuideEditorClient } from "@/components/content-editor/GuideEditorClient";
 import Link from "next/link";
 
+export const dynamicParams = true;
+
 export default async function MarketingGuidePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const guide = getGuideBySlug(slug);
+  const guide = await getGuideBySlug(slug);
 
   if (!guide) {
     notFound();
@@ -50,12 +52,12 @@ export default async function MarketingGuidePage({
             <li>• Review each page visually in the preview below</li>
             <li>• Click &ldquo;Open Print View&rdquo; to see the print-optimized version</li>
             <li>• Use the print view to generate PDFs via browser print or Playwright</li>
-            <li>• Edit content in <code className="bg-blue-100 px-1 rounded">content/guides/{slug}.ts</code></li>
+            <li>• Click Edit JSON to edit, import, export, or save the guide</li>
           </ul>
         </div>
       </div>
 
-      <GuideEditorClient guide={guide} slug={slug} />
+      <GuideEditorClient guide={guide} />
     </div>
   );
 }

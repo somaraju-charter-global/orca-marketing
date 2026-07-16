@@ -5,7 +5,7 @@ import React from "react";
 interface EditControlsProps {
   isEditing: boolean;
   isJsonMode?: boolean;
-  onToggleEdit: () => void;
+  onToggleEdit?: () => void;
   onToggleJson?: () => void;
   onSave: () => void;
   onImport?: () => void;
@@ -33,17 +33,19 @@ export function EditControls({
         </div>
       )}
       <div className="flex items-center gap-2 bg-white border border-gray-200 shadow-lg rounded-full px-2 py-2">
-        <button
-          type="button"
-          onClick={onToggleEdit}
-          className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
-            isEditing
-              ? "bg-gray-900 text-white hover:bg-gray-800"
-              : "bg-blue-600 text-white hover:bg-blue-700"
-          }`}
-        >
-          {isEditing ? "Done Editing" : "Edit Content"}
-        </button>
+        {onToggleEdit && (
+          <button
+            type="button"
+            onClick={onToggleEdit}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
+              isEditing
+                ? "bg-gray-900 text-white hover:bg-gray-800"
+                : "bg-blue-600 text-white hover:bg-blue-700"
+            }`}
+          >
+            {isEditing ? "Done Editing" : "Edit Content"}
+          </button>
+        )}
         {onToggleJson && (
           <button
             type="button"

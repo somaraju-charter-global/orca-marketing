@@ -187,3 +187,60 @@ export async function deletePdf(slug: string): Promise<void> {
 
   await del(key);
 }
+
+export const GUIDE_JSON_PREFIX = "guide-jsons/" as const;
+
+function guideJsonKey(slug: string): string {
+  return `${GUIDE_JSON_PREFIX}${slug}.json`;
+}
+
+export async function uploadGuideJson(
+  slug: string,
+  data: unknown
+): Promise<PutBlobResult> {
+  const key = guideJsonKey(slug);
+  const body = JSON.stringify(data, null, 2);
+
+  if (isLocalMode()) {
+    return localPut(key, body, "application/json");
+  }
+
+  return put(key, body, {
+    access: "public",
+    contentType: "application/json",
+    allowOverwrite: true,
+  });
+}
+
+export async function getGuideJson(slug: string): Promise<unknown | null> {
+  const key = guideJsonKey(slug);
+
+  if (isLocalMode()) {
+    return localGet(key);
+  }
+
+  const result = await get(key, { access: "public", useCache: false });
+  if (!result || result.statusCode === 304 || !result.stream) return null;
+  const text = await new Response(result.stream).text();
+  return JSON.parse(text);
+}
+
+export async function listGuideJsons(): Promise<ListBlobResultBlob[]> {
+  if (isLocalMode()) {
+    return localList(GUIDE_JSON_PREFIX);
+  }
+
+  const result = await list({ prefix: GUIDE_JSON_PREFIX });
+  return result.blobs;
+}
+
+export async function deleteGuideJson(slug: string): Promise<void> {
+  const key = guideJsonKey(slug);
+
+  if (isLocalMode()) {
+    await localDelete(key);
+    return;
+  }
+
+  await del(key);
+}
