@@ -20,6 +20,7 @@ export default async function MarketingGuidePrintPage({
 }
 
 export async function generateStaticParams() {
-  const { guides } = await import("@/content/registry");
-  return Object.keys(guides).map((slug) => ({ slug }));
+  const { getAllGuides } = await import("@/content/registry");
+  const guides = await getAllGuides();
+  return guides.map((guide) => ({ slug: guide.slug }));
 }

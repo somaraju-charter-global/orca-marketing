@@ -49,7 +49,7 @@ export default async function OnePagerPage({
               <li>• Review each page visually in the preview below</li>
               <li>• Click &ldquo;Open Print View&rdquo; to see the print-optimized version</li>
               <li>• Use the print view to generate PDFs via browser print or Playwright</li>
-              <li>• Edit content in <code className="bg-orange-100 px-1 rounded">content/two-pagers/{slug}.ts</code></li>
+              <li>• Edit content by uploading JSON or using the editor controls</li>
             </ul>
           </div>
         </div>
