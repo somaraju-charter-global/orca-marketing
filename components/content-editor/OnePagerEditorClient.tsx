@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import type { OnePager } from "@/content/onepager-types";
 import { OnePagerDocument } from "@/components/onepager/OnePagerDocument";
 import { EditModeProvider, FieldPath } from "./EditModeContext";
 import { EditControls } from "./EditControls";
 import { setDeep } from "@/lib/content-editor/set-deep";
 import { validateTwoPageVerticalBrief } from "@/lib/validation";
+import { useExtensionBridge } from "./useExtensionBridge";
 
 export function OnePagerEditorClient({
   onePager: initialOnePager,
@@ -25,6 +26,50 @@ export function OnePagerEditorClient({
   );
   const [jsonError, setJsonError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const statusTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearStatusTimeout = useCallback(() => {
+    if (statusTimeoutRef.current) {
+      clearTimeout(statusTimeoutRef.current);
+      statusTimeoutRef.current = null;
+    }
+  }, []);
+
+  // Listen for JSON pushed from the OrcaWorks Chrome extension.
+  const handleExtensionApply = useCallback((data: OnePager) => {
+    setOnePager(data);
+    setJsonText(JSON.stringify(data, null, 2));
+    setJsonError(null);
+    setStatusMessage("JSON updated from OrcaWorks extension — click Save to upload");
+  }, []);
+
+  const handleExtensionError = useCallback((error: string) => {
+    setStatusMessage(`Extension update rejected: ${error}`);
+    setJsonError(error);
+  }, []);
+
+  useExtensionBridge<OnePager>({
+    validate: validateTwoPageVerticalBrief,
+    onApply: handleExtensionApply,
+    onError: handleExtensionError,
+  });
+
+  useEffect(() => {
+    return () => {
+      clearStatusTimeout();
+    };
+  }, [clearStatusTimeout]);
+
+  // Keep the embedded extension marker in sync with editor state.
+  useEffect(() => {
+    const marker = document.getElementById("__ORCA_PAGE_DATA__") as HTMLElement | null;
+    if (!marker) return;
+
+    const json = JSON.stringify(onePager).replace(/</g, "\\u003c");
+    if (marker.dataset.orcaJson !== json) {
+      marker.dataset.orcaJson = json;
+    }
+  }, [onePager]);
 
   function updateField(path: FieldPath, value: string) {
     setOnePager((prev) => setDeep(prev, path, value));
@@ -74,6 +119,8 @@ export function OnePagerEditorClient({
   }
 
   async function handleSave() {
+    clearStatusTimeout();
+
     if (isJsonMode && jsonError) {
       setStatusMessage(`Cannot save: ${jsonError}`);
       return;
@@ -98,6 +145,9 @@ export function OnePagerEditorClient({
         throw new Error(data?.error ?? "Failed to save.");
       }
       setStatusMessage(`Saved: ${data.url}`);
+      statusTimeoutRef.current = setTimeout(() => {
+        setStatusMessage(null);
+      }, 3000);
     } catch (error) {
       setStatusMessage(
         error instanceof Error ? error.message : "Failed to save."
@@ -176,6 +226,10 @@ export function OnePagerEditorClient({
         onExport={handleExport}
         isSaving={isSaving}
         statusMessage={statusMessage}
+        onClearStatus={() => {
+          clearStatusTimeout();
+          setStatusMessage(null);
+        }}
       />
       <div className="onepager-document">
         {isJsonMode ? (

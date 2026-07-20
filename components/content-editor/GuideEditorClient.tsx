@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import type { MarketingGuide } from "@/content/types";
 import { MarketingDocument } from "@/components/marketing/MarketingDocument";
 import { EditControls } from "./EditControls";
 import { validateMarketingGuide } from "@/lib/guide-validation";
+import { useExtensionBridge } from "./useExtensionBridge";
 
 export function GuideEditorClient({
   guide: initialGuide,
@@ -22,6 +23,25 @@ export function GuideEditorClient({
   const [isSaving, setIsSaving] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Listen for JSON pushed from the OrcaWorks Chrome extension.
+  const handleExtensionApply = useCallback((data: MarketingGuide) => {
+    setGuide(data);
+    setJsonText(JSON.stringify(data, null, 2));
+    setJsonError(null);
+    setStatusMessage("JSON updated from OrcaWorks extension — click Save to upload");
+  }, []);
+
+  const handleExtensionError = useCallback((error: string) => {
+    setStatusMessage(`Extension update rejected: ${error}`);
+    setJsonError(error);
+  }, []);
+
+  useExtensionBridge<MarketingGuide>({
+    validate: validateMarketingGuide,
+    onApply: handleExtensionApply,
+    onError: handleExtensionError,
+  });
 
   function applyJsonText(text: string) {
     let parsed: unknown;

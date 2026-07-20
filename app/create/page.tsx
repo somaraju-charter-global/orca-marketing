@@ -3,6 +3,10 @@ import Link from "next/link";
 import { OnePagerEditorClient } from "@/components/content-editor/OnePagerEditorClient";
 import { createEmptyTwoPager } from "@/lib/empty-two-pager";
 
+function serializePageData(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
 export const dynamic = "force-dynamic";
 
 export default function CreatePage() {
@@ -24,6 +28,11 @@ export default function CreatePage() {
           <div className="text-sm text-gray-500">Slug: {onePager.slug}</div>
         </div>
 
+        <div
+          id="__ORCA_PAGE_DATA__"
+          data-orca-json={serializePageData(onePager)}
+          className="hidden"
+        />
         <OnePagerEditorClient onePager={onePager} autoEdit />
       </div>
     </div>

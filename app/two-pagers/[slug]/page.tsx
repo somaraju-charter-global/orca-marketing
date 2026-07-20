@@ -4,6 +4,10 @@ import { OnePagerEditorClient } from "@/components/content-editor/OnePagerEditor
 import { GeneratePdfButton } from "@/components/GeneratePdfButton";
 import Link from "next/link";
 
+function serializePageData(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
 export default async function TwoPagerPage({
   params,
 }: {
@@ -54,6 +58,11 @@ export default async function TwoPagerPage({
           </div>
         </div>
 
+        <div
+          id="__ORCA_PAGE_DATA__"
+          data-orca-json={serializePageData(twoPager)}
+          className="hidden"
+        />
         <OnePagerEditorClient onePager={twoPager} />
       </div>
     </div>

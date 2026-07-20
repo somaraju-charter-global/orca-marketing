@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface EditControlsProps {
   isEditing: boolean;
@@ -12,6 +12,7 @@ interface EditControlsProps {
   onExport: () => void;
   isSaving: boolean;
   statusMessage: string | null;
+  onClearStatus?: () => void;
 }
 
 export function EditControls({
@@ -24,11 +25,32 @@ export function EditControls({
   onExport,
   isSaving,
   statusMessage,
+  onClearStatus,
 }: EditControlsProps) {
+  const statusRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!statusMessage || !onClearStatus) return;
+
+    function handleClickOutside(event: MouseEvent) {
+      if (statusRef.current && !statusRef.current.contains(event.target as Node)) {
+        onClearStatus?.();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [statusMessage, onClearStatus]);
+
   return (
     <div className="no-print fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
       {statusMessage && (
-        <div className="bg-white border border-gray-200 shadow-md rounded-lg px-4 py-2 text-sm text-gray-700 max-w-xs">
+        <div
+          ref={statusRef}
+          className="bg-white border border-gray-200 shadow-md rounded-lg px-4 py-2 text-sm text-gray-700 max-w-xs"
+        >
           {statusMessage}
         </div>
       )}
