@@ -24,7 +24,7 @@ export function createEmptyTwoPager(slug: string): OnePager {
         body: "Add your challenge description.",
       },
       solutionVisual: {
-        imagePath: "/images/supply-chain-speed.jpg",
+        imagePath: "/images/orcaworks-stack-v3.jpg",
       },
       orcaworksValue: {
         title: "Orcaworks value",

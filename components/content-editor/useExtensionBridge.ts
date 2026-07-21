@@ -43,11 +43,24 @@ export function useExtensionBridge<T>({
 }: UseExtensionBridgeOptions<T>) {
   useEffect(() => {
     function applyData(data: unknown) {
+      console.info('[useExtensionBridge] applyData received:', JSON.stringify(data, null, 2));
       if (data === undefined) {
+        console.info('[useExtensionBridge] applyData skipped: data is undefined');
         return;
       }
 
-      const validation = validate(data);
+      // Unwrap eventName/eventValue wrapper if present (from EmitEventExecutor)
+      let dataToValidate = data;
+      if (data !== null && typeof data === 'object') {
+        const record = data as Record<string, unknown>;
+        if (typeof record.eventName === 'string' && record.eventValue != null) {
+          console.info('[useExtensionBridge] unwrapping eventName/eventValue wrapper');
+          dataToValidate = record.eventValue;
+        }
+      }
+
+      const validation = validate(dataToValidate);
+      console.info('[useExtensionBridge] validation result:', JSON.stringify(validation, null, 2));
       if (!validation.success) {
         onError?.(validation.error);
         return;
@@ -59,12 +72,14 @@ export function useExtensionBridge<T>({
     function readAndClearDomBridge() {
       const html = document.documentElement;
       const raw = html.getAttribute(ORCA_DATA_ATTR);
+      console.info('[useExtensionBridge] readAndClearDomBridge raw:', raw);
       if (!raw) return;
 
       html.removeAttribute(ORCA_DATA_ATTR);
 
       try {
         const parsed = JSON.parse(raw) as Record<string, unknown>;
+        console.info('[useExtensionBridge] parsed bridge payload:', JSON.stringify(parsed, null, 2));
         if (parsed.__orcaBridge !== true) return;
 
         if (parsed.error) {
@@ -81,6 +96,7 @@ export function useExtensionBridge<T>({
     function customEventHandler(event: Event) {
       const detail = (event as CustomEvent<Record<string, unknown> | undefined>)
         .detail;
+      console.info('[useExtensionBridge] customEventHandler detail:', JSON.stringify(detail, null, 2));
 
       if (!detail || detail.__orcaBridge !== true) {
         return;
@@ -90,6 +106,7 @@ export function useExtensionBridge<T>({
     }
 
     function messageHandler(event: MessageEvent<unknown>) {
+      console.info('[useExtensionBridge] messageHandler event.data:', JSON.stringify(event.data, null, 2));
       // Only accept messages sent from this same window (content script -> page).
       if (event.source !== window || !isBridgePayload(event.data)) {
         return;

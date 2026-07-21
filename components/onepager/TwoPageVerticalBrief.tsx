@@ -147,7 +147,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
               {/* Solution visual */}
               <div className="relative w-full overflow-hidden mt-0" style={{ height: "250px" }}>
                 <Image
-                  src={props.page1.solutionVisual.imagePath || "/images/supply-chain-speed.jpg"}
+                  src="/images/orcaworks-stack-v3.jpg"
                   alt="Solution visual"
                   fill
                   className="object-contain"

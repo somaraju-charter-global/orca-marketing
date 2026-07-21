@@ -20,7 +20,7 @@ export function OnePagerShell({
   footer,
 }: OnePagerShellProps) {
   return (
-    <div className="onepager-page" style={{ page: "onepager" }}>
+    <div className="onepager-page">
       {eyebrow && (
         <div className="absolute top-0 left-0 right-0 px-14 py-3 flex justify-between items-center border-b border-gray-200">
           <span className="text-xs font-semibold tracking-wider text-gray-500 uppercase">

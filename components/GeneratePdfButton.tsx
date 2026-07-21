@@ -27,6 +27,7 @@ export function GeneratePdfButton({
       const response = await fetch("/api/generate-pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
         body: JSON.stringify({ slug, section, format }),
       });
 

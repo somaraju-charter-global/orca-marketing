@@ -7,7 +7,7 @@ export function Header() {
   const { data: session, status } = useSession();
 
   return (
-    <header className="w-full border-b border-gray-200 bg-white px-6 py-4">
+    <header className="no-print w-full border-b border-gray-200 bg-white px-6 py-4">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <Link href="/" className="text-lg font-bold text-gray-900">
           Orcaworks Marketing

@@ -37,6 +37,7 @@ export function OnePagerEditorClient({
 
   // Listen for JSON pushed from the OrcaWorks Chrome extension.
   const handleExtensionApply = useCallback((data: OnePager) => {
+    console.info('[OnePagerEditorClient] extension apply:', JSON.stringify(data, null, 2));
     setOnePager(data);
     setJsonText(JSON.stringify(data, null, 2));
     setJsonError(null);
@@ -44,6 +45,7 @@ export function OnePagerEditorClient({
   }, []);
 
   const handleExtensionError = useCallback((error: string) => {
+    console.info('[OnePagerEditorClient] extension error:', error);
     setStatusMessage(`Extension update rejected: ${error}`);
     setJsonError(error);
   }, []);
