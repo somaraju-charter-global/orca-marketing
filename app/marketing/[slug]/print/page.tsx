@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getGuideBySlug } from "@/content/registry";
 import { MarketingDocument } from "@/components/marketing/MarketingDocument";
+import { auth } from "@/auth";
 
 export const dynamicParams = true;
 
@@ -10,7 +11,11 @@ export default async function MarketingGuidePrintPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const guide = await getGuideBySlug(slug);
+  const session = await auth();
+  if (!session?.user?.email || !session?.user?.domain) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+  const guide = await getGuideBySlug(slug, session.user.domain);
 
   if (!guide) {
     notFound();
@@ -20,7 +25,5 @@ export default async function MarketingGuidePrintPage({
 }
 
 export async function generateStaticParams() {
-  const { getAllGuides } = await import("@/content/registry");
-  const guides = await getAllGuides();
-  return guides.map((guide) => ({ slug: guide.slug }));
+  return [];
 }

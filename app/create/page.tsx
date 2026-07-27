@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import Link from "next/link";
 import { OnePagerEditorClient } from "@/components/content-editor/OnePagerEditorClient";
 import { createEmptyTwoPager } from "@/lib/empty-two-pager";
+import { auth } from "@/auth";
 
 function serializePageData(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
@@ -9,7 +10,12 @@ function serializePageData(data: unknown): string {
 
 export const dynamic = "force-dynamic";
 
-export default function CreatePage() {
+export default async function CreatePage() {
+  const session = await auth();
+  if (!session?.user?.email) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+
   const onePager = createEmptyTwoPager(`untitled-${randomUUID().slice(0, 8)}`);
 
   return (

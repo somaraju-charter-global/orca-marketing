@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getOnePagerBySlug } from "@/content/onepager-registry";
 import { OnePagerDocument } from "@/components/onepager/OnePagerDocument";
+import { auth } from "@/auth";
 
 export default async function OnePagerPrintPage({
   params,
@@ -8,7 +9,11 @@ export default async function OnePagerPrintPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const onePager = await getOnePagerBySlug(slug);
+  const session = await auth();
+  if (!session?.user?.email || !session?.user?.domain) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+  const onePager = await getOnePagerBySlug(slug, session.user.domain);
 
   if (!onePager) {
     notFound();

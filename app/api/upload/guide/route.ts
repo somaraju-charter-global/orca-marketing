@@ -1,10 +1,16 @@
 import { NextResponse } from "next/server";
 import { uploadGuideJson } from "@/lib/storage";
 import { validateMarketingGuide } from "@/lib/guide-validation";
+import { auth } from "@/auth";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
+  const session = await auth();
+  if (!session?.user?.email || !session?.user?.domain) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const body = await request.json().catch(() => null);
     if (!body || typeof body !== "object") {
@@ -20,7 +26,7 @@ export async function POST(request: Request) {
     }
 
     const { slug } = validation.data;
-    const blob = await uploadGuideJson(slug, validation.data);
+    const blob = await uploadGuideJson(slug, validation.data, session.user.domain);
 
     return NextResponse.json({ ok: true, slug, url: blob.url });
   } catch (error) {

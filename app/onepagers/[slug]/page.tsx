@@ -3,6 +3,7 @@ import { getOnePagerBySlug } from "@/content/onepager-registry";
 import { OnePagerEditorClient } from "@/components/content-editor/OnePagerEditorClient";
 import { GeneratePdfButton } from "@/components/GeneratePdfButton";
 import Link from "next/link";
+import { auth } from "@/auth";
 
 export default async function OnePagerPage({
   params,
@@ -10,7 +11,11 @@ export default async function OnePagerPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const onePager = await getOnePagerBySlug(slug);
+  const session = await auth();
+  if (!session?.user?.email || !session?.user?.domain) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+  const onePager = await getOnePagerBySlug(slug, session.user.domain);
 
   if (!onePager) {
     notFound();

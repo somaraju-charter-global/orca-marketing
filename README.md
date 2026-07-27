@@ -11,7 +11,7 @@ A production-ready Next.js application for creating sophisticated Orcaworks mark
 - **Playwright** - Local PDF generation fallback
 - **puppeteer-core + @sparticuz/chromium** - Serverless PDF generation on Vercel
 - **Vercel Blob** - JSON and PDF storage
-- **NextAuth v5 / Auth.js** - GitHub OAuth login
+- **NextAuth v5 / Auth.js** - Auth0 OAuth login
 - **Vercel** - Hosting and preview
 
 ## Key Design Principles
@@ -88,7 +88,7 @@ Static two-pagers in `content/two-pagers/` still work as a fallback. If a slug e
 
 ### Authentication
 
-Uploading, managing, and generating PDFs require signing in with GitHub. Set the NextAuth environment variables in `.env.local` first.
+Uploading, managing, and generating PDFs require signing in with Auth0. Set the NextAuth environment variables in `.env.local` first.
 
 ## Adding a New Two-Pager
 
@@ -240,20 +240,54 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 
 ## Deploying to Vercel
 
-1. Copy `.env.template` to `.env.local` and fill in:
+1. **Set up Auth0 Application**:
+   - Go to [Auth0 Dashboard](https://manage.auth0.com/)
+   - Create a new **Regular Web Application**
+   - Set **Allowed Callback URLs**:
+     - `http://localhost:3011/api/auth/callback/auth0` for local development
+     - `https://<your-vercel-domain>/api/auth/callback/auth0` for production
+   - Set **Allowed Logout URLs**:
+     - `http://localhost:3011` for local development
+     - `https://<your-vercel-domain>` for production
+   - Copy **Domain**, **Client ID**, and **Client Secret**
+
+2. Copy `.env.template` to `.env.local` and fill in:
    - `BLOB_READ_WRITE_TOKEN` – from Vercel Blob (required for production; the local `local-blob/` fallback works in dev)
-   - `NEXTAUTH_SECRET` or `AUTH_SECRET` – generate a random string
-   - `AUTH_GITHUB_ID` and `AUTH_GITHUB_SECRET` – from a GitHub OAuth app
+   - `AUTH_SECRET` or `NEXTAUTH_SECRET` – generate a random string (use `openssl rand -base64 32`)
+   - `AUTH0_ISSUER` – your Auth0 tenant domain (e.g., `https://your-tenant.auth0.com`)
+   - `AUTH0_CLIENT_ID` – from Auth0 application
+   - `AUTH0_CLIENT_SECRET` – from Auth0 application
 
-   For the GitHub OAuth app, set the **Authorization callback URL** to:
-   - `http://localhost:3011/api/auth/callback/github` for local development
-   - `https://<your-vercel-domain>/api/auth/callback/github` for production
+3. Push your code to GitHub
 
-2. Push your code to GitHub
-3. Import the repository in Vercel
-4. Add the same environment variables in Vercel's project settings
-5. Deploy with default settings
-6. Your marketing guides will be available at `https://your-vercel-url.vercel.app/marketing/[slug]`, two-pagers at `/two-pagers/[slug]`, uploads at `/upload`, and the management UI at `/manage`
+4. Import the repository in Vercel
+
+5. Add the same environment variables in Vercel's project settings:
+   - `BLOB_READ_WRITE_TOKEN`
+   - `AUTH_SECRET`
+   - `AUTH0_ISSUER`
+   - `AUTH0_CLIENT_ID`
+   - `AUTH0_CLIENT_SECRET`
+
+6. Deploy with default settings
+
+7. Your marketing guides will be available at:
+   - `https://your-vercel-url.vercel.app/marketing/[slug]` - Guides
+   - `/two-pagers/[slug]` - Two-pagers
+   - `/upload` - Upload interface
+   - `/manage` - Management UI
+
+## Environment Variables
+
+| Variable | Required | Description | Example |
+|----------|----------|-------------|---------|
+| `BLOB_READ_WRITE_TOKEN` | Yes (production) | Vercel Blob storage token | `vercel_blob_token_...` |
+| `AUTH_SECRET` | Yes | NextAuth secret for session encryption | `random-secret-string` |
+| `AUTH0_ISSUER` | Yes | Auth0 tenant URL | `https://your-tenant.auth0.com` |
+| `AUTH0_CLIENT_ID` | Yes | Auth0 application client ID | `your-client-id` |
+| `AUTH0_CLIENT_SECRET` | Yes | Auth0 application client secret | `your-client-secret` |
+
+**Note**: In local development, if `BLOB_READ_WRITE_TOKEN` is not set, the app falls back to the `local-blob/` directory for storage.
 
 ## Marketing Workflow
 
@@ -390,8 +424,8 @@ When adding new components or content types, add corresponding tests to ensure:
 - Verify all imports in `content/registry.ts` are correct
 
 **Cannot save or generate PDFs**
-- Ensure you are signed in with GitHub; upload, manage, and PDF generation require authentication
-- Verify `AUTH_GITHUB_ID`, `AUTH_GITHUB_SECRET`, and `AUTH_SECRET` are set in `.env.local`
+- Ensure you are signed in with Auth0; upload, manage, and PDF generation require authentication
+- Verify `AUTH0_ISSUER`, `AUTH0_CLIENT_ID`, `AUTH0_CLIENT_SECRET`, and `AUTH_SECRET` are set in `.env.local`
 - If `BLOB_READ_WRITE_TOKEN` is not set, the app uses `local-blob/` for local dev storage
 
 **Uploaded files not appearing on the homepage**

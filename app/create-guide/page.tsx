@@ -2,10 +2,16 @@ import { randomUUID } from "node:crypto";
 import Link from "next/link";
 import { GuideEditorClient } from "@/components/content-editor/GuideEditorClient";
 import { createEmptyGuide } from "@/lib/empty-guide";
+import { auth } from "@/auth";
 
 export const dynamic = "force-dynamic";
 
-export default function CreateGuidePage() {
+export default async function CreateGuidePage() {
+  const session = await auth();
+  if (!session?.user?.email) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+
   const guide = createEmptyGuide(`untitled-guide-${randomUUID().slice(0, 8)}`);
 
   return (

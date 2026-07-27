@@ -3,6 +3,7 @@ import { getOnePagerBySlug } from "@/content/onepager-registry";
 import { OnePagerEditorClient } from "@/components/content-editor/OnePagerEditorClient";
 import { GeneratePdfButton } from "@/components/GeneratePdfButton";
 import Link from "next/link";
+import { auth } from "@/auth";
 
 function serializePageData(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
@@ -14,7 +15,11 @@ export default async function TwoPagerPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const twoPager = await getOnePagerBySlug(slug);
+  const session = await auth();
+  if (!session?.user?.email || !session?.user?.domain) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+  const twoPager = await getOnePagerBySlug(slug, session.user.domain);
 
   if (!twoPager) {
     notFound();

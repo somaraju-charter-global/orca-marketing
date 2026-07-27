@@ -1,12 +1,18 @@
 import Link from "next/link";
 import { getAllOnePagers } from "@/content/onepager-registry";
 import { getAllGuides } from "@/content/registry";
+import { auth } from "@/auth";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const onePagers = await getAllOnePagers();
-  const guides = await getAllGuides();
+  const session = await auth();
+  if (!session?.user?.email || !session?.user?.domain) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+
+  const onePagers = await getAllOnePagers(session.user.domain);
+  const guides = await getAllGuides(session.user.domain);
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-6xl mx-auto">

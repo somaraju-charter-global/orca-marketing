@@ -1,12 +1,13 @@
 import { listJsons, listPdfs } from "@/lib/storage";
 import { ManageClient, type ManageBlobItem } from "@/components/ManageClient";
 import type { ListBlobResultBlob } from "@vercel/blob";
+import { auth } from "@/auth";
 
 export const dynamic = "force-dynamic";
 
 function blobToManageItem(blob: ListBlobResultBlob, kind: "json" | "pdf"): ManageBlobItem {
   const slug = blob.pathname
-    .replace(kind === "json" ? /^jsons\// : /^pdfs\//, "")
+    .replace(kind === "json" ? /^domains\/[\w.-]+\/jsons\// : /^domains\/[\w.-]+\/pdfs\//, "")
     .replace(/\.\w+$/, "");
   return {
     url: blob.url,
@@ -22,7 +23,15 @@ function blobToManageItem(blob: ListBlobResultBlob, kind: "json" | "pdf"): Manag
 }
 
 export default async function ManagePage() {
-  const [jsonBlobs, pdfBlobs] = await Promise.all([listJsons(), listPdfs()]);
+  const session = await auth();
+  if (!session?.user?.email || !session?.user?.domain) {
+    return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
+  }
+
+  const [jsonBlobs, pdfBlobs] = await Promise.all([
+    listJsons(session.user.domain),
+    listPdfs(session.user.domain),
+  ]);
 
   const initialJsons = jsonBlobs.map((blob) => blobToManageItem(blob, "json"));
   const initialPdfs = pdfBlobs.map((blob) => blobToManageItem(blob, "pdf"));

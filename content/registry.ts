@@ -6,9 +6,9 @@ const staticGuides: Record<string, MarketingGuide> = {};
 
 export const guides = staticGuides;
 
-export async function getGuideBySlug(slug: string): Promise<MarketingGuide | null> {
+export async function getGuideBySlug(slug: string, domain: string): Promise<MarketingGuide | null> {
   try {
-    const blobData = await getGuideJson(slug);
+    const blobData = await getGuideJson(slug, domain);
     if (blobData) {
       const validation = validateMarketingGuide(blobData);
       if (validation.success) {
@@ -22,7 +22,7 @@ export async function getGuideBySlug(slug: string): Promise<MarketingGuide | nul
   return staticGuides[slug] ?? null;
 }
 
-export async function getAllGuides(): Promise<MarketingGuide[]> {
+export async function getAllGuides(domain: string): Promise<MarketingGuide[]> {
   const merged = new Map<string, MarketingGuide>();
 
   for (const [slug, guide] of Object.entries(staticGuides)) {
@@ -30,14 +30,14 @@ export async function getAllGuides(): Promise<MarketingGuide[]> {
   }
 
   try {
-    const jsonBlobs = await listGuideJsons();
+    const jsonBlobs = await listGuideJsons(domain);
     for (const blob of jsonBlobs) {
       const slug = blob.pathname
-        .replace(/^guide-jsons\//, "")
+        .replace(/^domains\/[\w.-]+\/guide-jsons\//, "")
         .replace(/\.json$/, "");
       if (!slug) continue;
 
-      const data = await getGuideJson(slug);
+      const data = await getGuideJson(slug, domain);
       const validation = validateMarketingGuide(data);
       if (validation.success) {
         merged.set(slug, validation.data);

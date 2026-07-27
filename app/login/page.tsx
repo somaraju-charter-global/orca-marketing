@@ -21,14 +21,14 @@ export default function LoginPage() {
           Orcaworks Marketing
         </h1>
         <p className="mb-6 text-sm text-gray-600">
-          Sign in with GitHub to manage two-pagers.
+          Sign in with Auth0 to manage two-pagers.
         </p>
         <button
           type="button"
-          onClick={() => signIn("github", { redirectTo: "/" })}
+          onClick={() => signIn("auth0", { redirectTo: "/" })}
           className="w-full rounded-lg bg-gray-900 py-2.5 text-sm font-semibold text-white hover:bg-gray-700"
         >
-          Sign in with GitHub
+          Sign in with Auth0
         </button>
       </div>
     </main>

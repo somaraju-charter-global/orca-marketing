@@ -2,10 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { findContentFile, listContentSlugs, ContentType } from "@/lib/content-editor/find-content-file";
+import { auth } from "@/auth";
 
 export const runtime = "nodejs";
 
 export async function POST(request: NextRequest) {
+  const session = await auth();
+  if (!session?.user?.email) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const body = await request.json().catch(() => null);
   const contentType: ContentType | undefined = body?.contentType;
   const slug: string | undefined = body?.slug;

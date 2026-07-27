@@ -8,12 +8,12 @@ export const PDF_PREFIX = "pdfs/" as const;
 
 const LOCAL_BLOB_DIR = path.resolve(process.cwd(), "local-blob");
 
-function jsonKey(slug: string): string {
-  return `${JSON_PREFIX}${slug}.json`;
+function jsonKey(slug: string, domain: string): string {
+  return `domains/${domain}/${JSON_PREFIX}${slug}.json`;
 }
 
-function pdfKey(slug: string): string {
-  return `${PDF_PREFIX}${slug}.pdf`;
+function pdfKey(slug: string, domain: string): string {
+  return `domains/${domain}/${PDF_PREFIX}${slug}.pdf`;
 }
 
 /**
@@ -98,9 +98,10 @@ async function localDelete(key: string): Promise<void> {
 
 export async function uploadJson(
   slug: string,
-  data: unknown
+  data: unknown,
+  domain: string
 ): Promise<PutBlobResult> {
-  const key = jsonKey(slug);
+  const key = jsonKey(slug, domain);
   const body = JSON.stringify(data, null, 2);
 
   if (isLocalMode()) {
@@ -114,8 +115,8 @@ export async function uploadJson(
   });
 }
 
-export async function getJson(slug: string): Promise<unknown | null> {
-  const key = jsonKey(slug);
+export async function getJson(slug: string, domain: string): Promise<unknown | null> {
+  const key = jsonKey(slug, domain);
 
   if (isLocalMode()) {
     return localGet(key);
@@ -127,17 +128,18 @@ export async function getJson(slug: string): Promise<unknown | null> {
   return JSON.parse(text);
 }
 
-export async function listJsons(): Promise<ListBlobResultBlob[]> {
+export async function listJsons(domain: string): Promise<ListBlobResultBlob[]> {
+  const prefix = `domains/${domain}/${JSON_PREFIX}`;
   if (isLocalMode()) {
-    return localList(JSON_PREFIX);
+    return localList(prefix);
   }
 
-  const result = await list({ prefix: JSON_PREFIX });
+  const result = await list({ prefix });
   return result.blobs;
 }
 
-export async function deleteJson(slug: string): Promise<void> {
-  const key = jsonKey(slug);
+export async function deleteJson(slug: string, domain: string): Promise<void> {
+  const key = jsonKey(slug, domain);
 
   if (isLocalMode()) {
     await localDelete(key);
@@ -149,9 +151,10 @@ export async function deleteJson(slug: string): Promise<void> {
 
 export async function uploadPdf(
   slug: string,
-  buffer: ArrayBuffer | Buffer | Blob
+  buffer: ArrayBuffer | Buffer | Blob,
+  domain: string
 ): Promise<PutBlobResult> {
-  const key = pdfKey(slug);
+  const key = pdfKey(slug, domain);
 
   if (isLocalMode()) {
     const bytes =
@@ -168,17 +171,18 @@ export async function uploadPdf(
   });
 }
 
-export async function listPdfs(): Promise<ListBlobResultBlob[]> {
+export async function listPdfs(domain: string): Promise<ListBlobResultBlob[]> {
+  const prefix = `domains/${domain}/${PDF_PREFIX}`;
   if (isLocalMode()) {
-    return localList(PDF_PREFIX);
+    return localList(prefix);
   }
 
-  const result = await list({ prefix: PDF_PREFIX });
+  const result = await list({ prefix });
   return result.blobs;
 }
 
-export async function deletePdf(slug: string): Promise<void> {
-  const key = pdfKey(slug);
+export async function deletePdf(slug: string, domain: string): Promise<void> {
+  const key = pdfKey(slug, domain);
 
   if (isLocalMode()) {
     await localDelete(key);
@@ -190,15 +194,16 @@ export async function deletePdf(slug: string): Promise<void> {
 
 export const GUIDE_JSON_PREFIX = "guide-jsons/" as const;
 
-function guideJsonKey(slug: string): string {
-  return `${GUIDE_JSON_PREFIX}${slug}.json`;
+function guideJsonKey(slug: string, domain: string): string {
+  return `domains/${domain}/${GUIDE_JSON_PREFIX}${slug}.json`;
 }
 
 export async function uploadGuideJson(
   slug: string,
-  data: unknown
+  data: unknown,
+  domain: string
 ): Promise<PutBlobResult> {
-  const key = guideJsonKey(slug);
+  const key = guideJsonKey(slug, domain);
   const body = JSON.stringify(data, null, 2);
 
   if (isLocalMode()) {
@@ -212,8 +217,8 @@ export async function uploadGuideJson(
   });
 }
 
-export async function getGuideJson(slug: string): Promise<unknown | null> {
-  const key = guideJsonKey(slug);
+export async function getGuideJson(slug: string, domain: string): Promise<unknown | null> {
+  const key = guideJsonKey(slug, domain);
 
   if (isLocalMode()) {
     return localGet(key);
@@ -225,17 +230,18 @@ export async function getGuideJson(slug: string): Promise<unknown | null> {
   return JSON.parse(text);
 }
 
-export async function listGuideJsons(): Promise<ListBlobResultBlob[]> {
+export async function listGuideJsons(domain: string): Promise<ListBlobResultBlob[]> {
+  const prefix = `domains/${domain}/${GUIDE_JSON_PREFIX}`;
   if (isLocalMode()) {
-    return localList(GUIDE_JSON_PREFIX);
+    return localList(prefix);
   }
 
-  const result = await list({ prefix: GUIDE_JSON_PREFIX });
+  const result = await list({ prefix });
   return result.blobs;
 }
 
-export async function deleteGuideJson(slug: string): Promise<void> {
-  const key = guideJsonKey(slug);
+export async function deleteGuideJson(slug: string, domain: string): Promise<void> {
+  const key = guideJsonKey(slug, domain);
 
   if (isLocalMode()) {
     await localDelete(key);

@@ -26,6 +26,9 @@
 # local dev blob fallback
 /local-blob
 
+# Agent reports
+.agent-reports/
+
 # misc
 .DS_Store
 *.pem
