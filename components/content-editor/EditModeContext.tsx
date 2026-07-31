@@ -6,7 +6,7 @@ export type FieldPath = (string | number)[];
 
 interface EditModeContextValue {
   isEditing: boolean;
-  updateField: (path: FieldPath, value: string) => void;
+  updateField: (path: FieldPath, value: string | undefined) => void;
 }
 
 const EditModeContext = createContext<EditModeContextValue>({

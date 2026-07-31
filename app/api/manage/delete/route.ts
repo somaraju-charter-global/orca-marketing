@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { deleteJson, deletePdf } from "@/lib/storage";
+import { deleteJson, deleteGuideJson, deletePdf } from "@/lib/storage";
 import { auth } from "@/auth";
 
 export const runtime = "nodejs";
@@ -13,6 +13,10 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
   const type = body?.type;
   const slug = body?.slug;
+  // "onepager" (two-pager) is the default so existing callers (the /manage
+  // page, which only ever deletes two-pager JSON today) keep working
+  // unchanged without passing this field.
+  const kind = body?.kind === "guide" ? "guide" : "onepager";
 
   if (!slug || (type !== "json" && type !== "pdf")) {
     return NextResponse.json(
@@ -23,7 +27,11 @@ export async function POST(request: Request) {
 
   try {
     if (type === "json") {
-      await deleteJson(slug, session.user.domain);
+      if (kind === "guide") {
+        await deleteGuideJson(slug, session.user.domain);
+      } else {
+        await deleteJson(slug, session.user.domain);
+      }
     } else {
       await deletePdf(slug, session.user.domain);
     }

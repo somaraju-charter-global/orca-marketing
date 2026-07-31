@@ -3,6 +3,7 @@ import { DarkEditorialPageContent } from "@/content/types";
 import { PageShell } from "./PageShell";
 import { BrandMotif } from "./BrandMotif";
 import { Editable } from "@/components/content-editor/Editable";
+import { EditableImage } from "@/components/content-editor/EditableImage";
 
 type DarkEditorialPageProps = DarkEditorialPageContent & { pageIndex?: number };
 
@@ -37,11 +38,12 @@ export function DarkEditorialPage({
         </div>
 
         <div className="w-1/2 relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <EditableImage
+            path={["pages", pageIndex, "image"]}
             src={image}
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
           {callout && (
             <div className="absolute bottom-12 left-12 right-12 bg-[var(--orca-orange)] text-white p-6">

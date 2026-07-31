@@ -4,6 +4,8 @@ import { useRef, useState, useCallback } from "react";
 import type { MarketingGuide } from "@/content/types";
 import { MarketingDocument } from "@/components/marketing/MarketingDocument";
 import { EditControls } from "./EditControls";
+import { EditModeProvider, FieldPath } from "./EditModeContext";
+import { setDeep } from "@/lib/content-editor/set-deep";
 import { validateMarketingGuide } from "@/lib/guide-validation";
 import { useExtensionBridge } from "./useExtensionBridge";
 
@@ -15,6 +17,7 @@ export function GuideEditorClient({
   autoJsonMode?: boolean;
 }) {
   const [guide, setGuide] = useState(initialGuide);
+  const [isEditing, setIsEditing] = useState(false);
   const [isJsonMode, setIsJsonMode] = useState(autoJsonMode);
   const [jsonText, setJsonText] = useState(() =>
     JSON.stringify(initialGuide, null, 2)
@@ -68,10 +71,23 @@ export function GuideEditorClient({
     applyJsonText(text);
   }
 
+  function updateField(path: FieldPath, value: string | undefined) {
+    setGuide((prev) => setDeep(prev, path, value));
+  }
+
+  function handleToggleEdit() {
+    const next = !isEditing;
+    setIsEditing(next);
+    if (next) {
+      setIsJsonMode(false);
+    }
+  }
+
   function handleToggleJson() {
     const next = !isJsonMode;
     setIsJsonMode(next);
     if (next) {
+      setIsEditing(false);
       setJsonText(JSON.stringify(guide, null, 2));
       setJsonError(null);
     }
@@ -170,8 +186,9 @@ export function GuideEditorClient({
         className="hidden"
       />
       <EditControls
-        isEditing={false}
+        isEditing={isEditing}
         isJsonMode={isJsonMode}
+        onToggleEdit={handleToggleEdit}
         onToggleJson={handleToggleJson}
         onSave={handleSave}
         onImport={handleImportClick}
@@ -196,7 +213,9 @@ export function GuideEditorClient({
           )}
         </div>
       ) : (
-        <MarketingDocument guide={guide} />
+        <EditModeProvider value={{ isEditing, updateField }}>
+          <MarketingDocument guide={guide} />
+        </EditModeProvider>
       )}
     </>
   );

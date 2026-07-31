@@ -9,6 +9,9 @@ const ALLOWED_ROOT = path.resolve(process.cwd(), "local-blob");
 const MIME_TYPES: Record<string, string> = {
   ".json": "application/json",
   ".pdf": "application/pdf",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
 };
 
 export async function GET(

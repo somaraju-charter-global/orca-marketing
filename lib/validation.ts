@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { TwoPageVerticalBrief } from "@/content/onepager-types";
+import { optionalImageRefSchema } from "@/lib/image-path";
 
 export const TwoPageVerticalBriefSchema = z.object({
   layout: z.literal("two-page-vertical-brief"),
@@ -26,7 +27,7 @@ export const TwoPageVerticalBriefSchema = z.object({
       body: z.string(),
     }),
     solutionVisual: z.object({
-      imagePath: z.string().optional(),
+      imagePath: optionalImageRefSchema,
     }),
     orcaworksValue: z.object({
       title: z.string(),
@@ -68,6 +69,7 @@ export const TwoPageVerticalBriefSchema = z.object({
     cta: z.object({
       statement: z.string(),
       url: z.string().optional(),
+      buttonLabel: z.string().optional(),
     }),
   }),
   footer: z.object({

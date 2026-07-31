@@ -36,7 +36,7 @@ export function OnePagerShell({
       <div className={`h-full ${eyebrow ? "pt-12" : ""} ${variant === "dark" ? "bg-[--orca-dark]" : "bg-white"}`}>
         {children}
       </div>
-        {footer && <Footer showLogo={false} website={footer.website} />}
+        {footer && <Footer showLogo={false} address={footer.website} />}
     </div>
   );
 }

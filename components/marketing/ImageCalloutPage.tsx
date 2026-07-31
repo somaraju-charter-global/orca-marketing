@@ -2,6 +2,7 @@ import React from "react";
 import { ImageCalloutPageContent } from "@/content/types";
 import { PageShell } from "./PageShell";
 import { Editable } from "@/components/content-editor/Editable";
+import { EditableImage } from "@/components/content-editor/EditableImage";
 
 type ImageCalloutPageProps = ImageCalloutPageContent & { pageIndex?: number };
 
@@ -18,11 +19,12 @@ export function ImageCalloutPage({
     <PageShell variant="light" pageNumber={pageNumber} showFooter={false}>
       <div className="h-full flex">
         <div className="w-3/5 relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <EditableImage
+            path={["pages", pageIndex, "image"]}
             src={image}
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
         </div>
 

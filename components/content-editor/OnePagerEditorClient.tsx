@@ -73,7 +73,7 @@ export function OnePagerEditorClient({
     }
   }, [onePager]);
 
-  function updateField(path: FieldPath, value: string) {
+  function updateField(path: FieldPath, value: string | undefined) {
     setOnePager((prev) => setDeep(prev, path, value));
   }
 
