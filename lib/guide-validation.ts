@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { MarketingGuide } from "@/content/types";
+import { imageRefSchema, optionalImageRefSchema } from "@/lib/image-path";
 
 const stringOrNumber = z.union([z.string(), z.number()]);
 
@@ -35,7 +36,7 @@ const rightHandContentSchema = z.discriminatedUnion("type", [
   }),
   z.object({
     type: z.literal("image"),
-    src: z.string(),
+    src: imageRefSchema,
     alt: z.string().optional(),
     objectFit: z.enum(["cover", "contain"]).optional(),
   }),
@@ -57,7 +58,7 @@ const coverPageSchema = z.object({
   subtitle: z.string().optional(),
   kicker: z.string().optional(),
   logoVariant: z.enum(["white", "dark"]).optional(),
-  image: z.string().optional(),
+  image: optionalImageRefSchema,
   imageTreatment: z.enum(["fade", "plain"]).optional(),
   sections: z.array(z.object({ page: z.string(), title: z.string() })).optional(),
   background: z.string().optional(),
@@ -71,7 +72,7 @@ const titlePageSchema = z.object({
   subtitle: z.string().optional(),
   kicker: z.string().optional(),
   logoVariant: z.enum(["white", "dark"]).optional(),
-  image: z.string().optional(),
+  image: optionalImageRefSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -93,7 +94,7 @@ const darkEditorialPageSchema = z.object({
   eyebrow: z.string().optional(),
   headline: z.string(),
   body: z.string().optional(),
-  image: z.string(),
+  image: imageRefSchema,
   callout: z.string().optional(),
   pageNumber: stringOrNumber.optional(),
 });
@@ -103,7 +104,7 @@ const imageCalloutPageSchema = z.object({
   eyebrow: z.string().optional(),
   headline: z.string(),
   body: z.string().optional(),
-  image: z.string(),
+  image: imageRefSchema,
   callout: z.string(),
   pageNumber: stringOrNumber.optional(),
 });

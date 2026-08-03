@@ -2,6 +2,7 @@ import React from "react";
 import { CoverPageContent } from "@/content/types";
 import { BrandMotif } from "./BrandMotif";
 import { Editable } from "@/components/content-editor/Editable";
+import { EditableImage } from "@/components/content-editor/EditableImage";
 
 type CoverPageProps = CoverPageContent & { pageIndex?: number };
 
@@ -40,14 +41,16 @@ export function CoverPage({
 
       {image && (
         <div className="absolute inset-0 z-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <EditableImage
+            path={["pages", pageIndex, "image"]}
             src={image}
             alt=""
-            className={`w-full h-full object-cover ${imageTreatment === "fade" ? "" : ""}`}
+            fill
+            optional
+            className={`object-cover ${imageTreatment === "fade" ? "" : ""}`}
           />
           {imageTreatment === "fade" && (
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--cover-bg)] via-[var(--cover-bg)] to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--cover-bg)] via-[var(--cover-bg)] to-transparent pointer-events-none" />
           )}
         </div>
       )}

@@ -95,3 +95,36 @@ describe('TwoPageVerticalBrief - accent theme', () => {
     expect(scope.style.getPropertyValue('--tp-banner')).toBe('var(--orca-dark)');
   });
 });
+
+describe('TwoPageVerticalBrief - page2 CTA', () => {
+  it('renders no button when cta.url is absent', () => {
+    const content = makeBrief(undefined);
+    render(<TwoPageVerticalBrief {...content} />);
+    expect(screen.queryByRole('link', { name: /test one workflow|test cta/i })).not.toBeInTheDocument();
+  });
+
+  it('renders a separate button with the given buttonLabel and url', () => {
+    const content = makeBrief(undefined);
+    content.page2.cta = {
+      statement: 'Run one workflow over 8 weeks.',
+      url: 'https://orcaworks.ai/meet-an-expert/',
+      buttonLabel: 'Test One Workflow',
+    };
+    render(<TwoPageVerticalBrief {...content} />);
+
+    expect(screen.getByText('Run one workflow over 8 weeks.')).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: 'Test One Workflow' });
+    expect(link).toHaveAttribute('href', 'https://orcaworks.ai/meet-an-expert/');
+  });
+
+  it('falls back to "Test One Workflow" when buttonLabel is not set but url is', () => {
+    const content = makeBrief(undefined);
+    content.page2.cta = {
+      statement: 'Run one workflow over 8 weeks.',
+      url: 'https://orcaworks.ai/meet-an-expert/',
+    };
+    render(<TwoPageVerticalBrief {...content} />);
+
+    expect(screen.getByRole('link', { name: 'Test One Workflow' })).toBeInTheDocument();
+  });
+});

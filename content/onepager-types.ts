@@ -78,6 +78,7 @@ export type TwoPageVerticalBrief = {
     cta: {
       statement: string;
       url?: string;
+      buttonLabel?: string;
     };
   };
 

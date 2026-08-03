@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getGuideBySlug } from "@/content/registry";
 import { GeneratePdfButton } from "@/components/GeneratePdfButton";
+import { DeleteDocumentButton } from "@/components/DeleteDocumentButton";
 import { GuideEditorClient } from "@/components/content-editor/GuideEditorClient";
 import Link from "next/link";
 import { auth } from "@/auth";
@@ -26,23 +27,29 @@ export default async function MarketingGuidePage({
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="no-print bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div>
+        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="min-w-0">
             <h1 className="text-xl font-bold text-gray-900">{guide.title}</h1>
             <p className="text-sm text-gray-600">{guide.description}</p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-shrink-0 gap-3">
             <Link
               href={`/marketing/${slug}/print`}
               target="_blank"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="whitespace-nowrap px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Open Print View
             </Link>
             <GeneratePdfButton
               slug={slug}
               section="marketing"
-              className="px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="whitespace-nowrap px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+            <DeleteDocumentButton
+              slug={slug}
+              kind="guide"
+              redirectTo="/manage"
+              className="whitespace-nowrap px-4 py-2 border-2 border-red-600 text-red-600 rounded-lg hover:bg-red-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>

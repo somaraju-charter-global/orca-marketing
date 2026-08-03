@@ -5,6 +5,7 @@ import path from "path";
 
 export const JSON_PREFIX = "jsons/" as const;
 export const PDF_PREFIX = "pdfs/" as const;
+export const IMAGE_PREFIX = "images/" as const;
 
 const LOCAL_BLOB_DIR = path.resolve(process.cwd(), "local-blob");
 
@@ -14,6 +15,10 @@ function jsonKey(slug: string, domain: string): string {
 
 function pdfKey(slug: string, domain: string): string {
   return `domains/${domain}/${PDF_PREFIX}${slug}.pdf`;
+}
+
+function imageKey(filename: string, domain: string): string {
+  return `domains/${domain}/${IMAGE_PREFIX}${filename}`;
 }
 
 /**
@@ -183,6 +188,52 @@ export async function listPdfs(domain: string): Promise<ListBlobResultBlob[]> {
 
 export async function deletePdf(slug: string, domain: string): Promise<void> {
   const key = pdfKey(slug, domain);
+
+  if (isLocalMode()) {
+    await localDelete(key);
+    return;
+  }
+
+  await del(key);
+}
+
+/**
+ * Stores an already-validated image (see lib/image-validation.ts — the
+ * caller must have checked format, size, and dimensions before calling
+ * this). `filename` should be a generated, collision-resistant name
+ * (e.g. `${randomUUID()}.${extension}`), not a user-supplied one.
+ */
+export async function uploadImage(
+  filename: string,
+  buffer: Buffer,
+  domain: string,
+  contentType: "image/jpeg" | "image/png"
+): Promise<PutBlobResult> {
+  const key = imageKey(filename, domain);
+
+  if (isLocalMode()) {
+    return localPut(key, buffer, contentType);
+  }
+
+  return put(key, buffer, {
+    access: "public",
+    contentType,
+    allowOverwrite: false,
+  });
+}
+
+export async function listImages(domain: string): Promise<ListBlobResultBlob[]> {
+  const prefix = `domains/${domain}/${IMAGE_PREFIX}`;
+  if (isLocalMode()) {
+    return localList(prefix);
+  }
+
+  const result = await list({ prefix });
+  return result.blobs;
+}
+
+export async function deleteImage(filename: string, domain: string): Promise<void> {
+  const key = imageKey(filename, domain);
 
   if (isLocalMode()) {
     await localDelete(key);

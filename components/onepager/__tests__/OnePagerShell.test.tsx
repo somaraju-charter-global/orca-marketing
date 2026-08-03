@@ -21,6 +21,15 @@ describe('OnePagerShell', () => {
     expect(screen.getByText('orcaworks.com')).toBeInTheDocument();
   });
 
+  it('does not render the footer website twice', () => {
+    render(
+      <OnePagerShell footer={{ website: 'orcaworks.com' }}>
+        <div>Test</div>
+      </OnePagerShell>
+    );
+    expect(screen.getAllByText('orcaworks.com')).toHaveLength(1);
+  });
+
   it('renders with light variant by default', () => {
     const { container } = render(
       <OnePagerShell>

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getOnePagerBySlug } from "@/content/onepager-registry";
 import { OnePagerEditorClient } from "@/components/content-editor/OnePagerEditorClient";
 import { GeneratePdfButton } from "@/components/GeneratePdfButton";
+import { DeleteDocumentButton } from "@/components/DeleteDocumentButton";
 import Link from "next/link";
 import { auth } from "@/auth";
 
@@ -38,14 +39,19 @@ export default async function TwoPagerPage({
           <Link
             href={`/two-pagers/${slug}/print`}
             target="_blank"
-            className="inline-block bg-orange-500 text-white px-4 py-2 rounded font-semibold hover:bg-orange-600 transition-colors"
+            className="inline-block whitespace-nowrap bg-orange-500 text-white px-4 py-2 rounded font-semibold hover:bg-orange-600 transition-colors"
           >
             Open Print View
           </Link>
           <GeneratePdfButton
             slug={slug}
             section="two-pagers"
-            className="inline-block ml-3 bg-white border-2 border-orange-500 text-orange-600 px-4 py-2 rounded font-semibold hover:bg-orange-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-block ml-3 whitespace-nowrap bg-white border-2 border-orange-500 text-orange-600 px-4 py-2 rounded font-semibold hover:bg-orange-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          />
+          <DeleteDocumentButton
+            slug={slug}
+            redirectTo="/manage"
+            className="inline-block ml-3 whitespace-nowrap bg-white border-2 border-red-500 text-red-600 px-4 py-2 rounded font-semibold hover:bg-red-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           />
         </div>
 

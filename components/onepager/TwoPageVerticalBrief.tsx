@@ -3,6 +3,8 @@ import Image from "next/image";
 import type { TwoPageVerticalBrief, TwoPagerAccentTheme } from "@/content/onepager-types";
 import { OnePagerShell } from "./OnePagerShell";
 import { Editable } from "@/components/content-editor/Editable";
+import { EditableImage } from "@/components/content-editor/EditableImage";
+import { useEditMode } from "@/components/content-editor/EditModeContext";
 
 const ACCENT_VAR: Record<TwoPagerAccentTheme, string> = {
   orange: "var(--orca-orange)",
@@ -42,6 +44,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
   const accent = ACCENT_VAR[theme];
   const softBgClass = SOFT_BG_CLASS[theme];
   const banner = BANNER_VAR[theme];
+  const { isEditing } = useEditMode();
 
   return (
     // `contents` keeps this div out of the layout (so page-break rules on
@@ -146,10 +149,12 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
 
               {/* Solution visual */}
               <div className="relative w-full overflow-hidden mt-0" style={{ height: "250px" }}>
-                <Image
-                  src="/images/orcaworks-stack-v3.jpg"
+                <EditableImage
+                  path={["page1", "solutionVisual", "imagePath"]}
+                  src={props.page1.solutionVisual.imagePath ?? "/images/orcaworks-stack-v3.jpg"}
                   alt="Solution visual"
                   fill
+                  optional
                   className="object-contain"
                 />
               </div>
@@ -317,21 +322,26 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
 
             {/* CTA */}
             <div>
-              <div className={`border-l-4 border-[var(--tp-accent)] ${softBgClass} px-5 py-3.5 rounded-r-lg`}>
+              <div className={`flex items-center justify-between gap-6 border-l-4 border-[var(--tp-accent)] ${softBgClass} px-5 py-3.5 rounded-r-lg`}>
                 <p className="text-sm text-gray-800 font-semibold leading-relaxed">
-                  {props.page2.cta.url ? (
-                    <a
-                      href={props.page2.cta.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-900 hover:text-[var(--tp-accent)] transition-colors"
-                    >
-                      {props.page2.cta.statement}
-                    </a>
-                  ) : (
-                    <Editable path={["page2", "cta", "statement"]} value={props.page2.cta.statement} multiline />
-                  )}
+                  <Editable path={["page2", "cta", "statement"]} value={props.page2.cta.statement} multiline />
                 </p>
+                {props.page2.cta.url && (
+                  <a
+                    href={props.page2.cta.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => {
+                      if (isEditing) event.preventDefault();
+                    }}
+                    className="shrink-0 whitespace-nowrap rounded-full bg-[var(--tp-accent)] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                  >
+                    <Editable
+                      path={["page2", "cta", "buttonLabel"]}
+                      value={props.page2.cta.buttonLabel ?? "Test One Workflow"}
+                    />
+                  </a>
+                )}
               </div>
             </div>
 
