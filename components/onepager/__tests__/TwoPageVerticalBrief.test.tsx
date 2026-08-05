@@ -7,6 +7,8 @@ function makeBrief(accentTheme?: TwoPageVerticalBriefContent['accentTheme']): Tw
   return {
     layout: 'two-page-vertical-brief',
     slug: 'test-brief',
+    title: 'Test Brief',
+    description: 'A test brief for the test suite.',
     accentTheme,
     vertical: 'Testing',
     audience: 'QA',

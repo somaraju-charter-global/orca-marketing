@@ -4,6 +4,8 @@ export function createEmptyTwoPager(slug: string): OnePager {
   return {
     layout: "two-page-vertical-brief",
     slug,
+    title: "Your title",
+    description: "Your description",
     accentTheme: "healthcareMist",
     vertical: "Your vertical",
     audience: "Your target audience",

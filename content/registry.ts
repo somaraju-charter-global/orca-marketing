@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { getGuideJson, listGuideJsons } from "@/lib/storage";
 import { validateMarketingGuide } from "@/lib/guide-validation";
 import type { MarketingGuide } from "./types";
@@ -6,7 +7,10 @@ const staticGuides: Record<string, MarketingGuide> = {};
 
 export const guides = staticGuides;
 
-export async function getGuideBySlug(slug: string, domain: string): Promise<MarketingGuide | null> {
+export const getGuideBySlug = cache(async function getGuideBySlug(
+  slug: string,
+  domain: string
+): Promise<MarketingGuide | null> {
   try {
     const blobData = await getGuideJson(slug, domain);
     if (blobData) {
@@ -20,7 +24,7 @@ export async function getGuideBySlug(slug: string, domain: string): Promise<Mark
   }
 
   return staticGuides[slug] ?? null;
-}
+});
 
 export async function getAllGuides(domain: string): Promise<MarketingGuide[]> {
   const merged = new Map<string, MarketingGuide>();
