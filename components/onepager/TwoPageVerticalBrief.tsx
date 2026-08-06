@@ -4,7 +4,7 @@ import type { TwoPageVerticalBrief, TwoPagerAccentTheme } from "@/content/onepag
 import { OnePagerShell } from "./OnePagerShell";
 import { Editable } from "@/components/content-editor/Editable";
 import { EditableImage } from "@/components/content-editor/EditableImage";
-import { useEditMode } from "@/components/content-editor/EditModeContext";
+import { CtaButton } from "./CtaButton";
 
 const ACCENT_VAR: Record<TwoPagerAccentTheme, string> = {
   orange: "var(--orca-orange)",
@@ -44,7 +44,6 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
   const accent = ACCENT_VAR[theme];
   const softBgClass = SOFT_BG_CLASS[theme];
   const banner = BANNER_VAR[theme];
-  const { isEditing } = useEditMode();
 
   return (
     // `contents` keeps this div out of the layout (so page-break rules on
@@ -327,20 +326,12 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                   <Editable path={["page2", "cta", "statement"]} value={props.page2.cta.statement} multiline />
                 </p>
                 {props.page2.cta.url && (
-                  <a
-                    href={props.page2.cta.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(event) => {
-                      if (isEditing) event.preventDefault();
-                    }}
+                  <CtaButton
+                    path={["page2", "cta", "buttonLabel"]}
+                    url={props.page2.cta.url}
+                    label={props.page2.cta.buttonLabel ?? "Test One Workflow"}
                     className="shrink-0 whitespace-nowrap rounded-full bg-[var(--tp-accent)] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
-                  >
-                    <Editable
-                      path={["page2", "cta", "buttonLabel"]}
-                      value={props.page2.cta.buttonLabel ?? "Test One Workflow"}
-                    />
-                  </a>
+                  />
                 )}
               </div>
             </div>

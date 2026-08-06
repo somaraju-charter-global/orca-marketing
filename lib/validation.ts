@@ -5,6 +5,8 @@ import { optionalImageRefSchema } from "@/lib/image-path";
 export const TwoPageVerticalBriefSchema = z.object({
   layout: z.literal("two-page-vertical-brief"),
   slug: z.string().min(1),
+  title: z.string().min(1),
+  description: z.string().min(1),
   accentTheme: z
     .enum(["orange", "blue", "black", "green", "healthcareMist"])
     .default("healthcareMist"),

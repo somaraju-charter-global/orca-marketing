@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { getJson, listJsons } from "@/lib/storage";
 import { validateTwoPageVerticalBrief } from "@/lib/validation";
 import type { OnePager } from "./onepager-types";
@@ -6,7 +7,7 @@ const staticOnePagers: Record<string, OnePager> = {};
 
 export const onePagers: Record<string, OnePager> = staticOnePagers;
 
-export async function getOnePagerBySlug(
+export const getOnePagerBySlug = cache(async function getOnePagerBySlug(
   slug: string,
   domain: string
 ): Promise<OnePager | null> {
@@ -24,7 +25,7 @@ export async function getOnePagerBySlug(
   }
 
   return staticOnePagers[slug] ?? null;
-}
+});
 
 export async function getAllOnePagers(domain: string): Promise<OnePager[]> {
   const merged = new Map<string, OnePager>();

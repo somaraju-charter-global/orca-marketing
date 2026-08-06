@@ -28,14 +28,14 @@ describe('Registry', () => {
     it('should return guide when slug exists', async () => {
       const slug = Object.keys(guides)[0];
       if (slug) {
-        const guide = await getGuideBySlug(slug);
+        const guide = await getGuideBySlug(slug, 'test.com');
         expect(guide).toBeDefined();
         expect(guide?.slug).toBe(slug);
       }
     });
 
     it('should return null when slug does not exist', async () => {
-      const guide = await getGuideBySlug('non-existent-slug');
+      const guide = await getGuideBySlug('non-existent-slug', 'test.com');
       expect(guide).toBeNull();
     });
   });

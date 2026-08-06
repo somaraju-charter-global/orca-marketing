@@ -1,9 +1,28 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getGuideBySlug } from "@/content/registry";
 import { MarketingDocument } from "@/components/marketing/MarketingDocument";
 import { auth } from "@/auth";
 
 export const dynamicParams = true;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const session = await auth();
+  if (!session?.user?.domain) return {};
+
+  const guide = await getGuideBySlug(slug, session.user.domain);
+  if (!guide) return {};
+
+  return {
+    title: guide.title,
+    description: guide.description,
+  };
+}
 
 export default async function MarketingGuidePrintPage({
   params,
