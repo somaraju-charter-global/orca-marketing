@@ -38,10 +38,10 @@ function makeBrief(accentTheme?: TwoPageVerticalBriefContent['accentTheme']): Tw
 }
 
 describe('TwoPageVerticalBrief - accent theme', () => {
-  it('defaults to the orange accent when no accentTheme is set', () => {
+  it('defaults to the healthcareMist accent when no accentTheme is set', () => {
     const { container } = render(<TwoPageVerticalBrief {...makeBrief(undefined)} />);
     const scope = container.querySelector('.contents') as HTMLElement;
-    expect(scope.style.getPropertyValue('--tp-accent')).toBe('var(--orca-orange)');
+    expect(scope.style.getPropertyValue('--tp-accent')).toBe('var(--orca-healthcare-mist-ink)');
   });
 
   it('sets the --tp-accent variable to green when accentTheme is "green"', () => {
@@ -77,10 +77,10 @@ describe('TwoPageVerticalBrief - accent theme', () => {
     expect(callout.className).toContain('bg-[var(--tp-accent)]/10');
   });
 
-  it('defaults the banner to navy when no accentTheme is set', () => {
+  it('defaults the banner to dark teal when no accentTheme is set', () => {
     const { container } = render(<TwoPageVerticalBrief {...makeBrief(undefined)} />);
     const scope = container.querySelector('.contents') as HTMLElement;
-    expect(scope.style.getPropertyValue('--tp-banner')).toBe('var(--orca-dark)');
+    expect(scope.style.getPropertyValue('--tp-banner')).toBe('var(--orca-healthcare-mist-dark)');
   });
 
   it('uses a dark teal banner for healthcareMist instead of navy', () => {

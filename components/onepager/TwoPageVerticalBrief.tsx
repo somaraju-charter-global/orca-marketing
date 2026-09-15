@@ -257,7 +257,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
 
               <div>
                 <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">
-                    Four practical use cases to start with
+                    AGENTIC AI USE CASES ACROSS YOUR WORKFLOW
                 </h2>
                 <div className="space-y-4">
                   {props.page2.priorityWorkflows.map((workflow, idx) => (
