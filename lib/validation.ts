@@ -61,9 +61,9 @@ export const TwoPageVerticalBriefSchema = z.object({
     valueMetrics: z.array(
       z.object({
         metric: z.string(),
-        baseline: z.string(),
-        movement: z.string(),
-        impact: z.string(),
+        today: z.string(),
+        indicativeImprovement: z.string(),
+        businessImpact: z.string(),
       })
     ),
     cta: z.object({

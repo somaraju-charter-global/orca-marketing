@@ -257,7 +257,7 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
 
               <div>
                 <h2 className="text-xs font-bold text-gray-800 uppercase tracking-wider mb-4">
-                    AGENTIC AI USE CASES ACROSS YOUR WORKFLOW
+                    AGENTIC AI USE CASES
                 </h2>
                 <div className="space-y-4">
                   {props.page2.priorityWorkflows.map((workflow, idx) => (
@@ -295,10 +295,10 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
               <table className="w-full border-collapse text-xs">
                 <thead>
                   <tr className="bg-[var(--tp-banner)] text-white">
-                    <th className="text-left font-semibold py-2.5 px-4 w-[20%]">Metric</th>
-                    <th className="text-left font-semibold py-2.5 px-4 w-[30%]">Current baseline</th>
-                    <th className="text-left font-semibold py-2.5 px-4 w-[25%]">Target</th>
-                    <th className="text-left font-semibold py-2.5 px-4 w-[25%]">Executive impact</th>
+                    <th className="text-left font-semibold py-2.5 px-4 w-[22%]">Business metric</th>
+                    <th className="text-left font-semibold py-2.5 px-4 w-[28%]">Today</th>
+                    <th className="text-left font-semibold py-2.5 px-4 w-[25%]">Indicative improvement</th>
+                    <th className="text-left font-semibold py-2.5 px-4 w-[25%]">Business impact</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -308,13 +308,19 @@ export function TwoPageVerticalBrief(props: TwoPageVerticalBrief) {
                         <Editable path={["page2", "valueMetrics", idx, "metric"]} value={row.metric} />
                       </td>
                       <td className="text-gray-600 py-2.5 px-4 border-b border-gray-100">
-                        <Editable path={["page2", "valueMetrics", idx, "baseline"]} value={row.baseline} />
+                        <Editable path={["page2", "valueMetrics", idx, "today"]} value={row.today} />
                       </td>
                       <td className="font-semibold text-[var(--tp-accent)] py-2.5 px-4 border-b border-gray-100">
-                        <Editable path={["page2", "valueMetrics", idx, "movement"]} value={row.movement} />
+                        <Editable
+                          path={["page2", "valueMetrics", idx, "indicativeImprovement"]}
+                          value={row.indicativeImprovement}
+                        />
                       </td>
                       <td className="text-gray-600 py-2.5 px-4 border-b border-gray-100">
-                        <Editable path={["page2", "valueMetrics", idx, "impact"]} value={row.impact} />
+                        <Editable
+                          path={["page2", "valueMetrics", idx, "businessImpact"]}
+                          value={row.businessImpact}
+                        />
                       </td>
                     </tr>
                   ))}

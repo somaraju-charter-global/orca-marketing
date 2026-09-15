@@ -68,11 +68,15 @@ export type TwoPageVerticalBrief = {
       description: string;
     }[];
 
+    // Rendered as a four-column table with fixed headings:
+    //   Business metric | Today | Indicative improvement | Business impact
+    // `indicativeImprovement` is a best-guess range (e.g. "~30–50% faster"),
+    // not a measured customer result; the column heading carries the hedge.
     valueMetrics: {
       metric: string;
-      baseline: string;
-      movement: string;
-      impact: string;
+      today: string;
+      indicativeImprovement: string;
+      businessImpact: string;
     }[];
 
     cta: {

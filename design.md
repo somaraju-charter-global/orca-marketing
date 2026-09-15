@@ -125,33 +125,33 @@ export const myTwoPager: TwoPageVerticalBrief = {
     valueMetrics: [
       {
         metric: "Cycle time",
-        baseline: "Current average per record or exception",
-        movement: "20–40% reduction target",
-        impact: "Faster operational closure",
+        today: "Hours to days per record or exception",
+        indicativeImprovement: "~20–40% shorter",
+        businessImpact: "Faster operational closure",
       },
       {
         metric: "Manual touches per case",
-        baseline: "Current coordination load",
-        movement: "25–50% reduction target",
-        impact: "Less chasing across teams",
+        today: "Repeated chasing across teams",
+        indicativeImprovement: "~25–50% fewer",
+        businessImpact: "Less chasing across teams",
       },
       {
         metric: "First-pass completeness",
-        baseline: "Current rate of complete records on first submission",
-        movement: "15–30 point improvement target",
-        impact: "Fewer missing documents on arrival",
+        today: "Records often incomplete on first submission",
+        indicativeImprovement: "~15–30 pts higher",
+        businessImpact: "Fewer missing documents on arrival",
       },
       {
         metric: "Aged exceptions",
-        baseline: "Current backlog of unresolved exceptions",
-        movement: "20–40% reduction target",
-        impact: "Fewer stalled decisions",
+        today: "Backlog of unresolved exceptions",
+        indicativeImprovement: "~20–40% fewer",
+        businessImpact: "Fewer stalled decisions",
       },
       {
         metric: "Approval delay",
-        baseline: "Current average time from submission to approval decision",
-        movement: "Directional improvement within first workflow",
-        impact: "Clearer routing and escalation",
+        today: "Submission-to-approval time varies widely",
+        indicativeImprovement: "Shorter within first workflow",
+        businessImpact: "Clearer routing and escalation",
       },
     ],
 
@@ -183,7 +183,7 @@ export const myTwoPager: TwoPageVerticalBrief = {
 - Two-column layout:
   - Left column: Strategic business priorities (list with orange accent)
   - Right column: Priority workflows (numbered list)
-- Value metrics table (with columns: Metric, Current baseline, Target, Executive impact)
+- Value metrics table (with columns: Business metric, Today, Indicative improvement, Business impact)
 - CTA section (orange callout with optional link)
 - Footer
 

@@ -30,7 +30,9 @@ function makeBrief(accentTheme?: TwoPageVerticalBriefContent['accentTheme']): Tw
       subtitle: 'Page 2 subtitle',
       strategicBusinessPriorities: [{ title: 'Priority', description: 'Desc' }],
       priorityWorkflows: [{ title: 'Workflow', description: 'Desc' }],
-      valueMetrics: [{ metric: 'Metric', baseline: 'Baseline', movement: 'Movement', impact: 'Impact' }],
+      valueMetrics: [
+        { metric: 'Metric', today: 'Today', indicativeImprovement: 'Improvement', businessImpact: 'Impact' },
+      ],
       cta: { statement: 'Test CTA' },
     },
     footer: { website: 'orcaworks.com' },

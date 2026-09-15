@@ -57,10 +57,10 @@ export function createEmptyTwoPager(slug: string): OnePager {
       ],
       valueMetrics: [
         {
-          metric: "Metric",
-          baseline: "Current baseline",
-          movement: "Target movement",
-          impact: "Executive impact",
+          metric: "Business metric",
+          today: "Today",
+          indicativeImprovement: "~X–Y% better",
+          businessImpact: "Business impact",
         },
       ],
       cta: {

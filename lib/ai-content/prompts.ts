@@ -153,7 +153,7 @@ Output markdown with this exact structure:
 - subtitle:
 - strategicBusinessPriorities: (2-3 items, each title + description)
 - priorityWorkflows: (2-3 items, each title + description)
-- valueMetrics: (2-3 rows, each metric / baseline / movement / impact)
+- valueMetrics: (2-3 rows, each metric / today / indicativeImprovement / businessImpact — the improvement is a best-guess range, e.g. "~30–50% faster"; the column heading already says "Indicative improvement", so do not repeat the word in the cell)
 - cta: (statement)
 
 Keep every field tight — this is a two-page brief, not the full guide. Prefer the single strongest proof point and use case over trying to fit everything.
