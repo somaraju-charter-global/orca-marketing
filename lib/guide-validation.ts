@@ -68,7 +68,6 @@ const coverPageSchema = z.object({
   surface: surfaceSchema,
   background: z.string().optional(),
   textColor: z.string().optional(),
-  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
