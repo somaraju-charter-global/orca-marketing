@@ -250,5 +250,17 @@ export function validateMarketingGuide(
       .join("; ");
     return { success: false, error: message };
   }
+
+  // Document-length rule: a deep-dive guide covers at most six ranked
+  // use cases. More than that makes the document unwieldy and crowds
+  // the contents page — rank the extras out rather than adding pages.
+  const useCaseCount = result.data.pages.filter((p) => p.type === "useCase").length;
+  if (useCaseCount > 6) {
+    return {
+      success: false,
+      error: `Guide has ${useCaseCount} "useCase" pages; a deep-dive guide supports at most 6. Keep the six highest-ranked cases and drop the rest.`,
+    };
+  }
+
   return { success: true, data: result.data as MarketingGuide };
 }
