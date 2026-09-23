@@ -63,8 +63,8 @@ export function PageShell({
           "--page-muted": "rgba(226, 232, 240, 0.72)",
           "--page-accent": "var(--orca-frost)",
           "--page-line": "rgba(255, 255, 255, 0.16)",
-          "--page-panel": "var(--orca-panel-light)",
-          "--page-panel-fg": "var(--orca-panel-light-ink)",
+          "--page-panel": "var(--orca-teal-dark)",
+          "--page-panel-fg": "#ffffff",
         }
   ) as React.CSSProperties;
 
