@@ -112,7 +112,10 @@ export type ImageCalloutPageContent = {
 // sourced market-research stat, or a stock image. Workflow/detail blocks
 // belong on useCaseDetail pages.
 export type UseCaseRightContent =
-  | { type: "quote"; quote: string; source?: string; citation?: { text: string; url: string } }
+  // `presentation`: "card" (default orange card), "band" (full-width
+  // pull-quote band at the foot of the page) or "bare" (no card — the
+  // ghosted use-case `number` anchors the column above the quote).
+  | { type: "quote"; quote: string; source?: string; presentation?: "card" | "band" | "bare"; citation?: { text: string; url: string } }
   | { type: "stat"; value: string; label: string; source?: string }
   | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" };
 

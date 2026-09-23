@@ -24,6 +24,7 @@ const rightHandContentSchema = z.discriminatedUnion("type", [
     type: z.literal("quote"),
     quote: z.string(),
     source: z.string().optional(),
+    presentation: z.enum(["card", "band", "bare"]).optional(),
     citation: citationSchema.optional(),
   }),
   z.object({
@@ -68,6 +69,7 @@ const useCaseRightContentSchema = z.discriminatedUnion("type", [
     type: z.literal("quote"),
     quote: z.string(),
     source: z.string().optional(),
+    presentation: z.enum(["card", "band", "bare"]).optional(),
     citation: citationSchema.optional(),
   }),
   z.object({
