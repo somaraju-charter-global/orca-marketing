@@ -103,8 +103,9 @@ const darkEditorialPageSchema = z.object({
   eyebrow: z.string().optional(),
   headline: z.string(),
   body: z.string().optional(),
-  image: imageRefSchema,
+  image: optionalImageRefSchema,
   callout: z.string().optional(),
+  calloutSource: z.string().optional(),
   surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });

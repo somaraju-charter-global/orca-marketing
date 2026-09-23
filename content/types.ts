@@ -83,8 +83,15 @@ export type DarkEditorialPageContent = {
   eyebrow?: string;
   headline: string;
   body?: string;
-  image: string;
+  // With an image: text left, photo right, callout floating over the
+  // photo. Without an image: text left, full-height solid quote panel
+  // right — the callout becomes the hero of the page.
+  image?: string;
+  // With `calloutSource` set the callout renders as an attributed
+  // quotation — use a real practitioner/customer quote from the
+  // research, never an invented line.
   callout?: string;
+  calloutSource?: string;
   surface?: "light" | "dark";
   pageNumber?: string | number;
 };
