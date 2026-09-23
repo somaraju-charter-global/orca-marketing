@@ -10,17 +10,18 @@ export function StatPage({
   eyebrow,
   headline,
   stats,
+  surface,
   pageNumber,
 }: StatPageProps) {
   return (
-    <PageShell variant="light" pageNumber={pageNumber}>
+    <PageShell variant="light" surface={surface} pageNumber={pageNumber}>
       <div className="h-full flex flex-col p-12">
         {eyebrow && (
           <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">
             <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
           </div>
         )}
-        <h2 className="text-4xl font-bold mb-12 text-[var(--orca-ink)]">
+        <h2 className="text-4xl font-bold mb-12 text-[var(--page-fg)]">
           <Editable path={["pages", pageIndex, "headline"]} value={headline} multiline />
         </h2>
         

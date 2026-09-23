@@ -14,19 +14,20 @@ export function UseCaseDetail({
   sectionColor,
   rightContent,
   citation,
+  surface,
   pageNumber,
 }: UseCaseDetailProps) {
   // Extract citation from rightContent if it's a quote and no explicit citation provided
   const footerCitation = citation || (rightContent?.type === "quote" ? rightContent.citation : undefined);
-  
-  const colorClass = sectionColor === "orange" 
-    ? "text-[var(--orca-orange)]" 
-    : sectionColor === "blue" 
-    ? "text-[var(--orca-blue)]" 
-    : "text-[var(--orca-ink)]";
+
+  const colorClass = sectionColor === "orange"
+    ? "text-[var(--orca-orange)]"
+    : sectionColor === "blue"
+    ? "text-[var(--orca-blue)]"
+    : "text-[var(--page-fg)]";
 
   return (
-    <PageShell variant="light" pageNumber={pageNumber} citation={footerCitation}>
+    <PageShell variant="light" surface={surface} pageNumber={pageNumber} citation={footerCitation}>
       <div className="h-full flex flex-col">
         {/* Full width title section */}
         <div className="p-12 pb-6">
@@ -35,7 +36,7 @@ export function UseCaseDetail({
               <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
             </div>
           )}
-          <h2 className="text-4xl font-bold text-[var(--orca-ink)]">
+          <h2 className="text-4xl font-bold text-[var(--page-fg)]">
             <Editable path={["pages", pageIndex, "title"]} value={title} />
           </h2>
         </div>
@@ -47,7 +48,7 @@ export function UseCaseDetail({
             {sections && sections.length > 0 && (
               <div id="sections-container" className="space-y-6">
                 {sections.map((section, index) => (
-                  <div key={index} className="text-[var(--orca-ink)] pr-6">
+                  <div key={index} className="text-[var(--page-fg)] pr-6">
                     <h3 className={`text-lg font-bold ${colorClass} mb-2`}>
                       <Editable
                         path={["pages", pageIndex, "sections", index, "heading"]}

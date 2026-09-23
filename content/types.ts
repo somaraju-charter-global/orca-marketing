@@ -28,7 +28,23 @@ export type CoverPageContent = {
   // light decorative/pattern art (like a subtle background texture), which
   // would otherwise get washed out to near-invisibility by the fade.
   imageTreatment?: "fade" | "plain";
+  // "overlay" (default): full-bleed image behind the text with a scrim —
+  // works for low-contrast/atmospheric images but can hurt legibility on
+  // busy photography. "split": text on a solid panel left, image bleeds
+  // the full height on the right with a soft seam. "inset": text left,
+  // image as a framed card on the right with brand offset blocks — best
+  // when the image is small or landscape, since it renders near native
+  // size. Both fall back to overlay rendering when no image is set.
+  layout?: "overlay" | "split" | "inset";
   sections?: { page: string; title: string }[];
+  // Short facts about the document rendered as one line at the foot of
+  // the text panel, separated by dots — e.g. ["8 use cases", "Shipment
+  // exceptions to route recovery"]. Keep each item under ~8 words.
+  meta?: string[];
+  // Light or dark page surface. Sets sensible defaults for `background`,
+  // `textColor` and `logoVariant`; explicit values for those fields still
+  // win over `surface`.
+  surface?: "light" | "dark";
   // Optional per-page overrides. When set, these win over the guide-level
   // accentTheme (and the default dark-panel look) for this page only —
   // every other page keeps using the guide's theme as normal. If you set
@@ -45,12 +61,14 @@ export type TitlePageContent = {
   kicker?: string;
   logoVariant?: "white" | "dark";
   image?: string;
+  surface?: "light" | "dark";
 };
 
 export type ContentsPageContent = {
   type: "contents";
   title?: string;
   items: { page: string; title: string; description?: string }[];
+  surface?: "light" | "dark";
 };
 
 export type DarkEditorialPageContent = {
@@ -60,6 +78,7 @@ export type DarkEditorialPageContent = {
   body?: string;
   image: string;
   callout?: string;
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -70,6 +89,7 @@ export type ImageCalloutPageContent = {
   body?: string;
   image: string;
   callout: string;
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -83,6 +103,7 @@ export type UseCasePageContent = {
   bullets?: string[];
   rightContent?: RightHandContentType;
   citation?: { text: string; url: string };
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -97,6 +118,7 @@ export type UseCaseDetailContent = {
   sectionColor?: "orange" | "blue" | "ink";
   rightContent?: RightHandContentType;
   citation?: { text: string; url: string };
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -108,6 +130,7 @@ export type QuotePageContent = {
   supportingText?: string;
   citation?: { text: string; url: string };
   variant?: "dark" | "orange";
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -120,6 +143,7 @@ export type StatPageContent = {
     label: string;
     description?: string;
   }[];
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -131,6 +155,7 @@ export type BeforeAfterPageContent = {
   afterTitle?: string;
   beforeItems: string[];
   afterItems: string[];
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -145,6 +170,7 @@ export type RoiPageContent = {
     target: string;
     impact: string;
   }[];
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 
@@ -155,6 +181,7 @@ export type ClosingCtaPageContent = {
   cta: string;
   website?: string;
   variant?: "dark" | "orange";
+  surface?: "light" | "dark";
   pageNumber?: string | number;
 };
 

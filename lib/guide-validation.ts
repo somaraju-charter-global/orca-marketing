@@ -12,6 +12,8 @@ const accentThemeSchema = z.enum([
   "green",
 ]).optional();
 
+const surfaceSchema = z.enum(["light", "dark"]).optional();
+
 const citationSchema = z.object({
   text: z.string(),
   url: z.string(),
@@ -60,9 +62,13 @@ const coverPageSchema = z.object({
   logoVariant: z.enum(["white", "dark"]).optional(),
   image: optionalImageRefSchema,
   imageTreatment: z.enum(["fade", "plain"]).optional(),
+  layout: z.enum(["overlay", "split", "inset"]).optional(),
   sections: z.array(z.object({ page: z.string(), title: z.string() })).optional(),
+  meta: z.array(z.string()).optional(),
+  surface: surfaceSchema,
   background: z.string().optional(),
   textColor: z.string().optional(),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -73,6 +79,7 @@ const titlePageSchema = z.object({
   kicker: z.string().optional(),
   logoVariant: z.enum(["white", "dark"]).optional(),
   image: optionalImageRefSchema,
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -86,6 +93,7 @@ const contentsPageSchema = z.object({
       description: z.string().optional(),
     })
   ),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -96,6 +104,7 @@ const darkEditorialPageSchema = z.object({
   body: z.string().optional(),
   image: imageRefSchema,
   callout: z.string().optional(),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -106,6 +115,7 @@ const imageCalloutPageSchema = z.object({
   body: z.string().optional(),
   image: imageRefSchema,
   callout: z.string(),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -119,6 +129,7 @@ const useCasePageSchema = z.object({
   bullets: z.array(z.string()).optional(),
   rightContent: rightHandContentSchema.optional(),
   citation: citationSchema.optional(),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -132,6 +143,7 @@ const useCaseDetailPageSchema = z.object({
   sectionColor: z.enum(["orange", "blue", "ink"]).optional(),
   rightContent: rightHandContentSchema.optional(),
   citation: citationSchema.optional(),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -143,6 +155,7 @@ const quotePageSchema = z.object({
   supportingText: z.string().optional(),
   citation: citationSchema.optional(),
   variant: z.enum(["dark", "orange"]).optional(),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -157,6 +170,7 @@ const statPageSchema = z.object({
       description: z.string().optional(),
     })
   ),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -168,6 +182,7 @@ const beforeAfterPageSchema = z.object({
   afterTitle: z.string().optional(),
   beforeItems: z.array(z.string()),
   afterItems: z.array(z.string()),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -184,6 +199,7 @@ const roiPageSchema = z.object({
       impact: z.string(),
     })
   ),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 
@@ -194,6 +210,7 @@ const closingCtaPageSchema = z.object({
   cta: z.string(),
   website: z.string().optional(),
   variant: z.enum(["dark", "orange"]).optional(),
+  surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
 

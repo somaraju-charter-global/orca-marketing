@@ -13,10 +13,11 @@ export function QuotePage({
   supportingText,
   citation,
   variant = "dark",
+  surface,
   pageNumber,
 }: QuotePageProps) {
   return (
-    <PageShell variant={variant} pageNumber={pageNumber} showFooter={true} citation={citation}>
+    <PageShell variant={variant} surface={surface} pageNumber={pageNumber} showFooter={true} citation={citation}>
       <div className="h-full flex">
         <div className="w-1/3 p-12 flex flex-col justify-center">
           {eyebrow && (
@@ -25,7 +26,7 @@ export function QuotePage({
             </div>
           )}
           {supportingText && (
-            <p className="text-white text-sm leading-relaxed">
+            <p className="text-[var(--page-fg)] text-sm leading-relaxed">
               <Editable path={["pages", pageIndex, "supportingText"]} value={supportingText} multiline />
             </p>
           )}
@@ -35,15 +36,15 @@ export function QuotePage({
           <div className="text-8xl font-bold text-white mb-8">&ldquo;</div>
           <p
             className={
-              variant === "orange"
+              variant === "orange" && surface !== "light"
                 ? "text-4xl font-bold text-white leading-tight mb-8 max-w-2xl"
-                : "text-4xl font-bold text-[var(--orca-dark-fg)] leading-tight mb-8 max-w-2xl"
+                : "text-4xl font-bold text-[var(--page-fg)] leading-tight mb-8 max-w-2xl"
             }
           >
             <Editable path={["pages", pageIndex, "quote"]} value={quote} multiline />
           </p>
           {source && (
-            <p className="text-white text-lg font-medium">
+            <p className="text-[var(--page-fg)] text-lg font-medium">
               — <Editable path={["pages", pageIndex, "source"]} value={source} />
             </p>
           )}

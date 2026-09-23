@@ -28,16 +28,16 @@ describe('QuotePage', () => {
     expect(screen.getByText('Additional context')).toBeInTheDocument();
   });
 
-  it('uses the theme-aware variable for text when variant is dark (default)', () => {
+  it('uses the page-foreground variable for text when variant is dark (default)', () => {
     render(<QuotePage {...defaultProps} />);
     const quoteEl = screen.getByText('Test quote text');
-    expect(quoteEl.className).toContain('text-[var(--orca-dark-fg)]');
+    expect(quoteEl.className).toContain('text-[var(--page-fg)]');
   });
 
   it('keeps literal white text when variant is orange, regardless of theme', () => {
     render(<QuotePage {...defaultProps} variant="orange" />);
     const quoteEl = screen.getByText('Test quote text');
     expect(quoteEl.className).toBe('text-4xl font-bold text-white leading-tight mb-8 max-w-2xl');
-    expect(quoteEl.className).not.toContain('--orca-dark-fg');
+    expect(quoteEl.className).not.toContain('--page-fg');
   });
 });

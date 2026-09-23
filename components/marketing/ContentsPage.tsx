@@ -5,9 +5,9 @@ import { Editable } from "@/components/content-editor/Editable";
 
 type ContentsPageProps = ContentsPageContent & { pageIndex?: number };
 
-export function ContentsPage({ pageIndex = 0, title = "Contents", items }: ContentsPageProps) {
+export function ContentsPage({ pageIndex = 0, title = "Contents", items, surface }: ContentsPageProps) {
   return (
-    <PageShell variant="dark" showFooter={false}>
+    <PageShell variant="dark" surface={surface} showFooter={false}>
       <div className="h-full flex flex-col p-12">
         <h1 className="text-5xl font-bold mb-12">
           <Editable path={["pages", pageIndex, "title"]} value={title} />
@@ -30,7 +30,7 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", items }: Conte
                   />
                 </div>
                 {item.description && (
-                  <div className="text-white/60 text-sm leading-relaxed">
+                  <div className="text-[var(--page-muted)] text-sm leading-relaxed">
                     <Editable
                       path={["pages", pageIndex, "items", index, "description"]}
                       value={item.description}

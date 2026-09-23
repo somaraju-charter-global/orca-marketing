@@ -54,7 +54,7 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
       ? "text-[var(--orca-orange)]"
       : content.color === "blue"
       ? "text-[var(--orca-blue)]"
-      : "text-[var(--orca-ink)]";
+      : "text-[var(--page-fg)]";
 
     return (
       <div className="h-full flex items-center justify-center p-12 pt-6">
@@ -136,7 +136,7 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
                   {step.number}
                 </div>
                 <div className="flex-1 pt-1">
-                  <h4 className="text-base font-bold text-[var(--orca-ink)] mb-1">
+                  <h4 className="text-base font-bold text-[var(--page-fg)] mb-1">
                     {pageIndex !== undefined ? (
                       <Editable
                         path={[...basePath, "steps", index, "title"]}
@@ -147,7 +147,7 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
                     )}
                   </h4>
                   {step.description && (
-                    <p className="text-sm text-[var(--orca-muted)] leading-relaxed">
+                    <p className="text-sm text-[var(--page-muted)] leading-relaxed">
                       {pageIndex !== undefined ? (
                         <Editable
                           path={[...basePath, "steps", index, "description"]}

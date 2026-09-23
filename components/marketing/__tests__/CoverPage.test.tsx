@@ -41,4 +41,47 @@ describe('CoverPage', () => {
     const images = container.querySelectorAll('img');
     expect(images.length).toBeGreaterThan(1); // Logo + background image
   });
+
+  it('renders split layout with all text content when layout="split" and image set', () => {
+    const sections = [{ page: '3', title: 'Section One' }];
+    render(
+      <CoverPage
+        {...defaultProps}
+        layout="split"
+        image="/test-image.jpg"
+        kicker="TEST KICKER"
+        sections={sections}
+      />
+    );
+    expect(screen.getByText('Test Guide')).toBeInTheDocument();
+    expect(screen.getByText('A test subtitle')).toBeInTheDocument();
+    expect(screen.getByText('TEST KICKER')).toBeInTheDocument();
+    expect(screen.getByText('Section One')).toBeInTheDocument();
+  });
+
+  it('falls back to overlay rendering when layout="split" but no image', () => {
+    render(<CoverPage {...defaultProps} layout="split" />);
+    expect(screen.getByText('Test Guide')).toBeInTheDocument();
+  });
+
+  it('renders inset layout with text and image', () => {
+    const { container } = render(
+      <CoverPage {...defaultProps} layout="inset" image="/test-image.jpg" kicker="KICK" />
+    );
+    expect(screen.getByText('Test Guide')).toBeInTheDocument();
+    expect(screen.getByText('KICK')).toBeInTheDocument();
+    expect(container.querySelectorAll('img').length).toBeGreaterThan(1);
+  });
+
+  it('renders meta items in every layout', () => {
+    const meta = ['8 use cases', 'Evidence for each'];
+    for (const layout of ['overlay', 'split', 'inset'] as const) {
+      const { unmount } = render(
+        <CoverPage {...defaultProps} layout={layout} image="/test-image.jpg" meta={meta} />
+      );
+      expect(screen.getByText('8 use cases')).toBeInTheDocument();
+      expect(screen.getByText('Evidence for each')).toBeInTheDocument();
+      unmount();
+    }
+  });
 });

@@ -15,13 +15,14 @@ export function UseCasePage({
   bullets,
   rightContent,
   citation,
+  surface,
   pageNumber,
 }: UseCasePageProps) {
   // Extract citation from rightContent if it's a quote and no explicit citation provided
   const footerCitation = citation || (rightContent?.type === "quote" ? rightContent.citation : undefined);
 
   return (
-    <PageShell variant="light" pageNumber={pageNumber} citation={footerCitation}>
+    <PageShell variant="light" surface={surface} pageNumber={pageNumber} citation={footerCitation}>
       <div className="h-full flex flex-col">
         {/* Full width title section */}
         <div className="p-12 pb-6">
@@ -30,7 +31,7 @@ export function UseCasePage({
               <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
             </div>
           )}
-          <h2 className="text-4xl font-bold text-[var(--orca-ink)]">
+          <h2 className="text-4xl font-bold text-[var(--page-fg)]">
             <Editable path={["pages", pageIndex, "title"]} value={title} />
           </h2>
         </div>
@@ -39,19 +40,19 @@ export function UseCasePage({
         <div className="flex-1 flex">
           <div className="w-3/5 p-12 pt-6 flex flex-col justify-start">
             <div className="mb-8">
-              <div className="text-xs font-semibold tracking-widest uppercase text-[var(--orca-muted)] mb-2">
+              <div className="text-xs font-semibold tracking-widest uppercase text-[var(--page-muted)] mb-2">
                 The Problem
               </div>
-              <p className="text-[var(--orca-ink)] text-base leading-relaxed">
+              <p className="text-[var(--page-fg)] text-base leading-relaxed">
                 <Editable path={["pages", pageIndex, "problem"]} value={problem} multiline />
               </p>
             </div>
 
             <div className="mb-8">
-              <div className="text-xs font-semibold tracking-widest uppercase text-[var(--orca-teal-dark)] mb-2">
+              <div className="text-xs font-semibold tracking-widest uppercase text-[var(--page-accent)] mb-2">
                 The Opportunity
               </div>
-              <p className="text-[var(--orca-teal-dark)] text-xl font-semibold leading-relaxed">
+              <p className="text-[var(--page-accent)] text-xl font-semibold leading-relaxed">
                 <Editable path={["pages", pageIndex, "opportunity"]} value={opportunity} multiline />
               </p>
             </div>
@@ -59,7 +60,7 @@ export function UseCasePage({
             {bullets && bullets.length > 0 && (
               <ul className="space-y-3">
                 {bullets.map((bullet, index) => (
-                  <li key={index} className="flex items-start gap-3 text-[var(--orca-ink)] text-sm">
+                  <li key={index} className="flex items-start gap-3 text-[var(--page-fg)] text-sm">
                     <div className="w-1.5 h-1.5 rounded-full bg-[var(--orca-orange)] mt-2 flex-shrink-0" />
                     <span>
                       <Editable

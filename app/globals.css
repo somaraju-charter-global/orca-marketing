@@ -35,6 +35,10 @@
   --orca-healthcare-mist-dark: #326367;
   --orca-black: #000000;
   --orca-green: #16a34a;
+  /* Website palette (website.ai/src/app/globals.css) — used by UseCasePage
+     and RoiPage; previously referenced but never defined. */
+  --orca-teal-dark: #326367;
+  --orca-frost: #d1ecef;
 
   --page-width: 1024px;
   --page-height: 768px;

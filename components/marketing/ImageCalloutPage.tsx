@@ -13,10 +13,11 @@ export function ImageCalloutPage({
   body,
   image,
   callout,
+  surface,
   pageNumber,
 }: ImageCalloutPageProps) {
   return (
-    <PageShell variant="light" pageNumber={pageNumber} showFooter={false}>
+    <PageShell variant="light" surface={surface} pageNumber={pageNumber} showFooter={false}>
       <div className="h-full flex">
         <div className="w-3/5 relative">
           <EditableImage
@@ -34,11 +35,11 @@ export function ImageCalloutPage({
               <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
             </div>
           )}
-          <h2 className="text-4xl font-bold leading-tight mb-6 text-[var(--orca-ink)]">
+          <h2 className="text-4xl font-bold leading-tight mb-6 text-[var(--page-fg)]">
             <Editable path={["pages", pageIndex, "headline"]} value={headline} multiline />
           </h2>
           {body && (
-            <p className="text-[var(--orca-muted)] text-base leading-relaxed mb-8">
+            <p className="text-[var(--page-muted)] text-base leading-relaxed mb-8">
               <Editable path={["pages", pageIndex, "body"]} value={body} multiline />
             </p>
           )}
@@ -56,7 +57,7 @@ export function ImageCalloutPage({
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-[var(--orca-line)]" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-[var(--page-line)]" />
     </PageShell>
   );
 }

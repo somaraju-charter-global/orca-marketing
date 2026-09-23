@@ -12,15 +12,17 @@ export function ClosingCtaPage({
   cta,
   website,
   variant = "dark",
+  surface,
   pageNumber,
 }: ClosingCtaPageProps) {
+  const logoSrc = surface === "light" ? "/logos/orcaworks-dark.png" : "/logos/orcaworks-white.png";
   return (
-    <PageShell variant={variant} pageNumber={pageNumber}>
+    <PageShell variant={variant} surface={surface} pageNumber={pageNumber}>
 
       <div className="relative z-10 h-full flex flex-col p-12">
         <div className="mb-auto">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logos/orcaworks-white.png" alt="Orcaworks" className="h-auto w-48" />
+          <img src={logoSrc} alt="Orcaworks" className="h-auto w-48" />
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
@@ -29,7 +31,7 @@ export function ClosingCtaPage({
               <h2 className="text-5xl font-bold leading-tight mb-6">
                 <Editable path={["pages", pageIndex, "headline"]} value={headline} multiline />
               </h2>
-              <p className="text-xl text-white font-light mb-8">
+              <p className="text-xl text-[var(--page-fg)] font-light mb-8">
                 <Editable path={["pages", pageIndex, "body"]} value={body} multiline />
               </p>
               <div className="inline-block bg-[var(--orca-orange)] text-white px-8 py-4 rounded-lg font-semibold text-lg">
@@ -39,14 +41,16 @@ export function ClosingCtaPage({
             </div>
           </div>
           <div className="shrink-0 flex flex-col items-end gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/orcaworks-qr-white.png"
-                alt="QR code to Orcaworks website"
-                className="w-36 h-36"
-              />
+              <div className={surface === "light" ? "bg-[var(--orca-dark)] rounded-xl p-3" : ""}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/orcaworks-qr-white.png"
+                  alt="QR code to Orcaworks website"
+                  className="w-36 h-36"
+                />
+              </div>
               {website && (
-                <span className="text-white text-xs opacity-80">
+                <span className="text-[var(--page-fg)] text-xs opacity-80">
                   Scan to visit <Editable path={["pages", pageIndex, "website"]} value={website} />
                 </span>
               )}

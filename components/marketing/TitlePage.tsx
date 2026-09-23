@@ -10,15 +10,21 @@ export function TitlePage({
   title,
   subtitle,
   kicker,
-  logoVariant = "white",
+  logoVariant,
   image,
+  surface,
 }: TitlePageProps) {
-  const logoSrc = logoVariant === "white"
+  const isDark = surface !== "light";
+  const logoSrc = (logoVariant ?? (isDark ? "white" : "dark")) === "white"
     ? "/logos/orcaworks-white.png"
     : "/logos/orcaworks-dark.png";
 
   return (
-    <div className="pdf-page bg-[var(--orca-dark)] text-white relative overflow-hidden">
+    <div
+      className={`pdf-page relative overflow-hidden ${
+        isDark ? "bg-[var(--orca-dark)] text-white" : "bg-[#f9feff] text-[var(--orca-ink)]"
+      }`}
+    >
       <BrandMotif variant="orange" size="lg" className="top-0 right-0" />
       <BrandMotif variant="blue" size="md" className="bottom-0 left-0" />
 
@@ -46,7 +52,7 @@ export function TitlePage({
             <Editable path={["pages", pageIndex, "title"]} value={title} />
           </h1>
           {subtitle && (
-            <p className="text-2xl text-white/80 font-light">
+            <p className={`text-2xl font-light ${isDark ? "text-white/80" : "text-[var(--orca-muted)]"}`}>
               <Editable path={["pages", pageIndex, "subtitle"]} value={subtitle} multiline />
             </p>
           )}
