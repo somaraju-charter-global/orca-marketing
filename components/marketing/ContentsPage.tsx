@@ -42,9 +42,10 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", eyebrow, items
   const flatColumns = [items.slice(0, half), items.slice(half)];
 
   const tile = (item: (typeof items)[number], index: number) => (
-    <div
+    <a
       key={index}
-      className="bg-white rounded-lg border-l-2 border-[var(--orca-orange)] px-4 py-3 flex items-center justify-between gap-3"
+      href={`#page-${item.page}`}
+      className="bg-white rounded-lg border-l-2 border-[var(--orca-orange)] px-4 py-3 flex items-center justify-between gap-3 no-underline"
     >
       <div className="min-w-0">
         <div className="text-sm font-semibold leading-snug text-[var(--page-fg)]">
@@ -61,11 +62,11 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", eyebrow, items
         )}
       </div>
       <span className="text-[var(--orca-orange)] font-bold shrink-0">{item.page}</span>
-    </div>
+    </a>
   );
 
   const railRow = (item: (typeof items)[number], index: number) => (
-    <div key={index} className="flex items-baseline gap-3 py-1.5">
+    <a key={index} href={`#page-${item.page}`} className="flex items-baseline gap-3 py-1.5 no-underline">
       <span className="text-sm font-bold text-[var(--orca-orange)] w-6 shrink-0">{item.page}</span>
       <div className="flex-1 min-w-0">
         <div className="text-sm font-semibold leading-snug text-[var(--page-fg)]">
@@ -81,11 +82,11 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", eyebrow, items
           </div>
         )}
       </div>
-    </div>
+    </a>
   );
 
   return (
-    <PageShell variant="light" surface={surface} showFooter={false}>
+    <PageShell variant="light" surface={surface} pageIndex={pageIndex} showFooter={false}>
       <div className="h-full flex flex-col px-14 pt-12 pb-10">
         {eyebrow && (
           <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
@@ -98,14 +99,6 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", eyebrow, items
 
         {heroGroup ? (
           <div className="flex-1 flex gap-14 min-h-0">
-            <div className="flex-[3]">
-              <GroupLabel>
-                <Editable path={["pages", pageIndex, "items", heroGroup.items[0].index, "group"]} value={heroGroup.label} />
-              </GroupLabel>
-              <div className="grid grid-cols-2 gap-3">
-                {heroGroup.items.map(({ item, index }) => tile(item, index))}
-              </div>
-            </div>
             <div className="flex-[2] flex flex-col gap-7">
               {railGroups.map((group) => (
                 <div key={group.label}>
@@ -117,6 +110,14 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", eyebrow, items
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="flex-[3]">
+              <GroupLabel>
+                <Editable path={["pages", pageIndex, "items", heroGroup.items[0].index, "group"]} value={heroGroup.label} />
+              </GroupLabel>
+              <div className="grid grid-cols-2 gap-3">
+                {heroGroup.items.map(({ item, index }) => tile(item, index))}
+              </div>
             </div>
           </div>
         ) : (

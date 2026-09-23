@@ -35,6 +35,12 @@ describe('ContentsPage', () => {
     expect(screen.getAllByText('Evidence & measurement')).toHaveLength(1);
   });
 
+  it('links items to their page anchors', () => {
+    render(<ContentsPage type="contents" items={baseItems} />);
+    expect(screen.getByText('01 · First use case').closest('a')).toHaveAttribute('href', '#page-4');
+    expect(screen.getByText('The operating reality').closest('a')).toHaveAttribute('href', '#page-3');
+  });
+
   it('renders flat items without group labels', () => {
     render(<ContentsPage type="contents" items={flatItems} />);
     expect(screen.getByText('Section one')).toBeInTheDocument();

@@ -127,6 +127,7 @@ export function CoverPage({
   if (layout === "split" && image) {
     return (
       <div
+        id={`page-${pageIndex + 1}`}
         className="pdf-page bg-[var(--cover-bg)] text-[var(--cover-fg)] relative overflow-hidden"
         style={overrideVars}
       >
@@ -156,6 +157,7 @@ export function CoverPage({
   if (layout === "inset" && image) {
     return (
       <div
+        id={`page-${pageIndex + 1}`}
         className="pdf-page bg-[var(--cover-bg)] text-[var(--cover-fg)] relative overflow-hidden"
         style={overrideVars}
       >
@@ -184,6 +186,7 @@ export function CoverPage({
 
   return (
     <div
+      id={`page-${pageIndex + 1}`}
       className="pdf-page bg-[var(--cover-bg)] text-[var(--cover-fg)] relative overflow-hidden"
       style={overrideVars}
     >

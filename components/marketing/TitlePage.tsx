@@ -21,6 +21,7 @@ export function TitlePage({
 
   return (
     <div
+      id={`page-${pageIndex + 1}`}
       className={`pdf-page relative overflow-hidden ${
         isDark ? "bg-[var(--orca-dark)] text-white" : "bg-[#f9feff] text-[var(--orca-ink)]"
       }`}

@@ -17,7 +17,7 @@ export function ImageCalloutPage({
   pageNumber,
 }: ImageCalloutPageProps) {
   return (
-    <PageShell variant="light" surface={surface} pageNumber={pageNumber} showFooter={false}>
+    <PageShell variant="light" surface={surface} pageIndex={pageIndex} pageNumber={pageNumber} showFooter={false}>
       <div className="h-full flex">
         <div className="w-3/5 relative">
           <EditableImage

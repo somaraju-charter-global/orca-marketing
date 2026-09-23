@@ -14,7 +14,7 @@ export function StatPage({
   pageNumber,
 }: StatPageProps) {
   return (
-    <PageShell variant="light" surface={surface} pageNumber={pageNumber}>
+    <PageShell variant="light" surface={surface} pageIndex={pageIndex} pageNumber={pageNumber}>
       <div className="h-full flex flex-col p-12">
         {eyebrow && (
           <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-widest uppercase mb-4">

@@ -8,6 +8,9 @@ type PageShellProps = {
       wins over `variant` — components pass their type's default as
       `variant` and let `surface` override it. */
   surface?: "light" | "dark";
+  /** Position in the pages array. Sets id="page-N" on the page element so
+      contents links (#page-N) work in the browser and exported PDF. */
+  pageIndex?: number;
   pageNumber?: string | number;
   sectionLabel?: string;
   showFooter?: boolean;
@@ -20,6 +23,7 @@ export function PageShell({
   children,
   variant = "light",
   surface,
+  pageIndex,
   pageNumber,
   sectionLabel,
   showFooter = true,
@@ -58,7 +62,11 @@ export function PageShell({
   ) as React.CSSProperties;
 
   return (
-    <div className={`pdf-page ${variantStyles[effectiveVariant]}`} style={surfaceVars}>
+    <div
+      id={pageIndex !== undefined ? `page-${pageIndex + 1}` : undefined}
+      className={`pdf-page ${variantStyles[effectiveVariant]}`}
+      style={surfaceVars}
+    >
       {sectionLabel && (
         <div className="absolute top-8 left-8 text-xs font-semibold tracking-widest uppercase opacity-60">
           {sectionLabel}

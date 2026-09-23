@@ -17,7 +17,7 @@ export function QuotePage({
   pageNumber,
 }: QuotePageProps) {
   return (
-    <PageShell variant={variant} surface={surface} pageNumber={pageNumber} showFooter={true} citation={citation}>
+    <PageShell variant={variant} surface={surface} pageIndex={pageIndex} pageNumber={pageNumber} showFooter={true} citation={citation}>
       <div className="h-full flex">
         <div className="w-1/3 p-12 flex flex-col justify-center">
           {eyebrow && (

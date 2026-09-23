@@ -18,7 +18,7 @@ export function DarkEditorialPage({
   pageNumber,
 }: DarkEditorialPageProps) {
   return (
-    <PageShell variant="dark" surface={surface} pageNumber={pageNumber} showFooter={false}>
+    <PageShell variant="dark" surface={surface} pageIndex={pageIndex} pageNumber={pageNumber} showFooter={false}>
       <BrandMotif variant="orange" size="md" className="top-20 right-20" />
 
       <div className="h-full flex">

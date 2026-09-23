@@ -22,7 +22,7 @@ export function UseCasePage({
   const footerCitation = citation || (rightContent?.type === "quote" ? rightContent.citation : undefined);
 
   return (
-    <PageShell variant="light" surface={surface} pageNumber={pageNumber} citation={footerCitation}>
+    <PageShell variant="light" surface={surface} pageIndex={pageIndex} pageNumber={pageNumber} citation={footerCitation}>
       <div className="h-full flex flex-col">
         {/* Full width title section */}
         <div className="p-12 pb-6">

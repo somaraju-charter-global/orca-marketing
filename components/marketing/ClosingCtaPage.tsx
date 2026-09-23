@@ -17,7 +17,7 @@ export function ClosingCtaPage({
 }: ClosingCtaPageProps) {
   const logoSrc = surface === "light" ? "/logos/orcaworks-dark.png" : "/logos/orcaworks-white.png";
   return (
-    <PageShell variant={variant} surface={surface} pageNumber={pageNumber}>
+    <PageShell variant={variant} surface={surface} pageIndex={pageIndex} pageNumber={pageNumber}>
 
       <div className="relative z-10 h-full flex flex-col p-12">
         <div className="mb-auto">
