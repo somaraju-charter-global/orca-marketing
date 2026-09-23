@@ -85,11 +85,13 @@ const titlePageSchema = z.object({
 const contentsPageSchema = z.object({
   type: z.literal("contents"),
   title: z.string().optional(),
+  eyebrow: z.string().optional(),
   items: z.array(
     z.object({
       page: z.string(),
       title: z.string(),
       description: z.string().optional(),
+      group: z.string().optional(),
     })
   ),
   surface: surfaceSchema,

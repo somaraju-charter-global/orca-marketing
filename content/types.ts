@@ -67,7 +67,14 @@ export type TitlePageContent = {
 export type ContentsPageContent = {
   type: "contents";
   title?: string;
-  items: { page: string; title: string; description?: string }[];
+  // Small label above the title — typically the guide's sector name,
+  // e.g. "Logistics & Distribution deep-dive guide".
+  eyebrow?: string;
+  // Items render in two balanced columns. `group` is an optional section
+  // label (e.g. "Ranked use cases") shown above the first item that
+  // carries it; a group that crosses the column boundary repeats its
+  // label at the top of the next column.
+  items: { page: string; title: string; description?: string; group?: string }[];
   surface?: "light" | "dark";
 };
 

@@ -28,7 +28,7 @@ export function PageShell({
   const effectiveVariant = surface ?? variant;
 
   const variantStyles = {
-    light: "bg-white text-[var(--orca-ink)]",
+    light: "bg-[#f9feff] text-[var(--orca-ink)]",
     dark: "bg-[var(--orca-dark)] text-white",
     orange: "bg-[var(--orca-orange)] text-white",
     blue: "bg-[var(--orca-blue)] text-white",

@@ -18,7 +18,7 @@ describe('PageShell', () => {
         <div>Test</div>
       </PageShell>
     );
-    expect(container.firstChild).toHaveClass('bg-white');
+    expect(container.firstChild).toHaveClass('bg-[#f9feff]');
   });
 
   it('renders with dark variant', () => {
