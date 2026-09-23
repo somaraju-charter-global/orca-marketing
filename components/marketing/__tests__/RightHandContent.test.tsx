@@ -1,74 +1,55 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { RightHandContent } from '../RightHandContent';
-import { GuideThemeProvider } from '../GuideThemeContext';
 
-describe('RightHandContent - detailedText block', () => {
-  it('uses white text on the orange background (default option)', () => {
+describe('RightHandContent', () => {
+  it('renders the default card quote with its source', () => {
     render(
       <RightHandContent
-        content={{ type: 'detailedText', text: 'Orange block', color: 'orange' }}
+        content={{ type: 'quote', quote: 'We lose control.', source: 'Coordinator' }}
       />
     );
-    const wrapper = screen.getByText('Orange block').parentElement;
-    expect(wrapper?.className).toContain('bg-[var(--orca-orange)]');
-    expect(wrapper?.className).toContain('text-white');
+    expect(screen.getByText(/We lose control\./)).toBeInTheDocument();
+    expect(screen.getByText(/Coordinator/)).toBeInTheDocument();
   });
 
-  it('uses the mist background with dark ink text for healthcareMist', () => {
+  it('renders nothing in the column for a band quote', () => {
+    const { container } = render(
+      <RightHandContent
+        content={{ type: 'quote', quote: 'Q', presentation: 'band' }}
+      />
+    );
+    expect(container.firstChild).toBeNull();
+  });
+
+  it('renders a bare quote without the card background', () => {
     render(
       <RightHandContent
-        content={{ type: 'detailedText', text: 'Mist block', color: 'healthcareMist' }}
+        content={{ type: 'quote', quote: 'Bare quote', presentation: 'bare' }}
       />
     );
-    const wrapper = screen.getByText('Mist block').parentElement;
-    expect(wrapper?.className).toContain('bg-[var(--orca-healthcare-mist)]');
-    expect(wrapper?.className).toContain('text-[var(--orca-ink)]');
-    expect(wrapper?.className).not.toContain('text-white');
+    const quote = screen.getByText('Bare quote');
+    expect(quote.closest('.bg-\\[var\\(--orca-orange\\)\\]')).toBeNull();
   });
 
-  it('falls back to the new light-panel default when no guide theme is set and no color is given', () => {
-    render(
-      <RightHandContent content={{ type: 'detailedText', text: 'No theme, no color' }} />
-    );
-    const wrapper = screen.getByText('No theme, no color').parentElement;
-    expect(wrapper?.className).toContain('bg-[var(--page-panel)]');
-    expect(wrapper?.className).toContain('text-[var(--page-panel-fg)]');
-  });
-
-  it('picks up the guide-level theme automatically when the block sets no color', () => {
-    render(
-      <GuideThemeProvider theme="healthcareMist">
-        <RightHandContent content={{ type: 'detailedText', text: 'Themed block' }} />
-      </GuideThemeProvider>
-    );
-    const wrapper = screen.getByText('Themed block').parentElement;
-    expect(wrapper?.className).toContain('bg-[var(--orca-healthcare-mist)]');
-    expect(wrapper?.className).toContain('text-[var(--orca-ink)]');
-  });
-
-  it('lets an explicit block color override the guide-level theme', () => {
-    render(
-      <GuideThemeProvider theme="healthcareMist">
-        <RightHandContent
-          content={{ type: 'detailedText', text: 'Overridden block', color: 'orange' }}
-        />
-      </GuideThemeProvider>
-    );
-    const wrapper = screen.getByText('Overridden block').parentElement;
-    expect(wrapper?.className).toContain('bg-[var(--orca-orange)]');
-    expect(wrapper?.className).toContain('text-white');
-  });
-
-  it('uses a true black background with white text for the black option', () => {
+  it('renders the stat card with value, label and source', () => {
     render(
       <RightHandContent
-        content={{ type: 'detailedText', text: 'Black block', color: 'black' }}
+        content={{ type: 'stat', value: '90%', label: 'Straight-through', source: 'Canon USA' }}
       />
     );
-    const wrapper = screen.getByText('Black block').parentElement;
-    expect(wrapper?.className).toContain('bg-[var(--orca-black)]');
-    expect(wrapper?.className).toContain('text-white');
+    expect(screen.getByText('90%')).toBeInTheDocument();
+    expect(screen.getByText('Straight-through')).toBeInTheDocument();
+    expect(screen.getByText(/Canon USA/)).toBeInTheDocument();
+  });
+
+  it('renders the inset image', () => {
+    render(
+      <RightHandContent
+        content={{ type: 'image', src: '/images/x.jpg', alt: 'Port' }}
+      />
+    );
+    const img = screen.getByAltText('Port');
+    expect(img).toHaveClass('object-cover');
   });
 });
-

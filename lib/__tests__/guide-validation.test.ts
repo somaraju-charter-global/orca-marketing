@@ -38,17 +38,70 @@ describe("validateMarketingGuide — useCase rightContent", () => {
     }
   });
 
-  it("still allows workflow on useCaseDetail pages", () => {
-    const result = validateMarketingGuide(
-      guide([
-        {
-          type: "useCaseDetail",
-          title: "In detail",
-          sections: [{ heading: "H", description: "D" }],
-          rightContent: { type: "workflow", steps: [{ number: "1", title: "Step" }] },
-        },
-      ])
-    );
-    expect(result.success).toBe(true);
+});
+
+describe("validateMarketingGuide — useCase solution pages", () => {
+  const caseInAction = {
+    type: "caseInAction",
+    headline: "Know what's happening. Decide what happens next.",
+    explanation: "Orcaworks brings the shipment evidence together.",
+    valuePoints: [
+      { title: "Clearer insight", description: "Everything in one place." },
+      { title: "Planner in control", description: "Approves the next action." },
+    ],
+    visual: {
+      signals: [
+        { name: "TMS", detail: "ETA 18:00" },
+        { name: "Carrier", detail: "Delayed 2h" },
+      ],
+      steps: [
+        { label: "Evidence reconciled" },
+        { label: "Delivery commitment at risk", alert: true },
+        { label: "Recovery prepared" },
+      ],
+      action: {
+        title: "Recovery options",
+        items: [{ label: "Expedite" }, { label: "Reschedule" }, { label: "Hold" }],
+      },
+    },
+  };
+
+  it("accepts a well-formed caseInAction page", () => {
+    expect(validateMarketingGuide(guide([caseInAction])).success).toBe(true);
+  });
+
+  it("rejects caseInAction over its layout limits", () => {
+    const tooManySignals = {
+      ...caseInAction,
+      visual: {
+        ...caseInAction.visual,
+        signals: Array.from({ length: 5 }, (_, i) => ({ name: `S${i}`, detail: "x" })),
+      },
+    };
+    expect(validateMarketingGuide(guide([tooManySignals])).success).toBe(false);
+  });
+
+  it("accepts a well-formed operationalTransformation page", () => {
+    const page = {
+      type: "operationalTransformation",
+      headline: "From chasing updates to trusted commitments.",
+      currentProcess: { steps: [{ label: "a" }, { label: "b" }, { label: "c" }] },
+      futureProcess: { steps: [{ label: "a" }, { label: "b" }, { label: "c" }] },
+      shift: { statement: "The buyer approves prepared changes." },
+      value: { outcomes: ["Current promise dates"] },
+    };
+    expect(validateMarketingGuide(guide([page])).success).toBe(true);
+  });
+
+  it("rejects operationalTransformation with fewer than three steps", () => {
+    const page = {
+      type: "operationalTransformation",
+      headline: "x",
+      currentProcess: { steps: [{ label: "a" }] },
+      futureProcess: { steps: [{ label: "a" }] },
+      shift: { statement: "s" },
+      value: { outcomes: ["o"] },
+    };
+    expect(validateMarketingGuide(guide([page])).success).toBe(false);
   });
 });

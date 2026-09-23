@@ -89,7 +89,7 @@ export function buildUseCaseGuidePrompt(
   planning: string,
   story: string
 ): string {
-  return `Convert the story below into "Use-Case Guide Content" — a page-by-page content plan for a multi-page landscape guide (matching this project's MarketingGuide page types: cover, titlePage, contents, darkEditorial, imageCallout, useCase, useCaseDetail, quote, stat, beforeAfter, roi, closingCta).
+  return `Convert the story below into "Use-Case Guide Content" — a page-by-page content plan for a multi-page landscape guide (matching this project's MarketingGuide page types: cover, titlePage, contents, darkEditorial, imageCallout, useCase, caseInAction, operationalTransformation, quote, stat, beforeAfter, roi, closingCta).
 
 Title/Concept: "${title}"
 
@@ -109,7 +109,7 @@ Output markdown structured as one \`###\` heading per page, in order, e.g.:
 - body:
 - callout:
 
-...and so on for every page, using only the field names that page type supports. Include 2-4 useCase / useCaseDetail pages drawn from the "Use Cases to Feature" in planning, plus a quote or stat page, and end with closingCta. Keep field values final-draft quality (ready to paste into content), not placeholders.
+...and so on for every page, using only the field names that page type supports. Include 2-4 useCase pages (each paired with a caseInAction or operationalTransformation page) drawn from the "Use Cases to Feature" in planning, plus a quote or stat page, and end with closingCta. Keep field values final-draft quality (ready to paste into content), not placeholders.
 
 ## Research Reference (for stats/citations)
 ${research}

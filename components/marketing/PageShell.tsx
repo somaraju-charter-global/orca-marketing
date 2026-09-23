@@ -48,6 +48,7 @@ export function PageShell({
   const surfaceVars = (
     LIGHT_SURFACES.has(effectiveVariant)
       ? {
+          "--page-bg": "#f9feff",
           "--page-fg": "var(--orca-ink)",
           "--page-muted": "var(--orca-muted)",
           "--page-accent": "var(--orca-teal-dark)",
@@ -59,6 +60,7 @@ export function PageShell({
           "--page-panel-fg": "var(--orca-panel-light-ink)",
         }
       : {
+          "--page-bg": "var(--orca-dark)",
           "--page-fg": "#ffffff",
           "--page-muted": "rgba(226, 232, 240, 0.72)",
           "--page-accent": "var(--orca-frost)",

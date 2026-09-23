@@ -19,48 +19,6 @@ const citationSchema = z.object({
   url: z.string(),
 });
 
-const rightHandContentSchema = z.discriminatedUnion("type", [
-  z.object({
-    type: z.literal("quote"),
-    quote: z.string(),
-    source: z.string().optional(),
-    presentation: z.enum(["card", "band", "bare"]).optional(),
-    citation: citationSchema.optional(),
-  }),
-  z.object({
-    type: z.literal("highlightText"),
-    text: z.string(),
-    color: z.enum(["orange", "blue", "ink"]).optional(),
-  }),
-  z.object({
-    type: z.literal("detailedText"),
-    text: z.string(),
-    color: z.enum(["orange", "blue", "ink", "healthcareMist", "black", "green"]).optional(),
-  }),
-  z.object({
-    type: z.literal("image"),
-    src: imageRefSchema,
-    alt: z.string().optional(),
-    objectFit: z.enum(["cover", "contain"]).optional(),
-  }),
-  z.object({
-    type: z.literal("stat"),
-    value: z.string(),
-    label: z.string(),
-    source: z.string().optional(),
-  }),
-  z.object({
-    type: z.literal("workflow"),
-    steps: z.array(
-      z.object({
-        number: z.string(),
-        title: z.string(),
-        description: z.string().optional(),
-      })
-    ),
-  }),
-]);
-
 // useCase pages support exactly three right-column treatments, in
 // priority order: practitioner quote (field research), sourced market
 // stat, or stock image. Workflow and text blocks are useCaseDetail-only.
@@ -167,15 +125,85 @@ const useCasePageSchema = z.object({
   pageNumber: stringOrNumber.optional(),
 });
 
-const useCaseDetailPageSchema = z.object({
-  type: z.literal("useCaseDetail"),
-  eyebrow: z.string().optional(),
-  title: z.string(),
-  sections: z.array(
-    z.object({ heading: z.string(), description: z.string() })
-  ),
-  sectionColor: z.enum(["orange", "blue", "ink"]).optional(),
-  rightContent: rightHandContentSchema.optional(),
+// "The Case in Action" — Option A. A blindingly simple split page:
+// left = minimal visual (a few signals converging into one insight,
+// then a single action panel), right = headline + short explanation +
+// three value points.
+const caseInActionPageSchema = z.object({
+  type: z.literal("caseInAction"),
+  eyebrow: z.string().max(80).optional(),
+  // The big statement at the top of the right column.
+  headline: z.string().max(120),
+  explanation: z.string().max(280),
+  valuePoints: z
+    .array(
+      z.object({
+        title: z.string().max(40),
+        description: z.string().max(110),
+        icon: z.string().optional(),
+      })
+    )
+    .min(1)
+    .max(3),
+  visual: z.object({
+    signals: z
+      .array(
+        z.object({
+          name: z.string().max(40),
+          detail: z.string().max(90),
+          icon: z.string().optional(),
+        })
+      )
+      .min(2)
+      .max(4),
+    // 2–3 mini-workflow steps the signals resolve into; `alert` marks
+    // the highlighted exception step (rendered soft-red).
+    steps: z
+      .array(
+        z.object({
+          label: z.string().max(60),
+          alert: z.boolean().optional(),
+        })
+      )
+      .min(2)
+      .max(3),
+    action: z.object({
+      title: z.string().max(50),
+      items: z
+        .array(z.object({ label: z.string().max(50), icon: z.string().optional() }))
+        .min(1)
+        .max(4),
+    }),
+  }),
+  citation: citationSchema.optional(),
+  surface: surfaceSchema,
+  pageNumber: stringOrNumber.optional(),
+});
+
+// "The Operational Transformation" — Option B.
+const transformationStepSchema = z.object({
+  label: z.string().max(80),
+  detail: z.string().max(110).optional(),
+});
+
+const operationalTransformationPageSchema = z.object({
+  type: z.literal("operationalTransformation"),
+  eyebrow: z.string().max(80).optional(),
+  headline: z.string().max(120),
+  introduction: z.string().max(220).optional(),
+  currentProcess: z.object({
+    steps: z.array(transformationStepSchema).min(3).max(5),
+  }),
+  futureProcess: z.object({
+    steps: z.array(transformationStepSchema).min(3).max(5),
+  }),
+  shift: z.object({
+    statement: z.string().max(160),
+    description: z.string().max(200).optional(),
+  }),
+  value: z.object({
+    outcomes: z.array(z.string().max(60)).min(1).max(3),
+  }),
   citation: citationSchema.optional(),
   surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
@@ -255,7 +283,8 @@ const marketingPageSchema = z.discriminatedUnion("type", [
   darkEditorialPageSchema,
   imageCalloutPageSchema,
   useCasePageSchema,
-  useCaseDetailPageSchema,
+  caseInActionPageSchema,
+  operationalTransformationPageSchema,
   quotePageSchema,
   statPageSchema,
   beforeAfterPageSchema,

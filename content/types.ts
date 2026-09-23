@@ -109,8 +109,9 @@ export type ImageCalloutPageContent = {
 
 // The useCase page supports exactly three right-column treatments, in
 // priority order: a practitioner-voice quote from field research, a
-// sourced market-research stat, or a stock image. Workflow/detail blocks
-// belong on useCaseDetail pages.
+// sourced market-research stat, or a stock image. The "how it closes"
+// substance belongs on the paired caseInAction /
+// operationalTransformation page.
 export type UseCaseRightContent =
   // `presentation`: "card" (default orange card), "band" (full-width
   // pull-quote band at the foot of the page) or "bare" (no card — the
@@ -133,16 +134,68 @@ export type UseCasePageContent = {
   pageNumber?: string | number;
 };
 
-export type UseCaseDetailContent = {
-  type: "useCaseDetail";
+// Option A — "The Case in Action": a clean split page. Left (≈55%): a
+// minimal conceptual visual — a few signals converging into one
+// highlighted insight, then a single action panel. Right (≈45%): a big
+// headline, a short plain-language explanation and three value points.
+// Understandable in seconds. Scenario values are illustrative, never
+// presented as real customer data.
+export type CaseInActionPageContent = {
+  type: "caseInAction";
+  // Carries the use-case name: "<use case> — The Orcaworks Solution".
   eyebrow?: string;
-  title: string;
-  sections: {
-    heading: string;
+  // The big statement at the top of the right column.
+  headline: string;
+  // 2–4 lines explaining what Orcaworks does, in plain language.
+  explanation: string;
+  // Three short icon/text value rows.
+  valuePoints: {
+    title: string;
     description: string;
+    // Optional lucide icon name from the component's allowlist.
+    icon?: string;
   }[];
-  sectionColor?: "orange" | "blue" | "ink";
-  rightContent?: RightHandContentType;
+  visual: {
+    // 2–4 key systems/signals, each with the fact it contributes.
+    signals: {
+      name: string;
+      detail: string;
+      icon?: string;
+    }[];
+    // 2–3 mini-workflow steps the signals resolve into. `alert` marks
+    // the highlighted exception step (rendered soft-red).
+    steps: { label: string; alert?: boolean }[];
+    // The one action/decision panel below the steps.
+    action: {
+      title: string;
+      items: { label: string; icon?: string }[];
+    };
+  };
+  citation?: { text: string; url: string };
+  surface?: "light" | "dark";
+  pageNumber?: string | number;
+};
+
+// Option B — "The Operational Transformation": the same process shown
+// today vs with Orcaworks, step for step, then the shift and outcomes.
+export type OperationalTransformationPageContent = {
+  type: "operationalTransformation";
+  eyebrow?: string;
+  headline: string;
+  introduction?: string;
+  currentProcess: {
+    steps: { label: string; detail?: string }[];
+  };
+  futureProcess: {
+    steps: { label: string; detail?: string }[];
+  };
+  shift: {
+    statement: string;
+    description?: string;
+  };
+  value: {
+    outcomes: string[];
+  };
   citation?: { text: string; url: string };
   surface?: "light" | "dark";
   pageNumber?: string | number;
@@ -218,7 +271,8 @@ export type MarketingPage =
   | DarkEditorialPageContent
   | ImageCalloutPageContent
   | UseCasePageContent
-  | UseCaseDetailContent
+  | CaseInActionPageContent
+  | OperationalTransformationPageContent
   | QuotePageContent
   | StatPageContent
   | BeforeAfterPageContent
@@ -232,7 +286,8 @@ export type MarketingPageType =
   | "darkEditorial"
   | "imageCallout"
   | "useCase"
-  | "useCaseDetail"
+  | "caseInAction"
+  | "operationalTransformation"
   | "quote"
   | "stat"
   | "beforeAfter"
