@@ -45,7 +45,7 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", eyebrow, items
     <a
       key={index}
       href={`#page-${item.page}`}
-      className="bg-white rounded-lg border-l-2 border-[var(--orca-orange)] px-4 py-3 flex items-center justify-between gap-3 no-underline"
+      className="border-l-2 border-[var(--orca-orange)] px-4 py-3 flex items-center justify-between gap-3 no-underline"
     >
       <div className="min-w-0">
         <div className="text-sm font-semibold leading-snug text-[var(--page-fg)]">
