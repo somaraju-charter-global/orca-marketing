@@ -43,6 +43,12 @@ const rightHandContentSchema = z.discriminatedUnion("type", [
     objectFit: z.enum(["cover", "contain"]).optional(),
   }),
   z.object({
+    type: z.literal("stat"),
+    value: z.string(),
+    label: z.string(),
+    source: z.string().optional(),
+  }),
+  z.object({
     type: z.literal("workflow"),
     steps: z.array(
       z.object({
@@ -51,6 +57,30 @@ const rightHandContentSchema = z.discriminatedUnion("type", [
         description: z.string().optional(),
       })
     ),
+  }),
+]);
+
+// useCase pages support exactly three right-column treatments, in
+// priority order: practitioner quote (field research), sourced market
+// stat, or stock image. Workflow and text blocks are useCaseDetail-only.
+const useCaseRightContentSchema = z.discriminatedUnion("type", [
+  z.object({
+    type: z.literal("quote"),
+    quote: z.string(),
+    source: z.string().optional(),
+    citation: citationSchema.optional(),
+  }),
+  z.object({
+    type: z.literal("stat"),
+    value: z.string(),
+    label: z.string(),
+    source: z.string().optional(),
+  }),
+  z.object({
+    type: z.literal("image"),
+    src: imageRefSchema,
+    alt: z.string().optional(),
+    objectFit: z.enum(["cover", "contain"]).optional(),
   }),
 ]);
 
@@ -129,7 +159,7 @@ const useCasePageSchema = z.object({
   problem: z.string(),
   opportunity: z.string(),
   bullets: z.array(z.string()).optional(),
-  rightContent: rightHandContentSchema.optional(),
+  rightContent: useCaseRightContentSchema.optional(),
   citation: citationSchema.optional(),
   surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),

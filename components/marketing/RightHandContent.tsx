@@ -6,6 +6,7 @@ import { Editable } from "@/components/content-editor/Editable";
 
 export type RightHandContentType =
   | { type: "quote"; quote: string; source?: string; citation?: { text: string; url: string } }
+  | { type: "stat"; value: string; label: string; source?: string }
   | { type: "highlightText"; text: string; color?: "orange" | "blue" | "ink" }
   | { type: "detailedText"; text: string; color?: "orange" | "blue" | "ink" | "healthcareMist" | "black" | "green" }
   | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" }
@@ -43,6 +44,43 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
                 content.source
               )}
             </p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  if (content.type === "stat") {
+    // Market-research figure — a tonal panel, deliberately different from
+    // the solid-orange practitioner quote card.
+    return (
+      <div className="h-full flex items-center justify-center p-12">
+        <div className="bg-[var(--page-panel)] text-[var(--page-panel-fg)] p-10 rounded-lg ring-1 ring-[var(--page-line)] w-full">
+          <p className="text-6xl font-bold text-[var(--page-accent)] mb-4 leading-none">
+            {pageIndex !== undefined ? (
+              <Editable path={[...basePath, "value"]} value={content.value} />
+            ) : (
+              content.value
+            )}
+          </p>
+          <p className="text-base leading-relaxed mb-6">
+            {pageIndex !== undefined ? (
+              <Editable path={[...basePath, "label"]} value={content.label} multiline />
+            ) : (
+              content.label
+            )}
+          </p>
+          {content.source && (
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-0.5 bg-[var(--orca-orange)]" />
+              <p className="text-xs font-semibold tracking-widest uppercase opacity-70">
+                {pageIndex !== undefined ? (
+                  <Editable path={[...basePath, "source"]} value={content.source} />
+                ) : (
+                  content.source
+                )}
+              </p>
+            </div>
           )}
         </div>
       </div>
@@ -114,15 +152,19 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
   }
 
   if (content.type === "image") {
+    // Inset rather than edge-to-edge: padded, rounded and ringed so the
+    // photo reads as a framed object on the page, not a half-bleed panel.
     const objectFitClass = content.objectFit === "contain" ? "object-contain" : "object-cover";
     return (
-      <div className="h-full flex items-center justify-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={content.src}
-          alt={content.alt || ""}
-          className={`w-full h-full ${objectFitClass}`}
-        />
+      <div className="h-full flex items-center justify-center p-10">
+        <div className="w-full h-full rounded-lg overflow-hidden ring-1 ring-[var(--page-line)]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={content.src}
+            alt={content.alt || ""}
+            className={`w-full h-full ${objectFitClass}`}
+          />
+        </div>
       </div>
     );
   }

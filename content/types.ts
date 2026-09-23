@@ -107,6 +107,15 @@ export type ImageCalloutPageContent = {
   pageNumber?: string | number;
 };
 
+// The useCase page supports exactly three right-column treatments, in
+// priority order: a practitioner-voice quote from field research, a
+// sourced market-research stat, or a stock image. Workflow/detail blocks
+// belong on useCaseDetail pages.
+export type UseCaseRightContent =
+  | { type: "quote"; quote: string; source?: string; citation?: { text: string; url: string } }
+  | { type: "stat"; value: string; label: string; source?: string }
+  | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" };
+
 export type UseCasePageContent = {
   type: "useCase";
   eyebrow?: string;
@@ -115,7 +124,7 @@ export type UseCasePageContent = {
   problem: string;
   opportunity: string;
   bullets?: string[];
-  rightContent?: RightHandContentType;
+  rightContent?: UseCaseRightContent;
   citation?: { text: string; url: string };
   surface?: "light" | "dark";
   pageNumber?: string | number;
