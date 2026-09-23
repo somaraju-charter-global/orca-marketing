@@ -225,13 +225,17 @@ const statPageSchema = z.object({
   type: z.literal("stat"),
   eyebrow: z.string().optional(),
   headline: z.string(),
-  stats: z.array(
-    z.object({
-      value: z.string(),
-      label: z.string(),
-      description: z.string().optional(),
-    })
-  ),
+  // The layout is a single 3-column row — a fourth stat wraps.
+  stats: z
+    .array(
+      z.object({
+        value: z.string(),
+        label: z.string(),
+        description: z.string().optional(),
+      })
+    )
+    .min(1)
+    .max(3),
   surface: surfaceSchema,
   pageNumber: stringOrNumber.optional(),
 });
