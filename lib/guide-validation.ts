@@ -259,10 +259,11 @@ const roiPageSchema = z.object({
   intro: z.string().optional(),
   metrics: z.array(
     z.object({
-      label: z.string(),
-      baseline: z.string(),
-      target: z.string(),
-      impact: z.string(),
+      // Same keys as the two-page brief's valueMetrics.
+      metric: z.string(),
+      today: z.string(),
+      indicativeImprovement: z.string(),
+      businessImpact: z.string(),
     })
   ),
   surface: surfaceSchema,

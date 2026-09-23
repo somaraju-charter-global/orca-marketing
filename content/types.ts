@@ -243,11 +243,13 @@ export type RoiPageContent = {
   eyebrow?: string;
   title: string;
   intro?: string;
+  // Same keys as the two-page brief's `valueMetrics` — Business metric /
+  // Today / Indicative improvement / Business impact.
   metrics: {
-    label: string;
-    baseline: string;
-    target: string;
-    impact: string;
+    metric: string;
+    today: string;
+    indicativeImprovement: string;
+    businessImpact: string;
   }[];
   surface?: "light" | "dark";
   pageNumber?: string | number;

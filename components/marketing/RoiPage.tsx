@@ -36,29 +36,29 @@ export function RoiPage({
             <table className="w-full">
               <thead>
                 <tr className="bg-[var(--orca-dark)] text-white">
-                  <th className="text-left p-4 text-sm font-semibold">Metric</th>
-                  <th className="text-left p-4 text-sm font-semibold">Baseline</th>
-                  <th className="text-left p-4 text-sm font-semibold">Target</th>
-                  <th className="text-left p-4 text-sm font-semibold">Impact</th>
+                  <th className="text-left p-4 text-sm font-semibold w-[22%]">Business metric</th>
+                  <th className="text-left p-4 text-sm font-semibold w-[28%]">Today</th>
+                  <th className="text-left p-4 text-sm font-semibold w-[25%]">Indicative improvement</th>
+                  <th className="text-left p-4 text-sm font-semibold w-[25%]">Business impact</th>
                 </tr>
               </thead>
               <tbody>
-                {metrics.map((metric, index) => (
+                {metrics.map((row, index) => (
                   <tr
                     key={index}
                     className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
                   >
                     <td className="p-4 text-sm font-medium text-[var(--orca-ink)]">
-                      <Editable path={["pages", pageIndex, "metrics", index, "label"]} value={metric.label} />
+                      <Editable path={["pages", pageIndex, "metrics", index, "metric"]} value={row.metric} />
                     </td>
                     <td className="p-4 text-sm text-[var(--orca-muted)]">
-                      <Editable path={["pages", pageIndex, "metrics", index, "baseline"]} value={metric.baseline} />
+                      <Editable path={["pages", pageIndex, "metrics", index, "today"]} value={row.today} />
                     </td>
                     <td className="p-4 text-sm text-[var(--orca-teal-dark)] font-semibold">
-                      <Editable path={["pages", pageIndex, "metrics", index, "target"]} value={metric.target} />
+                      <Editable path={["pages", pageIndex, "metrics", index, "indicativeImprovement"]} value={row.indicativeImprovement} />
                     </td>
                     <td className="p-4 text-sm text-[var(--orca-orange)] font-semibold">
-                      <Editable path={["pages", pageIndex, "metrics", index, "impact"]} value={metric.impact} />
+                      <Editable path={["pages", pageIndex, "metrics", index, "businessImpact"]} value={row.businessImpact} />
                     </td>
                   </tr>
                 ))}
