@@ -52,12 +52,19 @@ export function PageShell({
           "--page-muted": "var(--orca-muted)",
           "--page-accent": "var(--orca-teal-dark)",
           "--page-line": "var(--orca-line)",
+          // Panels that need a visible light card on a light page get a
+          // deeper tint; on dark surfaces the pale panel is already the
+          // contrast element.
+          "--page-panel": "var(--orca-frost)",
+          "--page-panel-fg": "var(--orca-panel-light-ink)",
         }
       : {
           "--page-fg": "#ffffff",
           "--page-muted": "rgba(226, 232, 240, 0.72)",
           "--page-accent": "var(--orca-frost)",
           "--page-line": "rgba(255, 255, 255, 0.16)",
+          "--page-panel": "var(--orca-panel-light)",
+          "--page-panel-fg": "var(--orca-panel-light-ink)",
         }
   ) as React.CSSProperties;
 

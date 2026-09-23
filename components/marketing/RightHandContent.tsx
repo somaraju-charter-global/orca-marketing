@@ -83,7 +83,9 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
       ? "bg-[var(--orca-black)]"
       : resolvedColor === "green"
       ? "bg-[var(--orca-green)]"
-      : "bg-[var(--orca-panel-light)]";
+      // "ink" = the neutral panel — surface-aware so it stays visible on
+      // both light and dark pages (frost on light, pale panel on dark).
+      : "bg-[var(--page-panel)]";
 
     // healthcareMist and the ink/default case are both LIGHT backgrounds,
     // so they need dark text — but each uses its own paired ink token
@@ -93,7 +95,7 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
     const textColorClass = resolvedColor === "healthcareMist"
       ? "text-[var(--orca-ink)]"
       : resolvedColor === "ink"
-      ? "text-[var(--orca-panel-light-ink)]"
+      ? "text-[var(--page-panel-fg)]"
       : "text-white";
 
     return (

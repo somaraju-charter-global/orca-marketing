@@ -32,8 +32,8 @@ describe('RightHandContent - detailedText block', () => {
       <RightHandContent content={{ type: 'detailedText', text: 'No theme, no color' }} />
     );
     const wrapper = screen.getByText('No theme, no color').parentElement;
-    expect(wrapper?.className).toContain('bg-[var(--orca-panel-light)]');
-    expect(wrapper?.className).toContain('text-[var(--orca-panel-light-ink)]');
+    expect(wrapper?.className).toContain('bg-[var(--page-panel)]');
+    expect(wrapper?.className).toContain('text-[var(--page-panel-fg)]');
   });
 
   it('picks up the guide-level theme automatically when the block sets no color', () => {
