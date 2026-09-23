@@ -275,6 +275,7 @@ const closingCtaPageSchema = z.object({
   headline: z.string(),
   body: z.string(),
   cta: z.string(),
+  ctaUrl: z.string().optional(),
   website: z.string().optional(),
   variant: z.enum(["dark", "orange"]).optional(),
   surface: surfaceSchema,

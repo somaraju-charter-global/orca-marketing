@@ -260,6 +260,8 @@ export type ClosingCtaPageContent = {
   headline: string;
   body: string;
   cta: string;
+  // Destination for the CTA button and QR code.
+  ctaUrl?: string;
   website?: string;
   variant?: "dark" | "orange";
   surface?: "light" | "dark";
