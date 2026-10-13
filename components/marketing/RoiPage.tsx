@@ -14,6 +14,8 @@ export function RoiPage({
   surface,
   pageNumber,
 }: RoiPageProps) {
+  const cellPadding = metrics.length > 5 ? "p-3" : "p-4";
+
   return (
     <PageShell variant="light" surface={surface} pageIndex={pageIndex} pageNumber={pageNumber}>
       <div className="h-full flex flex-col p-12">
@@ -48,16 +50,16 @@ export function RoiPage({
                     key={index}
                     className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
                   >
-                    <td className="p-4 text-sm font-medium text-[var(--orca-ink)]">
+                    <td className={`${cellPadding} text-sm font-medium text-[var(--orca-ink)]`}>
                       <Editable path={["pages", pageIndex, "metrics", index, "metric"]} value={row.metric} />
                     </td>
-                    <td className="p-4 text-sm text-[var(--orca-muted)]">
+                    <td className={`${cellPadding} text-sm text-[var(--orca-muted)]`}>
                       <Editable path={["pages", pageIndex, "metrics", index, "today"]} value={row.today} />
                     </td>
-                    <td className="p-4 text-sm text-[var(--orca-teal-dark)] font-semibold">
+                    <td className={`${cellPadding} text-sm text-[var(--orca-teal-dark)] font-semibold`}>
                       <Editable path={["pages", pageIndex, "metrics", index, "indicativeImprovement"]} value={row.indicativeImprovement} />
                     </td>
-                    <td className="p-4 text-sm text-[var(--orca-orange)] font-semibold">
+                    <td className={`${cellPadding} text-sm text-[var(--orca-orange)] font-semibold`}>
                       <Editable path={["pages", pageIndex, "metrics", index, "businessImpact"]} value={row.businessImpact} />
                     </td>
                   </tr>

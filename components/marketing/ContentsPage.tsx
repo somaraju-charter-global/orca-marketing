@@ -87,7 +87,10 @@ export function ContentsPage({ pageIndex = 0, title = "Contents", eyebrow, items
 
   return (
     <PageShell variant="light" surface={surface} pageIndex={pageIndex} showFooter={false}>
-      <div className="h-full flex flex-col px-14 pt-12 pb-10">
+      <div
+        className="h-full flex flex-col px-14 pt-12 pb-10"
+        style={surface === "dark" ? ({ "--page-muted": "#ffffff" } as React.CSSProperties) : undefined}
+      >
         {eyebrow && (
           <div className="text-[var(--orca-orange)] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
             <Editable path={["pages", pageIndex, "eyebrow"]} value={eyebrow} />
