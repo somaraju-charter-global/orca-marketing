@@ -32,7 +32,7 @@ describe("EditableImage", () => {
         ok: true,
         json: async () => ({
           ok: true,
-          url: "/api/local-blob/domains/example.com/images/new-456.jpg",
+          url: "/api/local-blob/images/new-456.jpg",
           width: 1200,
           height: 800,
         }),
@@ -44,7 +44,7 @@ describe("EditableImage", () => {
       <EditModeProvider value={{ isEditing: true, updateField }}>
         <EditableImage
           path={["page1", "solutionVisual", "imagePath"]}
-          src="/api/local-blob/domains/example.com/images/old-123.jpg"
+          src="/api/local-blob/images/old-123.jpg"
           alt="Solution visual"
           fill
           optional
@@ -62,7 +62,7 @@ describe("EditableImage", () => {
     await waitFor(() => expect(updateField).toHaveBeenCalledTimes(1));
     expect(updateField).toHaveBeenCalledWith(
       ["page1", "solutionVisual", "imagePath"],
-      "/api/local-blob/domains/example.com/images/new-456.jpg"
+      "/api/local-blob/images/new-456.jpg"
     );
     expect(fetchMock).toHaveBeenCalledWith(
       "/api/upload/image",
@@ -74,7 +74,7 @@ describe("EditableImage", () => {
         expect.objectContaining({
           method: "DELETE",
           body: JSON.stringify({
-            url: "/api/local-blob/domains/example.com/images/old-123.jpg",
+            url: "/api/local-blob/images/old-123.jpg",
           }),
         })
       )
@@ -87,7 +87,7 @@ describe("EditableImage", () => {
       ok: true,
       json: async () => ({
         ok: true,
-        url: "/api/local-blob/domains/example.com/images/new-456.jpg",
+        url: "/api/local-blob/images/new-456.jpg",
         width: 1200,
         height: 800,
       }),
@@ -179,7 +179,7 @@ describe("EditableImage", () => {
       <EditModeProvider value={{ isEditing: true, updateField }}>
         <EditableImage
           path={["pages", 0, "image"]}
-          src="/api/local-blob/domains/example.com/images/bg-123.jpg"
+          src="/api/local-blob/images/bg-123.jpg"
           alt=""
           fill
           optional
@@ -197,7 +197,7 @@ describe("EditableImage", () => {
         expect.objectContaining({
           method: "DELETE",
           body: JSON.stringify({
-            url: "/api/local-blob/domains/example.com/images/bg-123.jpg",
+            url: "/api/local-blob/images/bg-123.jpg",
           }),
         })
       )

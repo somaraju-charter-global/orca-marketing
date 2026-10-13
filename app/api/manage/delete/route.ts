@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -28,12 +28,12 @@ export async function POST(request: Request) {
   try {
     if (type === "json") {
       if (kind === "guide") {
-        await deleteGuideJson(slug, session.user.domain);
+        await deleteGuideJson(slug);
       } else {
-        await deleteJson(slug, session.user.domain);
+        await deleteJson(slug);
       }
     } else {
-      await deletePdf(slug, session.user.domain);
+      await deletePdf(slug);
     }
     return NextResponse.json({ ok: true });
   } catch (error) {

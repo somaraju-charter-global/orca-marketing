@@ -37,7 +37,7 @@ describe("isAllowedImageReference", () => {
   it("allows locally-stored uploads served through /api/local-blob", () => {
     expect(
       isAllowedImageReference(
-        "/api/local-blob/domains/example.com/images/abc-123.jpg"
+        "/api/local-blob/images/abc-123.jpg"
       )
     ).toBe(true);
   });
@@ -45,7 +45,7 @@ describe("isAllowedImageReference", () => {
   it("allows Vercel Blob URLs for uploaded images", () => {
     expect(
       isAllowedImageReference(
-        "https://abc123.public.blob.vercel-storage.com/domains/example.com/images/abc-123.png"
+        "https://abc123.public.blob.vercel-storage.com/images/abc-123.png"
       )
     ).toBe(true);
   });
@@ -73,20 +73,20 @@ describe("isAllowedImageReference", () => {
 });
 
 describe("parseUploadedImageReference", () => {
-  it("extracts domain and filename from a local-blob upload URL", () => {
+  it("extracts filename from a local-blob upload URL", () => {
     expect(
       parseUploadedImageReference(
-        "/api/local-blob/domains/example.com/images/abc-123.jpg"
+        "/api/local-blob/images/abc-123.jpg"
       )
-    ).toEqual({ domain: "example.com", filename: "abc-123.jpg" });
+    ).toEqual({ filename: "abc-123.jpg" });
   });
 
-  it("extracts domain and filename from a Vercel Blob upload URL", () => {
+  it("extracts filename from a Vercel Blob upload URL", () => {
     expect(
       parseUploadedImageReference(
-        "https://abc123.public.blob.vercel-storage.com/domains/example.com/images/abc-123.png"
+        "https://abc123.public.blob.vercel-storage.com/images/abc-123.png"
       )
-    ).toEqual({ domain: "example.com", filename: "abc-123.png" });
+    ).toEqual({ filename: "abc-123.png" });
   });
 
   it("returns null for bundled static assets — they must never be deleted", () => {

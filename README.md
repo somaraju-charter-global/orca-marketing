@@ -240,23 +240,13 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 
 ## Deploying to Vercel
 
-1. **Set up Auth0 Application**:
-   - Go to [Auth0 Dashboard](https://manage.auth0.com/)
-   - Create a new **Regular Web Application**
-   - Set **Allowed Callback URLs**:
-     - `http://localhost:3011/api/auth/callback/auth0` for local development
-     - `https://<your-vercel-domain>/api/auth/callback/auth0` for production
-   - Set **Allowed Logout URLs**:
-     - `http://localhost:3011` for local development
-     - `https://<your-vercel-domain>` for production
-   - Copy **Domain**, **Client ID**, and **Client Secret**
+1. **Pick a site password** — the whole site is protected by a single shared
+   password (`SITE_PASSWORD`), stored as an HMAC-signed cookie after sign-in.
+   Generate one with `openssl rand -base64 24`.
 
 2. Copy `.env.template` to `.env.local` and fill in:
    - `BLOB_READ_WRITE_TOKEN` – from Vercel Blob (required for production; the local `local-blob/` fallback works in dev)
-   - `AUTH_SECRET` or `NEXTAUTH_SECRET` – generate a random string (use `openssl rand -base64 32`)
-   - `AUTH0_ISSUER` – your Auth0 tenant domain (e.g., `https://your-tenant.auth0.com`)
-   - `AUTH0_CLIENT_ID` – from Auth0 application
-   - `AUTH0_CLIENT_SECRET` – from Auth0 application
+   - `SITE_PASSWORD` – the shared site password
 
 3. Push your code to GitHub
 
@@ -264,10 +254,7 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 
 5. Add the same environment variables in Vercel's project settings:
    - `BLOB_READ_WRITE_TOKEN`
-   - `AUTH_SECRET`
-   - `AUTH0_ISSUER`
-   - `AUTH0_CLIENT_ID`
-   - `AUTH0_CLIENT_SECRET`
+   - `SITE_PASSWORD`
 
 6. Deploy with default settings
 
@@ -282,10 +269,7 @@ npm run pdf -- --url https://your-vercel-url.com/two-pagers/[slug]/print --out .
 | Variable | Required | Description | Example |
 |----------|----------|-------------|---------|
 | `BLOB_READ_WRITE_TOKEN` | Yes (production) | Vercel Blob storage token | `vercel_blob_token_...` |
-| `AUTH_SECRET` | Yes | NextAuth secret for session encryption | `random-secret-string` |
-| `AUTH0_ISSUER` | Yes | Auth0 tenant URL | `https://your-tenant.auth0.com` |
-| `AUTH0_CLIENT_ID` | Yes | Auth0 application client ID | `your-client-id` |
-| `AUTH0_CLIENT_SECRET` | Yes | Auth0 application client secret | `your-client-secret` |
+| `SITE_PASSWORD` | Yes | Shared site password for sign-in | `random-password-string` |
 
 **Note**: In local development, if `BLOB_READ_WRITE_TOKEN` is not set, the app falls back to the `local-blob/` directory for storage.
 
@@ -424,8 +408,8 @@ When adding new components or content types, add corresponding tests to ensure:
 - Verify all imports in `content/registry.ts` are correct
 
 **Cannot save or generate PDFs**
-- Ensure you are signed in with Auth0; upload, manage, and PDF generation require authentication
-- Verify `AUTH0_ISSUER`, `AUTH0_CLIENT_ID`, `AUTH0_CLIENT_SECRET`, and `AUTH_SECRET` are set in `.env.local`
+- Ensure you are signed in; upload, manage, and PDF generation require authentication
+- Verify `SITE_PASSWORD` is set in `.env.local` (and in Vercel env variables for deployments)
 - If `BLOB_READ_WRITE_TOKEN` is not set, the app uses `local-blob/` for local dev storage
 
 **Uploaded files not appearing on the homepage**

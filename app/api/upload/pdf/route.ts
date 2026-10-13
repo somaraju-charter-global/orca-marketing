@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }
 
     const buffer = await file.arrayBuffer();
-    const blob = await uploadPdf(slug, buffer, session.user.domain);
+    const blob = await uploadPdf(slug, buffer);
 
     return NextResponse.json({ ok: true, slug, url: blob.url });
   } catch (error) {

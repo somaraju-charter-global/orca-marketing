@@ -15,10 +15,10 @@ export default async function MarketingGuidePage({
 }) {
   const { slug } = await params;
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
   }
-  const guide = await getGuideBySlug(slug, session.user.domain);
+  const guide = await getGuideBySlug(slug);
 
   if (!guide) {
     notFound();

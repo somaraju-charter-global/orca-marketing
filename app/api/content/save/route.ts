@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: NextRequest) {
   const session = await auth();
-  if (!session?.user?.email) {
+  if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

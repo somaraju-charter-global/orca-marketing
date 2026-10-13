@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export default async function CreateGuidePage() {
   const session = await auth();
-  if (!session?.user?.email) {
+  if (!session) {
     return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
   }
 

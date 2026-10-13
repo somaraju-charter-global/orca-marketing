@@ -10,7 +10,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -57,7 +57,6 @@ export async function POST(request: Request) {
     const blob = await uploadImage(
       filename,
       buffer,
-      session.user.domain,
       validation.contentType
     );
 
@@ -91,7 +90,7 @@ export async function POST(request: Request) {
  */
 export async function DELETE(request: Request) {
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -108,14 +107,8 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ ok: true, deleted: false });
   }
 
-  // Never let one domain's session delete another domain's file, even if
-  // they somehow get hold of its URL.
-  if (parsed.domain !== session.user.domain) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   try {
-    await deleteImage(parsed.filename, parsed.domain);
+    await deleteImage(parsed.filename);
     return NextResponse.json({ ok: true, deleted: true });
   } catch (error) {
     console.error("DELETE /api/upload/image failed:", error);

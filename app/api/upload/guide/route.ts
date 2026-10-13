@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     }
 
     const { slug } = validation.data;
-    const blob = await uploadGuideJson(slug, validation.data, session.user.domain);
+    const blob = await uploadGuideJson(slug, validation.data);
 
     return NextResponse.json({ ok: true, slug, url: blob.url });
   } catch (error) {

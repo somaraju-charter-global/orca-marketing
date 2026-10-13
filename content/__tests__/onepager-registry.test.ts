@@ -29,14 +29,14 @@ describe('OnePager Registry', () => {
     it('should return two-pager when slug exists', async () => {
       const slug = Object.keys(onePagers)[0];
       if (slug) {
-        const onePager = await getOnePagerBySlug(slug, 'test-domain');
+        const onePager = await getOnePagerBySlug(slug);
         expect(onePager).toBeDefined();
         expect(onePager?.slug).toBe(slug);
       }
     });
 
     it('should return null when slug does not exist', async () => {
-      const onePager = await getOnePagerBySlug('non-existent-slug', 'test-domain');
+      const onePager = await getOnePagerBySlug('non-existent-slug');
       expect(onePager).toBeNull();
     });
   });

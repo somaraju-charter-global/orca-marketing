@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 function blobToManageItem(blob: ListBlobResultBlob, kind: "json" | "pdf"): ManageBlobItem {
   const slug = blob.pathname
-    .replace(kind === "json" ? /^domains\/[\w.-]+\/jsons\// : /^domains\/[\w.-]+\/pdfs\//, "")
+    .replace(kind === "json" ? /^jsons\// : /^pdfs\//, "")
     .replace(/\.\w+$/, "");
   return {
     url: blob.url,
@@ -24,13 +24,13 @@ function blobToManageItem(blob: ListBlobResultBlob, kind: "json" | "pdf"): Manag
 
 export default async function ManagePage() {
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
   }
 
   const [jsonBlobs, pdfBlobs] = await Promise.all([
-    listJsons(session.user.domain),
-    listPdfs(session.user.domain),
+    listJsons(),
+    listPdfs(),
   ]);
 
   const initialJsons = jsonBlobs.map((blob) => blobToManageItem(blob, "json"));

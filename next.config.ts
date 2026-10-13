@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
       {
         // Local dev fallback storage for images uploaded via
         // /api/upload/image (see lib/storage.ts).
-        pathname: '/api/local-blob/domains/**/images/**',
+        pathname: '/api/local-blob/images/**',
       },
     ],
     remotePatterns: [
@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
         // Production storage for images uploaded via /api/upload/image.
         protocol: 'https',
         hostname: '*.public.blob.vercel-storage.com',
-        pathname: '/domains/**/images/**',
+        pathname: '/images/**',
       },
     ],
   },

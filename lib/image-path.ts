@@ -23,11 +23,11 @@ const STATIC_ASSET_PATTERN =
 
 // Local dev fallback storage (see lib/storage.ts localUrl()).
 const LOCAL_BLOB_UPLOAD_PATTERN =
-  /^\/api\/local-blob\/domains\/([\w.-]+)\/images\/([\w.-]+\.(?:jpg|jpeg|png))$/i;
+  /^\/api\/local-blob\/images\/([\w.-]+\.(?:jpg|jpeg|png))$/i;
 
 // Vercel Blob public URLs for images uploaded through /api/upload/image.
 const VERCEL_BLOB_UPLOAD_PATTERN =
-  /^https:\/\/[\w-]+\.public\.blob\.vercel-storage\.com\/domains\/([\w.-]+)\/images\/([\w.-]+\.(?:jpg|jpeg|png))$/i;
+  /^https:\/\/[\w-]+\.public\.blob\.vercel-storage\.com\/images\/([\w.-]+\.(?:jpg|jpeg|png))$/i;
 
 export function isAllowedImageReference(value: string): boolean {
   // Reject path traversal / protocol-relative tricks before anything else —
@@ -45,20 +45,20 @@ export function isAllowedImageReference(value: string): boolean {
 }
 
 /**
- * Extracts { domain, filename } from a URL that was returned by
- * /api/upload/image, so the server can delete the underlying stored file
- * when it's replaced or removed. Returns null for anything else — in
- * particular, bundled static assets under /images or /logos, which are
- * repo files shared across documents and must never be deleted this way.
+ * Extracts the filename from a URL that was returned by /api/upload/image,
+ * so the server can delete the underlying stored file when it's replaced
+ * or removed. Returns null for anything else — in particular, bundled
+ * static assets under /images or /logos, which are repo files shared
+ * across documents and must never be deleted this way.
  */
 export function parseUploadedImageReference(
   value: string
-): { domain: string; filename: string } | null {
+): { filename: string } | null {
   const match =
     LOCAL_BLOB_UPLOAD_PATTERN.exec(value) ??
     VERCEL_BLOB_UPLOAD_PATTERN.exec(value);
   if (!match) return null;
-  return { domain: match[1], filename: match[2] };
+  return { filename: match[1] };
 }
 
 const ISSUE_MESSAGE =

@@ -12,10 +12,10 @@ export default async function OnePagerPage({
 }) {
   const { slug } = await params;
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
   }
-  const onePager = await getOnePagerBySlug(slug, session.user.domain);
+  const onePager = await getOnePagerBySlug(slug);
 
   if (!onePager) {
     notFound();

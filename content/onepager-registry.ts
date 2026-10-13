@@ -7,11 +7,10 @@ const staticOnePagers: Record<string, OnePager> = {};
 export const onePagers: Record<string, OnePager> = staticOnePagers;
 
 export async function getOnePagerBySlug(
-  slug: string,
-  domain: string
+  slug: string
 ): Promise<OnePager | null> {
   try {
-    const blobData = await getJson(slug, domain);
+    const blobData = await getJson(slug);
     if (blobData) {
       const validation = validateTwoPageVerticalBrief(blobData);
       if (validation.success) {
@@ -26,7 +25,7 @@ export async function getOnePagerBySlug(
   return staticOnePagers[slug] ?? null;
 }
 
-export async function getAllOnePagers(domain: string): Promise<OnePager[]> {
+export async function getAllOnePagers(): Promise<OnePager[]> {
   const merged = new Map<string, OnePager>();
 
   for (const [slug, onePager] of Object.entries(staticOnePagers)) {
@@ -34,12 +33,12 @@ export async function getAllOnePagers(domain: string): Promise<OnePager[]> {
   }
 
   try {
-    const jsonBlobs = await listJsons(domain);
+    const jsonBlobs = await listJsons();
     for (const blob of jsonBlobs) {
-      const slug = blob.pathname.replace(/^domains\/[\w.-]+\/jsons\//, "").replace(/\.json$/, "");
+      const slug = blob.pathname.replace(/^jsons\//, "").replace(/\.json$/, "");
       if (!slug) continue;
 
-      const data = await getJson(slug, domain);
+      const data = await getJson(slug);
       const validation = validateTwoPageVerticalBrief(data);
       if (validation.success) {
         merged.set(slug, validation.data);

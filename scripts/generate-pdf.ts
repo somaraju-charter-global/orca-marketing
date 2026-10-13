@@ -12,6 +12,7 @@ async function main() {
   const url = getArg("url");
   const out = getArg("out", "./exports/orcaworks-document.pdf");
   const format = getArg("format", "guide");
+  const cookie = getArg("cookie");
 
   if (!url) {
     throw new Error("Missing --url argument");
@@ -30,6 +31,10 @@ async function main() {
     viewport: pdfOptions.viewport,
     deviceScaleFactor: 2,
   });
+
+  if (cookie) {
+    await page.setExtraHTTPHeaders({ Cookie: cookie });
+  }
 
   await page.goto(url, { waitUntil: "networkidle" });
   

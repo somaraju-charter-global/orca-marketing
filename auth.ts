@@ -1,43 +1,18 @@
-import NextAuth from "next-auth";
-import Auth0 from "next-auth/providers/auth0";
+import { cookies } from "next/headers";
+import { SESSION_COOKIE, verifySessionValue } from "@/lib/session";
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [
-    Auth0({
-      clientId: process.env.AUTH0_CLIENT_ID,
-      clientSecret: process.env.AUTH0_CLIENT_SECRET,
-      issuer: process.env.AUTH0_ISSUER,
-    }),
-  ],
-  trustHost: true,
-  pages: {
-    signIn: "/login",
-  },
-  callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
-      const isLoggedIn = !!auth?.user;
-      const pathname = nextUrl.pathname;
+export interface Session {
+  user: { name: string };
+}
 
-      if (pathname.startsWith("/login")) return true;
-      if (pathname.startsWith("/api/auth")) return true;
-      if (pathname.startsWith("/_next")) return true;
-
-      // All other routes, including /api/upload and /api/manage, require login.
-      return isLoggedIn;
-    },
-    async session({ session }) {
-      if (session.user?.email) {
-        const domain = session.user.email.split("@")[1]?.toLowerCase();
-        session.user.domain = domain;
-      }
-      return session;
-    },
-    async jwt({ token, account }) {
-      if (account?.provider === "auth0" && token.email) {
-        const domain = token.email.split("@")[1]?.toLowerCase();
-        token.domain = domain;
-      }
-      return token;
-    },
-  },
-});
+/**
+ * Returns the current session for a request, or null when the visitor is
+ * not authenticated. Authentication is a single shared password
+ * (SITE_PASSWORD) stored as an HMAC-signed cookie — see lib/session.ts.
+ */
+export async function auth(): Promise<Session | null> {
+  const cookieStore = await cookies();
+  const value = cookieStore.get(SESSION_COOKIE)?.value;
+  if (!verifySessionValue(value)) return null;
+  return { user: { name: "Admin" } };
+}

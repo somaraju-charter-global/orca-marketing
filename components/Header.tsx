@@ -1,10 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { auth } from "@/auth";
 
-export function Header() {
-  const { data: session, status } = useSession();
+export async function Header() {
+  const session = await auth();
 
   return (
     <header className="no-print w-full border-b border-gray-200 bg-white px-6 py-4">
@@ -14,27 +12,27 @@ export function Header() {
         </Link>
 
         <nav className="flex items-center gap-4">
-          {status === "authenticated" && session?.user ? (
+          {session ? (
             <>
               <span className="text-sm text-gray-600">
-                {session.user.name ?? session.user.email ?? "User"}
+                {session.user.name}
               </span>
-              <button
-                type="button"
-                onClick={() => signOut({ redirectTo: "/login" })}
-                className="rounded-md bg-gray-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-gray-700"
-              >
-                Sign out
-              </button>
+              <form method="post" action="/api/auth/logout">
+                <button
+                  type="submit"
+                  className="rounded-md bg-gray-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-gray-700"
+                >
+                  Sign out
+                </button>
+              </form>
             </>
           ) : (
-            <button
-              type="button"
-              onClick={() => signIn("github", { redirectTo: "/" })}
+            <Link
+              href="/login"
               className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700"
             >
               Sign in
-            </button>
+            </Link>
           )}
         </nav>
       </div>

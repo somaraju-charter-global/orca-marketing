@@ -17,10 +17,10 @@ export default async function TwoPagerPage({
 }) {
   const { slug } = await params;
   const session = await auth();
-  if (!session?.user?.email || !session?.user?.domain) {
+  if (!session) {
     return <div className="p-8 text-center">Unauthorized. Please sign in.</div>;
   }
-  const twoPager = await getOnePagerBySlug(slug, session.user.domain);
+  const twoPager = await getOnePagerBySlug(slug);
 
   if (!twoPager) {
     notFound();
