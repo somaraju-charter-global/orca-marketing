@@ -1,0 +1,681 @@
+{
+  "slug": "logistics-and-distribution-deep-dive-cover-light-inset",
+  "title": "Logistics & Distribution — Governed Execution Use-Case Guide",
+  "description": "Six distribution and logistics workflows: what breaks, what the team needs to prove, who decides, which system changes, and how to measure resolution. An operating guide, not a product-results claim.",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Keep distribution orders, inventory and shipments moving when the plan breaks",
+      "subtitle": "Six workflows for late loads, changed supplier promises, disputed orders and stock, and held freight or 3PL invoices — with planners, buyers, inventory and finance owners making consequential decisions.",
+      "kicker": "LOGISTICS & DISTRIBUTION  ·  DEEP-DIVE GUIDE",
+      "logoVariant": "dark",
+      "image": "/images/guides/logistics-port-truck.jpg",
+      "layout": "inset",
+      "meta": [
+        "Six priority workflows",
+        "The evidence · the decision · the write-back",
+        "One queue to start, with a measurable end state"
+      ],
+      "surface": "light",
+      "background": "#ffffff",
+      "textColor": "#0c0c09"
+    },
+    {
+      "type": "contents",
+      "title": "Contents",
+      "eyebrow": "Logistics & Distribution · Use-case guide",
+      "items": [
+        {
+          "page": "3",
+          "title": "When the records stop agreeing",
+          "description": "The six queues that consume time, service and margin",
+          "group": "Operating reality"
+        },
+        {
+          "page": "4",
+          "title": "01 · Shipment Exception Resolution",
+          "description": "Late loads, missing proof and planner-led recovery · pp. 4–5",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "6",
+          "title": "02 · Supplier Promise & PO Change Resolution",
+          "description": "Changed commitments, demand impact and buyer approval · pp. 6–7",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "8",
+          "title": "03 · Customer Order Intake & Exception Resolution",
+          "description": "Clean orders accepted; disputed lines to the CSR · pp. 8–9",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "10",
+          "title": "04 · Inventory & Transaction Reconciliation",
+          "description": "Find the missing posting before changing the balance · pp. 10–11",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "12",
+          "title": "05 · Freight Audit & Dispute Resolution",
+          "description": "Resolve the unsupported charge before pay or dispute · pp. 12–13",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "14",
+          "title": "06 · 3PL Billing Assurance",
+          "description": "Capture chargeable work without billing unsupported services · pp. 14–15",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "16",
+          "title": "Why conflicting records put service at risk",
+          "description": "Visibility gaps need an evidence-backed decision",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "17",
+          "title": "Customer pressures, in numbers",
+          "description": "Visibility, supplier collaboration and order-cycle benchmarks",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "18",
+          "title": "Measure the queue, not the demo",
+          "description": "Six workflow measures to baseline and improve",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "19",
+          "title": "Start with a shipment exception queue",
+          "description": "A measurable first-workflow engagement",
+          "group": "Getting started"
+        }
+      ],
+      "surface": "dark"
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The operating reality",
+      "headline": "The order is in ERP. The load is in TMS. The problem is still in someone’s inbox.",
+      "body": "A supplier changes the date but ERP still shows the old PO. A carrier reports a delay that TMS misses. A receipt never posts to ERP. A customer order needs a price decision. Freight charges lack proof; 3PL rework never reaches the invoice. Each case waits while someone finds the record, secures approval and makes the change. These are the six queues in this guide.",
+      "callout": "The systems record what happened. The team still has to prove what it means, decide what changes and close the loop.",
+      "surface": "light",
+      "pageNumber": "3"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "01 / Transportation · Customer promise",
+      "number": "01",
+      "title": "Shipment Exception Resolution",
+      "problem": "The load missed pickup. The TMS shows an on-time milestone, the carrier says it is running late, and the warehouse says the freight was ready. The customer still expects delivery at 17:00. Before the planner can protect that promise, the coordinator checks the carrier, the appointment and the proof — then tries to establish which update is current.",
+      "opportunity": "Visibility alone does not resolve an exception. Orcaworks reconciles the TMS milestone, carrier reply, warehouse departure and customer commitment into a current operational picture. The planner approves expedite, reschedule or hold before TMS and customer records change.",
+      "rightContent": {
+        "type": "stat",
+        "value": "68%",
+        "label": "of shippers identify control-tower visibility as a must-have capability.",
+        "source": "2025 Third-Party Logistics Study"
+      },
+      "citation": {
+        "text": "2025 Third-Party Logistics Study · Shipper technology priorities",
+        "url": "https://cscmp.org/common/Uploaded%20files/Research/25-3PL.pdf"
+      },
+      "pageNumber": "4"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "01 / Shipment exception · The proposed workflow",
+      "headline": "One load. One agreed timeline. One recovery owner.",
+      "explanation": "For a late load, reconcile the TMS milestone with carrier evidence, warehouse departure and the committed delivery window. Put the conflict and the recovery choices in the planner’s queue.",
+      "valuePoints": [
+        {
+          "title": "Prove the latest status",
+          "description": "Tie the carrier reply and departure proof to the correct load and stop.",
+          "icon": "search"
+        },
+        {
+          "title": "Show the promise at risk",
+          "description": "Compare the revised ETA with the customer’s window and account rules.",
+          "icon": "user"
+        },
+        {
+          "title": "Close the approved recovery",
+          "description": "Planner authorises the response; permitted TMS and customer updates follow.",
+          "icon": "check"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "TMS",
+            "detail": "Delivery ETA 18:00",
+            "icon": "truck"
+          },
+          {
+            "name": "Carrier",
+            "detail": "Delay confirmed",
+            "icon": "mail"
+          },
+          {
+            "name": "WMS",
+            "detail": "Departed 14:10",
+            "icon": "warehouse"
+          },
+          {
+            "name": "Customer",
+            "detail": "Promised 17:00",
+            "icon": "calendar"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Carrier and warehouse evidence checked"
+          },
+          {
+            "label": "17:00 promise at risk",
+            "alert": true
+          },
+          {
+            "label": "Approved TMS update and customer notice"
+          }
+        ],
+        "action": {
+          "title": "Planner decides",
+          "items": [
+            {
+              "label": "Expedite",
+              "icon": "plane"
+            },
+            {
+              "label": "Reschedule",
+              "icon": "calendar"
+            },
+            {
+              "label": "Hold",
+              "icon": "pause"
+            }
+          ]
+        }
+      },
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "02 / Procurement · Supplier commitments",
+      "number": "02",
+      "title": "Supplier Promise & PO Change Resolution",
+      "problem": "ERP still shows Friday, but the supplier’s reply moves half the PO to Tuesday. The change is buried in an email or partial acknowledgement; sales and planning continue using the old date. The buyer must match the reply to the right PO lines, establish what is actually confirmed and decide whether to accept the split or seek alternate supply.",
+      "opportunity": "Supplier commitments arrive through emails, acknowledgements and portals. Orcaworks matches replies to PO lines and checks changed dates and quantities against demand. The buyer approves the commitment before ERP updates the affected lines and planning or customer service is alerted.",
+      "rightContent": {
+        "type": "stat",
+        "value": "88%",
+        "label": "of procurement leaders saw supplier collaboration rise sharply in priority over the prior 24 months.",
+        "source": "Gartner · Supplier relationship management"
+      },
+      "citation": {
+        "text": "Gartner · Supplier collaboration priorities (24-month lookback)",
+        "url": "https://www.gartner.com/en/supply-chain/topics/supplier-relationship-management?linkId=855022992"
+      },
+      "pageNumber": "6"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "02 / Supplier promises · The proposed workflow",
+      "headline": "The new supplier date belongs on the PO, not just in an email.",
+      "introduction": "A supplier confirms 60 units for Friday and moves 40 to Tuesday. The buyer needs to accept or challenge the split before planning relies on either date.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Supplier changes date or quantity by email"
+          },
+          {
+            "label": "Buyer finds the correct PO lines and earlier promise"
+          },
+          {
+            "label": "Open demand checked in ERP and buyer spreadsheet"
+          },
+          {
+            "label": "Buyer negotiates, edits PO and alerts affected teams"
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Supplier reply matched to PO line and quantity"
+          },
+          {
+            "label": "Changed commitment checked against open orders"
+          },
+          {
+            "label": "Buyer approves split, expedite or alternate supply"
+          },
+          {
+            "label": "Approved PO updated; impacted teams alerted"
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The buyer works the changed commitment, not the inbox search that precedes it."
+      },
+      "value": {
+        "outcomes": [
+          "Fewer PO lines with an unconfirmed date",
+          "Earlier action on at-risk customer orders",
+          "Approved promises reflected in ERP"
+        ]
+      },
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "03 / Customer service · Order acceptance",
+      "number": "03",
+      "title": "Customer Order Intake & Exception Resolution",
+      "problem": "A customer emails a revised PO with a supplier part number, a case quantity and a price that differs from its contract. The earlier version is already in ERP. A CSR has to recognise the revision, map the customer item to the right SKU and UOM, prevent a duplicate and settle the price or date before a clean order can be accepted.",
+      "opportunity": "Orcaworks checks customer PO revisions against item masters, agreed prices and existing orders. Clean lines are prepared for ERP; disputed SKUs, UOMs, prices and dates go to the CSR or pricing owner. Measure acceptance time and corrections to track the intake work Orcaworks can influence.",
+      "rightContent": {
+        "type": "stat",
+        "value": "25 days",
+        "label": "Median sales-order management cycle across 125 companies, from order intake through delivery or invoicing. Includes new orders and amendments.",
+        "source": "APQC · Measure 107424 · All companies"
+      },
+      "citation": {
+        "text": "APQC · Sales-order management cycle · n=125 · broader than order entry",
+        "url": "https://www.apqc.org/what-we-do/benchmarking/open-standards-benchmarking/measures/cycle-time-days-perform-process-manage"
+      },
+      "pageNumber": "8"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "03 / Order intake · The proposed workflow",
+      "headline": "Clean lines in. Disputed lines to the CSR.",
+      "explanation": "A revised customer PO arrives by email. Orcaworks checks customer, ship-to, SKU alias, case-to-each UOM, agreed price and existing order revision before preparing an ERP order.",
+      "valuePoints": [
+        {
+          "title": "Find the right order",
+          "description": "Match the PO revision to the customer and any existing ERP order.",
+          "icon": "search"
+        },
+        {
+          "title": "Isolate disputed lines",
+          "description": "CSR resolves the SKU, UOM or price; pricing owner approves exceptions.",
+          "icon": "user"
+        },
+        {
+          "title": "Accept only clean lines",
+          "description": "Create or update the ERP order only after required validation and authority.",
+          "icon": "check"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "Customer PO",
+            "detail": "Revision 2 received",
+            "icon": "mail"
+          },
+          {
+            "name": "ERP",
+            "detail": "Revision 1 exists",
+            "icon": "database"
+          },
+          {
+            "name": "Item master",
+            "detail": "1 case = 12 each",
+            "icon": "clipboard"
+          },
+          {
+            "name": "Contract",
+            "detail": "Price differs",
+            "icon": "receipt"
+          }
+        ],
+        "steps": [
+          {
+            "label": "PO revision and item match checked"
+          },
+          {
+            "label": "Contract price needs approval",
+            "alert": true
+          },
+          {
+            "label": "Authorised order posted in ERP"
+          }
+        ],
+        "action": {
+          "title": "CSR and pricing decide",
+          "items": [
+            {
+              "label": "Accept clean",
+              "icon": "check"
+            },
+            {
+              "label": "Confirm price",
+              "icon": "user"
+            },
+            {
+              "label": "Request detail",
+              "icon": "mail"
+            }
+          ]
+        }
+      },
+      "pageNumber": "9"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "04 / Inventory control · Available-to-promise",
+      "number": "04",
+      "title": "ERP–WMS–3PL Inventory & Transaction Reconciliation",
+      "problem": "WMS confirms a receipt of 120 units; ERP still shows zero. The receiving team says the pallet is in the building, but customer service cannot promise it and finance cannot trust the balance. An inventory analyst must distinguish a stuck interface message from a short receipt, duplicate posting, hold or physical discrepancy before changing any stock record.",
+      "opportunity": "A mismatch does not automatically mean stock is missing. Orcaworks traces the PO, receipt, WMS movement, 3PL report and ERP message to find the transaction break. The inventory owner approves the fix; physical differences stay on hold until a count or inspection supplies proof.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "transaction errors play a prominent role in increasing the uncertainty in the shelf inventory distribution.",
+        "source": "Naveed Chehrazi · Retail inventory model (2025 revision)",
+        "presentation": "panel"
+      },
+      "citation": {
+        "text": "Chehrazi · Inventory Systems with Record Inaccuracy · retail model, not an industry rate",
+        "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4506042"
+      },
+      "pageNumber": "10"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "04 / Inventory reconciliation · The proposed workflow",
+      "headline": "Find the missing posting.",
+      "explanation": "A warehouse receipt exists, but ERP has no corresponding posting. Assemble the receipt and interface trail first; treat a physical count as a separate, human-captured source of truth.",
+      "valuePoints": [
+        {
+          "title": "Trace the transaction",
+          "description": "Match PO, receipt ID, WMS event and the failed ERP message.",
+          "icon": "search"
+        },
+        {
+          "title": "Identify the safe fix",
+          "description": "Inventory owner distinguishes reprocess from reversal, adjustment or count.",
+          "icon": "user"
+        },
+        {
+          "title": "Reconcile both records",
+          "description": "Apply only the approved correction; retain the transaction trail.",
+          "icon": "check"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "WMS",
+            "detail": "Receipt: 120 each",
+            "icon": "warehouse"
+          },
+          {
+            "name": "ERP",
+            "detail": "No receipt posted",
+            "icon": "database"
+          },
+          {
+            "name": "Interface",
+            "detail": "Message failed",
+            "icon": "bell"
+          },
+          {
+            "name": "3PL",
+            "detail": "120 received",
+            "icon": "clipboard"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Receipt and interface IDs matched"
+          },
+          {
+            "label": "ERP posting missing",
+            "alert": true
+          },
+          {
+            "label": "Approved fix; balances checked again"
+          }
+        ],
+        "action": {
+          "title": "Inventory owner decides",
+          "items": [
+            {
+              "label": "Reprocess",
+              "icon": "refresh"
+            },
+            {
+              "label": "Investigate",
+              "icon": "search"
+            },
+            {
+              "label": "Request count",
+              "icon": "clipboard"
+            }
+          ]
+        }
+      },
+      "pageNumber": "11"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "05 / Freight finance · Pay or dispute",
+      "number": "05",
+      "title": "Freight Audit & Dispute Resolution",
+      "problem": "A carrier bills detention and an extra stop. The audit system flags the amount, but the rate confirmation, appointment change, BOL, POD and carrier email are in different places. AP needs to know whether the charge is contractual and supported — not just that the invoice failed the automatic match.",
+      "opportunity": "Orcaworks assembles the carrier invoice, contracted rate, audit result, BOL/POD and appointment evidence; requests what is missing and identifies the disputed line. The freight-audit or AP owner decides pay, hold or dispute. An authorised outcome is recorded in the freight-payment/AP system with the proof attached.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/retail-supply-chain-team.jpg",
+        "alt": "Supply-chain team reviewing freight and billing evidence"
+      },
+      "pageNumber": "12"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "05 / Freight dispute · The proposed workflow",
+      "headline": "Decide the charge with the contract and proof in front of you.",
+      "introduction": "The carrier bills detention; the audit system flags a mismatch. Finance has to establish whether the appointment and delay records support the extra charge.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Carrier invoice fails rate or document match"
+          },
+          {
+            "label": "Analyst hunts for rate con, BOL, POD and appointment"
+          },
+          {
+            "label": "Detention or extra-stop claim argued over email"
+          },
+          {
+            "label": "AP records pay, hold or dispute after manual review"
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Invoice line linked to load, rate and audit result"
+          },
+          {
+            "label": "POD, appointment and carrier proof requested if missing"
+          },
+          {
+            "label": "Freight-audit owner approves pay, hold or dispute"
+          },
+          {
+            "label": "Approved AP action and supporting proof recorded"
+          }
+        ]
+      },
+      "shift": {
+        "statement": "Finance spends less time collecting documents and more time deciding whether a charge is owed."
+      },
+      "value": {
+        "outcomes": [
+          "Fewer invoices waiting on missing proof",
+          "Contract-backed disputes and approvals",
+          "Traceable paid and disputed charges"
+        ]
+      },
+      "pageNumber": "13"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "06 / Contract logistics · Revenue assurance",
+      "number": "06",
+      "title": "3PL Billing Assurance",
+      "problem": "Value-added services (labeling, kitting, rework, and other customer-specific work) make up roughly 9% of the contract logistics market. They are also the work most likely to fall out of billing. The WMS records pallets moved and storage days, but not the relabeling and weekend rework a customer requested, approved by email, and logged on a service ticket. At month-end, the standard rate-card calculation runs on WMS data alone. The result: work that was performed never reaches the invoice, or it is billed with no evidence behind it.",
+      "opportunity": "Orcaworks closes that gap before the invoice goes out. It compares WMS events, rate-card terms, service tickets, and account approvals, surfacing missing or unsupported charges. Every nonstandard charge or credit is approved before billing, so each invoice line is complete and backed by evidence.",
+      "rightContent": {
+        "type": "stat",
+        "value": "9%",
+        "label": "of the contract logistics market is value-added work, a segment in its own right alongside warehousing and distribution. Every dollar of it needs to reach the invoice.",
+        "source": "TI INSIGHT GLOBAL CONTRACT LOGISTICS 2026"
+      },
+      "pageNumber": "14"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "06 / 3PL billing · The proposed workflow",
+      "headline": "Bill the work. Show the proof.",
+      "introduction": "A customer-approved rework job sits in email and a service ticket. Standard WMS activity is billed, but the extra handling needs contractual proof.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "WMS events flow into standard monthly billing"
+          },
+          {
+            "label": "Rework tickets and emails sit outside that flow"
+          },
+          {
+            "label": "Billing analyst compares rate card and work log"
+          },
+          {
+            "label": "Missing charge or unsupported line found after invoicing"
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "WMS events and approved rework ticket linked"
+          },
+          {
+            "label": "Customer rate-card terms and service units checked"
+          },
+          {
+            "label": "Billing owner approves extras, omissions or credits"
+          },
+          {
+            "label": "Supported charge posted; evidence retained for dispute"
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The billing team can see which customer work is chargeable before the invoice goes out."
+      },
+      "value": {
+        "outcomes": [
+          "Billable extras surfaced before release",
+          "Fewer charges without contractual proof",
+          "Clear approval and invoice audit trail"
+        ]
+      },
+      "pageNumber": "15"
+    },
+    {
+      "type": "quote",
+      "eyebrow": "The customer pressure · Visibility and trust",
+      "quote": "More than half of companies’ supply chains lack end-to-end visibility, leaving them more open to unexpected disruptions.",
+      "source": "ASCM, citing Economist Intelligence Unit research",
+      "supportingText": "When shipment updates, supplier promises and inventory records disagree, teams cannot confidently protect customer commitments. Orcaworks brings the evidence together, identifies what is current and routes the decision to its owner. Measure the time to an approved, recorded resolution.",
+      "citation": {
+        "text": "ASCM · Visibility and Traceability · cites EIU supply-chain research",
+        "url": "https://www.ascm.org/making-an-impact/research/visibility-and-traceability-whitepaper/"
+      },
+      "variant": "dark",
+      "pageNumber": "16"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "Customer pressures · Independent benchmarks",
+      "headline": "Where visibility and coordination fall short",
+      "stats": [
+        {
+          "value": "68%",
+          "label": "of shippers call control-tower visibility a must have (2025 3PL Study)",
+          "description": "Orcaworks connects conflicting updates to a planner decision. Track exception decision time and aged cases."
+        },
+        {
+          "value": "88%",
+          "label": "of procurement leaders are placing greater emphasis on collaboration (Gartner)",
+          "description": "Orcaworks connects supplier replies to approved PO changes. Track stale promise lines and update lag."
+        },
+        {
+          "value": "25 days",
+          "label": "median cycle time for sales orders (APQC 107424, 125 companies)",
+          "description": "Orcaworks addresses intake and exceptions. Track acceptance time and corrections."
+        }
+      ],
+      "pageNumber": "17"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "Measure the first workflow",
+      "title": "Measure the work customers need resolved.",
+      "intro": "Baseline each queue, then compare the same case types after rollout. Track approved closure, manual effort and rework across all six workflows. Agree numerical targets from customer data; the benchmarks on page 17 are context, not Orcaworks performance claims.",
+      "metrics": [
+        {
+          "metric": "Shipment decision time",
+          "today": "Signal to approved recovery; aged cases",
+          "indicativeImprovement": "Shorter cycle; fewer aged cases",
+          "businessImpact": "Earlier action on delivery promises"
+        },
+        {
+          "metric": "Stale supplier promises",
+          "today": "Outdated PO lines; approval-to-update lag",
+          "indicativeImprovement": "Fewer stale lines; shorter lag",
+          "businessImpact": "Planning uses approved commitments"
+        },
+        {
+          "metric": "Order acceptance",
+          "today": "Receipt to clean ERP order; corrections",
+          "indicativeImprovement": "Faster acceptance; less rework",
+          "businessImpact": "Fewer order delays and errors"
+        },
+        {
+          "metric": "Inventory reconciliation",
+          "today": "Research minutes; unresolved mismatches",
+          "indicativeImprovement": "Less research; fewer open cases",
+          "businessImpact": "More reliable availability records"
+        },
+        {
+          "metric": "Freight dispute resolution",
+          "today": "Days held; value pending evidence",
+          "indicativeImprovement": "Faster decisions; fewer held charges",
+          "businessImpact": "Supported pay-or-dispute outcomes"
+        },
+        {
+          "metric": "3PL billing completeness",
+          "today": "Unbilled approved work; re-bills",
+          "indicativeImprovement": "More work captured; fewer re-bills",
+          "businessImpact": "Revenue backed by service proof"
+        }
+      ],
+      "pageNumber": "18"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Start with one shipment exception queue.",
+      "body": "Bring late loads, missing milestones and held PODs from one team. For one first-workflow engagement, establish today’s signal-to-decision time, aged exceptions and status touches per load; test approved recovery and TMS write-back against those baselines. Planners keep authority over expedites and customer promises.",
+      "cta": "Run One Workflow",
+      "ctaUrl": "https://orcaworks.ai/see-orca-in-action/",
+      "website": "orcaworks.ai/see-orca-in-action",
+      "variant": "dark",
+      "pageNumber": "19"
+    }
+  ]
+}
