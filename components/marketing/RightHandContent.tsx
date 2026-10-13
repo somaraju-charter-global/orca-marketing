@@ -4,7 +4,7 @@ import React from "react";
 import { Editable } from "@/components/content-editor/Editable";
 
 export type RightHandContentType =
-  | { type: "quote"; quote: string; source?: string; presentation?: "card" | "band" | "bare"; citation?: { text: string; url: string } }
+  | { type: "quote"; quote: string; source?: string; presentation?: "card" | "band" | "bare" | "panel"; citation?: { text: string; url: string } }
   | { type: "stat"; value: string; label: string; source?: string }
   | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" };
 
@@ -21,6 +21,50 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
     if (content.presentation === "band") {
       // Rendered by the page as a full-width foot band, not in this column.
       return null;
+    }
+
+    if (content.presentation === "panel") {
+      // Same tonal card as the darkEditorial statement callout, built from
+      // the page tokens so it follows the light/dark surface.
+      return (
+        <div className="h-full flex items-center p-12">
+          <div
+            className="relative w-full rounded-2xl overflow-hidden px-10 pt-20 pb-10"
+            style={{
+              background:
+                "linear-gradient(135deg, color-mix(in srgb, var(--page-panel) 35%, var(--page-bg)) 0%, var(--page-panel) 100%)",
+            }}
+          >
+            <span
+              aria-hidden="true"
+              className="absolute top-6 left-8 text-[8rem] leading-[0.7] font-serif select-none text-[var(--page-accent)] opacity-15"
+            >
+              &ldquo;
+            </span>
+            <blockquote className="relative">
+              <p className="text-2xl font-semibold leading-snug text-[var(--page-fg)]">
+                {pageIndex !== undefined ? (
+                  <Editable path={[...basePath, "quote"]} value={content.quote} multiline />
+                ) : (
+                  content.quote
+                )}
+              </p>
+              {content.source && (
+                <footer className="mt-8 flex items-center gap-4">
+                  <span className="h-0.5 w-10 shrink-0 bg-[var(--orca-orange)]" />
+                  <span className="text-xs font-semibold tracking-widest uppercase text-[var(--page-accent)]">
+                    {pageIndex !== undefined ? (
+                      <Editable path={[...basePath, "source"]} value={content.source} />
+                    ) : (
+                      content.source
+                    )}
+                  </span>
+                </footer>
+              )}
+            </blockquote>
+          </div>
+        </div>
+      );
     }
 
     if (content.presentation === "bare") {

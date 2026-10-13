@@ -32,6 +32,18 @@ describe('RightHandContent', () => {
     expect(quote.closest('.bg-\\[var\\(--orca-orange\\)\\]')).toBeNull();
   });
 
+  it('renders a panel quote as a blockquote with its source, not the orange card', () => {
+    render(
+      <RightHandContent
+        content={{ type: 'quote', quote: 'Panel quote', source: 'Analyst', presentation: 'panel' }}
+      />
+    );
+    const quote = screen.getByText('Panel quote');
+    expect(quote.closest('blockquote')).not.toBeNull();
+    expect(quote.closest('.bg-\\[var\\(--orca-orange\\)\\]')).toBeNull();
+    expect(screen.getByText('Analyst')).toBeInTheDocument();
+  });
+
   it('renders the stat card with value, label and source', () => {
     render(
       <RightHandContent
