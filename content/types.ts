@@ -114,9 +114,10 @@ export type ImageCalloutPageContent = {
 // operationalTransformation page.
 export type UseCaseRightContent =
   // `presentation`: "card" (default orange card), "band" (full-width
-  // pull-quote band at the foot of the page) or "bare" (no card — the
-  // ghosted use-case `number` anchors the column above the quote).
-  | { type: "quote"; quote: string; source?: string; presentation?: "card" | "band" | "bare"; citation?: { text: string; url: string } }
+  // pull-quote band at the foot of the page), "bare" (no card — the
+  // ghosted use-case `number` anchors the column above the quote) or
+  // "panel" (tonal card matching the darkEditorial statement callout).
+  | { type: "quote"; quote: string; source?: string; presentation?: "card" | "band" | "bare" | "panel"; citation?: { text: string; url: string } }
   | { type: "stat"; value: string; label: string; source?: string }
   | { type: "image"; src: string; alt?: string; objectFit?: "cover" | "contain" };
 

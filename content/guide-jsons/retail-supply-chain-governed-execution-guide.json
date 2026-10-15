@@ -1,0 +1,202 @@
+{
+  "slug": "retail-supply-chain-governed-execution-guide",
+  "title": "Governed Execution for the Retail Supply Chain",
+  "description": "A multi-use-case guide showing how Orcaworks helps retail supply-chain teams reduce supplier delays, inbound exceptions, inventory disruptions, missing evidence, and manual follow-up around existing systems.",
+  "accentTheme": "healthcareMist",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Governed Execution for the Retail Supply Chain",
+      "subtitle": "Reduce supplier delays, inbound exceptions, missing evidence, and manual follow-up around the systems you already use.",
+      "kicker": "Orcaworks use-case guide",
+      "logoVariant": "dark",
+      "image": "/images/guides/bg-white.jpg",
+      "imageTreatment": "plain",
+      "surface": "light",
+      "sections": [
+        { "page": "2", "title": "The execution gap" },
+        { "page": "4", "title": "Orcaworks value" },
+        { "page": "5", "title": "Five priority workflows" },
+        { "page": "10", "title": "What to measure" }
+      ],
+      "meta": ["Retail Supply-Chain Operations", "5 priority workflows"],
+      "background": "#ffffff",
+      "textColor": "#151515"
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The execution gap",
+      "headline": "The system has the record. The work still stalls around it.",
+      "body": "Retailers do not usually need another system of record. They need a better way to close the work that sits around those systems: missing supplier documents, late ASNs, receiving discrepancies, recall evidence, return decisions, approvals, follow-up, and updates that still depend on people chasing context.",
+      "image": "/images/guides/retail-operations-workflow.jpg",
+      "callout": "Close the work around the record without replacing the systems that hold it.",
+      "pageNumber": "2"
+    },
+    {
+      "type": "imageCallout",
+      "eyebrow": "The challenge",
+      "headline": "Lean teams cannot keep scaling exception work via email",
+      "body": "Retail teams must protect margin, avoid stock disruption, reduce supplier friction, support traceability, and handle returns without adding headcount. Email-driven exception work breaks when evidence is missing, approvals are delayed, exceptions become stale, and ownership is unclear.\n\nThe opportunity is to improve one execution-heavy workflow where the operational drag is already visible.",
+      "image": "/images/guides/retail-supply-chain-team.jpg",
+      "callout": "Start where people are already chasing: missing evidence, late approvals, stale exceptions, and unclear ownership.",
+      "pageNumber": "3"
+    },
+    {
+      "type": "imageCallout",
+      "eyebrow": "Orcaworks value to retail operations",
+      "headline": "Governed execution around the systems you already run",
+      "body": "Fits around existing systems. Govern execution around ERP, WMS, planning tools, portals, and email without replacing the systems that hold the records.\n\nEvery decision leaves a trail. Capture approvals, exception closures, operational decisions, context, evidence, owners, and outcomes in a traceable workflow.\n\nDo more with the team you have. Reduce manual chasing, checking, handoffs, and rework across supplier, inventory, receiving, and evidence workflows.\n\nBuilt for change. Keep execution logic configurable and controlled as suppliers, systems, rules, and teams change.",
+      "image": "/images/orcaworks-stack-v3.jpg",
+      "callout": "Turn scattered execution work into governed operating leverage: fewer handoffs, clearer ownership, cleaner evidence, faster exception closure, and more work completed by the teams already in place.",
+      "pageNumber": "4"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "Supplier readiness and inbound exception closure",
+      "number": "01",
+      "title": "Supplier Readiness Before Trading",
+      "problem": "Suppliers need to be ready to trade, but documents, certificates, declarations, banking details, and approvals still sit across emails, portals, spreadsheets, and shared folders.",
+      "opportunity": "Collect supplier documents, certificates, declarations, banking details, trading requirements, and readiness tasks. Check completeness, route approvals, escalate overdue work, and record the final readiness decision.",
+      "bullets": [
+        "Evidence completeness",
+        "Approval routing",
+        "Overdue escalation",
+        "Recorded readiness decision"
+      ],
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/retail-supply-chain-team-1.jpg",
+        "alt": "Retail supply-chain team reviewing supplier readiness",
+        "objectFit": "cover"
+      },
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "Supplier readiness and inbound exception closure",
+      "number": "02",
+      "title": "Inbound Exception Closure",
+      "problem": "Receiving issues cut across purchase orders, acknowledgements, ASNs, deliveries, receipts, invoices, and claims. Each system holds part of the truth, but the exception still needs complete evidence, an owner, and a decision.",
+      "opportunity": "Connect purchase orders, supplier acknowledgements, ASNs, deliveries, receipts, invoices, photos, claims, and supplier responses. Route resolution decisions to the right buyer, distribution center, accounts payable, or supplier owner.",
+      "bullets": [
+        "Late or missing ASNs",
+        "Receiving discrepancies",
+        "Claim evidence",
+        "Routed resolution"
+      ],
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/logistics-port-truck.jpg",
+        "alt": "Inbound freight arriving at a distribution center",
+        "objectFit": "cover"
+      },
+      "pageNumber": "6"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "Inventory exception resolution and replenishment control",
+      "number": "03",
+      "title": "Inventory Exception Closure",
+      "problem": "High-priority stock, replenishment, allocation, and availability signals still need someone to gather context, find the right owner, and drive a decision before the exception ages.",
+      "opportunity": "Triage stockout, overstock, replenishment, allocation, and store or distribution center mismatches. Gather stock, open PO, inbound, supplier, and store context, route decisions, and record the final action.",
+      "bullets": [
+        "Stockout triage",
+        "Replenishment control",
+        "Store and DC mismatches",
+        "Recorded final action"
+      ],
+      "rightContent": {
+        "type": "image",
+        "src": "/images/supply-chain-speed.jpg",
+        "alt": "Inventory moving through a retail supply chain",
+        "objectFit": "cover"
+      },
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "Traceability readiness and evidence control",
+      "number": "04",
+      "title": "Recall and Traceability Readiness",
+      "problem": "Supplier documents, certificates, product records, batch evidence, and recall documentation must be ready before audits, incidents, or deadlines expose gaps.",
+      "opportunity": "Define required supplier, product, batch, certificate, testing, and communication evidence. Flag missing or expired records, request updates, escalate gaps, and assemble traceable evidence packs for audits or recall readiness.",
+      "bullets": [
+        "Evidence readiness",
+        "Expired-record alerts",
+        "Gap escalation",
+        "Traceable evidence packs"
+      ],
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/retail-operations-workflow.png",
+        "alt": "Retail operations evidence workflow",
+        "objectFit": "cover"
+      },
+      "pageNumber": "8"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "Reverse logistics and returns governance",
+      "number": "05",
+      "title": "Reverse Logistics Exceptions",
+      "problem": "Return exceptions touch receipt, disposition, refund, vendor credit, fraud escalation, inventory updates, and finance closure, and each step depends on evidence that is often scattered or missing.",
+      "opportunity": "Bring together order history, return reasons, product condition, photos, policies, warranty evidence, vendor terms, and fraud flags. Route disposition, refund, restock, disposal, refurbishing, fraud, and vendor-credit decisions through recorded closure.",
+      "bullets": [
+        "Return triage",
+        "Disposition decisions",
+        "Vendor-credit evidence",
+        "Fraud escalation"
+      ],
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/banner_image.jpg",
+        "alt": "Returns being processed in a retail warehouse",
+        "objectFit": "cover"
+      },
+      "pageNumber": "9"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "What to measure",
+      "title": "Where Orcaworks creates value in the retail supply chain",
+      "intro": "Start with one workflow where exceptions age, evidence goes missing, and teams lose time chasing the next owner, decision, or update. Baseline it first, then measure the lift.",
+      "metrics": [
+        {
+          "metric": "Cycle time",
+          "today": "Current workflow baseline",
+          "indicativeImprovement": "20–40% reduction target",
+          "businessImpact": "Faster operational closure"
+        },
+        {
+          "metric": "Manual follow-up",
+          "today": "Current touches per case",
+          "indicativeImprovement": "25–50% reduction target",
+          "businessImpact": "Less chasing across teams"
+        },
+        {
+          "metric": "First-pass completeness",
+          "today": "Current complete-at-first-review rate",
+          "indicativeImprovement": "15–30 point improvement target",
+          "businessImpact": "Fewer missing documents"
+        },
+        {
+          "metric": "Aged exceptions",
+          "today": "Current exceptions beyond SLA",
+          "indicativeImprovement": "20–40% reduction target",
+          "businessImpact": "Fewer stalled decisions"
+        }
+      ],
+      "pageNumber": "10"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Pick one workflow where the drag is already visible.",
+      "body": "Start with a supplier, inbound, inventory, traceability, or returns workflow where people are already chasing missing evidence, delayed approvals, stale exceptions, or system updates. Orcaworks connects the context, routes the next action, and shows whether work is closing faster and cleaner.",
+      "cta": "Plan a workflow pilot",
+      "ctaUrl": "https://orcaworks.ai",
+      "website": "orcaworks.ai",
+      "variant": "dark",
+      "pageNumber": "11"
+    }
+  ]
+}
