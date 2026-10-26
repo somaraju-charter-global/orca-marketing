@@ -1,0 +1,701 @@
+{
+  "slug": "insurance-deep-dive",
+  "title": "Specialty Insurance — Governed Execution Deep-Dive Use-Case Guide",
+  "description": "Six priority workflows for specialty claims teams maintaining source-linked issue assessments, expert authority and recovery follow-through across long-running cases.",
+  "accentTheme": "healthcareMist",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Keep specialty claims moving with evidence, authority and next action together",
+      "subtitle": "Six governed workflows for medical, construction, transactional, environmental and professional liability assessment and recovery across claims systems, policy records and correspondence, with claims specialists, counsel and authorized decision-makers in control.",
+      "kicker": "SPECIALTY INSURANCE · DEEP-DIVE USE-CASE GUIDE",
+      "logoVariant": "dark",
+      "image": "/images/guides/insurance-cover-consultation.jpg",
+      "layout": "inset",
+      "meta": [
+        "Six priority workflows",
+        "From issue assessment to recovery follow-through",
+        "For specialty carriers, MGAs and claims leaders"
+      ],
+      "surface": "light",
+      "background": "#ffffff",
+      "textColor": "#0c0c09"
+    },
+    {
+      "type": "contents",
+      "title": "Contents",
+      "eyebrow": "Specialty Insurance · Deep-dive use-case guide",
+      "items": [
+        {
+          "page": "3",
+          "title": "When a new report changes the case",
+          "group": "Operating reality"
+        },
+        {
+          "page": "4",
+          "title": "01 · Medico-legal claim assessment",
+          "description": "Clinical chronology, causation and liability · pp. 4-5",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "6",
+          "title": "02 · Construction professional liability",
+          "description": "Scope, revisions and specialist interpretation · pp. 6-7",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "8",
+          "title": "03 · R&W / W&I breach and loss assessment",
+          "description": "Warranty, disclosure and loss evidence · pp. 8-9",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "10",
+          "title": "04 · Environmental long-tail assessment",
+          "description": "Site history, policy years and new science · pp. 10-11",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "12",
+          "title": "05 · Professional-lines authority review",
+          "description": "New litigation evidence and prior authority · pp. 12-13",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "14",
+          "title": "06 · Subrogation and recovery follow-through",
+          "description": "Demand completeness and specialist follow-through · pp. 14-15",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "16",
+          "title": "Keep the case current as the evidence changes",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "17",
+          "title": "Long-running cases carry material decision stakes",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "18",
+          "title": "Measure the first workflow",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "19",
+          "title": "Start with one claim issue that needs a position",
+          "group": "Getting started"
+        }
+      ],
+      "surface": "light"
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The operating reality",
+      "headline": "A new expert report changes the claim. The handler reopens years of records and asks what it means for the last approved position.",
+      "body": "A medical allegation needing a chronology. A disputed construction duty. A warranty breach tied to the deal record. A contamination event spanning policy years. A litigation update needing fresh authority. A recovery demand awaiting proof. Each requires facts, assumptions and a specialist decision. Orcaworks keeps the case current across claims systems, policy records, expert reports and correspondence.",
+      "callout": "Claims in our market are still a human business",
+      "calloutSource": "Colin Masson, Chief Claims Officer · Munich Re Specialty, 2025",
+      "surface": "dark",
+      "pageNumber": "3"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "01 / Medical professional liability · Allegation to reviewed position",
+      "number": "01",
+      "title": "Medico-legal claim assessment",
+      "problem": "A new allegation or expert opinion raises a question about care, causation or liability. The handler reconstructs years of medical records, claim notes and correspondence, then checks which facts support or contradict the issue. Missing records and untested assumptions must be separated before the medico-legal specialist can decide the claim position.",
+      "opportunity": "Orcaworks builds an issue-specific chronology, connects assertions to source evidence and identifies missing records or conflicting accounts. Medico-legal specialists, claims authorities and counsel determine causation, liability and coverage; the approved position and next evidence request remain linked to the case.",
+      "rightContent": {
+        "type": "stat",
+        "value": "Nearly 25%",
+        "label": "longer average duration for MPL claims closed from 2022 through 2025 than for claims closed from 2018 through 2021.",
+        "source": "Medical Professional Liability Association · Milliman · 2026"
+      },
+      "citation": {
+        "text": "Medical Professional Liability Association · Milliman · 2026",
+        "url": "https://mplassociation.org/Web/Publications/Inside_Medical_Liability/Issues/2025/Summer/2024_Financial_Results-Investment_Gains.aspx"
+      },
+      "surface": "light",
+      "pageNumber": "4"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Medico-legal claim assessment — The Orcaworks Solution",
+      "headline": "Bring the clinical chronology to the issue that needs judgment.",
+      "explanation": "A specific allegation opens an assessment. Link the relevant medical history, expert views and claim record; show supporting and conflicting facts separately. Prepare the evidence request or position for specialist approval and preserve the resulting rationale.",
+      "valuePoints": [
+        {
+          "title": "Issue-level clarity",
+          "description": "Separate an allegation, a supported fact and an expert assumption.",
+          "icon": "search"
+        },
+        {
+          "title": "A current assessment",
+          "description": "Flag material new evidence against the last approved position.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure preparation",
+          "description": "Track issue-assessment time and first-review evidence completeness.",
+          "icon": "checks"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "Medical records / chronology",
+            "detail": "Dated care events, source documents and missing periods",
+            "icon": "database"
+          },
+          {
+            "name": "Claim notes / expert reports",
+            "detail": "Allegations, medical opinions and disputed assumptions",
+            "icon": "messages"
+          },
+          {
+            "name": "Policy / correspondence",
+            "detail": "Applicable wording, prior approved position and new evidence",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Map the allegation to facts and evidence gaps"
+          },
+          {
+            "label": "Specialists decide causation, liability and cover",
+            "alert": true
+          },
+          {
+            "label": "Retain the approved position and next action"
+          }
+        ],
+        "action": {
+          "title": "Specialists retain the claim decision",
+          "items": [
+            {
+              "label": "Medical reviewer assesses clinical evidence",
+              "icon": "user"
+            },
+            {
+              "label": "Claims authority and counsel decide position",
+              "icon": "shield"
+            },
+            {
+              "label": "Approve the next evidence request",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "surface": "light",
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "02 / Design liability · Project record to issue assessment",
+      "number": "02",
+      "title": "Construction professional liability",
+      "problem": "A claim alleges a professional design or coordination failure after a project problem. The handler gathers appointments, drawings, RFIs, change instructions, site records and technical reports to establish who knew what and when. The record crosses firms and revisions, while technical experts and counsel still need a defensible account of the alleged failure.",
+      "opportunity": "Orcaworks connects the alleged failure to the professional scope, project chronology and expert evidence, exposing revision conflicts and missing facts. Qualified technical reviewers and counsel assess duty, causation and coverage before the approved issue position and follow-up are retained.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/insurance-construction-site-v2.jpg",
+        "alt": "Inspector in a hard hat taking notes beside heavy crane equipment",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "6"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Construction professional liability — The Orcaworks Solution",
+      "headline": "Organize the project history around the alleged failure.",
+      "introduction": "Trace the allegation through the appointment, design record and actual project events before technical and legal specialists assess the position.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Collect the project archive",
+            "detail": "The handler searches appointments, drawings, RFIs and site correspondence."
+          },
+          {
+            "label": "Rebuild the relevant sequence",
+            "detail": "Revision histories and conflicting accounts obscure who knew what and when."
+          },
+          {
+            "label": "Send the issue to experts and counsel",
+            "detail": "Technical opinions, professional duties and causation require specialist judgment."
+          },
+          {
+            "label": "Record the position and reopen it later",
+            "detail": "A new drawing or expert report can require the history to be rebuilt."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Assemble the allegation-specific record",
+            "detail": "Link professional scope, relevant revisions and dated project events."
+          },
+          {
+            "label": "Expose the disputed facts and gaps",
+            "detail": "Show supporting evidence, contradictions and the exact missing record."
+          },
+          {
+            "label": "Prepare the specialist assessment",
+            "detail": "Engineering reviewers and counsel determine the approved claim position."
+          },
+          {
+            "label": "Keep the position and changes together",
+            "detail": "Retain the approved rationale and flag material new evidence for review."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The handler maintains a reviewable issue record while technical experts and counsel resolve the professional duty and causation questions."
+      },
+      "value": {
+        "outcomes": [
+          "Less repeated project-history assembly",
+          "Clear revision and source references",
+          "Expert conclusions remain attributable"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "03 / Transactional risk · Notice to defensible position",
+      "number": "03",
+      "title": "R&W / W&I breach and loss assessment",
+      "problem": "A warranty claim arrives after completion of a deal. The handler reconstructs the sale agreement, disclosure letter, data-room snapshot, diligence and deal correspondence, then compares the alleged pre-close fact with the claimed post-close loss. Each warranty can require a different evidentiary path before counsel can assess breach, coverage and quantum.",
+      "opportunity": "Orcaworks organizes the notice around the relevant warranty, disclosure evidence, chronology and loss assumptions. Claims specialists and counsel determine breach, causation, coverage and quantum; the approved position and precise requests for missing deal or financial evidence stay with the case.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Human experts remain responsible for every final underwriting and claims decision.",
+        "source": "Swiss Re · AI at Swiss Re",
+        "presentation": "panel",
+        "citation": {
+          "text": "Swiss Re · AI at Swiss Re",
+          "url": "https://www.swissre.com/about-us/ai-at-swissre.html"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "8"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "R&W / W&I breach and loss assessment — The Orcaworks Solution",
+      "headline": "Connect the warranty, pre-close fact and claimed loss.",
+      "explanation": "A notice raises a specific breach question. Assemble the relevant deal record and loss evidence, keeping disclosed facts and assumptions visible. Prepare the assessment for claims and legal approval, then retain the position and outstanding requests.",
+      "valuePoints": [
+        {
+          "title": "Warranty-specific analysis",
+          "description": "Make the evidentiary path clear for each alleged breach.",
+          "icon": "search"
+        },
+        {
+          "title": "Visible loss assumptions",
+          "description": "Distinguish documented financial facts from disputed causal assumptions.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure the position cycle",
+          "description": "Track notice to approved position and repeated evidence requests.",
+          "icon": "checks"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "SPA / disclosure / data room",
+            "detail": "Warranty wording, disclosures and dated deal evidence",
+            "icon": "database"
+          },
+          {
+            "name": "Diligence / deal correspondence",
+            "detail": "Knowledge, chronology and the alleged pre-close fact",
+            "icon": "messages"
+          },
+          {
+            "name": "Claim / post-close financials",
+            "detail": "Breach notice, claimed loss and quantum assumptions",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Map the notice to warranty and loss evidence"
+          },
+          {
+            "label": "Claims specialists and counsel approve position",
+            "alert": true
+          },
+          {
+            "label": "Record rationale and request the missing facts"
+          }
+        ],
+        "action": {
+          "title": "Claims and counsel own the assessment",
+          "items": [
+            {
+              "label": "Determine breach, causation and coverage",
+              "icon": "user"
+            },
+            {
+              "label": "Approve the quantum or settlement position",
+              "icon": "shield"
+            },
+            {
+              "label": "Authorize further evidence requests",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "surface": "light",
+      "pageNumber": "9"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "04 / Environmental liability · Site history to current position",
+      "number": "04",
+      "title": "Environmental long-tail assessment",
+      "problem": "New contamination evidence or a scientific report changes a claim spanning decades. The handler searches policy years, site ownership, operational history, remediation records and prior litigation to establish the relevant events and unresolved gaps. The environmental specialist and coverage counsel need a reliable sequence before addressing triggers, allocation and the next remediation decision.",
+      "opportunity": "Orcaworks builds a source-linked site and policy chronology, separates facts from scientific assumptions and flags changes to the prior position. Environmental specialists, claims authorities and counsel decide coverage, allocation and remediation strategy before the authorized assessment and action are recorded.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/insurance-environmental-site-v2.jpg",
+        "alt": "Environmental technician sampling groundwater from a monitoring well in a field",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "10"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Environmental long-tail assessment — The Orcaworks Solution",
+      "headline": "Keep decades of site and policy evidence ready for review.",
+      "introduction": "Maintain a defined issue across policy periods, scientific reports and remediation history without repeating the full record search at every review.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Search the historical record",
+            "detail": "The handler gathers policy years, site ownership and contamination reports."
+          },
+          {
+            "label": "Reconstruct the event and policy timeline",
+            "detail": "Incomplete periods and changing scientific views create competing accounts."
+          },
+          {
+            "label": "Obtain the expert position",
+            "detail": "Environmental specialists and counsel assess triggers, allocation and strategy."
+          },
+          {
+            "label": "Rebuild the history after new evidence",
+            "detail": "Later site findings or reports can change the assumptions behind prior decisions."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Assemble the source-linked chronology",
+            "detail": "Connect site events, ownership, policy periods and remediation records."
+          },
+          {
+            "label": "Separate facts, assumptions and gaps",
+            "detail": "Show which evidence supports each event and what still needs confirmation."
+          },
+          {
+            "label": "Route the specialist decision",
+            "detail": "Qualified experts and counsel approve the issue position and next action."
+          },
+          {
+            "label": "Refresh the approved assessment",
+            "detail": "Flag material changes and retain the prior rationale, sources and review date."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The handler brings the changed evidence to the specialist, with the historical record and previous approved position available in the same case."
+      },
+      "value": {
+        "outcomes": [
+          "Less repeated policy archaeology",
+          "Visible gaps and competing accounts",
+          "Current positions retain their rationale"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "11"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "05 / D&O / E&O · Material change to authorized response",
+      "number": "05",
+      "title": "Professional-lines authority review",
+      "problem": "Counsel sends an updated report on a professional-lines claim. The handler compares pleadings, expert evidence, defense spend, reserves and the last approved authority to establish what has materially changed. The next committee or delegated approver needs a concise recommendation supported by the record before deciding a reserve, settlement or litigation response.",
+      "opportunity": "Orcaworks compares new litigation evidence with the last approved position and prepares the authority pack with changes, uncertainties and sources. Counsel and the claims authority approve the response; rationale, authority limits and the next review checkpoint return to the claim.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Empathy, judgment, and accountability remain at the heart of everything we do.",
+        "source": "Colin Masson · Munich Re Specialty, 2025",
+        "presentation": "panel",
+        "citation": {
+          "text": "Colin Masson · Munich Re Specialty, 2025",
+          "url": "https://www.munichre.com/specialty/en/insights/general/na/building-claims-excellence.item-c90d5a604920216e9017f93bd8b05ba7.html"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "12"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Professional-lines authority review — The Orcaworks Solution",
+      "headline": "Show what changed since the last approved position.",
+      "explanation": "A counsel update triggers an authority review. Link the new evidence, spend and prior rationale; identify material changes and unresolved questions. Prepare the decision pack while existing claims, counsel and legal-spend systems retain their roles.",
+      "valuePoints": [
+        {
+          "title": "A focused authority pack",
+          "description": "Bring material changes and their sources to the approver.",
+          "icon": "search"
+        },
+        {
+          "title": "Continuity of judgment",
+          "description": "Keep the prior rationale available as the case evolves.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure preparation effort",
+          "description": "Track authority-pack preparation and requests for rework.",
+          "icon": "checks"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "Counsel / litigation records",
+            "detail": "Pleadings, expert reports and recommended next steps",
+            "icon": "database"
+          },
+          {
+            "name": "Claims / legal-spend records",
+            "detail": "Reserves, defense costs and current authority limits",
+            "icon": "messages"
+          },
+          {
+            "name": "Prior approved position",
+            "detail": "Rationale, assumptions and the last review checkpoint",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Compare the update with the approved position"
+          },
+          {
+            "label": "Claims authority approves the material response",
+            "alert": true
+          },
+          {
+            "label": "Record authority, rationale and next checkpoint"
+          }
+        ],
+        "action": {
+          "title": "The designated claims authority decides",
+          "items": [
+            {
+              "label": "Review counsel’s advice and uncertainties",
+              "icon": "user"
+            },
+            {
+              "label": "Approve reserve or settlement authority",
+              "icon": "shield"
+            },
+            {
+              "label": "Set the next evidence or review checkpoint",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "surface": "light",
+      "pageNumber": "13"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "06 / Recovery operations · Demand evidence to next response",
+      "number": "06",
+      "title": "Subrogation and recovery follow-through",
+      "problem": "A recovery opportunity has been identified, but the demand lacks a payment record, liability exhibit or response from another carrier. The recovery specialist reopens the claim, checks correspondence and chases the missing proof. The recovery platform tracks the matter, yet someone still has to decide the next request, escalation or negotiation step.",
+      "opportunity": "Orcaworks connects the recovery case, payments, liability evidence, demand package and response history. The specialist approves the next demand, negotiation or escalation; approved communications and the disposition are recorded, with unresolved external replies retaining an owner and review date.",
+      "rightContent": {
+        "type": "stat",
+        "value": "$51.6 billion",
+        "label": "recovered through auto salvage and subrogation in 2021.",
+        "source": "NAIC Journal of Insurance Regulation · 2023"
+      },
+      "surface": "light",
+      "pageNumber": "14"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Subrogation and recovery follow-through — The Orcaworks Solution",
+      "headline": "Keep each recovery moving to an authorized next step.",
+      "introduction": "Coordinate the evidence and response gaps around existing recovery systems, carrier communications and specialist negotiation or arbitration processes.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Reopen the recovery and claim files",
+            "detail": "The specialist checks liability, payments, demand history and counterpart replies."
+          },
+          {
+            "label": "Find or request the missing exhibit",
+            "detail": "Incomplete proof and unanswered correspondence hold up the next step."
+          },
+          {
+            "label": "Decide the response or escalation",
+            "detail": "A specialist assesses negotiation, arbitration, further demand or closure."
+          },
+          {
+            "label": "Record the action and set another diary",
+            "detail": "Communications, deadlines and the disposition are updated separately."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Assemble the recovery evidence set",
+            "detail": "Link the claim, payment proof, liability exhibits and latest demand state."
+          },
+          {
+            "label": "Prepare the precise follow-up",
+            "detail": "Identify the missing exhibit or response, responsible party and next review."
+          },
+          {
+            "label": "Keep the decision with the specialist",
+            "detail": "Approve the demand, negotiation, arbitration referral or reasoned closure."
+          },
+          {
+            "label": "Confirm communication and disposition",
+            "detail": "Record the authorized response and retain an owned follow-up for open cases."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The recovery specialist works the evidence or negotiation exception, with the demand history and authorized next action kept together."
+      },
+      "value": {
+        "outcomes": [
+          "Less repeated demand-pack assembly",
+          "Fewer unowned recovery follow-ups",
+          "Specialists retain negotiation authority"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "15"
+    },
+    {
+      "type": "beforeAfter",
+      "eyebrow": "Accountability across the specialty claim",
+      "title": "Keep the case current as the evidence changes",
+      "beforeTitle": "When the work is fragmented",
+      "afterTitle": "With Orcaworks",
+      "beforeItems": [
+        "Medical, project, deal and policy evidence lives outside the claim record.",
+        "Handlers reconstruct the same history for each new issue or report.",
+        "Prior assumptions and authority can be hard to trace at the next review.",
+        "Evidence requests and approved decisions sit in separate correspondence."
+      ],
+      "afterItems": [
+        "An issue-linked record connects facts, assumptions, gaps and supporting sources.",
+        "New material is assessed against the current approved position.",
+        "Qualified specialists and designated claims authorities retain each decision.",
+        "Approved rationale and the next owned action remain with the claim."
+      ],
+      "surface": "dark",
+      "pageNumber": "16"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "Specialty claims · Published industry evidence",
+      "headline": "Long-running cases carry material decision stakes",
+      "stats": [
+        {
+          "value": "Nearly 25%",
+          "label": "longer average MPL claims duration",
+          "description": "2022–2025 closures compared with 2018–2021. Medical Professional Liability Association / Milliman · 2026."
+        },
+        {
+          "value": "$1.4B+",
+          "label": "recovered on North American R&W claims",
+          "description": "Cumulative recoveries for Aon clients through Q4 2024, reported in 2025."
+        },
+        {
+          "value": "$5.5M",
+          "label": "median North American R&W claim payment",
+          "description": "Aon client claims paid in 2024. Different population from the MPL analysis."
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "17"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "Measure the first workflow",
+      "title": "Measure progress from the first workflow",
+      "intro": "Assess indicative improvements against your claims baseline. Track assessment and preparation time alongside source completeness, specialist rework and the quality of the recorded decision.",
+      "metrics": [
+        {
+          "metric": "MPL issue-assessment time",
+          "today": "Chronology rebuilt by hand per issue",
+          "indicativeImprovement": "~40–60% faster",
+          "businessImpact": "Faster causation & liability positions"
+        },
+        {
+          "metric": "R&W notice-to-position time",
+          "today": "Deal record reconstructed per notice",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Earlier defensible coverage positions"
+        },
+        {
+          "metric": "Environmental issue cycle",
+          "today": "Policy archaeology repeated each review",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Long-tail positions stay current"
+        },
+        {
+          "metric": "Authority-pack preparation",
+          "today": "New reports compared with prior positions by hand",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Earlier informed authority reviews"
+        },
+        {
+          "metric": "Recovery demand preparation",
+          "today": "Payment and liability exhibits gathered again",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "More complete specialist demand packs"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "18"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Start with one claim issue that needs a position",
+      "body": "Choose a live medical professional liability or professional-lines issue awaiting assessment. We’ll map the evidence, current position, missing facts and authority path with your claims specialists. Agree the baseline and review criteria, then demonstrate a source-linked assessment and approved next action retained with the claim before expanding across case types and recovery workflows.",
+      "cta": "Test One Case",
+      "ctaUrl": "https://www.orcaworks.ai",
+      "website": "www.orcaworks.ai",
+      "variant": "dark",
+      "surface": "dark",
+      "pageNumber": "19"
+    }
+  ]
+}

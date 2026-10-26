@@ -1,0 +1,691 @@
+{
+  "slug": "legal-deep-dive",
+  "title": "Legal — Governed Execution Deep-Dive Use-Case Guide",
+  "description": "Six priority workflows for litigation and personal-injury firms. How intake teams, paralegals and attorneys coordinate evidence, approvals and follow-up from first contact through settlement and case closeout.",
+  "accentTheme": "healthcareMist",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Keep litigation matters moving from intake to closeout with lawyers in control",
+      "subtitle": "Six governed workflows for retainers, records, assignment, stalled matters, closeout and scheduling across the case system, Microsoft 365 and DocuSign, with intake teams, paralegals and attorneys owning each decision.",
+      "kicker": "LEGAL · DEEP-DIVE USE-CASE GUIDE",
+      "logoVariant": "dark",
+      "image": "/images/guides/legal-cover-review.jpg",
+      "layout": "inset",
+      "meta": [
+        "Six priority workflows",
+        "From the first call to case closeout",
+        "For litigation and personal injury firm leaders"
+      ],
+      "surface": "light",
+      "background": "#ffffff",
+      "textColor": "#0c0c09"
+    },
+    {
+      "type": "contents",
+      "title": "Contents",
+      "eyebrow": "Legal · Deep-dive use-case guide",
+      "surface": "light",
+      "items": [
+        {
+          "page": "3",
+          "title": "When a matter waits on someone",
+          "group": "Operating reality"
+        },
+        {
+          "page": "4",
+          "title": "01 · Intake-to-retainer coordination",
+          "description": "Acceptance, investigator follow-up and signing · pp. 4–5",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "6",
+          "title": "02 · Records & evidence readiness",
+          "description": "Missing records, source checks and attorney review · pp. 6–7",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "8",
+          "title": "03 · Governed case assignment",
+          "description": "Fit, capacity, rotation and an approved owner · pp. 8–9",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "10",
+          "title": "04 · Stalled-case progression",
+          "description": "An explained blocker and a named next action · pp. 10–11",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "12",
+          "title": "05 · Settlement & case closeout readiness",
+          "description": "Liens, releases, approvals and closure state · pp. 12–13",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "14",
+          "title": "06 · Legal scheduling coordination",
+          "description": "External confirmations and consistent calendars · pp. 14–15",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "16",
+          "title": "Keep every handoff accountable",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "17",
+          "title": "Make the next step clear to clients",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "18",
+          "title": "Measure progress from the first workflow",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "19",
+          "title": "Choose your first workflow",
+          "group": "Getting started"
+        }
+      ]
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The operating reality",
+      "headline": "A retainer stays unsigned or a provider does not reply. A paralegal opens the matter, searches email and picks up the phone.",
+      "body": "An unsigned retainer. Missing provider records. A matter without an attorney. A case with no recent touch. A settlement waiting to close. A deposition still unconfirmed. Each needs evidence gathered, a person reached and an outcome recorded. The case system already holds stages, checklists and reports; Orcaworks coordinates the handoffs across Outlook, DocuSign, portals and people around that case record.",
+      "callout": "48% of firms could not be reached by phone, even after an opportunity to return messages.",
+      "calloutSource": "Clio · 2024 Legal Trends Report · 500-firm client-intake study",
+      "surface": "dark",
+      "pageNumber": "3"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "01 / Intake · Qualified lead to retained matter",
+      "number": "01",
+      "title": "Intake-to-retainer coordination",
+      "problem": "A qualified prospective client is ready to proceed, but the intake specialist still has to reach an attorney, confirm conflict status, arrange an investigator where needed and chase the retainer. Calls, photos, signing links and onboarding documents sit in different places while the lead waits for someone to complete the handoff.",
+      "opportunity": "Orcaworks brings intake, conflict-review status, investigator replies and signing evidence together. The attorney decides acceptance; approved follow-ups continue until the signed retainer and required onboarding documents are recorded in the matter and ready for the team.",
+      "rightContent": {
+        "type": "stat",
+        "value": "Only 36%",
+        "label": "of firms reached by phone explained the process and next steps.",
+        "source": "Clio · 2024 Legal Trends Report · 500-firm client-intake study"
+      },
+      "citation": {
+        "text": "Clio · Legal Trends Report, 2024",
+        "url": "https://www.clio.com/guides/client-intake-legal-trends/"
+      },
+      "surface": "light",
+      "pageNumber": "4"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Intake-to-retainer coordination — The Orcaworks Solution",
+      "headline": "Move the accepted lead through signing and onboarding.",
+      "explanation": "A qualified lead is waiting for acceptance or signature. Bring the intake record, conflict-review status, investigator response and signing evidence together. Send approved communications after the attorney accepts; verify completion before marking the matter retained.",
+      "valuePoints": [
+        {
+          "title": "Keep the lead complete",
+          "description": "Request missing photos, reports or client documents through approved channels.",
+          "icon": "folder"
+        },
+        {
+          "title": "Coordinate the field visit",
+          "description": "Track the investigator’s acceptance, appointment and return of photos or reports.",
+          "icon": "calendar"
+        },
+        {
+          "title": "Measure a retained matter",
+          "description": "Track qualified-to-retained time alongside onboarding completeness and corrections.",
+          "icon": "check"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "Case-management system",
+            "detail": "Qualified lead, intake notes and conflict-review status",
+            "icon": "database"
+          },
+          {
+            "name": "Outlook / phone / SMS",
+            "detail": "Client replies, contact attempts and investigator availability",
+            "icon": "messages"
+          },
+          {
+            "name": "DocuSign / documents",
+            "detail": "Signature state, retainer and required onboarding evidence",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Match the lead and identify missing evidence"
+          },
+          {
+            "label": "Attorney accepts; unresolved conflicts escalate",
+            "alert": true
+          },
+          {
+            "label": "Follow signing; record the retained matter"
+          }
+        ],
+        "action": {
+          "title": "Attorney decides representation",
+          "items": [
+            {
+              "label": "Accept or decline",
+              "icon": "user"
+            },
+            {
+              "label": "Escalate conflict review",
+              "icon": "shield"
+            },
+            {
+              "label": "Authorize retainer and follow-up",
+              "icon": "send"
+            }
+          ]
+        }
+      },
+      "surface": "light",
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "02 / Records · Demand and deposition readiness",
+      "number": "02",
+      "title": "Records & evidence readiness",
+      "problem": "The case checklist calls for medical records and bills, but a provider has returned only part of the treatment period. A records coordinator reopens the request, checks PDFs and portal messages, calls the provider and updates a tracker. The attorney still cannot tell whether the file is ready for demand.",
+      "opportunity": "Orcaworks compares received documents with the matter checklist, requests missing items and tracks provider responses. It checks identity, dates and readability, links each source and routes the assembled file to the attorney for legal sufficiency review.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Covered entities generally must act on an individual’s medical-record access request within 30 calendar days.",
+        "source": "U.S. Department of Health and Human Services · HIPAA Privacy Rule",
+        "presentation": "panel"
+      },
+      "surface": "light",
+      "pageNumber": "6"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Records & evidence readiness — The Orcaworks Solution",
+      "headline": "Give the attorney a source-linked file with every remaining gap visible.",
+      "introduction": "The request exists in the case system. The missing treatment period is in a provider thread. Collection, document checks and legal review need distinct completion states.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Rebuild the missing-records list",
+            "detail": "Coordinator compares the checklist with PDFs, bills and the last provider response."
+          },
+          {
+            "label": "Chase each provider again",
+            "detail": "Calls, faxes and portal replies are logged separately from the outstanding request."
+          },
+          {
+            "label": "Ask whether the file is sufficient",
+            "detail": "Attorney reopens documents to distinguish a missing item from a legal concern."
+          },
+          {
+            "label": "Manually reconcile the case record",
+            "detail": "The tracker and case checklist may show different completion states."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Compare evidence with the case checklist",
+            "detail": "Orcaworks matches provider, client, treatment dates and document type to the request."
+          },
+          {
+            "label": "Coordinate approved requests and follow-up",
+            "detail": "Missing pages or bills stay outstanding until a provider supplies verifiable evidence."
+          },
+          {
+            "label": "Route the source-linked file for review",
+            "detail": "Attorney decides legal sufficiency; unreadable or mismatched records are escalated."
+          },
+          {
+            "label": "Record receipt and reviewed readiness separately",
+            "detail": "Record received documents and attorney approval in the matter, with sources and remaining gaps."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The records coordinator works the unanswered request; the attorney reviews sufficiency with the evidence already assembled."
+      },
+      "value": {
+        "outcomes": [
+          "Shorter records request age",
+          "Traceable receipt and review status",
+          "Earlier demand and deposition readiness"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "03 / Assignment · Approved attorney ownership",
+      "number": "03",
+      "title": "Governed case assignment",
+      "problem": "A qualified matter is unassigned. The intake team checks venue, language, case type, referral flags and the attorney rotation, then asks who can take it. Case counts, calendars and recent allocations disagree. A special matter may need a partner decision, but the supporting facts are scattered across notes and spreadsheets.",
+      "opportunity": "Orcaworks assembles the eligible attorney set using the firm’s rotation, geography and capacity rules. Standard recommendations and special-case exceptions go to the intake attorney or partner; only an approved assignment becomes the matter’s recorded owner.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Workload allocation is a crucial aspect of legal efficiency",
+        "source": "ACC · 2025 Law Department Management Benchmarking Report",
+        "presentation": "panel"
+      },
+      "surface": "light",
+      "pageNumber": "8"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Governed case assignment — The Orcaworks Solution",
+      "headline": "Approve the owner with the case facts and allocation basis in view.",
+      "explanation": "An open matter needs an attorney. Check eligibility, rotation and current allocations together; flag referral or other special-case conditions. The intake attorney or partner selects the owner before any assignment is written back.",
+      "valuePoints": [
+        {
+          "title": "Use explicit firm rules",
+          "description": "Apply the firm’s assignment rules with current case and capacity information.",
+          "icon": "clipboard"
+        },
+        {
+          "title": "Keep acceptance accountable",
+          "description": "Attorney acceptance and conflict clearance remain with the authorized professional.",
+          "icon": "shield"
+        },
+        {
+          "title": "Verify the assignment",
+          "description": "Confirm the matter’s owner and notify the team; track assignment time and reassignments.",
+          "icon": "check"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "Case-management system",
+            "detail": "Case type, venue, language, notes and special-case flags",
+            "icon": "database"
+          },
+          {
+            "name": "Assignment configuration",
+            "detail": "Participating attorneys, rotation, eligibility and firm rules",
+            "icon": "clipboard"
+          },
+          {
+            "name": "Approved workload sources",
+            "detail": "Current allocations, recent assignments and available capacity",
+            "icon": "calendar"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Build the eligible attorney set"
+          },
+          {
+            "label": "Route special matters or unclear capacity to a partner",
+            "alert": true
+          },
+          {
+            "label": "Record the approved owner and assignment basis"
+          }
+        ],
+        "action": {
+          "title": "Intake attorney or partner approves",
+          "items": [
+            {
+              "label": "Approve recommended owner",
+              "icon": "user"
+            },
+            {
+              "label": "Select a different eligible owner",
+              "icon": "split"
+            },
+            {
+              "label": "Hold for conflicts or missing facts",
+              "icon": "pause"
+            }
+          ]
+        }
+      },
+      "surface": "light",
+      "pageNumber": "9"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "04 / Case operations · Aging and no-touch exceptions",
+      "number": "04",
+      "title": "Stalled-case progression",
+      "problem": "The aging report flags a matter with no recent touch. A case manager checks notes, emails, records requests and appointments to find out why. Is the client still treating, is a provider late, has the attorney deferred the next step, or was completed work never entered? The report identifies the question.",
+      "opportunity": "Orcaworks reconstructs the matter’s current state, asks the owner for missing context and separates an external blocker from stale data. The supervising attorney approves legal changes; permitted follow-up leaves an explained status, named owner and next action.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/legal-records-courtroom.jpg",
+        "alt": "Two lawyers reviewing documents at a courtroom counsel table beside a gavel"
+      },
+      "surface": "light",
+      "pageNumber": "10"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Stalled-case progression — The Orcaworks Solution",
+      "headline": "Turn the aging flag into an explained blocker and a next action.",
+      "explanation": "A no-touch exception starts an investigation. Compare the stage and checklist with correspondence, outstanding requests and owner input. Keep legitimate waiting states visible; route any legal or strategic change to the supervising attorney.",
+      "valuePoints": [
+        {
+          "title": "Investigate the exception",
+          "description": "Use the case-system report as the trigger; establish why the particular matter is not moving.",
+          "icon": "search"
+        },
+        {
+          "title": "Retain the reason for waiting",
+          "description": "External treatment, court and provider delays stay explicit with a responsible owner.",
+          "icon": "eye"
+        },
+        {
+          "title": "Give the matter a next action",
+          "description": "Track time from an aging flag to a confirmed blocker, next action and owner.",
+          "icon": "checks"
+        }
+      ],
+      "visual": {
+        "signals": [
+          {
+            "name": "Case system / reporting",
+            "detail": "Stage age, last touch, checklist and current owner",
+            "icon": "database"
+          },
+          {
+            "name": "Outlook / DMS / portals",
+            "detail": "Latest provider reply, client update or completed evidence",
+            "icon": "folder"
+          },
+          {
+            "name": "Case owner",
+            "detail": "Reason for waiting and the next decision or dependency",
+            "icon": "user"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Reconstruct the latest supported matter state"
+          },
+          {
+            "label": "Resolve conflicting facts with the case owner",
+            "alert": true
+          },
+          {
+            "label": "Log approved follow-up, blocker and next action"
+          }
+        ],
+        "action": {
+          "title": "Case owner or supervising attorney decides",
+          "items": [
+            {
+              "label": "Confirm legitimate waiting state",
+              "icon": "pause"
+            },
+            {
+              "label": "Approve the next legal step",
+              "icon": "scale"
+            },
+            {
+              "label": "Authorize follow-up or record correction",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "surface": "light",
+      "pageNumber": "11"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "05 / Settlement operations · Settled to closed",
+      "number": "05",
+      "title": "Settlement & case closeout readiness",
+      "problem": "The matter is marked settled, but the release is unsigned, a lien balance is unconfirmed or accounting is waiting for approval. A settlement coordinator checks DocuSign, provider correspondence, costs and the disbursement worksheet. Until those dependencies agree, the attorney cannot authorize closeout and the client still waits for payment.",
+      "opportunity": "Orcaworks assembles the release, lien and cost evidence, signing status and accounting confirmations into a closeout packet. It coordinates missing items; attorneys and authorized finance staff retain settlement, lien, disbursement and money decisions before closure updates.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Medicare conditional payments must be repaid when a settlement, judgment, award or other payment is secured.",
+        "source": "Centers for Medicare & Medicaid Services · Medicare Secondary Payer Recovery",
+        "presentation": "panel"
+      },
+      "surface": "light",
+      "pageNumber": "12"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Settlement & case closeout readiness — The Orcaworks Solution",
+      "headline": "Make every outstanding release, lien and approval visible before closure.",
+      "introduction": "A settlement event opens the closeout queue. The responsible attorney and settlement team need verified dependencies and accounting status before authorizing the final steps.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Reopen the settled matter and check the file",
+            "detail": "Coordinator finds the release, provider balances, costs and client correspondence."
+          },
+          {
+            "label": "Chase missing signatures and confirmations",
+            "detail": "DocuSign, lien correspondence and accounting replies must be checked separately."
+          },
+          {
+            "label": "Reconcile the settlement breakdown for approval",
+            "detail": "Attorney and finance staff resolve balances, terms and disbursement questions."
+          },
+          {
+            "label": "Check payment status and close the matter",
+            "detail": "Staff reconcile accounting completion and required case closure fields by hand."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Build the closeout dependency list",
+            "detail": "Orcaworks links approved settlement evidence, release, lien/cost documents and accounting state."
+          },
+          {
+            "label": "Coordinate approved requests for missing items",
+            "detail": "Unreturned releases, uncertain balances and missing approvals remain visible blockers."
+          },
+          {
+            "label": "Route the verified packet to authorized owners",
+            "detail": "Attorney and finance owners approve release terms, lien treatment and disbursement."
+          },
+          {
+            "label": "Verify completion before updating closure",
+            "detail": "Record authorized closure once release, lien and accounting confirmations are complete."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The settlement coordinator works the remaining dependency; the attorney and finance owners receive one verified closeout packet."
+      },
+      "value": {
+        "outcomes": [
+          "Shorter settled-to-closed time",
+          "Fewer aged settled-not-closed matters",
+          "Clearer path to client payment"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "13"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "06 / Litigation support · External event confirmation",
+      "number": "06",
+      "title": "Legal scheduling coordination",
+      "problem": "A deposition has a proposed date, but opposing counsel has not confirmed, the witness has a conflict and the attorney’s calendar has changed. A legal assistant compares email replies, Outlook and the case calendar, then resends options. An entry on one calendar still does not mean the event is confirmed.",
+      "opportunity": "Orcaworks gathers availability and tracks each party’s response against the court notice and authoritative deadline record. The attorney or authorized paralegal confirms the permitted slot; consistent case and calendar updates follow, with unresolved conflicts escalated.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/legal-case-calendar.jpg",
+        "alt": "Gavel beside a calendar with a red pin marking a court date"
+      },
+      "surface": "light",
+      "pageNumber": "14"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Legal scheduling coordination — The Orcaworks Solution",
+      "headline": "A confirmed deposition belongs in the matter and every required calendar.",
+      "introduction": "Work the exceptions around existing calendaring and docket tools. An unanswered party, a changed date or a conflicting notice needs coordination before the event can be confirmed.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Read the event request and notice",
+            "detail": "Assistant checks the matter, participants and relevant court or docket record."
+          },
+          {
+            "label": "Collect availability through repeated emails",
+            "detail": "External replies and internal calendars change while options circulate."
+          },
+          {
+            "label": "Ask the attorney to resolve the conflict",
+            "detail": "Strategic preferences and procedural constraints need professional judgment."
+          },
+          {
+            "label": "Enter the date and distribute materials",
+            "detail": "Case calendar, Outlook and party confirmations are reconciled manually."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Assemble the event and authoritative constraints",
+            "detail": "Orcaworks links the notice, participants and approved docket or deadline source."
+          },
+          {
+            "label": "Coordinate options and track every response",
+            "detail": "Proposed slots remain provisional until the required parties confirm."
+          },
+          {
+            "label": "Route conflicts to the authorized professional",
+            "detail": "Attorney resolves strategic conflicts and confirms requirements from the authoritative notice."
+          },
+          {
+            "label": "Verify approved calendar updates and notices",
+            "detail": "Confirm every calendar entry and distribute the approved notice and supporting documents."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The legal assistant manages the unconfirmed party or conflict while the attorney retains the scheduling decision that affects the case."
+      },
+      "value": {
+        "outcomes": [
+          "Shorter request-to-confirm time",
+          "Consistent case and Outlook entries",
+          "Reschedules and missed events tracked"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "15"
+    },
+    {
+      "type": "beforeAfter",
+      "eyebrow": "Accountability across the matter lifecycle",
+      "title": "Keep every handoff accountable",
+      "beforeTitle": "When the work is fragmented",
+      "afterTitle": "With Orcaworks",
+      "beforeItems": [
+        "Intake, records and signing updates sit in separate inboxes.",
+        "Staff reconstruct the same matter context before each decision.",
+        "Approval requests reach attorneys without all supporting evidence.",
+        "The case record is updated after calls and emails are complete."
+      ],
+      "afterItems": [
+        "A matter-linked view brings the evidence and outstanding requests together.",
+        "The next action has an owner, an approval point and a clear completion state.",
+        "Attorneys review the evidence for acceptance, legal sufficiency and settlement.",
+        "Approved actions and their outcomes return to the case record."
+      ],
+      "surface": "dark",
+      "pageNumber": "16"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "Client experience · Industry research",
+      "headline": "Make the next step clear to every client",
+      "stats": [
+        {
+          "value": "48%",
+          "label": "of firms could not be reached by phone",
+          "description": "Including return calls after messages were left."
+        },
+        {
+          "value": "33%",
+          "label": "of firms replied to a prospective client’s email inquiry",
+          "description": "A response is the first step toward an accepted and signed matter."
+        },
+        {
+          "value": "36%",
+          "label": "of firms reached by phone explained the process and next steps",
+          "description": "Clio · 2024 Legal Trends Report · 500-firm client-intake study."
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "17"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "Measure the first workflow",
+      "title": "Measure progress from the first workflow",
+      "intro": "Assess indicative improvements against your firm’s baseline. Track matter progression, completeness and rework together, with targets agreed for each workflow.",
+      "metrics": [
+        {
+          "metric": "Qualified-to-retained time",
+          "today": "Attorney chase; unsigned retainers; manual follow-up",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Higher signed-case conversion"
+        },
+        {
+          "metric": "Records request age",
+          "today": "Providers chased by phone, portal and fax",
+          "indicativeImprovement": "~20–40% shorter",
+          "businessImpact": "Earlier demand readiness"
+        },
+        {
+          "metric": "Settled-to-closed time",
+          "today": "Liens, releases, signatures chased manually",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Faster client payment"
+        },
+        {
+          "metric": "Qualified-to-owner time",
+          "today": "Rotation checked in sheets; attorney availability chased",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Earlier accountable case ownership"
+        },
+        {
+          "metric": "Stalled-matter review time",
+          "today": "Aging report checked against notes and owner replies",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Earlier action on blocked matters"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "18"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Choose the handoff your team wants to improve",
+      "body": "Choose unsigned retainers or outstanding records requests. We’ll map the handoffs with your intake or records team, agree the evidence and approval points, and measure progress from your current baseline. Start with one workflow your team can own, then expand the approach across the matter lifecycle.",
+      "cta": "Test One Workflow",
+      "ctaUrl": "https://www.orcaworks.ai",
+      "website": "www.orcaworks.ai",
+      "variant": "dark",
+      "surface": "dark",
+      "pageNumber": "19"
+    }
+  ]
+}

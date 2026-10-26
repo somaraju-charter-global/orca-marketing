@@ -1,0 +1,701 @@
+{
+  "slug": "cro-deep-dive",
+  "title": "Clinical Research Organizations — Governed Execution Deep-Dive Use-Case Guide",
+  "description": "Six evidence-led workflows for midsize CROs coordinating sponsor-delegated study delivery across clinical systems, sites and external vendors.",
+  "accentTheme": "healthcareMist",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Keep clinical trial milestones moving with verified evidence and accountable owners",
+      "subtitle": "Six governed workflows for site activation, essential records, monitoring, amendments, data reconciliation and database lock across clinical systems and correspondence, with start-up, clinical operations and data management teams retaining authority.",
+      "kicker": "CLINICAL RESEARCH ORGANIZATIONS · DEEP-DIVE USE-CASE GUIDE",
+      "logoVariant": "dark",
+      "image": "/images/guides/cro-cover-trial-vial.jpg",
+      "layout": "inset",
+      "meta": [
+        "Six priority workflows",
+        "From site activation to database-lock readiness",
+        "For full-service and hybrid CRO leaders"
+      ],
+      "surface": "light",
+      "background": "#ffffff",
+      "textColor": "#0c0c09"
+    },
+    {
+      "type": "contents",
+      "title": "Contents",
+      "eyebrow": "Clinical Research Organizations · Deep-dive use-case guide",
+      "surface": "light",
+      "items": [
+        {
+          "page": "3",
+          "title": "When the site says it is ready",
+          "group": "Operating reality"
+        },
+        {
+          "page": "4",
+          "title": "01 · Site activation readiness",
+          "description": "Prerequisites, versions and release authority · pp. 4-5",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "6",
+          "title": "02 · TMF and site-file reconciliation",
+          "description": "Custodian, version and controlled acceptance · pp. 6-7",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "8",
+          "title": "03 · Monitoring action closure",
+          "description": "Finding, proof and reviewer disposition · pp. 8-9",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "10",
+          "title": "04 · Amendment rollout by site",
+          "description": "Country approvals and verified site readiness · pp. 10-11",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "12",
+          "title": "05 · External data reconciliation",
+          "description": "Vendor source, mapping and validated rerun · pp. 12-13",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "14",
+          "title": "06 · Database-lock readiness",
+          "description": "Readiness evidence, sign-offs and controlled lock · pp. 14-15",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "16",
+          "title": "Every milestone needs evidence and an owner",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "17",
+          "title": "Site activation still depends on coordinated follow-through",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "18",
+          "title": "Measure the first workflow",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "19",
+          "title": "Start with one site activation blocker",
+          "group": "Getting started"
+        }
+      ]
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The operating reality",
+      "headline": "The site says it is ready. The start-up lead checks signed budgets, local approvals and training before asking who can give the green light.",
+      "body": "A site awaiting release. An essential record in the wrong file. A monitoring action marked done. An amendment with local approval pending. A lab mismatch that may be a mapping error. A lock checklist missing sign-off. Each requires applicable evidence, a responsible reviewer and a verified disposition. Orcaworks coordinates these handoffs across clinical systems, vendors and sites.",
+      "callout": "Quality should be built into the scientific and operational design and conduct of clinical trials.",
+      "calloutSource": "ICH E6(R3) · Good Clinical Practice, 2025",
+      "surface": "dark",
+      "pageNumber": "3"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "01 / Study start-up · Blocker to authorized green light",
+      "number": "01",
+      "title": "Site activation readiness",
+      "problem": "A selected site is approaching its planned initiation date, but the signed budget, contract, ethics approval, local consent version and training evidence are not aligned. The start-up lead chases the site, sponsor and country team, then reconstructs the checklist before the person with delegated authority can release or hold the site.",
+      "opportunity": "Orcaworks compares each site’s configured prerequisites with the current evidence and prepares exact blocker requests. Start-up and clinical operations reviewers verify readiness; the authorized person decides release or hold, and the approved reason and status return to the study record.",
+      "rightContent": {
+        "type": "stat",
+        "value": "55%",
+        "label": "of surveyed site leaders reported more than five months from site selection to full activation.",
+        "source": "ICON · 2025 survey · just over 100 respondents"
+      },
+      "surface": "light",
+      "citation": {
+        "text": "ICON · Clinical trial start-up site survey, 2025",
+        "url": "https://www.iconplc.com/news-events/press-releases/icon-survey-reveals-increasing-clinical-trial-startup-delays"
+      },
+      "pageNumber": "4"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Site activation readiness — The Orcaworks Solution",
+      "headline": "Make the remaining activation blocker explicit.",
+      "explanation": "A target initiation date approaches. Assemble the applicable prerequisites, signed versions and external replies. Separate missing evidence from a pending external decision, then route the complete site case to the person authorized to release it.",
+      "visual": {
+        "signals": [
+          {
+            "name": "SSU / CTMS checklist",
+            "detail": "Study-specific prerequisites, target dates and delegated owners",
+            "icon": "database"
+          },
+          {
+            "name": "Contracts / regulatory records",
+            "detail": "Signed budget, contract and local approval versions",
+            "icon": "messages"
+          },
+          {
+            "name": "Site portal / training / email",
+            "detail": "Consent version, training evidence and outstanding confirmations",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Match current evidence to each prerequisite"
+          },
+          {
+            "label": "Authorized reviewer releases or holds the site",
+            "alert": true
+          },
+          {
+            "label": "Record the decision and remaining blocker"
+          }
+        ],
+        "action": {
+          "title": "Delegated authority owns site release",
+          "items": [
+            {
+              "label": "Verify study and country requirements",
+              "icon": "user"
+            },
+            {
+              "label": "Approve release or retain a reasoned hold",
+              "icon": "shield"
+            },
+            {
+              "label": "Escalate sponsor or ethics dependencies",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "A precise request",
+          "description": "Ask the right party for the exact missing approval or signed version.",
+          "icon": "search"
+        },
+        {
+          "title": "A defensible status",
+          "description": "Site readiness reflects verified prerequisites and an authorized decision.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure the blocker",
+          "description": "Track verified blocker to approved disposition, including external waits.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "02 / Essential records · Exact request to accepted original",
+      "number": "02",
+      "title": "TMF and site-file reconciliation",
+      "problem": "An eTMF health check shows a missing delegation log or local approval, while the site says it already filed the document. The CRA compares expected-record rules, file inventories, signatures and versions to determine whether the gap is real, an incorrect expectation or a filing issue before sending another request to the site.",
+      "opportunity": "Orcaworks compares permitted file indices and verified versions against the applicable expected-record rule. The CRA or TMF reviewer approves a precise request or correction; authorized filing and QC record the accepted original, with inaccessible site evidence remaining visibly outstanding.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "The TMF should be readily available and directly accessible",
+        "source": "European Medicines Agency · GCP Q&A",
+        "presentation": "panel",
+        "citation": {
+          "text": "European Medicines Agency · GCP Q&A",
+          "url": "https://www.ema.europa.eu/en/human-regulatory-overview/research-development/compliance-research-development/good-clinical-practice/qa-good-clinical-practice-gcp"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "6"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "TMF and site-file reconciliation — The Orcaworks Solution",
+      "headline": "Resolve the record mismatch before sending another broad request.",
+      "introduction": "Connect the expected artifact, current custodian and acceptable version while preserving site access permissions and the existing eTMF filing and QC process.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Find an item marked missing",
+            "detail": "The reviewer checks the eTMF expected list against study and site events."
+          },
+          {
+            "label": "Search inventories and ask the site",
+            "detail": "The site may hold a later version or a document filed under another reference."
+          },
+          {
+            "label": "Review the returned document",
+            "detail": "A TMF reviewer verifies the original, signatures, dates and applicable version."
+          },
+          {
+            "label": "File it and reconcile the tracker",
+            "detail": "Filing and request status are corrected separately after acceptance."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Confirm the applicable expectation",
+            "detail": "Link the record requirement to the event, site and sponsor/CRO ownership."
+          },
+          {
+            "label": "Prepare the exact request or correction",
+            "detail": "Show the document, version, last known custodian and reason for the gap."
+          },
+          {
+            "label": "Keep acceptance with TMF QC",
+            "detail": "The reviewer accepts the verified original or escalates an unrecoverable record."
+          },
+          {
+            "label": "Confirm controlled filing and status",
+            "detail": "An authorized role files the accepted item; remaining gaps retain an owner."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The CRA and TMF team work a precise reconciliation queue, with each accepted record supported by its original evidence and review."
+      },
+      "value": {
+        "outcomes": [
+          "Fewer repeat site document requests",
+          "Shorter request-to-accepted-receipt time",
+          "False acceptance and reopened gaps tracked"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "03 / Clinical operations · Site reply to verified closure",
+      "number": "03",
+      "title": "Monitoring action closure",
+      "problem": "A monitoring follow-up action is overdue and the site replies that it is done. The CRA still needs the corrected document, resolved query status or dated confirmation required by the monitoring plan. The CTM asks for a sponsor update while the action tracker and the available closure evidence tell different stories.",
+      "opportunity": "Orcaworks links the finding, site reply and required resolution evidence, then prepares a closure or further-information recommendation. The CRA or delegated CTM approves the disposition; critical findings reach the required medical or Quality reviewer before the controlled action record changes.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/cro-monitoring-lab.jpg",
+        "alt": "Lab scientist reviewing printed results beside a workstation",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "8"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Monitoring action closure — The Orcaworks Solution",
+      "headline": "Close the finding when its evidence supports closure.",
+      "explanation": "An overdue action has a reply but no verified disposition. Compare the permitted evidence with the monitoring plan and closure criteria, route significant findings correctly, and retain the authorized decision in the existing CTMS.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Visit report / follow-up letter",
+            "detail": "Finding, required correction, severity and original due date",
+            "icon": "database"
+          },
+          {
+            "name": "Site reply / permitted evidence",
+            "detail": "Corrected document, query status or dated source confirmation",
+            "icon": "messages"
+          },
+          {
+            "name": "CTMS / monitoring plan",
+            "detail": "Action owner, closure criteria and escalation requirements",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Assess evidence against the closure criteria"
+          },
+          {
+            "label": "CRA or delegated CTM approves disposition",
+            "alert": true
+          },
+          {
+            "label": "Record closure or request the remaining proof"
+          }
+        ],
+        "action": {
+          "title": "The delegated clinical reviewer decides",
+          "items": [
+            {
+              "label": "Approve evidence-supported closure",
+              "icon": "user"
+            },
+            {
+              "label": "Request the specific missing confirmation",
+              "icon": "shield"
+            },
+            {
+              "label": "Escalate to medical or Quality review",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "Real action status",
+          "description": "Distinguish a site’s response from a verified corrective outcome.",
+          "icon": "search"
+        },
+        {
+          "title": "Proportionate escalation",
+          "description": "Route significant findings to the right qualified reviewer.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure verified closure",
+          "description": "Track aged critical actions and due to authorized close time.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "9"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "04 / Regulatory coordination · Released version to verified applicability",
+      "number": "04",
+      "title": "Amendment rollout by site",
+      "problem": "The sponsor releases a protocol amendment, but local ethics decisions, translated consent forms, training and effective dates arrive at different times. A site acknowledges the email and the tracker shows sent. The regulatory lead still has to establish which version applies and what each site must complete before the amendment can take effect.",
+      "opportunity": "Orcaworks prepares a site-by-site evidence matrix using sponsor-defined requirements and local decisions. Regulatory and clinical reviewers verify applicability; the authorized owner records effective or held status, with consent and participant protections remaining under investigator, sponsor and ethics authority.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/cro-amendment-vial.jpg",
+        "alt": "Sample vial resting on printed study documentation",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "10"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Amendment rollout by site — The Orcaworks Solution",
+      "headline": "Know which sites can implement the applicable version.",
+      "introduction": "Keep dispatched, locally approved and verified implementation states distinct. Participant reconsent requirements come from the authorized clinical team.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Distribute the amended documents",
+            "detail": "The study team sends the sponsor’s new protocol and consent materials."
+          },
+          {
+            "label": "Collect site and country replies",
+            "detail": "Local approvals, translations and training arrive on separate timelines."
+          },
+          {
+            "label": "Decide whether the site can proceed",
+            "detail": "Reviewers establish applicability, effective dates and required protections."
+          },
+          {
+            "label": "Update the rollout tracker",
+            "detail": "An acknowledgement can be mistaken for completed implementation."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Build the applicability matrix",
+            "detail": "Link sponsor requirements and versions to each affected country and site."
+          },
+          {
+            "label": "Compare the local evidence",
+            "detail": "Show outstanding approval, consent version, training and date confirmations."
+          },
+          {
+            "label": "Verify the implementation decision",
+            "detail": "Regulatory and clinical authorities confirm the site’s permitted next step."
+          },
+          {
+            "label": "Record the verified state or hold",
+            "detail": "Authorized owners retain proof, residual requirements and the next review date."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The regulatory lead manages the exact local approval gap, while investigator and ethics responsibilities remain explicit at every site."
+      },
+      "value": {
+        "outcomes": [
+          "Clear applicable-version visibility",
+          "Fewer unsupported effective-status changes",
+          "Receipt stays distinct from implementation"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "11"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "05 / Data management · Residual mismatch to controlled correction",
+      "number": "05",
+      "title": "External data reconciliation",
+      "problem": "The validated reconciliation run flags a missing lab result or inconsistent subject, visit or sample reference. The data manager checks transfer versions, mapping specifications, vendor files and EDC query history to distinguish a real missing result from a mapping defect. Repeated queries can continue while the underlying cause remains with another team.",
+      "opportunity": "Orcaworks assembles the residual exception and its transfer history for data management review. The authorized team chooses a vendor correction, controlled mapping change or site query; existing validated processes rerun the checks before the exception is recorded as resolved.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "ensure the integrity of relevant trial data.",
+        "source": "ICH E6(R3) · Principle 9.3 · Computerised systems",
+        "presentation": "panel",
+        "citation": {
+          "text": "ICH E6(R3) · Principle 9.3 · Computerised systems",
+          "url": "https://www.fda.gov/media/169090/download"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "12"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "External data reconciliation — The Orcaworks Solution",
+      "headline": "Find the cause before sending the next data query.",
+      "explanation": "Work from residual exceptions produced by validated reconciliation. Connect the source files, mapping version and prior responses, then prepare the appropriate correction path for authorized review. Clinical data changes stay in controlled source processes.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Validated matcher / EDC",
+            "detail": "Residual exception, subject, visit and query history",
+            "icon": "database"
+          },
+          {
+            "name": "Vendor transfer / source files",
+            "detail": "Lab, ECG or eCOA records and transfer version",
+            "icon": "messages"
+          },
+          {
+            "name": "Mapping / change records",
+            "detail": "Approved mapping specification and prior correction history",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Distinguish missing data from a mapping defect"
+          },
+          {
+            "label": "Data manager approves the correction route",
+            "alert": true
+          },
+          {
+            "label": "Rerun validated checks; retain the disposition"
+          }
+        ],
+        "action": {
+          "title": "Data management owns the correction",
+          "items": [
+            {
+              "label": "Request a vendor source correction",
+              "icon": "user"
+            },
+            {
+              "label": "Approve controlled mapping change review",
+              "icon": "shield"
+            },
+            {
+              "label": "Issue an authorized site query",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "Fewer misdirected queries",
+          "description": "Separate a source-data gap from a recurring transfer or mapping issue.",
+          "icon": "search"
+        },
+        {
+          "title": "Controlled resolution",
+          "description": "The validated matcher confirms the result after authorized correction.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure exception age",
+          "description": "Track validated residuals to confirmed resolution and reopening.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "13"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "06 / Study close · Outstanding prerequisites to authorized lock",
+      "number": "06",
+      "title": "Database-lock readiness",
+      "problem": "The planned database lock is close, but unresolved queries, investigator signatures, final vendor transfers and safety reconciliation sign-offs sit in different trackers. The lead data manager rebuilds the readiness pack and asks each owner what remains. A checklist that looks complete still needs the study’s medical, statistical and sponsor approvals.",
+      "opportunity": "Orcaworks reconciles the study’s lock prerequisites with current evidence and named owners, then prepares the readiness pack. Data management verifies completion; required medical, statistics and sponsor authorities approve before an authorized operator performs lock in the validated system.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/cro-database-lock.jpg",
+        "alt": "Clinical data manager reviewing trial dashboards across three monitors",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "14"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Database-lock readiness — The Orcaworks Solution",
+      "headline": "Bring the remaining lock prerequisites to one decision.",
+      "introduction": "Use the study’s approved data management plan and lock checklist to coordinate final evidence, sign-offs and unresolved holds.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Rebuild the lock checklist",
+            "detail": "The lead data manager gathers query, signature and reconciliation states."
+          },
+          {
+            "label": "Chase the final evidence",
+            "detail": "Vendor transfers and safety confirmations arrive through separate owners."
+          },
+          {
+            "label": "Circulate the approval pack",
+            "detail": "Medical, statistics and sponsor reviewers need the agreed prerequisites."
+          },
+          {
+            "label": "Arrange the controlled lock",
+            "detail": "The system operator acts only after the required authorization is complete."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Reconcile configured prerequisites",
+            "detail": "Link the approved checklist to current EDC, vendor and reconciliation evidence."
+          },
+          {
+            "label": "Request the specific outstanding sign-off",
+            "detail": "Each unresolved prerequisite has an owner, reason and next checkpoint."
+          },
+          {
+            "label": "Present the verified readiness pack",
+            "detail": "Data management checks completion and required authorities approve or hold."
+          },
+          {
+            "label": "Confirm the authorized system action",
+            "detail": "The operator performs lock in the validated system; retain the decision record."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The lead data manager brings a verified readiness position to the approval group and keeps any unresolved prerequisite visible until disposition."
+      },
+      "value": {
+        "outcomes": [
+          "Less repeated readiness-pack assembly",
+          "Outstanding prerequisites remain owned",
+          "Lock remains an authorized system action"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "15"
+    },
+    {
+      "type": "beforeAfter",
+      "eyebrow": "Accountability across delegated study delivery",
+      "title": "Every milestone needs evidence and an owner",
+      "beforeTitle": "When the work is fragmented",
+      "afterTitle": "With Orcaworks",
+      "beforeItems": [
+        "Site and vendor replies are separate from the controlled study status.",
+        "Teams rebuild the same prerequisite or finding before each review.",
+        "Acknowledgement can be confused with verified completion.",
+        "Sponsor updates lag behind evidence, sign-offs and unresolved holds."
+      ],
+      "afterItems": [
+        "Study-linked evidence shows the applicable requirement and latest response.",
+        "The next request names the missing record, owner and review point.",
+        "Qualified reviewers approve release, acceptance, correction and closure.",
+        "Authorized decisions return to the clinical record with residual holds visible."
+      ],
+      "surface": "dark",
+      "pageNumber": "16"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "Study start-up · Industry site survey",
+      "headline": "Site activation still depends on coordinated follow-through",
+      "stats": [
+        {
+          "value": "55%",
+          "label": "reported more than five months from site selection to full activation",
+          "description": "ICON · June 2025 survey of just over 100 principal investigators and senior site personnel"
+        },
+        {
+          "value": "66%",
+          "label": "frequently experienced contract and budget delays",
+          "description": "ICON · June 2025 site survey"
+        },
+        {
+          "value": "47%",
+          "label": "rated sponsor and CRO communication average or poor",
+          "description": "ICON · June 2025 site survey"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "17"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "Measure the first workflow",
+      "title": "Measure progress from the first workflow",
+      "intro": "Assess indicative improvements against your study baseline. Track verified dispositions alongside evidence quality, reopened actions and the time spent awaiting external decisions.",
+      "metrics": [
+        {
+          "metric": "Blocker-to-disposition time",
+          "today": "Manual chases across sponsor, site, ethics",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Earlier authorized green lights"
+        },
+        {
+          "metric": "TMF request-to-receipt days",
+          "today": "Broad requests; repeat follow-ups",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Fewer repeat document chases"
+        },
+        {
+          "metric": "Overdue action close time",
+          "today": "Aged actions; unverified closures",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Fewer aged critical actions"
+        },
+        {
+          "metric": "Data exception resolution",
+          "today": "Residuals investigated across files and vendors",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Fewer aged reconciliation issues"
+        },
+        {
+          "metric": "Lock-readiness pack preparation",
+          "today": "Prerequisites and sign-offs rebuilt by hand",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Earlier visibility of lock blockers"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "18"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Start with one site activation blocker",
+      "body": "Choose a live site approaching an activation milestone. We’ll map the applicable prerequisites, signed versions, external dependencies and delegated release authority with your start-up team. Agree the baseline and evidence needed for a verified disposition, then demonstrate the authorized status recorded in the study workflow before expanding to other sites and study milestones.",
+      "cta": "Test One Site",
+      "ctaUrl": "https://www.orcaworks.ai",
+      "website": "www.orcaworks.ai",
+      "variant": "dark",
+      "surface": "dark",
+      "pageNumber": "19"
+    }
+  ]
+}

@@ -1,0 +1,696 @@
+{
+  "slug": "facilities-management-deep-dive",
+  "title": "Facilities Management — Governed Execution Deep-Dive Use-Case Guide",
+  "description": "Six priority workflows for outsourced facilities providers coordinating service evidence, client approvals, contractor readiness and billing across multiple sites.",
+  "accentTheme": "healthcareMist",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Keep facility service, evidence and billing aligned across every client site",
+      "subtitle": "Six governed workflows for completed jobs, statutory evidence, variations, service exceptions, planned maintenance and contractor readiness across client portals and FM systems, with account, technical and finance teams retaining authority.",
+      "kicker": "FACILITIES MANAGEMENT · DEEP-DIVE USE-CASE GUIDE",
+      "logoVariant": "dark",
+      "image": "/images/guides/fm-cover-pipework.jpg",
+      "layout": "inset",
+      "meta": [
+        "Six priority workflows",
+        "From contractor readiness to accepted billing",
+        "For outsourced facilities management leaders"
+      ],
+      "surface": "light",
+      "background": "#ffffff",
+      "textColor": "#0c0c09"
+    },
+    {
+      "type": "contents",
+      "title": "Contents",
+      "eyebrow": "Facilities Management · Deep-dive use-case guide",
+      "surface": "light",
+      "items": [
+        {
+          "page": "3",
+          "title": "When the job is closed but proof is missing",
+          "group": "Operating reality"
+        },
+        {
+          "page": "4",
+          "title": "01 · Completion-to-invoice evidence",
+          "description": "Scope, completion proof and finance approval · pp. 4-5",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "6",
+          "title": "02 · Statutory service evidence",
+          "description": "Asset, period and technical acceptance · pp. 6-7",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "8",
+          "title": "03 · Variation approval packs",
+          "description": "Technical need, contract scope and spend · pp. 8-9",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "10",
+          "title": "04 · Multi-system service exceptions",
+          "description": "Service clocks, contractor ETA and escalation · pp. 10-11",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "12",
+          "title": "05 · Planned maintenance recovery",
+          "description": "Actual service, criticality and access · pp. 12-13",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "14",
+          "title": "06 · Contractor readiness",
+          "description": "Credentials, site requirements and clearance · pp. 14-15",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "16",
+          "title": "Keep the job, approval and accepted outcome aligned",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "17",
+          "title": "Fragmented data adds pressure to facility teams",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "18",
+          "title": "Measure the first workflow",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "19",
+          "title": "Start with one completed job waiting to bill",
+          "group": "Getting started"
+        }
+      ]
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The operating reality",
+      "headline": "The contractor marks the job complete. The account manager calls the site because the docket, client sign-off and invoice still do not agree.",
+      "body": "A completed job waiting to bill. An inspection without accepted evidence. Extra work awaiting approval. An urgent job with conflicting clocks. Planned maintenance displaced by callouts. A contractor blocked at the gate. Each needs contract context, proof from the responsible party and an authorized disposition. Orcaworks coordinates the handoffs across client portals, FM systems, procurement and email.",
+      "callout": "FM leaders face steady workload growth supported by modest budgets and constrained staffing",
+      "calloutSource": "Nickalos Rocha, IFMA · FM Pulse Report, 2026",
+      "surface": "dark",
+      "pageNumber": "3"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "01 / Service delivery · Completed job to approved billing",
+      "number": "01",
+      "title": "Completion-to-invoice evidence",
+      "problem": "The work order is closed, but the contractor’s invoice does not match the attendance record, approved quote or client sign-off. The account team calls the site and searches email for the missing docket or variation approval. Finance keeps the invoice on hold while supplier payment and the provider’s own client billing wait.",
+      "opportunity": "Orcaworks assembles the job, quote, purchase order, service evidence and invoice into one exception case. The responsible client or account owner accepts the service evidence; finance approves eligible billing or payment, and the permitted posting or reasoned hold is recorded.",
+      "rightContent": {
+        "type": "stat",
+        "value": "12%",
+        "label": "average time reported wasted because of fragmented data in a building-lifecycle survey.",
+        "source": "IFMA / Autodesk · 2024 report · 212 responses"
+      },
+      "surface": "light",
+      "citation": {
+        "text": "IFMA / Autodesk · Building lifecycle report, 2024",
+        "url": "https://knowledgelibrary.ifma.org/optimizing-building-management-with-a-lifecycle-approach/"
+      },
+      "pageNumber": "4"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Completion-to-invoice evidence — The Orcaworks Solution",
+      "headline": "Resolve the evidence gap before releasing the invoice.",
+      "explanation": "A closed job reaches finance with conflicting proof. Compare the invoice with the approved scope, spend and completion evidence; prepare the specific follow-up, then confirm the approved billing disposition in the existing records.",
+      "visual": {
+        "signals": [
+          {
+            "name": "FM system / work order",
+            "detail": "Job scope, attendance, completion docket and asset/site",
+            "icon": "database"
+          },
+          {
+            "name": "Procurement / contract",
+            "detail": "Quote, PO, rate card, spend limit and approved variations",
+            "icon": "messages"
+          },
+          {
+            "name": "Client reply / finance",
+            "detail": "Service acceptance, invoice lines and current hold reason",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Match charges and service evidence to approval"
+          },
+          {
+            "label": "Service owner accepts; finance approves release",
+            "alert": true
+          },
+          {
+            "label": "Record approved billing or retain the hold"
+          }
+        ],
+        "action": {
+          "title": "Service and finance approvals stay distinct",
+          "items": [
+            {
+              "label": "Client or account owner accepts service",
+              "icon": "user"
+            },
+            {
+              "label": "Finance approves eligible posting or payment",
+              "icon": "shield"
+            },
+            {
+              "label": "Unresolved evidence retains an owned hold",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "Precise follow-up",
+          "description": "Request the missing docket, sign-off or variation approval.",
+          "icon": "search"
+        },
+        {
+          "title": "A cleaner release",
+          "description": "Separate physical service acceptance from finance authorization.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure the full handoff",
+          "description": "Track invoice receipt to approval, with rejected evidence visible.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "02 / Asset assurance · Job completion to accepted certificate",
+      "number": "02",
+      "title": "Statutory service evidence",
+      "problem": "A planned inspection appears complete, yet its certificate is missing, names the wrong asset or omits the service period and signature. The facilities coordinator checks the asset register, service report and contractor replies. The responsible technical reviewer still needs valid evidence and a clear disposition for any defects before accepting the record.",
+      "opportunity": "Orcaworks matches required inspection evidence to the asset, service period and qualified provider, then requests the exact correction. The competent reviewer and responsible client authority accept the evidence or retain an owned defect and follow-up before the register changes.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/fm-statutory-inspection.jpg",
+        "alt": "Inspector with a tablet and manager reviewing stock in a warehouse aisle",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "6"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Statutory service evidence — The Orcaworks Solution",
+      "headline": "Track accepted service evidence against the actual asset.",
+      "introduction": "A completed work order is the start of evidence acceptance. The qualified reviewer determines sufficiency against the applicable service and client requirements.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Check what is marked complete",
+            "detail": "The coordinator compares work orders with the inspection and asset register."
+          },
+          {
+            "label": "Chase the certificate or correction",
+            "detail": "Missing signatures, asset references or service periods prompt repeat requests."
+          },
+          {
+            "label": "Ask the technical authority to review",
+            "detail": "The reviewer checks evidence, defects and any required remedial work or retest."
+          },
+          {
+            "label": "Reconcile the accepted record",
+            "detail": "The asset register is updated after approval and unresolved defects are tracked."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Match the expected inspection evidence",
+            "detail": "Link the asset, service requirement, due date and completion record."
+          },
+          {
+            "label": "Request the precise missing proof",
+            "detail": "Show the required correction, qualified provider and responsible contact."
+          },
+          {
+            "label": "Keep acceptance with the competent reviewer",
+            "detail": "The responsible authority accepts the certificate or defines the remaining defect."
+          },
+          {
+            "label": "Record accepted evidence or an owned hold",
+            "detail": "Retain the asset-linked certificate, review decision and remedial checkpoint."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The facilities coordinator manages the evidence exception, while competent people confirm the physical service and accept its technical sufficiency."
+      },
+      "value": {
+        "outcomes": [
+          "More due-inspection evidence accepted",
+          "Fewer repeat certificate requests",
+          "Unresolved defects keep an owner"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "03 / Extra works · Proposed scope to client authorization",
+      "number": "03",
+      "title": "Variation approval packs",
+      "problem": "A contractor identifies work outside the original instruction and sends a quote. The account manager checks the contract scope, rate card, spend limit, budget and technical need while the site wants the job finished. Without a complete approval pack, chargeable work can begin before the client’s authorized decision is recorded.",
+      "opportunity": "Orcaworks compares the proposed work with the contracted scope, pricing and approval limits, then prepares the variation pack. The technical manager confirms need and the client approves spend before the authorized variation or purchase order is recorded and communicated.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Extra work needs an approved scope, price and authority before it becomes a billable variation.",
+        "presentation": "panel"
+      },
+      "surface": "light",
+      "pageNumber": "8"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Variation approval packs — The Orcaworks Solution",
+      "headline": "Bring scope and cost to the client before work starts.",
+      "explanation": "An extra-work quote needs a contractual and technical decision. Assemble the applicable scope, rate and spend evidence; expose missing justification and route the approval. Emergency exceptions follow the designated human authority.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Work order / technical report",
+            "detail": "Proposed extra work, asset condition and technical need",
+            "icon": "database"
+          },
+          {
+            "name": "Contract / procurement",
+            "detail": "Scope, rate card, spend limit, budget and existing PO",
+            "icon": "messages"
+          },
+          {
+            "name": "Quote / client correspondence",
+            "detail": "Price, justification and authorized client decision",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Compare the request with scope and spend rules"
+          },
+          {
+            "label": "Technical manager and client approve their parts",
+            "alert": true
+          },
+          {
+            "label": "Record the variation or hold; notify contractor"
+          }
+        ],
+        "action": {
+          "title": "The client retains the spend decision",
+          "items": [
+            {
+              "label": "Technical manager confirms the need",
+              "icon": "user"
+            },
+            {
+              "label": "Client approver authorizes extra spend",
+              "icon": "shield"
+            },
+            {
+              "label": "Emergency exception uses its approval path",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "A complete approval pack",
+          "description": "Show what changed, why it is needed and how it is priced.",
+          "icon": "search"
+        },
+        {
+          "title": "Clear chargeable scope",
+          "description": "Keep the contractor’s instruction aligned with the approved variation.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure pre-approval",
+          "description": "Track chargeable variations authorized before work begins.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "9"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "04 / Service response · Conflicting status to verified action",
+      "number": "04",
+      "title": "Multi-system service exceptions",
+      "problem": "An urgent job is approaching its service deadline, but the client portal and provider’s FM system show different priorities, clock states and arrival times. The coordinator checks the contract, dispatch history, contractor acknowledgement and access arrangements. The duty manager needs a credible arrival commitment and an escalation decision while the site keeps calling.",
+      "opportunity": "Orcaworks reconciles event history with the contract’s clock definitions and latest contractor confirmation. The duty manager approves escalation or alternative dispatch; agreed status updates are recorded, with disputed clock changes and service credits left to the client’s contract authority.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/fm-service-van-portrait.jpg",
+        "alt": "Facilities service van with ladders parked outside an office building",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "10"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Multi-system service exceptions — The Orcaworks Solution",
+      "headline": "Make the response decision from a shared event history.",
+      "introduction": "Preserve source timestamps and approved pause rules while reconciling the contractor’s actual acknowledgement, access constraints and current ETA.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Compare conflicting job screens",
+            "detail": "The coordinator checks portal and FM-system status, priority and service clocks."
+          },
+          {
+            "label": "Call dispatch, contractor and site",
+            "detail": "Acknowledgement, access and the real ETA are confirmed through separate replies."
+          },
+          {
+            "label": "Escalate the response choice",
+            "detail": "The duty manager decides whether to chase, reassign or use another contractor."
+          },
+          {
+            "label": "Update both records and the client",
+            "detail": "Status changes and explanations are entered after calls are complete."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Assemble the time-stamped event history",
+            "detail": "Link contract clock rules, original events and approved pause evidence."
+          },
+          {
+            "label": "Verify the outstanding response facts",
+            "detail": "Request a credible ETA, contractor acknowledgement or site-access confirmation."
+          },
+          {
+            "label": "Route the operational decision",
+            "detail": "The duty manager approves escalation; contract authorities resolve clock disputes."
+          },
+          {
+            "label": "Confirm approved updates and follow-up",
+            "detail": "Record the response in permitted systems; keep the job open until completion is verified on site."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The coordinator manages the unresolved response fact and the duty manager chooses the intervention, with the original service history preserved."
+      },
+      "value": {
+        "outcomes": [
+          "Faster verified response decisions",
+          "Consistent client and provider status",
+          "Clock disputes retain explicit authority"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "11"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "05 / Maintenance planning · Displaced visits to approved recovery",
+      "number": "05",
+      "title": "Planned maintenance recovery",
+      "problem": "Emergency callouts and restricted access displace visits from the monthly maintenance plan. The planner compares work orders, rosters, attendance and service reports to establish what actually happened. A task may be done without proof or still unperformed, and critical inspections cannot simply move because the available crew has changed this week.",
+      "opportunity": "Orcaworks reconciles planned visits with verified execution and identifies the missing evidence or recovery decision. The planner proposes the schedule; technical and HSE authorities assess critical deadlines, and the client confirms access before approved dates and escalations are recorded.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "One significant obstacle to change is the siloed nature of data and teams",
+        "source": "IFMA / Autodesk · Building lifecycle report, 2024",
+        "presentation": "panel",
+        "citation": {
+          "text": "IFMA / Autodesk · Building lifecycle report, 2024",
+          "url": "https://knowledgelibrary.ifma.org/optimizing-building-management-with-a-lifecycle-approach/"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "12"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Planned maintenance recovery — The Orcaworks Solution",
+      "headline": "Recover the displaced visit with the right evidence and authority.",
+      "explanation": "The weekly review shows overdue planned work. Separate unrecorded completion from work still to do, match capacity and access, and prepare a recovery proposal. Critical due-date decisions stay with the responsible technical and client authorities.",
+      "visual": {
+        "signals": [
+          {
+            "name": "CMMS / approved PPM plan",
+            "detail": "Asset, required service, criticality and planned due date",
+            "icon": "database"
+          },
+          {
+            "name": "Work orders / service reports",
+            "detail": "Visit timestamps, qualified service proof and outstanding defects",
+            "icon": "messages"
+          },
+          {
+            "name": "Roster / site access",
+            "detail": "Available crews, contractor slots and client access windows",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Reconcile the plan with verified execution"
+          },
+          {
+            "label": "Technical and client owners approve recovery",
+            "alert": true
+          },
+          {
+            "label": "Record approved dates and unresolved escalation"
+          }
+        ],
+        "action": {
+          "title": "Planner proposes; responsible owners approve",
+          "items": [
+            {
+              "label": "Technical/HSE reviews critical deadlines",
+              "icon": "user"
+            },
+            {
+              "label": "Client confirms access or approved deferral",
+              "icon": "shield"
+            },
+            {
+              "label": "Unmovable overdue work is escalated",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "The actual completion state",
+          "description": "Distinguish missing paperwork from a service that has not occurred.",
+          "icon": "search"
+        },
+        {
+          "title": "A workable recovery plan",
+          "description": "Connect the proposed visit to capacity, access and approval.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure critical backlog",
+          "description": "Track overdue risk-critical tasks at each weekly cutoff.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "13"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "06 / Site access · Booked visit to authorized entry",
+      "number": "06",
+      "title": "Contractor readiness",
+      "problem": "A contractor is available for the visit, but insurance, trade credentials, induction or the site’s permit requirements are missing or out of date. Procurement checks the vendor portal and emails the contractor while the site team checks access. The booking can still result in refused entry or work starting without the required clearance.",
+      "opportunity": "Orcaworks assembles a site-specific readiness case and requests the exact credential or confirmation. Procurement and HSE review the evidence; site security or the responsible client authority approves entry and permits before the visit is confirmed or formally rescheduled.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/fm-site-permit-portrait.jpg",
+        "alt": "Building permit posted on the fence of a construction site",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "14"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Contractor readiness — The Orcaworks Solution",
+      "headline": "Clear the site-specific requirements before the contractor arrives.",
+      "introduction": "Match the contractor, trade, site and visit date to the actual credential and access requirements. Readiness supports the responsible authority’s clearance decision.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Select the contractor and propose a visit",
+            "detail": "A coordinator checks availability before all site requirements are confirmed."
+          },
+          {
+            "label": "Look for credentials and induction",
+            "detail": "Vendor records, training evidence and insurance expiry sit in different places."
+          },
+          {
+            "label": "Ask the site for entry or permit approval",
+            "detail": "HSE and security review competency, method statements and access conditions."
+          },
+          {
+            "label": "Confirm the booking or rearrange it",
+            "detail": "Last-minute gaps can lead to refused entry and a wasted visit."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Build the site-specific requirement set",
+            "detail": "Link the contractor, trade, visit date and client access requirements."
+          },
+          {
+            "label": "Request missing or expired evidence",
+            "detail": "Prepare exact requests for credentials, induction and required work documentation."
+          },
+          {
+            "label": "Keep clearance with HSE and the site",
+            "detail": "The responsible people approve competency evidence, entry and any work permit."
+          },
+          {
+            "label": "Confirm the cleared visit or reschedule",
+            "detail": "Record the authorized outcome and notify contractor, site and job owner."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The coordinator follows the remaining readiness gap before arrival, while HSE, security and the client retain competency and access decisions."
+      },
+      "value": {
+        "outcomes": [
+          "More visits cleared before arrival",
+          "Fewer preventable rejected entries",
+          "Permit and safety authority preserved"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "15"
+    },
+    {
+      "type": "beforeAfter",
+      "eyebrow": "Accountability across each client contract",
+      "title": "Keep the job, approval and accepted outcome aligned",
+      "beforeTitle": "When the work is fragmented",
+      "afterTitle": "With Orcaworks",
+      "beforeItems": [
+        "Client portals, contractor replies and finance records disagree.",
+        "Account teams reconstruct scope and service evidence before each decision.",
+        "Job completion can be confused with accepted proof or approved spend.",
+        "Billing and service registers catch up after the chase is complete."
+      ],
+      "afterItems": [
+        "A contract- and site-linked case brings the relevant evidence together.",
+        "Each exception has a specific request, accountable owner and review point.",
+        "Client, technical, HSE and finance authorities approve their own decisions.",
+        "Accepted evidence and authorized outcomes return to the operational record."
+      ],
+      "surface": "dark",
+      "pageNumber": "16"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "Facilities operations · Industry research",
+      "headline": "Fragmented data adds pressure to facility teams",
+      "stats": [
+        {
+          "value": "12%",
+          "label": "average time wasted because of fragmented data",
+          "description": "IFMA / Autodesk, 2024 report. Survey conducted in 2023, with 212 responses."
+        },
+        {
+          "value": "50%",
+          "label": "reported pressure to reduce operating costs",
+          "description": "The building-lifecycle survey covered FM and related AECO professions."
+        },
+        {
+          "value": "87%",
+          "label": "said they will use more data and analytics to shape decision-making.",
+          "description": "Respondents described their plans for future decision-making."
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "17"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "Measure the first workflow",
+      "title": "Measure progress from the first workflow",
+      "intro": "Assess indicative improvements against your contract baseline. Track accepted evidence, pre-approval and decision time alongside rejected invoices, reopened jobs and service outcomes.",
+      "metrics": [
+        {
+          "metric": "Invoice receipt-to-approval",
+          "today": "Site calls and email chases; invoice waits",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "Earlier supplier pay & billing"
+        },
+        {
+          "metric": "Due-inspection evidence accepted",
+          "today": "Certificates chased after job close",
+          "indicativeImprovement": "~20–40% higher",
+          "businessImpact": "Fewer sign-off compliance gaps"
+        },
+        {
+          "metric": "Variation pre-approval rate",
+          "today": "Extra works approved after starting",
+          "indicativeImprovement": "~20–40% higher",
+          "businessImpact": "Fewer unapproved chargeable works"
+        },
+        {
+          "metric": "Service exception-to-decision",
+          "today": "Portal status checked against calls and dispatch",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Earlier owned service intervention"
+        },
+        {
+          "metric": "Visits cleared before arrival",
+          "today": "Credentials and site access chased late",
+          "indicativeImprovement": "~15–30% higher",
+          "businessImpact": "Fewer preventable rejected entries"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "18"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Start with one completed job waiting to bill",
+      "body": "Choose a completed work order with an invoice or client-billing exception. We’ll map the scope, purchase order, service evidence and approval path with your account and finance teams. Agree the baseline and acceptance criteria, then demonstrate a verified billing disposition recorded in the existing workflow before extending the approach across sites and client contracts.",
+      "cta": "Test One Job",
+      "ctaUrl": "https://www.orcaworks.ai",
+      "website": "www.orcaworks.ai",
+      "variant": "dark",
+      "surface": "dark",
+      "pageNumber": "19"
+    }
+  ]
+}
