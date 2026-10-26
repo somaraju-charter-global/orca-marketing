@@ -1,0 +1,701 @@
+{
+  "slug": "specialty-lending-deep-dive",
+  "title": "Specialty Commercial Lending — Governed Execution Deep-Dive Use-Case Guide",
+  "description": "Six priority workflows for independent commercial lenders coordinating closing conditions, approved terms, covenant evidence, review cycles and collateral exceptions.",
+  "accentTheme": "healthcareMist",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Scale specialty lending from closing to renewal with experts in control",
+      "subtitle": "Six governed workflows for closing, document reconciliation, covenants, renewals, portfolio changes and borrowing-base exceptions across lending systems, documents and email, with operations, credit, collateral specialists and counsel retaining authority.",
+      "kicker": "SPECIALTY COMMERCIAL LENDING · DEEP-DIVE USE-CASE GUIDE",
+      "logoVariant": "dark",
+      "image": "/images/guides/sl-cover-advisor.jpg",
+      "layout": "inset",
+      "meta": [
+        "Six priority workflows",
+        "From approval to monitoring and renewal",
+        "For independent secured commercial lenders"
+      ],
+      "surface": "light",
+      "background": "#ffffff",
+      "textColor": "#0c0c09"
+    },
+    {
+      "type": "contents",
+      "title": "Contents",
+      "eyebrow": "Specialty Commercial Lending · Deep-dive use-case guide",
+      "surface": "light",
+      "items": [
+        {
+          "page": "3",
+          "title": "When approved is not ready to fund",
+          "group": "Operating reality"
+        },
+        {
+          "page": "4",
+          "title": "01 · Closing condition orchestration",
+          "description": "Conditions, evidence and approved exceptions · pp. 4-5",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "6",
+          "title": "02 · Approval, documents and booking",
+          "description": "Credit memo, signed agreement and core · pp. 6-7",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "8",
+          "title": "03 · Reporting and covenant exceptions",
+          "description": "Facility definitions, borrower evidence and waiver · pp. 8-9",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "10",
+          "title": "04 · Renewal and annual-review assembly",
+          "description": "Current evidence and the prior credit rationale · pp. 10-11",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "12",
+          "title": "05 · Portfolio change investigation",
+          "description": "Signal, changed facts and specialist action · pp. 12-13",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "14",
+          "title": "06 · Borrowing-base exception investigation",
+          "description": "Source reporting, eligibility and controlled rerun · pp. 14-15",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "16",
+          "title": "Keep approved terms and the next action connected",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "17",
+          "title": "Growing books need clear evidence and credit discipline",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "18",
+          "title": "Measure the first workflow",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "19",
+          "title": "Start with one approved deal awaiting close",
+          "group": "Getting started"
+        }
+      ]
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The operating reality",
+      "headline": "Credit has approved the deal. The closing specialist opens counsel’s email, the condition checklist and the loan file to find what still blocks funding.",
+      "body": "An approval waiting on closing conditions. Signed terms that differ from booking. A covenant exception without a disposition. A renewal pack missing current evidence. A portfolio signal needing investigation. A borrowing-base variance awaiting explanation. Each requires facility context, an expert decision and a verified record. Orcaworks coordinates the handoffs across lending systems, documents, borrower reporting and email.",
+      "callout": "Credit conditions remain idiosyncratic, not systemic.",
+      "calloutSource": "Rich Gumbrecht, CEO · Secured Finance Network, April 2026",
+      "surface": "dark",
+      "pageNumber": "3"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "01 / Loan operations · Credit approval to clear-to-close",
+      "number": "01",
+      "title": "Closing condition orchestration",
+      "problem": "Credit approval is in place, but the facility is not ready to fund. The closing specialist checks the commitment, condition checklist, entity documents, lien or title evidence, insurance and executed agreements while chasing borrower and counsel replies. One unresolved condition or unapproved waiver can keep the whole transaction from reaching clear-to-close.",
+      "opportunity": "Orcaworks maps each condition to its evidence, owner and unresolved question, then prepares targeted follow-ups. Loan operations clears conditions within delegated authority; credit and counsel approve material exceptions or waivers before the authorized readiness state and funding handoff are recorded.",
+      "rightContent": {
+        "type": "stat",
+        "value": "12.6%",
+        "label": "quarter-over-quarter increase in non-bank ABL outstandings in SFNet’s Q4 2025 survey.",
+        "source": "Secured Finance Network · April 2026"
+      },
+      "surface": "light",
+      "citation": {
+        "text": "Secured Finance Network · Q4 2025 ABL survey, April 2026",
+        "url": "https://www.sfnet.com/home/industry-data-publications/the-secured-lender/magazine/tsl-article-detail/sfnet-data-highlights-strong-year-end-performance-in-abl-and-factoring"
+      },
+      "pageNumber": "4"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Closing condition orchestration — The Orcaworks Solution",
+      "headline": "Make the remaining funding condition clear to its owner.",
+      "explanation": "A credit-approved facility has outstanding conditions. Bring the approved terms, current documents and external replies together; distinguish a missing item from a waiver decision. Confirm the authorized clear-to-close record before the funding handoff.",
+      "visual": {
+        "signals": [
+          {
+            "name": "LOS / approved credit",
+            "detail": "Credit memo, commitment and condition checklist",
+            "icon": "database"
+          },
+          {
+            "name": "Legal / collateral documents",
+            "detail": "Executed agreements, entity records, lien/title and insurance evidence",
+            "icon": "messages"
+          },
+          {
+            "name": "Borrower / counsel correspondence",
+            "detail": "Latest submissions, clarification and unresolved conditions",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Match each condition to acceptable evidence"
+          },
+          {
+            "label": "Operations clears; credit/legal approves exceptions",
+            "alert": true
+          },
+          {
+            "label": "Record readiness and the authorized handoff"
+          }
+        ],
+        "action": {
+          "title": "Delegated authorities own clearance",
+          "items": [
+            {
+              "label": "Operations clears permitted conditions",
+              "icon": "user"
+            },
+            {
+              "label": "Credit and counsel approve material waivers",
+              "icon": "shield"
+            },
+            {
+              "label": "Authorized team controls funding release",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "A specific external request",
+          "description": "Name the condition, required evidence and responsible borrower or advisor.",
+          "icon": "search"
+        },
+        {
+          "title": "Clear waiver authority",
+          "description": "Keep an unresolved exception distinct from a satisfied condition.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure the handoff",
+          "description": "Track approval to clear-to-close, including external waiting.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "02 / Loan operations · Approved terms to consistent records",
+      "number": "02",
+      "title": "Approval, documents and booking",
+      "problem": "The signed loan or lease documents are ready, but an approved term does not match the agreement or booked record. Operations compares rates, fees, maturity, collateral, guaranties and covenants across the credit memo, document set and core. The team must distinguish a clerical correction from a substantive change needing credit or legal approval.",
+      "opportunity": "Orcaworks prepares a field- and clause-level comparison of approved, executed and booked terms, with source references. Operations resolves permitted clerical issues; credit and counsel approve substantive variances before authorized document, execution or booking corrections are confirmed in the exception record.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/sl-closing-review.jpg",
+        "alt": "Two lending professionals reviewing loan documents together at a conference table",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "6"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Approval, documents and booking — The Orcaworks Solution",
+      "headline": "Resolve the difference before it becomes a post-close exception.",
+      "explanation": "Compare the final approval with signed documents and the booked facility. Show each variance and its supporting source; route the appropriate correction or approval, then verify the authorized records agree or retain the open exception.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Approved credit / amendments",
+            "detail": "Final rate, term, fees, collateral and covenant requirements",
+            "icon": "database"
+          },
+          {
+            "name": "Executed document set",
+            "detail": "Signed agreement, security, guaranties and approved schedules",
+            "icon": "messages"
+          },
+          {
+            "name": "LOS / servicing core",
+            "detail": "Booked terms, facility references and existing exceptions",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Compare the approved, signed and booked terms"
+          },
+          {
+            "label": "Operations, credit or counsel approves the remedy",
+            "alert": true
+          },
+          {
+            "label": "Verify the correction and retain the rationale"
+          }
+        ],
+        "action": {
+          "title": "The variance determines the approver",
+          "items": [
+            {
+              "label": "Operations resolves delegated clerical issues",
+              "icon": "user"
+            },
+            {
+              "label": "Credit/legal approves substantive differences",
+              "icon": "shield"
+            },
+            {
+              "label": "Re-execution follows authorized instructions",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "Source-linked differences",
+          "description": "Review the exact field or clause that needs a decision.",
+          "icon": "search"
+        },
+        {
+          "title": "Consistent facility records",
+          "description": "Verify the approved remedy across the affected documents and core.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure post-close quality",
+          "description": "Track exceptions per funded facility and correction rework.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "03 / Portfolio monitoring · Missing or failed evidence to disposition",
+      "number": "03",
+      "title": "Reporting and covenant exceptions",
+      "problem": "A borrower’s reporting package is overdue, incomplete or shows a failed covenant. The portfolio analyst checks facility definitions, financial periods, compliance certificates, calculation outputs and prior waivers, then searches borrower correspondence for an explanation. Credit needs to know whether the case is missing evidence, a data problem or a breach before deciding the response.",
+      "opportunity": "Orcaworks assembles the applicable requirement, evidence and prior decisions, then prepares the exception and borrower request. Credit or committee approves waivers and escalation; the facility record retains a satisfied, waived, breached or open status with rationale and next action.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Effective monitoring and reporting systems are the foundation of prudent ABL risk management",
+        "source": "OCC · Asset-Based Lending handbook",
+        "presentation": "panel",
+        "citation": {
+          "text": "OCC · Asset-Based Lending handbook",
+          "url": "https://www.comptrollerofthecurrency.gov/publications-and-resources/publications/comptrollers-handbook/files/asset-based-lending/pub-ch-asset-based-lending.pdf"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "8"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Reporting and covenant exceptions — The Orcaworks Solution",
+      "headline": "Bring the actual exception to credit with its evidence.",
+      "introduction": "Keep contractual definitions and existing calculation outputs authoritative while coordinating missing reports, borrower explanations and approved dispositions.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Read the missing-report or failure alert",
+            "detail": "The analyst checks the due item or covenant output against the facility terms."
+          },
+          {
+            "label": "Search for the right supporting package",
+            "detail": "Periods, entities, certificates and borrower explanations may not align."
+          },
+          {
+            "label": "Rebuild the case for credit",
+            "detail": "Prior waivers and the current facts are compared before a response is decided."
+          },
+          {
+            "label": "Update the tracker after the decision",
+            "detail": "Satisfied, waived and unresolved cases are recorded across separate logs."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Link the alert to the applicable requirement",
+            "detail": "Show the facility definition, due period and authoritative calculation result."
+          },
+          {
+            "label": "Prepare the exact evidence request",
+            "detail": "Identify missing reports, inconsistent inputs and the borrower’s latest explanation."
+          },
+          {
+            "label": "Route the reasoned exception",
+            "detail": "Credit or committee decides waiver, escalation or the required next action."
+          },
+          {
+            "label": "Record the authorized disposition",
+            "detail": "Retain satisfied, waived, breached or open status with rationale and checkpoint."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The portfolio analyst prepares a current exception for credit rather than repeatedly rebuilding the facility history and prior waiver position."
+      },
+      "value": {
+        "outcomes": [
+          "Shorter exception-to-disposition time",
+          "Distinct missing-data and breach cases",
+          "Waivers retain designated credit authority"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "9"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "04 / Credit review · Prior rationale to current decision",
+      "number": "04",
+      "title": "Renewal and annual-review assembly",
+      "problem": "An annual review, maturity or amendment approaches and the underwriter starts rebuilding the facility story. The prior credit memo, current financials, collateral reports, payment history, covenant results and borrower emails live in different places. Missing entities or periods can hold up the pack before anyone reaches the changed risk or renewal decision.",
+      "opportunity": "Orcaworks assembles review evidence around the prior approved rationale, identifies missing periods and highlights material changes. The underwriter or portfolio team performs credit analysis; the designated authority approves renewal terms before the review record and approved facility changes are retained.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/sl-document-review.jpg",
+        "alt": "Loan officer reviewing financial documents with a borrower across a desk",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "10"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Renewal and annual-review assembly — The Orcaworks Solution",
+      "headline": "Start the review with what changed and what is missing.",
+      "explanation": "A review date or maturity triggers the case. Connect prior rationale with the current financial, collateral and performance evidence. Prepare the missing-item requests and changed facts so the underwriter can focus on the credit decision.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Prior approved credit / facility",
+            "detail": "Rationale, terms, conditions and previous review decisions",
+            "icon": "database"
+          },
+          {
+            "name": "Financial / collateral / payment records",
+            "detail": "Current periods, entity coverage and facility performance",
+            "icon": "messages"
+          },
+          {
+            "name": "Covenant / waiver / borrower history",
+            "detail": "Exceptions, approved concessions and material explanations",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Assemble the current review and evidence gaps"
+          },
+          {
+            "label": "Underwriter analyzes; credit authority approves",
+            "alert": true
+          },
+          {
+            "label": "Retain the review and approved facility changes"
+          }
+        ],
+        "action": {
+          "title": "Credit authority decides the renewal",
+          "items": [
+            {
+              "label": "Underwriter assesses changed risk",
+              "icon": "user"
+            },
+            {
+              "label": "Authority approves terms or conditions",
+              "icon": "shield"
+            },
+            {
+              "label": "Operations records authorized changes",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "A current review pack",
+          "description": "Bring the required periods, entities and supporting records together.",
+          "icon": "search"
+        },
+        {
+          "title": "Continuity of rationale",
+          "description": "Compare changed facts with the prior approved credit position.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure preparation time",
+          "description": "Track review-pack assembly and first-review completeness.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "11"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "05 / Risk monitoring · Portfolio signal to owned response",
+      "number": "05",
+      "title": "Portfolio change investigation",
+      "problem": "A dashboard flags worsening receivables, changing utilization, a payment pattern or declining availability. The portfolio manager compares current and prior financials, aging, borrowing-base reports, covenant results and borrower replies to establish whether the signal is a data anomaly or a material change. The next action still needs an explained case and credit authority.",
+      "opportunity": "Orcaworks links the signal to its underlying records and prior position, then prepares the changed facts and unresolved questions. Portfolio and credit specialists decide investigation, rating, limits or conditions before an approved disposition, rationale and next review point are recorded.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/sl-portfolio-monitoring.jpg",
+        "alt": "Two analysts reviewing a portfolio dashboard on a monitor",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "12"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Portfolio change investigation — The Orcaworks Solution",
+      "headline": "Give the portfolio signal a defensible disposition.",
+      "introduction": "Work from the lender’s existing monitoring signal. Reconstruct the change and its supporting evidence before specialists choose the appropriate response.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Open the dashboard exception",
+            "detail": "A portfolio manager starts with a payment, utilization or collateral signal."
+          },
+          {
+            "label": "Rebuild the borrower context",
+            "detail": "Current and prior reporting, covenants and explanations are compared by hand."
+          },
+          {
+            "label": "Decide whether the risk changed",
+            "detail": "Specialists distinguish a reporting defect from material credit deterioration."
+          },
+          {
+            "label": "Record the response and next review",
+            "detail": "Actions, rating decisions and follow-up dates are retained in separate records."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Link the signal to its source records",
+            "detail": "Show the period, facility and authoritative outputs behind the change."
+          },
+          {
+            "label": "Prepare the changed facts and gaps",
+            "detail": "Compare the prior position and request the specific borrower clarification."
+          },
+          {
+            "label": "Route the specialist response",
+            "detail": "Portfolio and credit authorities approve investigation, limits or other action."
+          },
+          {
+            "label": "Confirm the approved disposition",
+            "detail": "Record material action or reasoned closure with rationale and next checkpoint."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The portfolio manager brings the explained change to credit and retains a clear reason for intervention, further investigation or closure."
+      },
+      "value": {
+        "outcomes": [
+          "Earlier evidence-backed credit action",
+          "Fewer unexplained portfolio alerts",
+          "Rating and limit authority preserved"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "13"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "06 / Collateral monitoring · Availability variance to reviewed action",
+      "number": "06",
+      "title": "Borrowing-base exception investigation",
+      "problem": "A borrowing-base certificate or advance request produces an availability exception. The collateral analyst compares receivables aging, inventory, eligibility rules, concentrations, prior certificates and borrower journals to explain the variance. The calculation engine has produced an answer, but someone must determine whether the cause is a data defect, ineligible collateral or a material out-of-formula position.",
+      "opportunity": "Orcaworks connects the engine’s exception to source reporting, facility rules and prior certificates, then prepares the correction path. Collateral and credit authorities approve material overrides or holds; authorized corrections rerun through the existing engine before the disposition is retained.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Monitoring receivables is labor-intensive.",
+        "source": "OCC · Asset-Based Lending handbook",
+        "presentation": "panel",
+        "citation": {
+          "text": "OCC · Asset-Based Lending handbook",
+          "url": "https://www.comptrollerofthecurrency.gov/publications-and-resources/publications/comptrollers-handbook/files/asset-based-lending/pub-ch-asset-based-lending.pdf"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "14"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Borrowing-base exception investigation — The Orcaworks Solution",
+      "headline": "Explain the exception around the existing calculation engine.",
+      "introduction": "Preserve the ABL system’s eligibility and availability calculations. Coordinate the investigation, supporting evidence and authorized correction or hold.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Open the certificate or advance exception",
+            "detail": "The analyst checks the current availability result and facility references."
+          },
+          {
+            "label": "Compare supporting reporting by hand",
+            "detail": "Receivables, inventory, concentrations and prior certificates are reconciled."
+          },
+          {
+            "label": "Determine the cause and approval need",
+            "detail": "A routine data correction differs from a credit override or out-of-formula hold."
+          },
+          {
+            "label": "Correct and record the reviewed outcome",
+            "detail": "The engine reruns after approved changes and the analyst updates the case."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Assemble the engine result and sources",
+            "detail": "Link the exception to the certificate, reporting period and facility rules."
+          },
+          {
+            "label": "Prepare the variance explanation",
+            "detail": "Show data defects, eligibility questions and the relevant borrower response."
+          },
+          {
+            "label": "Keep material decisions with specialists",
+            "detail": "Delegated analysts correct ordinary issues; credit approves overrides or holds."
+          },
+          {
+            "label": "Verify the rerun and approved disposition",
+            "detail": "Retain the engine’s result or an explicit held exception with next review."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The collateral analyst works the cause and authorized remedy while the existing ABL engine continues to calculate eligibility and availability."
+      },
+      "value": {
+        "outcomes": [
+          "Less repeated variance investigation",
+          "Explicit out-of-formula decisions",
+          "Availability stays in the existing engine"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "15"
+    },
+    {
+      "type": "beforeAfter",
+      "eyebrow": "Accountability across the facility lifecycle",
+      "title": "Keep approved terms and the next action connected",
+      "beforeTitle": "When the work is fragmented",
+      "afterTitle": "With Orcaworks",
+      "beforeItems": [
+        "Approved credit, documents, borrower reporting and core records diverge.",
+        "Operations and portfolio teams reconstruct the facility before each decision.",
+        "Missing evidence, clerical differences and credit exceptions share a queue.",
+        "Waivers, corrections and follow-up rationale sit in separate messages."
+      ],
+      "afterItems": [
+        "A facility-linked case connects the approved position and current evidence.",
+        "Each exception has a specific request, accountable owner and completion state.",
+        "Operations, collateral, credit and counsel act within their delegated authority.",
+        "Approved changes and dispositions return to the authoritative lending record."
+      ],
+      "surface": "dark",
+      "pageNumber": "16"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "Secured finance · Industry survey results",
+      "headline": "Growing books need clear evidence and credit discipline",
+      "stats": [
+        {
+          "value": "16.6%",
+          "label": "year-over-year increase in factoring volume",
+          "description": "Secured Finance Network · 2025 ABL and Factoring Survey · April 2026"
+        },
+        {
+          "value": "12.6%",
+          "label": "quarter-over-quarter increase in non-bank ABL outstandings",
+          "description": "Secured Finance Network · Q4 2025"
+        },
+        {
+          "value": "5.5%",
+          "label": "quarter-over-quarter increase in non-bank ABL commitments",
+          "description": "Secured Finance Network · Q4 2025"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "17"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "Measure the first workflow",
+      "title": "Measure progress from the first workflow",
+      "intro": "Assess indicative improvements against your facility baseline. Measure clearance, preparation and exception quality together, with credit decisions and existing system calculations retained.",
+      "metrics": [
+        {
+          "metric": "Approval to clear-to-close",
+          "today": "Conditions chased across counsel, title and inboxes",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Faster funding, cleaner files"
+        },
+        {
+          "metric": "Post-close exception rate",
+          "today": "Mismatches surface after funding or audit",
+          "indicativeImprovement": "~20–40% fewer",
+          "businessImpact": "Less rework and audit exposure"
+        },
+        {
+          "metric": "Covenant exception resolution",
+          "today": "Cases rebuilt from statements and email",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Credit acts on evidence sooner"
+        },
+        {
+          "metric": "Annual-review pack preparation",
+          "today": "Current reporting and prior rationale rebuilt",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "More time for credit assessment"
+        },
+        {
+          "metric": "Borrowing-base exception review",
+          "today": "Variance traced across reports and certificates",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Earlier evidence-backed disposition"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "18"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Start with one approved deal awaiting close",
+      "body": "Choose a live facility with outstanding closing conditions. We’ll map the approved terms, required evidence, borrower and counsel handoffs, and delegated clearance authority with your operations team. Agree the baseline and completion criteria, then demonstrate an authorized clear-to-close disposition in the existing workflow before expanding across monitoring, review and collateral exceptions.",
+      "cta": "Test One Workflow",
+      "ctaUrl": "https://www.orcaworks.ai",
+      "website": "www.orcaworks.ai",
+      "variant": "dark",
+      "surface": "dark",
+      "pageNumber": "19"
+    }
+  ]
+}

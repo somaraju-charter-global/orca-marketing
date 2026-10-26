@@ -1,0 +1,701 @@
+{
+  "slug": "aec-deep-dive",
+  "title": "Architecture, Engineering & Construction — Governed Execution Deep-Dive Use-Case Guide",
+  "description": "Six priority workflows connecting construction evidence, project decisions and authorized action from scope change through accepted handover.",
+  "accentTheme": "healthcareMist",
+  "pages": [
+    {
+      "type": "cover",
+      "title": "Move construction decisions forward with the full project record",
+      "subtitle": "Six governed workflows for changes, closeout, field constraints, RFIs, procurement and delay evidence across project platforms, schedules and email, with project managers, designers and commercial leaders owning the decisions.",
+      "kicker": "ARCHITECTURE, ENGINEERING & CONSTRUCTION · DEEP-DIVE USE-CASE GUIDE",
+      "logoVariant": "dark",
+      "image": "/images/guides/aec-cover-bridge.jpg",
+      "layout": "inset",
+      "meta": [
+        "Six priority workflows",
+        "From scope change to accepted handover",
+        "For contractors, construction managers and design-build leaders"
+      ],
+      "surface": "light",
+      "background": "#ffffff",
+      "textColor": "#0c0c09"
+    },
+    {
+      "type": "contents",
+      "title": "Contents",
+      "eyebrow": "Architecture, Engineering & Construction · Deep-dive use-case guide",
+      "surface": "light",
+      "items": [
+        {
+          "page": "3",
+          "title": "When a site instruction changes the plan",
+          "group": "Operating reality"
+        },
+        {
+          "page": "4",
+          "title": "01 · Change evidence to decision",
+          "description": "Scope, cost, program and approval · pp. 4-5",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "6",
+          "title": "02 · Closeout readiness",
+          "description": "Trade documents through owner acceptance · pp. 6-7",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "8",
+          "title": "03 · Plan-versus-actual resolution",
+          "description": "Evidence, cause and the next commitment · pp. 8-9",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "10",
+          "title": "04 · Cross-platform RFI continuity",
+          "description": "Response matching and approved distribution · pp. 10-11",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "12",
+          "title": "05 · Submittal and procurement readiness",
+          "description": "Approved product to confirmed delivery · pp. 12-13",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "14",
+          "title": "06 · Claims and delay chronology",
+          "description": "Event evidence through specialist assessment · pp. 14-15",
+          "group": "Six priority workflows"
+        },
+        {
+          "page": "16",
+          "title": "Keep evidence, authority and action together",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "17",
+          "title": "Better decisions depend on usable project evidence",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "18",
+          "title": "Measure the first workflow",
+          "group": "Evidence & measurement"
+        },
+        {
+          "page": "19",
+          "title": "Start with one construction change",
+          "group": "Getting started"
+        }
+      ]
+    },
+    {
+      "type": "darkEditorial",
+      "eyebrow": "The operating reality",
+      "headline": "A site instruction changes the scope. The project manager opens drawings, email and the cost log to explain what happens next.",
+      "body": "A variation without its evidence. A handover missing accepted documents. A weekly commitment missed. An RFI answered elsewhere. Approved material without a delivery commitment. A delay event with a disputed chronology. Each needs the project record assembled, a decision made and an action owned. Orcaworks connects that work across project platforms, schedules, cost records and email.",
+      "callout": "50% of respondents named delay claims as the main issue raised in construction disputes",
+      "calloutSource": "RIBA Survey (2022), via Global Arbitration Review",
+      "surface": "dark",
+      "pageNumber": "3"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "01 / Commercial · Scope change to approved position",
+      "number": "01",
+      "title": "Change evidence to decision",
+      "problem": "A revised drawing, site instruction or unexpected condition changes the work. The project manager has to connect the original scope, trade quote, daily records, schedule activities and notice history before commercial review. Evidence sits across the project platform, email and cost log while affected work and potential exposure keep moving.",
+      "opportunity": "Orcaworks assembles a source-linked change case, identifies missing proof and prepares the scope, cost and schedule questions. Project and commercial leaders approve the contractor position; owner-controlled changes follow the owner’s approval process before approved records and communications advance.",
+      "rightContent": {
+        "type": "stat",
+        "value": "$88.7 billion",
+        "label": "in estimated rework costs associated with bad data.",
+        "source": "FMI / Autodesk · 2021"
+      },
+      "surface": "light",
+      "citation": {
+        "text": "FMI / Autodesk · Harnessing the Data Advantage, 2021",
+        "url": "https://fmicorp.com/insights/quick-reads/harnessing-the-data-advantage-in-engineering-and-construction"
+      },
+      "pageNumber": "4"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Change evidence to decision — The Orcaworks Solution",
+      "headline": "Put the change and its consequences in one review.",
+      "explanation": "An instruction arrives before the commercial position is settled. Link the scope, chronology and supporting records; make missing field evidence explicit. Route the position for approval, then confirm the approved project and cost records.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Project platform",
+            "detail": "Instruction, current and prior drawings, RFI and scope",
+            "icon": "database"
+          },
+          {
+            "name": "Schedule / cost records",
+            "detail": "Affected activities, trade quote and pending change exposure",
+            "icon": "messages"
+          },
+          {
+            "name": "Email / daily records",
+            "detail": "Notice history, photos and confirmation from the field",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Build the event chronology and evidence gaps"
+          },
+          {
+            "label": "PM and commercial lead approve the position",
+            "alert": true
+          },
+          {
+            "label": "Record approved change; notify affected parties"
+          }
+        ],
+        "action": {
+          "title": "The right authority decides the change",
+          "items": [
+            {
+              "label": "PM validates scope and supporting evidence",
+              "icon": "user"
+            },
+            {
+              "label": "Commercial lead approves contractor position",
+              "icon": "shield"
+            },
+            {
+              "label": "Owner approves owner-controlled changes",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "One traceable case",
+          "description": "Review the event against the actual scope and project record.",
+          "icon": "search"
+        },
+        {
+          "title": "Visible exposure",
+          "description": "Keep unapproved value and unresolved field evidence in view.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure decision time",
+          "description": "Track complete change submission to approved disposition.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "5"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "02 / Handover · Received is not yet accepted",
+      "number": "02",
+      "title": "Closeout readiness",
+      "problem": "Practical completion is approaching, but the turnover register still contains gaps. A subcontractor sends a generic manual, a warranty lacks the asset reference and an as-built set uses the wrong revision. The closeout coordinator rechecks specifications and chases vendors while the owner’s acceptance, final payment and retention remain unresolved.",
+      "opportunity": "Orcaworks reconciles expected, received and accepted deliverables by trade and asset, then prepares precise requests. Designers, commissioning teams and the owner accept the required evidence before the approved turnover register and handover status are updated.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Difficulty obtaining required documentation is a major cause of construction project closeout delays.",
+        "source": "Transportation Research Record · 2022 study of U.S. state DOT closeout practices",
+        "presentation": "panel"
+      },
+      "surface": "light",
+      "pageNumber": "6"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Closeout readiness — The Orcaworks Solution",
+      "headline": "Make handover a sequence of accepted deliverables.",
+      "introduction": "Track each O&M manual, warranty, as-built, test certificate and training record against the project’s actual requirements and acceptance responsibilities.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Build a list from several registers",
+            "detail": "The coordinator reconciles specification, asset and trade-package requirements."
+          },
+          {
+            "label": "Chase the package again",
+            "detail": "Broad emails produce files that may still use the wrong asset or revision."
+          },
+          {
+            "label": "Find an available reviewer",
+            "detail": "Designer, commissioning and owner acceptance sits across separate replies."
+          },
+          {
+            "label": "Update the turnover tracker",
+            "detail": "Received files can look complete before the required acceptance is recorded."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Establish the expected deliverables",
+            "detail": "Link each requirement to its asset, trade package and acceptance owner."
+          },
+          {
+            "label": "Request the exact outstanding item",
+            "detail": "Name the document, revision and evidence gap in each approved request."
+          },
+          {
+            "label": "Route the acceptance decision",
+            "detail": "The responsible reviewer accepts, rejects or requests qualified site evidence."
+          },
+          {
+            "label": "Confirm the accepted handover record",
+            "detail": "Update accepted status and retain an owner and due date for open items."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The closeout coordinator follows the remaining acceptance gap, with physical testing and training confirmed by the responsible people."
+      },
+      "value": {
+        "outcomes": [
+          "Fewer repeat document follow-ups",
+          "Accepted evidence visible by asset",
+          "Earlier handover and payment readiness"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "7"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "03 / Field delivery · Missed commitment to owned action",
+      "number": "03",
+      "title": "Plan-versus-actual resolution",
+      "problem": "The weekly plan says a work area should be complete, but the latest field report shows a miss. The superintendent and planner search daily logs, delivery updates, open RFIs and submittals to establish the cause. By the coordination meeting, the team still needs an agreed explanation and a practical recovery action.",
+      "opportunity": "Orcaworks connects the missed commitment to captured field evidence and its likely constraints. The superintendent and project manager choose the corrective action or resequencing, then the approved owner, due date and plan update are recorded.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "Foundational LCI research found that only 54% of construction commitments were completed on time.",
+        "source": "Lean Construction Institute · Last Planner System",
+        "presentation": "panel",
+        "citation": {
+          "text": "Lean Construction Institute · Last Planner System",
+          "url": "https://leanconstruction.org/lean-topics/last-planner-system/"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "8"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Plan-versus-actual resolution — The Orcaworks Solution",
+      "headline": "Turn the missed commitment into an owned recovery action.",
+      "explanation": "Start with the variance already captured in the plan or field report. Bring together the constraints that could explain it and distinguish confirmed facts from open questions. The site team chooses the response and verifies the next commitment.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Master plan / lookahead",
+            "detail": "Planned activity, work area and promised completion",
+            "icon": "database"
+          },
+          {
+            "name": "Field progress / daily logs",
+            "detail": "Observed completion, crew constraints and dated site evidence",
+            "icon": "messages"
+          },
+          {
+            "name": "RFI / delivery / submittal records",
+            "detail": "Open information, material and approval dependencies",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Connect the variance to verified constraints"
+          },
+          {
+            "label": "Superintendent and PM choose the response",
+            "alert": true
+          },
+          {
+            "label": "Assign the action; confirm the plan update"
+          }
+        ],
+        "action": {
+          "title": "The site team owns the recovery plan",
+          "items": [
+            {
+              "label": "Validate the cause with field evidence",
+              "icon": "user"
+            },
+            {
+              "label": "Approve corrective action or resequencing",
+              "icon": "shield"
+            },
+            {
+              "label": "Name the responsible person and due date",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "A specific cause",
+          "description": "Show which evidence supports the explanation and what is still unknown.",
+          "icon": "search"
+        },
+        {
+          "title": "A usable next step",
+          "description": "Carry the approved response into the existing planning process.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure response time",
+          "description": "Track verified variance to an authorized, owned recovery action.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "9"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "04 / Design coordination · Official answer to field distribution",
+      "number": "04",
+      "title": "Cross-platform RFI continuity",
+      "problem": "The designer has answered an RFI in the owner’s platform, but the contractor’s register and trade team still show it open. The project engineer checks question IDs, drawing revisions, attachments and the response history, then works out which crews, change records and schedule activities need the approved answer before work proceeds.",
+      "opportunity": "Orcaworks matches the official answer to the contractor’s RFI and affected records. The project engineer verifies the response and recipients; approved distribution and linked record updates follow, with technical interpretation remaining with the responsible designer.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/aec-rfi-tablet-portrait.jpg",
+        "alt": "Site engineer in a hi-vis vest reviewing drawings on a tablet at a work table",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "10"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Cross-platform RFI continuity — The Orcaworks Solution",
+      "headline": "Carry the official answer to the people doing the work.",
+      "introduction": "Reduce the administrative gap after a designer responds, while preserving the official source, technical authority and drawing revision.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Discover the response in another platform",
+            "detail": "A project engineer checks the owner or designer portal for the latest answer."
+          },
+          {
+            "label": "Reconcile IDs and attachments",
+            "detail": "Question references, drawing revisions and response files need manual comparison."
+          },
+          {
+            "label": "Work out who is affected",
+            "detail": "The engineer identifies trades and any related change or schedule issue."
+          },
+          {
+            "label": "Copy the approved answer and notify",
+            "detail": "Internal records and distribution lists are updated separately."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Track the authoritative response",
+            "detail": "Link the official answer and its timestamp to the corresponding internal RFI."
+          },
+          {
+            "label": "Prepare the matched response record",
+            "detail": "Show source IDs, revisions and attachments for engineer verification."
+          },
+          {
+            "label": "Approve the recipients and consequences",
+            "detail": "The engineer confirms distribution; designers resolve technical ambiguity."
+          },
+          {
+            "label": "Verify distribution and linked updates",
+            "detail": "Record approved delivery and connect the change or schedule follow-up."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The project engineer manages the remaining interpretation or recipient gap instead of repeatedly copying the response between systems."
+      },
+      "value": {
+        "outcomes": [
+          "Shorter answer-to-distribution time",
+          "Consistent response and drawing references",
+          "Technical decisions remain with designers"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "11"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "05 / Materials · Technical approval to site commitment",
+      "number": "05",
+      "title": "Submittal and procurement readiness",
+      "problem": "A submittal is approved, yet the material is not on track for the required installation date. Procurement checks the purchase order, release instruction, fabrication status and vendor emails while the planner compares the latest promise with the lookahead. Technical approval alone does not tell the superintendent whether the material will arrive.",
+      "opportunity": "Orcaworks connects technical disposition, purchasing milestones and the vendor’s current commitment to the required site date. Procurement and project leaders approve expediting or resequencing; designers retain substitution approval, and the material-readiness record reflects the agreed action.",
+      "rightContent": {
+        "type": "quote",
+        "quote": "It’s not enough to find and implement a technology solution.",
+        "source": "FMI · Harnessing the Data Advantage, 2021",
+        "presentation": "panel",
+        "citation": {
+          "text": "FMI · Harnessing the Data Advantage, 2021",
+          "url": "https://fmicorp.com/insights/quick-reads/harnessing-the-data-advantage-in-engineering-and-construction"
+        }
+      },
+      "surface": "light",
+      "pageNumber": "12"
+    },
+    {
+      "type": "caseInAction",
+      "eyebrow": "Submittal and procurement readiness — The Orcaworks Solution",
+      "headline": "Separate approved, released, committed and at risk.",
+      "explanation": "A technically approved item can still be unreleased or late. Compare the purchasing and vendor evidence with the required site date, prepare a targeted confirmation request, and route the recovery choice to the responsible people.",
+      "visual": {
+        "signals": [
+          {
+            "name": "Submittal / specification",
+            "detail": "Approved product, disposition and current revision",
+            "icon": "database"
+          },
+          {
+            "name": "Purchasing / vendor replies",
+            "detail": "PO, release, fabrication state and confirmed delivery date",
+            "icon": "messages"
+          },
+          {
+            "name": "Schedule / lookahead",
+            "detail": "Required on-site date and affected installation activity",
+            "icon": "filecheck"
+          }
+        ],
+        "steps": [
+          {
+            "label": "Compare the commitment with the site need"
+          },
+          {
+            "label": "PM and procurement approve the recovery action",
+            "alert": true
+          },
+          {
+            "label": "Record readiness; confirm vendor follow-through"
+          }
+        ],
+        "action": {
+          "title": "PM and procurement own the response",
+          "items": [
+            {
+              "label": "Confirm or challenge the vendor date",
+              "icon": "user"
+            },
+            {
+              "label": "Approve expediting or resequencing",
+              "icon": "shield"
+            },
+            {
+              "label": "Refer substitutions to the designer",
+              "icon": "check"
+            }
+          ]
+        }
+      },
+      "valuePoints": [
+        {
+          "title": "Meaningful readiness",
+          "description": "Distinguish technical approval from a released, committed delivery.",
+          "icon": "search"
+        },
+        {
+          "title": "Earlier intervention",
+          "description": "Surface the specific date or evidence gap before installation is blocked.",
+          "icon": "shield"
+        },
+        {
+          "title": "Measure the exception",
+          "description": "Track at-risk material to an approved action and confirmed date.",
+          "icon": "checks"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "13"
+    },
+    {
+      "type": "useCase",
+      "eyebrow": "06 / Commercial review · Event record to defensible position",
+      "number": "06",
+      "title": "Claims and delay chronology",
+      "problem": "A disputed delay or change requires a factual sequence months after the event. The commercial team rebuilds it from schedule updates, RFIs, daily records, meeting minutes, notices and correspondence. Conflicting dates and missing field proof must be resolved before the scheduler, commercial lead and counsel can assess the contractor’s position.",
+      "opportunity": "Orcaworks prepares an event-specific chronology with source links, gaps and contradictory records. The scheduler validates program effects; commercial leaders and counsel decide notices, entitlement and strategy before an authorized chronology or communication is retained in the project record.",
+      "rightContent": {
+        "type": "image",
+        "src": "/images/guides/aec-claims-team.jpg",
+        "alt": "Three engineers in hard hats reviewing a drawing on an industrial site walkway",
+        "objectFit": "cover"
+      },
+      "surface": "light",
+      "pageNumber": "14"
+    },
+    {
+      "type": "operationalTransformation",
+      "eyebrow": "Claims and delay chronology — The Orcaworks Solution",
+      "headline": "Keep the event history ready for expert review.",
+      "introduction": "Build a factual record for a defined event and period, then preserve the approved interpretation as new evidence arrives.",
+      "currentProcess": {
+        "steps": [
+          {
+            "label": "Search the archive for the event",
+            "detail": "Commercial staff gather notices, emails, RFIs and daily records by hand."
+          },
+          {
+            "label": "Rebuild the sequence and gaps",
+            "detail": "Different dates and incomplete site evidence complicate the chronology."
+          },
+          {
+            "label": "Ask specialists to assess the position",
+            "detail": "The scheduler, commercial lead and counsel review impacts and entitlement."
+          },
+          {
+            "label": "Store the pack for the next review",
+            "detail": "New material can trigger another search and a rebuilt explanation."
+          }
+        ]
+      },
+      "futureProcess": {
+        "steps": [
+          {
+            "label": "Assemble an event-specific evidence set",
+            "detail": "Link relevant schedule versions, notices, costs and dated project records."
+          },
+          {
+            "label": "Prepare the source-linked chronology",
+            "detail": "Expose conflicting accounts and request missing confirmation from its owner."
+          },
+          {
+            "label": "Route the expert assessment",
+            "detail": "Specialists validate impacts; authorized leaders decide the contractual position."
+          },
+          {
+            "label": "Retain the approved position and changes",
+            "detail": "Record the authorized chronology or notice and flag later material evidence."
+          }
+        ]
+      },
+      "shift": {
+        "statement": "The commercial team spends review time resolving the disputed fact or position, with every conclusion traceable to its supporting record."
+      },
+      "value": {
+        "outcomes": [
+          "Less repeated chronology assembly",
+          "Missing evidence stays visible",
+          "Notices and entitlement remain expert decisions"
+        ]
+      },
+      "surface": "light",
+      "pageNumber": "15"
+    },
+    {
+      "type": "beforeAfter",
+      "eyebrow": "Accountability across the project lifecycle",
+      "title": "Keep evidence, authority and action together",
+      "beforeTitle": "When the work is fragmented",
+      "afterTitle": "With Orcaworks",
+      "beforeItems": [
+        "Change, schedule and site evidence sit in separate project records.",
+        "Teams reconstruct the event before each commercial or field decision.",
+        "Technical and commercial approvals are buried in messages.",
+        "Registers catch up after decisions and distribution are complete."
+      ],
+      "afterItems": [
+        "A project-linked case brings the current evidence and open questions together.",
+        "The next step has an accountable owner and a defined completion state.",
+        "Designers, project leaders and owners retain their approval responsibilities.",
+        "Approved actions and accepted evidence return to the project records."
+      ],
+      "surface": "dark",
+      "pageNumber": "16"
+    },
+    {
+      "type": "stat",
+      "eyebrow": "Construction delivery · Industry research",
+      "headline": "Better decisions depend on usable project evidence",
+      "stats": [
+        {
+          "value": "$88.7B",
+          "label": "estimated rework associated with bad data",
+          "description": "FMI / Autodesk, 2021 study. Global estimate using 2020 data."
+        },
+        {
+          "value": ">80%",
+          "label": "described at least a quarter of project data as unusable",
+          "description": "FMI / Autodesk, 2021 survey of more than 3,900 industry leaders."
+        },
+        {
+          "value": "54%",
+          "label": "of weekly planned work completed on time",
+          "description": "Lean Construction Institute’s cited average for traditional projects."
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "17"
+    },
+    {
+      "type": "roi",
+      "eyebrow": "Measure the first workflow",
+      "title": "Measure progress from the first workflow",
+      "intro": "Assess indicative improvements against your project baseline. Measure decision time, evidence acceptance and rework together, with targets agreed for each workflow.",
+      "metrics": [
+        {
+          "metric": "Change approval cycle",
+          "today": "Evidence rebuilt across platform, schedule, email",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Less work at risk"
+        },
+        {
+          "metric": "Variance-to-action time",
+          "today": "Cause traced through meetings and systems",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Constraints cleared sooner"
+        },
+        {
+          "metric": "Closeout document follow-ups",
+          "today": "Subs and vendors chased by email",
+          "indicativeImprovement": "~20–40% fewer",
+          "businessImpact": "Earlier handover, retention release"
+        },
+        {
+          "metric": "RFI answer-to-distribution",
+          "today": "Official response copied across platforms",
+          "indicativeImprovement": "~20–40% faster",
+          "businessImpact": "Approved answers reach trades sooner"
+        },
+        {
+          "metric": "Chronology preparation time",
+          "today": "Event history rebuilt from project archives",
+          "indicativeImprovement": "~30–50% faster",
+          "businessImpact": "More time for commercial review"
+        }
+      ],
+      "surface": "light",
+      "pageNumber": "18"
+    },
+    {
+      "type": "closingCta",
+      "headline": "Start with one construction change",
+      "body": "Choose a live change waiting for a commercial decision. We’ll map the drawings, quote, field evidence, notice history and approval path with your project team, then agree the baseline and completion criteria. Demonstrate an approved disposition recorded in the project workflow before extending the approach to closeout, field constraints and the wider project lifecycle.",
+      "cta": "Test One Workflow",
+      "ctaUrl": "https://www.orcaworks.ai",
+      "website": "www.orcaworks.ai",
+      "variant": "dark",
+      "surface": "dark",
+      "pageNumber": "19"
+    }
+  ]
+}
