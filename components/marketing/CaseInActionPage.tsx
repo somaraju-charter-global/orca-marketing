@@ -112,6 +112,31 @@ export function CaseInActionPage({
 
   const n = visual.signals.length;
 
+  // Fit the blueprint inside the fixed-height page. Longer copy can make the
+  // card taller than its column; centred, it would then spill over the
+  // eyebrow and the footer. Scale it down just enough to fit instead.
+  const columnRef = React.useRef<HTMLDivElement>(null);
+  const blueprintRef = React.useRef<HTMLDivElement>(null);
+  const [fitScale, setFitScale] = React.useState(1);
+
+  React.useLayoutEffect(() => {
+    const column = columnRef.current;
+    const blueprint = blueprintRef.current;
+    if (!column || !blueprint) return;
+    const fit = () => {
+      // offsetHeight ignores transforms, so this is the natural height.
+      // 24px leaves room for the label pill above the card plus breathing space.
+      const available = column.clientHeight - 24;
+      const natural = blueprint.offsetHeight;
+      setFitScale(natural > available ? available / natural : 1);
+    };
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(column);
+    observer.observe(blueprint);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <PageShell variant="light" surface={surface} pageIndex={pageIndex} pageNumber={pageNumber} citation={citation}>
       <div className="h-full flex flex-col">
@@ -126,8 +151,12 @@ export function CaseInActionPage({
 
         <div className="flex-1 flex min-h-0">
         {/* Left — the visual (55%) */}
-        <div className="w-[55%] flex items-center justify-center pb-10">
-            <div className="relative w-[440px] rounded-2xl ring-1 ring-[var(--page-line)] px-5 pb-5 pt-7">
+        <div ref={columnRef} className="w-[55%] flex items-center justify-center pt-4 pb-10">
+            <div
+              ref={blueprintRef}
+              className="relative w-[460px] flex-shrink-0 rounded-2xl ring-1 ring-[var(--page-line)] px-5 pb-4 pt-6"
+              style={fitScale < 1 ? { transform: `scale(${fitScale})` } : undefined}
+            >
               {/* Label pill straddling the top border */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--page-bg)] px-3">
                 <span className="text-[9px] font-bold tracking-widest uppercase text-[var(--page-muted)]">
@@ -141,9 +170,9 @@ export function CaseInActionPage({
                   return (
                     <div
                       key={index}
-                      className="flex-1 bg-[var(--page-panel)] text-[var(--page-panel-fg)] rounded-xl px-3 py-3 text-center"
+                      className="flex-1 bg-[var(--page-panel)] text-[var(--page-panel-fg)] rounded-xl px-3 py-2.5 text-center"
                     >
-                      <Icon size={22} className="mx-auto mb-2 text-[var(--page-fg)]" strokeWidth={1.8} />
+                      <Icon size={22} className="mx-auto mb-1.5 text-[var(--page-fg)]" strokeWidth={1.8} />
                       <p className="text-xs font-bold leading-tight">
                         {edit(["visual", "signals", index, "name"], signal.name)}
                       </p>
@@ -157,7 +186,7 @@ export function CaseInActionPage({
 
               {/* Rounded elbow connectors converging to centre */}
               <svg
-                className="w-full h-10 block"
+                className="w-full h-8 block"
                 viewBox="0 0 100 40"
                 preserveAspectRatio="none"
                 fill="none"
@@ -207,8 +236,8 @@ export function CaseInActionPage({
                       <div
                         className={
                           step.alert
-                            ? "relative ring-1 ring-red-300 rounded-xl px-3.5 py-2.5 flex items-center gap-2.5"
-                            : "relative ring-1 ring-[var(--page-line)] rounded-xl px-3.5 py-2.5 flex items-center gap-2.5"
+                            ? "relative ring-1 ring-red-300 rounded-xl px-3.5 py-2 flex items-center gap-2.5"
+                            : "relative ring-1 ring-[var(--page-line)] rounded-xl px-3.5 py-2 flex items-center gap-2.5"
                         }
                       >
                         <span
@@ -258,8 +287,8 @@ export function CaseInActionPage({
               </svg>
 
               {/* The action/decision panel */}
-              <div className="rounded-xl ring-1 ring-[var(--page-line)] bg-[var(--page-bg)] p-3.5">
-                <div className="flex items-center gap-2 mb-2.5 px-1">
+              <div className="rounded-xl ring-1 ring-[var(--page-line)] bg-[var(--page-bg)] p-3">
+                <div className="flex items-center gap-2 mb-2 px-1">
                   <Sparkles size={15} className="text-[var(--orca-orange)]" strokeWidth={2} />
                   <span className="text-sm font-bold text-[var(--page-fg)]">
                     {edit(["visual", "action", "title"], visual.action.title)}
@@ -271,7 +300,7 @@ export function CaseInActionPage({
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-3 bg-[var(--page-panel)] text-[var(--page-panel-fg)] rounded-lg px-3 py-2.5"
+                        className="flex items-center gap-3 bg-[var(--page-panel)] text-[var(--page-panel-fg)] rounded-lg px-3 py-2"
                       >
                         <ItemIcon size={15} className="flex-shrink-0" strokeWidth={2} />
                         <span className="text-sm font-semibold leading-snug">

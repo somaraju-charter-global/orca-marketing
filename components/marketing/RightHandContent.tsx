@@ -173,12 +173,15 @@ export function RightHandContent({ content, pageIndex }: RightHandContentProps) 
       // Extra bottom padding keeps the frame clear of the absolutely-
       // positioned page footer.
       <div className="h-full flex items-center justify-center p-10 pb-24">
-        <div className="w-full h-full rounded-lg overflow-hidden ring-1 ring-[var(--page-line)]">
+        <div className="relative w-full h-full rounded-lg overflow-hidden ring-1 ring-[var(--page-line)]">
+          {/* Absolutely positioned so the photo's intrinsic size never sizes
+              the layout: a tall portrait image would otherwise stretch the
+              row and push the frame down into the footer. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={content.src}
             alt={content.alt || ""}
-            className={`w-full h-full ${objectFitClass}`}
+            className={`absolute inset-0 w-full h-full ${objectFitClass}`}
           />
         </div>
       </div>
